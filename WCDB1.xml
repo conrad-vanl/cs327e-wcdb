@@ -1,0 +1,99 @@
+
+<crises>
+  <crisis name="Some Horrible Event" start="2012-02-03T12:30:00z">
+    
+    <categories>
+      <category id="natural-disaster">
+        <category id="hurricane">
+          <category id="huricane-cat1" />
+        </category>
+      </category>
+    </categories>
+    
+    <locations>
+      <location lat="" lon="" radius=""/>
+    </locations>
+
+    <human-impact total="300">
+      <injured count="100"/>
+      <affected count="52"/>
+      <infected count="100"/>
+      <killed count="200"/>
+      <missing count="150"/>
+      <survived count="23"/>
+    </human-impact>
+
+    <economic-impact amount="1000" unit="USD" estimated="true"/>
+
+    <resources-needed/> <!-- Not sure -->
+
+    <ways-to-help/> <!-- not sure -->
+
+    <external-resources>
+      <ref type="aid-relief" href="http://....">Google Missing People Search</ref>
+      <ref type="research" isbn="123453523253235">Some book</ref>
+      <ref type="news" author="Smith, John" title="Blah Balh title" publication="Austin Chronicle" edition="4-6">Some ARticle</ref>
+      <ref type="social-media" href="http://facebook.com....">Facebook Feed</ref>
+    </external-resources>
+
+    <citations>
+      <ref type="citation" isbn="123151525124">Some Book</ref>
+    </citations>
+
+  </crisis>
+</crises>
+
+<organizations>
+  <organization name="Conrad's Relief Aid" id="??" people="??" crises="??">
+
+    <categories>
+      <category id="relief-org"/>
+    </categories>
+
+    <history>
+      Started in 1991 during the <ref href="http://...">BLAH conflict</ref>
+    </history>
+
+    <contact-info>
+      <tel label="front desk">09809809</tel>
+      <email label="public relations">afee@adsf.com</email>
+      <email label="human resources">hr@adsf.com</email>
+      <address label="mailing address">
+        <street>905 1st St</street>
+        <street>Unit 402</street>
+        <city>Austin</city>
+        <state>Texas</state>
+        <zip>78705</zip>
+      </address>
+    </contact-info>
+
+    <external-resources>
+      <ref type="corporate-website" href="http://adsf.com">Blah</ref>
+      <ref type="social-media" href="twitter.com/adsf">Twitter Feed</ref>
+    </external-resources>
+
+  </organization>
+</organizations>
+
+<people>
+  <person id="??">
+    
+    <name>
+      <first>Conrad</first>
+      <middle>Eugene</middle>
+      <last>VanLandingham</last>
+    </name>
+
+    <occupation id="medical-doctor">Surgeon General</occupation>
+
+    <external-resources>
+      <ref/>
+    </external-resources>
+
+    <bio>
+      asdfasdfasfefef
+      <ref/>
+    </bio>
+
+  </person>
+</people>
