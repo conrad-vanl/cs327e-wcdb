@@ -1,14 +1,67 @@
 <?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-
-<xs:element name="Crisis">
-  <xs:complexType>
-    <xs:sequence>
-      <xs:element name="name" type="xs:string"/>
-      <xs:element name="start" type="xs:dateTime"/>
-
-    </xs:sequence>
-  </xs:complexType>
-</xs:element>
-
-</xs:schema>
+<xsd:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CrisesDB">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Crisis"
+                     type="CrisisType"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+        </xsd:element>
+        <xsd:element name="Person"
+                     type="PersonType"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+        </xsd:element>
+        <xsd:element name="Organization"
+                     type="OrganizationType"
+                     minOccurs="0"
+                     maxOccurs="unbounded"/>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:key name="CrisisKey">
+      <xsd:selector xpath="Crisis"/>
+      <xsd:field    xpath="@crisisID"/>
+    </xsd:key>
+    <xsd:key name="PersonKey">
+      <xsd:selector xpath="Person"/>
+      <xsd:field    xpath="@personID"/>
+    </xsd:key>
+    <xsd:key name="OrganizationKey">
+      <xsd:selector xpath="Organization"/>
+      <xsd:field    xpath="@organizationID"/>
+    </xsd:key>
+    
+    <xsd:keyRef name="PersonKeyCrisis"
+                refer="PersonKey">
+      <xsd:selector xpath="Crisis/Person"/>
+      <xsd:field    xpath="@personID"/>
+    </xsd:keyRef>
+    <xsd:keyRef name="PersonKeyOrganization"
+                refer="PersonKey">
+      <xsd:selector xpath="Organization/Person"/>
+      <xsd:field    xpath="@personID"/>
+    </xsd:keyRef>
+    <xsd:keyRef name="OrganizationKeyCrisis"
+               refer="OrganizationKey">
+      <xsd:selector xpath="Crisis/Organization"/>
+      <xsd:field    xpath="@organizationID"/>
+    </xsd:keyRef>
+    
+    <xsd:complexType name="CrisisType">
+        <xsd:attribute name="start" type="xsd:dateTime" use="required"/>
+        <xsd:sequence>
+            <xsd:element> 
+        </xsd:sequence>
+    </xsd:complexType>  <!-- /end CrisisType -->
+    
+    <xsd:complexType name="PersonType">
+        <xsd:attribute name="">
+    
+    </xsd:complexType> <!-- /end CrisiType -->
+    <xsd:complexType name="OrganizationType">
+        <xsd:sequence>
+  </xsd:element>
+</xsd:schema>
+      
