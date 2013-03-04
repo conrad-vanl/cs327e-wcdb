@@ -23,11 +23,11 @@
       <survived count="23"/>
     </human-impact>
 
-    <economic-impact amount="1000" unit="USD" year="2011" estimated="true"/>
+    <economic-impact amount="1000" unit="USD" estimated="true"/>
 
-    <resources-needed>firefighters, military intervention, giraffes</>
+    <resources-needed>firefighters, military intervention, giraffes</resources-needed>
 
-    <ways-to-help>education, magic</>
+    <ways-to-help>education, magic</ways-to-help>
 
     <external-resources>
       <ref type="aid-relief" href="http://aids.notthedisease.com">Google Missing People Search</ref>
@@ -59,7 +59,7 @@
     </categories>
 
     <history>
-      Started in 1991 during the <ref href="http://...">BLAH conflict</ref>
+      Started in 1991 during the <ref href="http://ref.com">BLAH conflict</ref>
     </history>
 
     <contact-info>
