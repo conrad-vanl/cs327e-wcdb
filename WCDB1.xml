@@ -11,7 +11,7 @@
     </categories>
     
     <locations>
-      <location lat="40:26:46N" lon="079:56:55W" radius="500"/>
+      <location lat="40:26:46N" lon="079:56:55W" radius="500" description="somewhere"/>
     </locations>
 
     <human-impact>
