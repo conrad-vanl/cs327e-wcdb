@@ -1,4 +1,4 @@
-<crisesDB>
+<CrisesDB>
   <crisis name="Horrible Event 1" crisisID="HE1" start="2012-02-03T12:30:00z">
     
     <categories>
@@ -103,4 +103,4 @@
     </bio>
     
   </person>
-</crisisDB>
+</CrisesDB>
