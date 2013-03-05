@@ -1,5 +1,4 @@
-
-<crises>
+<crisesDB>
   <crisis name="Horrible Event 1" crisisID="HE1" start="2012-02-03T12:30:00z">
     
     <categories>
@@ -49,9 +48,7 @@
     </organizations>
 
   </crisis>
-</crises>
 
-<organizations>
   <organization name="Conrad's Relief Aid" organizationID="comrad's">
 
     <categories>
@@ -85,9 +82,7 @@
     </persons>
 
   </organization>
-</organizations>
 
-<people>
   <person personID="anotherdoe-2000-6-23">
     
     <name>
@@ -108,4 +103,4 @@
     </bio>
     
   </person>
-</people>
+</crisisDB>
