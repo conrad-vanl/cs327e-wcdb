@@ -48,8 +48,72 @@
     </xsd:element>
     <xsd:complexType name="CrisisType">
         <xsd:attribute name="start" type="xsd:dateTime" use="required"/>
+        <xsd:attribute name="crisisID" type="CrisisKey" use="required"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+
         <xsd:sequence>
-            <xsd:element> 
+            <xsd:element name="categories">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="category" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:attribute name="type" type="xsd:string" use="required" />
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="locations">
+                <xsd:complexType>
+                    <xsd:element name="location" maxOccurs="unbounded">
+                        <xsd:complexType>
+                            <xsd:attribute name="lat" type="xsd:integer" use="required" />
+                            <xsd:attribute name="lon" type="xsd:integer" use="required" />
+                            <xsd:attribute name="radius" type="xsd:integer" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="human-impact">
+                <xsd:complexType>
+                    <xsd:element maxOccurs="unbounded"> <!-- allow any name maybe? -->
+                        <xsd:complexType>
+                            <xsd:attribute name="count" type="xsd:integer" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:complexType>
+            </xsd>
+
+            <xsd:element name="economic-impact">
+                <xsd:complexType>
+                    <xsd:attribute name="amount" type="xsd:integer" use="requied" />
+                    <xsd:attribute name="unit" type="xsd:string" use="required" />
+                    <xsd:attribute name="estimated" type="xsd:boolean" />
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="citations">
+                <xsd:complexType>
+                    <xsd:element name="ref" type="ref" maxOccurs="unbounded"/>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="external-resources">
+                <xsd:complexType>
+                    <xsd:element name="ref" type="ref" maxOccurs="unbounded"/>
+                </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="organizations">
+                <xsd:complexType>
+                    <xsd:element name="organization" maxOccurs="unbounded">
+                        <xsd:attribute name="organizationID" type="OrganizationRef"/>
+                    </xsd:element>
+                </xsd:complexType>
+            </xsd:element>
+
         </xsd:sequence>
     </xsd:complexType>  <!-- /end CrisisType -->    
     <xsd:complexType name="PersonType">
