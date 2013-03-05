@@ -1,0 +1,255 @@
+<WCDB>
+  <CRISES>
+  <crisis name="Swine Flu (H1N1)" crisisID="H1N1" start="2009-06-03T12:30:00z">
+    
+    <categories>
+      <category id="Health-Crisis">
+        <category id="viral-outbreak">
+          <category id="pandemic"/>
+        </category>
+      </category>
+    </categories>
+    
+    <locations>
+      <location lat="19:26:05N" lon="096:22:59W" radius="500" description="Veracruz, Mexico"/>
+    </locations>
+
+    <human-impact>
+      <injured count="0"/>
+      <affected count="0"/>
+      <infected count="1,632,258"/>
+      <killed count="19,633"/>
+      <missing count="0"/>
+      <survived count="0"/>
+    </human-impact>
+
+    <economic-impact amount="200000000" unit="USD" estimated="true"/>
+
+    <resources-needed>vaccines, antivirals</resources-needed>
+
+    <ways-to-help>prevention, awareness</ways-to-help>
+
+    <external-resources>
+      <ref type="image" href="http://upload.wikimedia.org/wikipedia/commons/f/f0/H1N1_influenza_virus.jpg">Influenza Virus</ref>
+      <ref type="video" href= "http://www.youtube.com/watch?v=lFl3FRNpU4E">Video</ref>
+      <ref type="info" href= "http://www.youtube.com/watch?v=lFl3FRNpU4E">Data by country</ref>
+      <ref type="info" href= " http://en.wikipedia.org/wiki/2009_flu_pandemic">Wiki page</ref>
+      <ref type="social-media" href="http://www.facebook.com/h1n1Influenza">Facebook Feed</ref>
+    </external-resources>
+
+    <citations>
+      <ref type="citation" isbn="123151525124">Some Book</ref>
+    </citations>
+    
+    <persons>
+      <person personID="Obama"/>
+      <person personID="Chan"/>
+    </persons>
+    
+    <organizations>
+      <organization organiztionID="WHO"/>
+      <organization organiztionID="US"/>
+      <organization organiztionID="Mexico"/>
+    </organizations>
+
+  </crisis>
+  <crisis name="Severe acute respiratory syndrome" crisisID="SARS" start="2009-06-03T12:30:00z">
+    
+    <categories>
+      <category id="Health-Crisis">
+        <category id="viral-outbreak">
+          <category id="epidemic"/>
+        </category>
+      </category>
+    </categories>
+    
+    <locations>
+      <location lat="22:16:42N" lon="114:09:32W" radius="500" description="Hong Kong"/>
+    </locations>
+
+    <human-impact>
+      <injured count="0"/>
+      <affected count="0"/>
+      <infected count="8,273"/>
+      <killed count="775"/>
+      <missing count="0"/>
+      <survived count="0"/>
+    </human-impact>
+
+    <economic-impact amount="1650000" unit="USD" estimated="true"/>
+
+    <resources-needed>vaccines, antipyretics, supplemental oxygen and ventilation support</resources-needed>
+
+    <ways-to-help>prevention, awareness</ways-to-help>
+
+    <external-resources>
+      <ref type="image" href="http://upload.wikimedia.org/wikipedia/commons/6/6c/Sars-corona.png">Influenza Virus</ref>
+      <ref type="video" href= "http://www.aljazeera.com/news/asia-pacific/2013/02/2013210153855381447.html">Video</ref>
+      <ref type="info" href= "http://en.wikipedia.org/wiki/Severe_acute_respiratory_syndrome">Disease Description</ref>
+      <ref type="info" href= "http://en.wikipedia.org/wiki/SARS_coronavirus">Viral Description</ref>
+      <ref type="info" href= "http://en.wikipedia.org/wiki/Progress_of_the_SARS_outbreak">Outbreak progress</ref>
+      <ref type="social-media" href="http://www.facebook.com/pages/SARS-outbreak/132956950074605#">Facebook Feed</ref>
+    </external-resources>
+
+    <citations>
+      <ref type="citation" isbn="123151525124">Some Book</ref>
+    </citations>
+    
+    <persons>
+      <person personID="Chan"/>
+    </persons>
+    
+    <organizations>
+      <organization organiztionID="WHO"/>
+      <organization organiztionID="CDC"/>
+    </organizations>
+  </crisis>
+    </crisis>
+
+  <crisis name="Bastrop Wildfires" crisisID="BFire" start="2011-09-03T12:30:00z">
+    
+    <categories>
+      <category id="environmental-disaster">
+        <category id="land">
+          <category id="wildfire"/>
+        </category>
+      </category>
+    </categories>
+    
+    <locations>
+      <location lat="30:06:43N" lon="097:19:01W" radius="500" description="Bastrop, Texas"/>
+    </locations>
+
+    <human-impact>
+      <injured count="0"/>
+      <affected count="1,696"/>
+      <infected count="0"/>
+      <killed count="2"/>
+      <missing count="0"/>
+      <survived count="0"/>
+    </human-impact>
+
+    <economic-impact amount="350000000" unit="USD" estimated="true"/>
+
+    <resources-needed>human labor, construction equipment, funds, firemen</resources-needed>
+
+    <ways-to-help>donations</ways-to-help>
+
+    <external-resources>
+      <ref type="image" href="http://upload.wikimedia.org/wikipedia/commons/8/84/Texas_National_Guard_extinguishing_flames_from_Ch-47_helicopter.jpg">Fire</ref>
+      <ref type="video" href= "http://www.kxan.com/dpp/news/local/bird's-eye-view-of-bastrop-fires">Video</ref>
+      <ref type="info" href= "http://en.wikipedia.org/wiki/Bastrop_County_Complex_fire">Wiki page</ref>
+      <ref type="social-media" href="http://www.facebook.com/pages/Bastrop-Fire-Information-and-Help/284897838194470">Facebook Feed</ref>
+    </external-resources>
+
+    <citations>
+      <ref type="citation" isbn="123151525124">Some Book</ref>
+    </citations>
+    
+    <persons>
+      <person personID="Perry"/>
+      <person personID="Obama"/>
+    </persons>
+    
+    <organizations>
+      <organization organiztionID="Texas"/>
+      <organization organiztionID="US"/>
+    </organizations>
+</CRISES>
+<ORGANIZATIONS>
+  <organization name="World Health Organization" organizationID="WHO">
+
+    <categories>
+      <category id="health-org"/>
+    </categories>
+
+    <history>
+      The World Health Organization (WHO) is a specialized agency of the <ref href="http://en.wikipedia.org/wiki/United_Nations">United Nations (UN)</ref> that is concerned with international public health. It was established on 7 April 1948, with headquarters in Geneva, Switzerland, and is a member of the <ref href="http://en.wikipedia.org/wiki/United_Nations_Development_Group">United Nations Development Group</ref>. Its predecessor, the Health Organization, was an agency of the League of Nations.
+    </history>
+
+    <contact-info>
+      <tel label="front desk">41 22 791 21 11</tel>
+      <email label="public relations">publications@who.int</email>
+      <address label="mailing address">
+        <street>Avenue Appia 20</street>
+        <city>1211 Geneva 27</city>
+        <country>Switzerland</country>
+      </address>
+    </contact-info>
+
+    <external-resources>
+      <ref type="corporate-website" href="http://www.who.int">Main website</ref>
+      <ref type="image" href="http://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_WHO.svg">Logo</ref>
+      <ref type="video" href= "http://www.youtube.com/user/who">Video</ref>
+      <ref type="social-media" href="http://www.facebook.com/WorldHealthOrganization?fref=ts">Facebok Feed</ref>
+    </external-resources>
+    <persons>
+      <person personID="Chan"/>
+    </persons>
+    <crises>
+    	<crisis crisisID="SARS"/>
+    	<crisis crisisID="H1N1"/>
+    </crises>
+    
+
+  </organization>
+</ORGANIZATIONS>
+<PERSONS>
+  <person personID="Chan">
+    
+    <name>
+      <first>Margaret</first>
+      <last>Chan</last>
+    </name>
+
+    <occupation id="medical-doctor">Director</occupation>
+
+    <external-resources>
+      <ref type="bio-website" href="http://en.wikipedia.org/wiki/Margaret_chan">Wiki Page</ref>
+      <ref type="image" href="http://upload.wikimedia.org/wikipedia/commons/3/3c/Margaret_Chan_-_World_Economic_Forum_Annual_Meeting_2011_crop.jpg">Picture</ref>
+      <ref type="video" href= "http://www.youtube.com/watch?v=Aah9e4FA--k">Video</ref>
+      <ref type="social-media" href="http://www.facebook.com/pages/Dr-Margaret-Chan/88513510368">Facebok Feed</ref>
+    </external-resources>
+
+    <bio>
+      Margaret Chan Fung Fu-chun, OBE, JP (born 1947 in Hong Kong) is the Director-General of the <ref href="http://en.wikipedia.org/wiki/World_Health_Organization">World Health Organization (WHO)</ref>. Chan was elected by the Executive Board of WHO on 8 November 2006, and was endorsed in a special meeting of the World Health Assembly on the following day. Chan has previously served as Director of Health in the Hong Kong Government (1994-2003), representative of the WHO Director-General for Pandemic Influenza and WHO Assistant Director-General for Communicable Diseases (2003-2006).
+    </bio>
+    <crises>
+    	<crisis crisisID="SARS"/>
+    	<crisis crisisID="H1N1"/>
+    </crises>
+    <organizations>
+    	<organization organizationID="WHO"/> 
+    </organizations>
+
+  </person>
+   <person personID="Perry">
+    
+    <name>
+      <first>James</first>
+      <last>Richard</last>
+      <last>Perry</last>
+    </name>
+
+    <occupation id="political">Governor</occupation>
+
+    <external-resources>
+      <ref type="bio-website" href="http://en.wikipedia.org/wiki/Rick_Perry">Wiki Page</ref>
+      <ref type="image" href="http://upload.wikimedia.org/wikipedia/commons/c/ce/Rick_Perry_by_Gage_Skidmore_8.jpg">Picture</ref>
+      <ref type="video" href= "http://www.youtube.com/user/govperry">Video</ref>
+      <ref type="social-media" href="http://www.facebook.com/GovernorPerry">Facebok Feed</ref>
+    </external-resources>
+
+    <bio>
+      James Richard "Rick" Perry (born March 4, 1950) is the 47th and current Governor of Texas. Perry, a Republican, was elected Lieutenant Governor of Texas in 1998 and assumed the governorship in December 2000 when then-governor George W. Bush resigned to become President of the United States. Perry was elected to full gubernatorial terms in 2002, 2006 and 2010 and is the fourth Texas governor since Allan Shivers, Price Daniel, and John Connally to serve three terms. With a tenure in office to date of 12 years, 74 days, Perry is the second longest serving current U.S. governor—after Terry Branstad of Iowa. Perry served as Chairman of the Republican Governors Association in 2008 (succeeding Sonny Perdue of Georgia) and again in 2011.[2] Perry is the longest serving governor in Texas state history. As a result, he is the only governor in modern Texas history to have appointed at least one person to every eligible state office, board, or commission position (as well as to several elected offices to which the governor can appoint someone to fill an unexpired term, such as six of the nine current members of the Texas Supreme Court).
+    </bio>
+    <crises>
+    	<crisis crisisID="BFire"/>
+    </crises>
+    <organizations>
+    	<organization organizationID="Texas"/> 
+    </organizations>
+
+  </person>
+</PERSONS>
+</WCDB>
