@@ -137,9 +137,9 @@
     	        <xsd:complexType>
             	    <xsd:sequence>
     	                <xsd:element name="tel" type="xsd:integer" maxOccurs="unbounded">
-           	                    <xsd:complexType>
-                   	                <xsd:attribute name="label" type="xsd:string" use="required" />
-                                </xsd:complexType>
+           	            <xsd:complexType>
+                   	        <xsd:attribute name="label" type="xsd:string" use="required" />
+                            </xsd:complexType>
     	                </xsd:element>
             	        <xsd:element name="email" type="xsd:string" maxOccurs="unbounded">
                     	    <xsd:complexType>
@@ -147,12 +147,12 @@
     	                    </xsd:complexType>
             	        </xsd:element>
                     	<xsd:element name="address" maxOccurs="unbounded">
-                                <xsd:complexType>
+                            <xsd:complexType>
     	                        <xsd:sequence>
             	                    <xsd:element name="street" type="xsd:string" />
                     	            <xsd:element name="city" type="xsd:string" />
                             	    <xsd:element name="state" type="xsd:string" />
-                                        <xsd:element name="zip" type="xsd:integer" />
+                                    <xsd:element name="zip" type="xsd:integer" />
     	                        </xsd:sequence>
             	                <xsd:attribute name="label" type="xsd:string" />
                     	    </xsd:complexType>
@@ -162,22 +162,22 @@
             </xsd:element>
     	    <xsd:element name="external-resources">
             	<xsd:complexType>
-                        <xsd:sequence>
+                    <xsd:sequence>
     	                <xsd:element name="ref" type="xsd:string">
-                                <xsd:complexType>
+                            <xsd:complexType>
                      	        <xsd:attribute name="type" type="xsd:string" use="required" />
-                                </xsd:complexType>
+                            </xsd:complexType>
     	                </xsd:element>
             	    </xsd:sequence>
     	        </xsd:complexType>
-                </xsd:element>
+            </xsd:element>
     	    <xsd:element name="People">
             	<xsd:complexType>
-                        <xsd:sequence>
+                    <xsd:sequence>
     	                <xsd:element name="Person" maxOccurs="unbounded">
             	            <xsd:complexType>
                     	        <xsd:attribute name="personID" type="xsd:string" use="required" />
-                                </xsd:complexType>
+                            </xsd:complexType>
     	                </xsd:element>
             	    </xsd:sequence>
     	        </xsd:complexType>
@@ -186,7 +186,7 @@
             	<xsd:attribute name="name" type="xsd:string" use="required" />
     	        <xsd:attribute name="organizationID" type="xsd:string" use="required" />
             </xsd:complexType>
-	   </xsd:sequence>
+	</xsd:sequence>
     </xsd:complexType>
 </xsd:schema>
       
