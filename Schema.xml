@@ -74,7 +74,7 @@
 	<xsd:complexType name="orgsType">
 		<xsd:sequence>
 			<xsd:element name="Organization" type="oIDType"
-				minOccurs="0" maxOccurs="10">		
+				minOccurs="0" maxOccurs="Unbounded">		
 
 			</xsd:element>
 		</xsd:sequence>
@@ -87,7 +87,7 @@
 	<xsd:complexType name="crisesType">
 		<xsd:sequence>
 			<xsd:element name="Crisis" type="cIDType"
-				minOccurs="0" maxOccurs="10">
+				minOccurs="0" maxOccurs="Unbounded">
 
 			</xsd:element>
 		</xsd:sequence>
@@ -101,7 +101,7 @@
 	<xsd:complexType name="peopleType">
 		<xsd:sequence>
 			<xsd:element name="Person" type="pIDType"
-							minOccurs="0" maxOccurs="10">
+							minOccurs="0" maxOccurs="Unbounded">
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
