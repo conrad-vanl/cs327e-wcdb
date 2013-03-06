@@ -2,7 +2,7 @@
 <!-- XSD for WCBD1.xml -->
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-  <!-- Root Element -->
+	<!-- Root Element -->
 	<xsd:element name="WorldCrisesDatabase">
 	
 		<!-- Unlimited number of sub-elements sequenced Crisis, Org, Person-->
@@ -86,7 +86,7 @@
 	<xsd:complexType name="orgsType">
 		<xsd:sequence>
 			<xsd:element name="Organization" type="oIDType"
-				minOccurs="0" maxOccurs="Unbounded">		
+				minOccurs="0" maxOccurs="10">		
 
 			</xsd:element>
 		</xsd:sequence>
@@ -99,7 +99,7 @@
 	<xsd:complexType name="crisesType">
 		<xsd:sequence>
 			<xsd:element name="Crisis" type="cIDType"
-				minOccurs="0" maxOccurs="Unbounded">
+				minOccurs="0" maxOccurs="10">
 
 			</xsd:element>
 		</xsd:sequence>
@@ -113,7 +113,7 @@
 	<xsd:complexType name="peopleType">
 		<xsd:sequence>
 			<xsd:element name="Person" type="pIDType"
-							minOccurs="0" maxOccurs="Unbounded">
+							minOccurs="0" maxOccurs="10">
 			</xsd:element>
 		</xsd:sequence>
 	</xsd:complexType>
@@ -388,3 +388,4 @@
 	
 	
 </xsd:schema>
+
