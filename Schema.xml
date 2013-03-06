@@ -8,14 +8,26 @@
 		<!-- Unlimited number of sub-elements sequenced Crisis, Org, Person-->
 		<xsd:complexType>
 			<xsd:sequence>
-				<xsd:element name="Crisis" type="cType"
+				<xsd:element name="Crises" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:element name="Crisis" type="cType"
 							minOccurs="0" maxOccurs="unbounded">
+						</xsd:element>
+					</xsd:complexType>
 				</xsd:element>
-				<xsd:element name="Organization" type="oType"
+				<xsd:element name="Organizations" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:element name="Organization" type="oType"
 							minOccurs="0" maxOccurs="unbounded">
+						</xsd:element>
+					</xsd:complexType>
 				</xsd:element>
-				<xsd:element name="Person" type="pType"
+				<xsd:element name="People" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:element name="Person" type="pType"
 							minOccurs="0" maxOccurs="unbounded">
+						</xsd:element>
+					</xsd:complexType>
 				</xsd:element>
 			</xsd:sequence>
 		</xsd:complexType>
