@@ -2,6 +2,8 @@
 	<Crises>
 	</Crises>
 	
+	<!-- Organization oID consists of initials of organization name and date established -->
+	
 	<Organizations>
 		<Organization oID="GG1996">
 			<GeneralInfo>
