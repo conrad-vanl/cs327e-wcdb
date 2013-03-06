@@ -1,20 +1,19 @@
-
-<crises>
-  <crisis name="Some Horrible Event" start="2012-02-03T12:30:00z">
+<CrisesDB>
+  <crisis name="Horrible Event 1" crisisID="HE1" start="2012-02-03T12:30:00z">
     
     <categories>
       <category id="natural-disaster">
         <category id="hurricane">
-          <category id="huricane-cat1" />
+          <category id="huricane-cat1"/>
         </category>
       </category>
     </categories>
     
     <locations>
-      <location lat="" lon="" radius=""/>
+      <location lat="40:26:46N" lon="079:56:55W" radius="500" description="somewhere"/>
     </locations>
 
-    <human-impact total="300">
+    <human-impact>
       <injured count="100"/>
       <affected count="52"/>
       <infected count="100"/>
@@ -25,33 +24,39 @@
 
     <economic-impact amount="1000" unit="USD" estimated="true"/>
 
-    <resources-needed/> <!-- Not sure -->
+    <resources-needed>firefighters, military intervention, giraffes</resources-needed>
 
-    <ways-to-help/> <!-- not sure -->
+    <ways-to-help>education, magic</ways-to-help>
 
     <external-resources>
-      <ref type="aid-relief" href="http://....">Google Missing People Search</ref>
+      <ref type="aid-relief" href="http://aids.notthedisease.com">Google Missing People Search</ref>
       <ref type="research" isbn="123453523253235">Some book</ref>
-      <ref type="news" author="Smith, John" title="Blah Balh title" publication="Austin Chronicle" edition="4-6">Some ARticle</ref>
-      <ref type="social-media" href="http://facebook.com....">Facebook Feed</ref>
+      <ref type="news" author="Smith, John" title="Blah Balh title" publication="Austin Chronicle" edition="4-6">Some Article</ref>
+      <ref type="social-media" href="http://facebook.com/HorridEvent">Facebook Feed</ref>
     </external-resources>
 
     <citations>
       <ref type="citation" isbn="123151525124">Some Book</ref>
     </citations>
+    
+    <persons>
+      <person personID="anotherdoe-2000-6-23"/>
+    </persons>
+    
+    <organizations>
+      <organization organiztionID="comrad's"/>
+    </organizations>
 
   </crisis>
-</crises>
 
-<organizations>
-  <organization name="Conrad's Relief Aid" id="??" people="??" crises="??">
+  <organization name="Conrad's Relief Aid" organizationID="comrad's">
 
     <categories>
       <category id="relief-org"/>
     </categories>
 
     <history>
-      Started in 1991 during the <ref href="http://...">BLAH conflict</ref>
+      Started in 1991 during the <ref href="http://ref.com">BLAH conflict</ref>
     </history>
 
     <contact-info>
@@ -71,17 +76,19 @@
       <ref type="corporate-website" href="http://adsf.com">Blah</ref>
       <ref type="social-media" href="twitter.com/adsf">Twitter Feed</ref>
     </external-resources>
+    
+    <persons>
+      <person personID="anotherdoe-2000-6-23"/>
+    </persons>
 
   </organization>
-</organizations>
 
-<people>
-  <person id="??">
+  <person personID="anotherdoe-2000-6-23">
     
     <name>
-      <first>Conrad</first>
-      <middle>Eugene</middle>
-      <last>VanLandingham</last>
+      <first>Another</first>
+      <middle>John</middle>
+      <last>Doe</last>
     </name>
 
     <occupation id="medical-doctor">Surgeon General</occupation>
@@ -94,6 +101,6 @@
       asdfasdfasfefef
       <ref/>
     </bio>
-
+    
   </person>
-</people>
+</CrisesDB>
