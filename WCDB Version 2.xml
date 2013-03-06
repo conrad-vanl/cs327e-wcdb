@@ -2,3 +2,68 @@
 	<Crises>
 	</Crises>
 	
+	<Organizations>
+		<Organization oID="GG1996">
+			<GeneralInfo>
+				<Name>
+					Google
+				</Name>
+				<Kind>
+					Multinational Technology Services Corporation
+				</Kind>
+				<Location>
+					<AddressLine>
+						1600 Amphitheatre Parkway
+					</AddressLine>
+					<City>
+						Mountain View
+					</City>
+					<State>
+						CA
+					</State>
+					<Country>
+						US
+					</Country>
+					<Postal>
+						94043
+					</Postal>
+				</Location>
+			</GeneralInfo>
+			<History>
+				Started in 1996 initially as a research project for Larry Page and Sergey Brin to create a search engine that would rank search results by relevancy and importance that evolved into a multinational technology services corporation.
+			</History>
+			<ContactInfo>
+				<Website>
+					www.google.com
+				</Website>
+				<Telephone>
+					1-650-253-0000
+				</Telephone>
+				<Fax>
+					1-650-253-0001
+				</Fax>
+			</ContactInfo>
+			<External>
+				<Images Description="Google Logo">
+					http://media.npr.org/assets/img/2012/11/26/google262way_custom-b0a89fbf1933607665ebaac4a7c08bc85e11dfe3-s6-c10.jpg
+				</Images>
+				<Videos>
+					http://www.youtube.com/watch?v=2FSE3TNFkJQ&feature=player_embedded
+				</Videos>
+				<Maps Description="Map of Google Headquarters">
+					https://maps.google.com/maps?hl=en&sugexp=les%3B&gs_rn=5&gs_ri=psy-ab&tok=nyfd2p-eW6QBXPuXQmf0mQ&cp=11&gs_id=au&xhr=t&q=google+headquarters&biw=1600&bih=770&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.&bvm=bv.43148975,d.b2U&um=1&ie=UTF-8&sa=N&tab=wl
+				</Maps>
+				<Social Network="Twitter">
+					https://twitter.com/googledevs
+				</Social>
+				<Links Description="Google Excerpt">
+					http://en.wikipedia.org/wiki/Google
+				</Links>
+				<Citations>
+					Wikipedia
+				</Citations>
+			</External>
+			<Crises></Crises>
+			<People></People>
+		</Organization>
+	</Organizations>
