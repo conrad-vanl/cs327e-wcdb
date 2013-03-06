@@ -120,7 +120,7 @@
 			<xsd:choice>
 				<xsd:element name="Name" type="xsd:string"
 						minOccurs="1" maxOccurs="1"/>
-				<xsd:element name="Person Name" type="nameType"
+				<xsd:element name="PersonName" type="nameType"
 						minOccurs="1" maxOccurs="1"/>
 			</xsd:choice>
 			</xsd:element>
@@ -142,8 +142,8 @@
 	<!-- Name Type -->
 	
 	<xsd:complexType name="nameType">
-		<xsd:element name="First Name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
-		<xsd:element name="Last Name" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<xsd:element name="FirstName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+		<xsd:element name="LastName" type="xsd:string" minOccurs="1" maxOccurs="1"/>
 	</xsd:complexType>
 		
 	<!-- External Stuff Type (Images,Videos,Maps, Social Links, Citations) -->
@@ -280,7 +280,7 @@
 		<xsd:attribute name="cID" type="xsd:string" use="required" value="[A-Z][A-Z][0-9][0-9][0-9][0-9]"/>
 		<xsd:sequence>
 			
-			<xsd:element name="General Info" type="infoType"
+			<xsd:element name="GeneralInfo" type="infoType"
 							minOccurs="1" maxOccurs="1">
 			</xsd:element>
 			<xsd:element name="HumanImpact" type="xsd:string"
@@ -317,7 +317,7 @@
 	<xsd:complexType name="oType">
 		<xsd:attribute name="oID" type="xsd:string" use="required" value="[A-Z][A-Z][0-9][0-9][0-9][0-9]"/>
 		<xsd:sequence>
-			<xsd:element name="General Info" type="infoType"
+			<xsd:element name="GeneralInfo" type="infoType"
 							minOccurs="1" maxOccurs="1">
 			</xsd:element>
 			<xsd:element name="History" type="xsd:string"
@@ -350,7 +350,7 @@
 	<xsd:complexType name="pType">
 		<xsd:attribute name="pID" type="xsd:string" use="required" value="[A-Z][A-Z][0-9][0-9][0-9][0-9]"/>
 		<xsd:sequence>
-			<xsd:element name="General Info" type="infoType"
+			<xsd:element name="GeneralInfo" type="infoType"
 							minOccurs="1" maxOccurs="1">
 			</xsd:element>
 			<xsd:element name="History" type="xsd:string"
