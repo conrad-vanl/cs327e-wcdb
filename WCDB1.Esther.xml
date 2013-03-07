@@ -1,0 +1,36 @@
+<Crisis cID="BS2009">
+	
+	<Info>
+		<Name>Black Saturday Bushfires</Name>
+		<Abbreviation>Victorian Bushfires</Abbreviation>
+		<Kind>Wildfire</Kind>
+		<Description>Bushfires ignite, burning up a lot of Victoria, Australia</Description>
+		<Location>
+			<State>Victoria</State>
+			<Country>Australia</Country>
+		</Location>
+		<Date>
+			<StartDate>2009-02-07</StartDate>
+		</Date>
+	</Info>
+	
+	<HumanImpact>173 killed, 414 injured</HumanImpact>
+	<EconomicImpact>$4.4 billion in damages</EconomicImpact>
+	<ResourcesNeeded>Human labor, construction, relief networks, firemen</ResourcesNeeded>
+	<WaysToHelp>Awareness of Devastation, donations</WaysToHelp>
+	
+	<External>
+		<Image title="Picture of bushfire">http://www.blacksaturdaybushfires.com.au/wp-content/uploads/2012/10/Black-Saturday-Bushfires.jpg</Image>
+		<Video title="Bushfire video">http://www.youtube.com/watch?v=t_mSHVxiVvo</Video>
+		<Map title="Map of the wildfires">http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Major_Victorian_bushfires_in_the_2000s.PNG/300px-Major_Victorian_bushfires_in_the_2000s.PNG</Map>
+		<Link title="Black Saturday Bushfires: Wikipedia">http://en.wikipedia.org/wiki/Black_Saturday_bushfires</Link>
+		<Citation>"Wikipedia, Youtube"</Citation>
+	</External>
+	
+	<Organizations></Organizations>
+	
+	<People>
+		<Person pID="CN1953"></Person>
+	</People>
+
+</Crisis>		
