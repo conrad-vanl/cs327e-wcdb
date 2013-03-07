@@ -329,7 +329,7 @@
 	
 	
 	<xsd:complexType name="cType">
-		<xsd:sequence
+		<xsd:sequence>
 			<xsd:element name="Info" type="infoType"
 							minOccurs="1" maxOccurs="1">
 			</xsd:element>
