@@ -8,8 +8,6 @@
 			<Kind>Plinian</Kind>
 			<Description>Massive eruption spewing ash across multiple states</Description>
 			<Location>
-				<State>Washington</State>
-				<Country>United States of America</Country>
 				<Coordinates lat="46.200278" lon="-122.186667" radius="27">Mount Saint Helens</Coordinates>
 			</Location>
 			<Date>
@@ -52,8 +50,6 @@
 			<Kind>Wildfires</Kind>
 			<Description>The series of wildfires throughout California in 2009</Description>
 			<Location>
-				<State>California</State>
-				<Country>United States of America</Country>
 				<Coordinates lat="37.387617" lon="-120.27832" radius="400">California</Coordinates>
 			</Location>
 			<Date>
