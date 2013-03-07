@@ -1,55 +1,68 @@
 require "builder"
+require "faker"
 
-@@tag_names = ["apple","banana","cabana","bluetooth","carl","team","monday","tuesday","foggy","cloudy","windy","rainy","taco","burrito","gordita","salad","ranch","boss","associate","brandice","bellatrice","beatrice","conrad","red","yellow","green","blue","orange"]
+module Generator
+  @@fake = {
+    "city"=>"Faker::Address","country"=>"Faker::Address","latitude"=>"Faker::Address","longitude"=>"Faker::Address","state"=>"Faker::Address","street_name"=>"Faker::Address","street_address"=>"Faker::Address","zip_code"=>"Faker::Address",
+    "bs"=>"Faker::Company","catch_phrase"=>"Faker::Company","name"=>"Faker::Company","suffix"=>"Faker::Company",
+    "domain_name"=>"Faker::Internet","url"=>"Faker::Internet","email"=>"Faker::Internet",
+    "first_name"=>"Faker::Name","last_name"=>"Faker::Name"
+  }
+  @@fake_keys = @@fake.keys
 
-
-# +n+ number of child elements
-def produce_random_xml (n)
-  xml = Builder::XmlMarkup.new( :indent => 2 )
-  
-  xml.root do |p|
-    n.to_i.times do |i|
-      create_children p, n, i+1
+  # +n+ number of child elements
+  def self.produce_random_xml (n)
+    xml = Builder::XmlMarkup.new( :indent => 2 )
+    
+    xml.root do |p|
+      n.to_i.times do |i|
+        create_children p, n, i
+      end
     end
-  end
 
-  return xml
-end
-  
-def create_children (tag, n, i)
-  levels = n - i # * rand(i..n)
-  if levels == 1
-    p.text! random_tag()
-  else
-    levels.to_i.times do |ii|
-      tag.tag! random_tag(), random_attributes(n, i) do |p|
-        create_children(p, levels, i + 1)
+    return xml
+  end
+    
+  def self.create_children (tag, n, i)
+    levels = n - i # * rand(i..n)
+    if levels <= 1
+      tag.text! Faker::Lorem.paragraph
+    else
+      levels.to_i.times do |ii|
+        tag.tag! random_tag(), random_attributes(n, i).to_hash do |p|
+          create_children(p, levels, i+1)
+        end
       end
     end
   end
-end
 
 
-def random_tag
-  @@tag_names[ rand(@@tag_names.length) ]
-end
+  def self.random_tag
+    #key = @@fake_keys[ rand(@@fake_keys.length) ]
+    #return eval("#{@@fake[key]}.#{key}")
+    @@fake_keys[ rand(@@fake_keys.length) ]
+  end
 
-def random_attributes(n, i)
-  att = {}
-  r = rand(n..i)
+  def self.random_attributes(n, i)
+    att = {}
+    r = rand(i..n)
 
-  
+    if !r.nil?
+      r.times do |b|
+        tag = random_tag()
+        att[tag] = eval("#{@@fake[tag]}.#{tag}")
+      end
+    end
 
-  rand(n..i).times do |b|
-    att[random_tag()] = random_tag()
+    return att
+  end
+
+
+  def self.generate_file(filename, i)
+    File.open(filename, 'w') do |file|
+      file.write produce_random_xml(i)
+    end
   end
 end
 
-
-def generate_file(filename, i, seed)
-  File.open(filename, 'w') do |file|
-    file.write produce_random_xml(rand(i..seed))
-  end
-end
-
-generate_file "RunWCDB1.in.xml", 10, 1000
+Generator.generate_file "RunWCDB1.in.xml", 10
