@@ -1,0 +1,262 @@
+<?xml version="1.0" ?>
+<WorldCrisesDatabase>
+	
+	<Crisis cID="HN2009">
+		<Info>
+			<Name>Swine Flu (H1N1)</Name>
+			<Abbreviation>H1N1</Abbreviation>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>viral-outbreak</Kind>
+			<Description>Pandemic</Description>
+			<Location>
+				<State>Veracruz</State>
+				<Country>Mexico</Country>
+				<!-- optional coordinates: lat, lon required, radius optional -->
+				<!-- TODO: determine what unit radius should be in  -->
+				<Coordinates lat="19.434722" lon="-96.383056" radius="500"></Coordinates>
+			</Location>
+			<Date>
+				<StartDate>2009-04-03</StartDate>
+			</Date>
+		</Info>
+		<HumanImpact>1,632,258 infected, 19,633 killed</HumanImpact>
+		<EconomicImpact>$200000000</EconomicImpact>
+		<ResourcesNeeded>vaccines, antivirals</ResourcesNeeded>
+		<WaysToHelp>prevention, awareness</WaysToHelp>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Virus">http://upload.wikimedia.org/wikipedia/commons/f/f0/H1N1_influenza_virus.jpg</Image>
+			<Video title="Video of virus">http://www.youtube.com/watch?v=lFl3FRNpU4E</Video>
+			<Social network="Facebook">http://www.facebook.com/h1n1Influenza</Social>
+			<Link title="Wiki Page">http://en.wikipedia.org/wiki/2009_flu_pandemic</Link>
+		</External>
+		
+		<Organizations>
+			<!-- Repeat Organization up to 10 times -->
+			<Organization oID="WH1948" />
+			<Organization oID="US0000" />
+		</Organizations>
+		
+		<People>
+			<!-- Repeat Person up to 10 times -->
+			<Person pID="MC1947" />
+			<Person pID="BO1961" />
+		</People>
+		
+	</Crisis>
+	<Crisis cID="SA2009">
+		<Info>
+			<Name>Severe acute respiratory syndrome</Name>
+			<Abbreviation>SARS</Abbreviation>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>viral-outbreak</Kind>
+			<Description>Epidemic</Description>
+			<Location>
+				<State>Hong Kong</State>
+				<Country>China</Country>
+				
+				<!-- optional coordinates: lat, lon required, radius optional -->
+				<!-- TODO: determine what unit radius should be in  -->
+				<Coordinates lat="22.278333" lon="-114.158889" radius="500"></Coordinates>
+			</Location>
+			<Date>
+				<StartDate>2009-06-03</StartDate>
+			</Date>
+		</Info>
+		<HumanImpact>8,273 infected, 775 killed</HumanImpact>
+		<EconomicImpact>$1650000</EconomicImpact>
+		<ResourcesNeeded>vaccines, antipyretics, supplemental oxygen and ventilation support</ResourcesNeeded>
+		<WaysToHelp>prevention, awareness</WaysToHelp>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="SARS Virus">http://upload.wikimedia.org/wikipedia/commons/6/6c/Sars-corona.png</Image>
+			<Video title="Video of virus">http://www.aljazeera.com/news/asia-pacific/2013/02/2013210153855381447.html</Video>
+			<Social network="Facebook">http://www.facebook.com/pages/SARS-outbreak/132956950074605#</Social>
+			<Link title="Wiki Page">http://en.wikipedia.org/wiki/Progress_of_the_SARS_outbreak</Link>
+		</External>
+		
+		<Organizations>
+			<!-- Repeat Organization up to 10 times -->
+			<Organization oID="WH1948" />
+			<Organization oID="CD1946" />
+		</Organizations>
+		
+		<People>
+			<!-- Repeat Person up to 10 times -->
+			<Person pID="MC1947" />
+		</People>
+		
+	</Crisis>
+	<Crisis cID="BF2011">
+		<Info>
+			<Name>Bastrop Wildfires</Name>
+			<Abbreviation></Abbreviation>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>Environmental Disaster</Kind>
+			<Description>Wildfire</Description>
+			<Location>
+				<City>Bastrop</City>
+				<State>Texas</State>
+				<Country>United States</Country>
+				
+				<!-- optional coordinates: lat, lon required, radius optional -->
+				<!-- TODO: determine what unit radius should be in  -->
+				<Coordinates lat="30.111944" lon="-97.316944" radius="500"></Coordinates>
+			</Location>
+			<Date>
+				<StartDate>2011-09-03</StartDate>
+			</Date>
+		</Info>
+		<HumanImpact>1,696 homes destroyed, 2 killed</HumanImpact>
+		<EconomicImpact>$350000000</EconomicImpact>
+		<ResourcesNeeded>human labor, construction equipment, funds, firemen</ResourcesNeeded>
+		<WaysToHelp>donations, awareness</WaysToHelp>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Firemen extinguishing flames">http://upload.wikimedia.org/wikipedia/commons/8/84/Texas_National_Guard_extinguishing_flames_from_Ch-47_helicopter.jpg</Image>
+			<Video title="News Video">http://www.kxan.com/dpp/news/local/bird's-eye-view-of-bastrop-fires</Video>
+			<Social network="Facebook">http://www.facebook.com/pages/Bastrop-Fire-Information-and-Help/284897838194470</Social>
+			<Link title="Wiki Page">http://en.wikipedia.org/wiki/Bastrop_County_Complex_fire</Link>
+		</External>
+		
+		<Organizations>
+			<!-- Repeat Organization up to 10 times -->
+			<Organization oID="TX0000" />
+			<Organization oID="US0000" />
+		</Organizations>
+		
+		<People>
+			<!-- Repeat Person up to 10 times -->
+			<Person pID="RP1950" />
+			<Person pID="BO1961" />
+		</People>
+		
+	</Crisis>
+	<!-- ALL THE OTHER CRISES -->
+	
+	<Organization oID="WH1948">
+		<Info>
+			<Name>World Health Organization</Name>
+			<Abbreviation>wWHO</Abbreviation>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>Healt Organization</Kind>
+			<Description>The World Health Organization is a specialized agency of the United Nations that is concerned with international public health</Description>
+			<Location>
+				<AddressLine>Avenue Appia 20</AddressLine>
+				<State>Geneva</State>
+				<Country>Switzerlan</Country>
+			</Location>
+			<Date>
+				<StartDate>1948-04-07</StartDate>
+			</Date>
+		</Info>
+		<History>The World Health Organization (WHO) is a specialized agency of the United Nations (UN) that is concerned with international public health. It was established on 7 April 1948, with headquarters in Geneva, Switzerland, and is a member of the United Nations Development Group. Its predecessor, the Health Organization, was an agency of the League of Nations.</History>
+		<ContactInfo>
+			<!-- all Contactinfo sub-elements occur 1 time and are optional-->
+			<Website>http://www.who.int/en/</Website>
+			<Telephone>41 22 791 21 11</Telephone>
+			<Email>publications@who.int</Email>
+		</ContactInfo>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Logo">http://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_WHO.svg</Image>
+			<Video title="Presentation">http://www.youtube.com/user/who</Video>
+			<Social network="Facebook">http://www.facebook.com/WorldHealthOrganization?fref=ts</Social>
+			<Link title="Wiki page">http://en.wikipedia.org/wiki/World_Health_Organization</Link>
+		</External>
+		
+		
+		<Crises>
+			<!-- Repeat Crisis up to 10 times -->
+			<Crisis cID="SA2009" />
+			<Crisis cID="HN2009" />
+		</Crises>	
+		
+		<People>
+			<!-- Repeat Person up to 10 times -->
+			<Person pID="MC1947" />
+		</People>
+		
+	</Organization>
+	
+	<!-- ALL  THE OTHER ORGANIZATIONS-->
+	
+	<Person pID="MC1947">
+		<Info>
+			<Name>Margaret Chan</Name>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>Doctor</Kind>
+			<Description>Director of WHO</Description>
+			<Location>
+				<State>Hong Kong</State>
+				<Country>China</Country>
+			</Location>
+			<Date>
+				<StartDate>REQUIRED 1947-01-01</StartDate>
+			</Date>
+		</Info>
+		<History> Margaret Chan Fung Fu-chun, OBE, JP (born 1947 in Hong Kong) is the Director-General of the World Health Organization (WHO). Chan was elected by the Executive Board of WHO on 8 November 2006, and was endorsed in a special meeting of the World Health Assembly on the following day. Chan has previously served as Director of Health in the Hong Kong Government (1994-2003), representative of the WHO Director-General for Pandemic Influenza and WHO Assistant Director-General for Communicable Diseases (2003-2006).</History>
+		<ContactInfo>
+			<!-- all Contactinfo sub-elements occur 1 time and are optional-->
+			<Website>http://en.wikipedia.org/wiki/Margaret_chan</Website>
+			<Telephone>41 22 791 21 11</Telephone>
+		</ContactInfo>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Picture">http://upload.wikimedia.org/wikipedia/commons/3/3c/Margaret_Chan_-_World_Economic_Forum_Annual_Meeting_2011_crop.jpg</Image>
+			<Video title="Conference Video">http://www.youtube.com/watch?v=Aah9e4FA--k</Video>
+			<Social network="Facebook">http://www.facebook.com/pages/Dr-Margaret-Chan/88513510368</Social>
+		</External>
+
+		<Organizations>
+			<!-- Repeat Organization up to 10 times -->
+			<Organization oID="WH1948" />
+		</Organizations>
+		
+		<Crises>
+			<!-- Repeat Crisis up to 10 times -->
+			<Crisis cID="SA2009" />
+			<Crisis cID="HN2009" />
+		</Crises>
+	</Person>
+	<Person pID="RP1950">
+		<Info>
+			<Name>James Richard Perry</Name>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>Polititian</Kind>
+			<Description>Governor of Texas</Description>
+			<Location>
+				<City>Austin</City>
+				<State>Texas</State>
+				<Country>China</Country>
+			</Location>
+			<Date>
+				<StartDate>1950-03-04</StartDate>
+			</Date>
+		</Info>
+		<History>James Richard "Rick" Perry (born March 4, 1950) is the 47th and current Governor of Texas. Perry, a Republican, was elected Lieutenant Governor of Texas in 1998 and assumed the governorship in December 2000 when then-governor George W. Bush resigned to become President of the United States. Perry was elected to full gubernatorial terms in 2002, 2006 and 2010 and is the fourth Texas governor since Allan Shivers, Price Daniel, and John Connally to serve three terms. With a tenure in office to date of 12 years, 74 days, Perry is the second longest serving current U.S. governor—after Terry Branstad of Iowa. Perry served as Chairman of the Republican Governors Association in 2008 (succeeding Sonny Perdue of Georgia) and again in 2011.[2] Perry is the longest serving governor in Texas state history. As a result, he is the only governor in modern Texas history to have appointed at least one person to every eligible state office, board, or commission position (as well as to several elected offices to which the governor can appoint someone to fill an unexpired term, such as six of the nine current members of the Texas Supreme Court).</History>
+		<ContactInfo>
+			<!-- all Contactinfo sub-elements occur 1 time and are optional-->
+			<Website>http://en.wikipedia.org/wiki/Rick_Perry</Website>
+		</ContactInfo>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Picture">http://upload.wikimedia.org/wikipedia/commons/c/ce/Rick_Perry_by_Gage_Skidmore_8.jpg</Image>
+			<Video title="Conference Video">http://www.youtube.com/user/govperry</Video>
+			<Social network="Facebook">http://www.facebook.com/GovernorPerry</Social>
+		</External>
+
+		<Organizations>
+			<!-- Repeat Organization up to 10 times -->
+			<Organization oID="TX0000" />
+		</Organizations>
+		
+		<Crises>
+			<!-- Repeat Crisis up to 10 times -->
+			<Crisis cID="BF2011" />
+		</Crises>
+	</Person>
+	<!-- ALL  THE OTHER PEOPLE -->
+
+
+</WorldCrisesDatabase>
