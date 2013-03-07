@@ -254,9 +254,9 @@
 	<xsd:complexType name="coordinatesType">
 		<xsd:simpleContent>
 			<xsd:extension base="geoType">
-				<xsd:attribute name="lat" type="xsd:integer" use="required"/>
-				<xsd:attribute name="lon" type="xsd:integer" use="required"/>
-				<xsd:attribute name="radius" type="xsd:integer" use="optional"/>
+				<xsd:attribute name="lat" type="xsd:decimal" use="required"/>
+				<xsd:attribute name="lon" type="xsd:decimal" use="required"/>
+				<xsd:attribute name="radius" type="xsd:decimal" use="optional"/>
 			</xsd:extension>
 		</xsd:simpleContent>
 	</xsd:complexType>
