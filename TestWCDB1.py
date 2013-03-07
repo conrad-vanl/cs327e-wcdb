@@ -54,8 +54,8 @@ class TestXML (unittest.TestCase):
 	def test_export(self):
 		seed_query = "<team> <abby> </abby> </team>"
 		exp1 = WCDB1.XML.from_string(seed_query)
-		exp1.export("testwcbd1.txt")
-		self.assertTrue(os.path.isfile('testwcbd1.txt'))
+		exp1.export("testwcdb1.txt")
+		self.assertTrue(os.path.isfile('testwcdb1.txt'))
 
 	def test_export1(self):
 		seed_query = "<team> <abby> </abby> </team>"
