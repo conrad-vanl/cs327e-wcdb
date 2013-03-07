@@ -65,4 +65,4 @@ module Generator
   end
 end
 
-Generator.generate_file "RunWCDB1.in.xml", 10
+Generator.generate_file "TestWCDB1.in.xml", 10
