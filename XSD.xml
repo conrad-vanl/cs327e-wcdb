@@ -248,6 +248,7 @@
 			</xsd:sequence>
 	
 			<xsd:element name="Coordinates" type="coordinatesType" minOccurs="0" maxOccurs="1">
+			</xsd:element>
 	
 	  </xsd:choice>
 	</xsd:complexType>
