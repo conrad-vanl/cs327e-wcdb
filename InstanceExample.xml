@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <WorldCrisesDatabase>
-	
+
 	<Crisis cID="CC####">
 		<Info>
 			<Name>REQUIRED string</Name>
@@ -16,9 +16,9 @@
 				<State>OPTIONAL string</State>
 				<Country>REQUIRED string</Country>
 				<Postal>OPTIONAL string</Postal>
-				
+
 				<!-- optional coordinates: lat, lon required, radius optional -->
-				<!-- TODO: determine what unit radius should be in  -->
+				<!-- use miles for radius  -->
 				<Coordinates lat="36.167814" lon="-111.902618" radius="150">Grand Canyon National Park (OPTIONAL string)</Coordinates>
 			</Location>
 			<Date>
@@ -42,21 +42,21 @@
 			<Link title="Required String">VALID URL</Link>
 			<Citation>Optional String</Citation>
 		</External>
-		
+
 		<Organizations>
 			<!-- Repeat Organization up to 10 times -->
 			<Organization oID="OID" />
 		</Organizations>
-		
+
 		<People>
 			<!-- Repeat Person up to 10 times -->
 			<Person pID="PID" />
 		</People>
-		
+
 	</Crisis>
-	
+
 	<!-- ALL THE OTHER CRISES -->
-	
+
 	<Organization oID="CC####">
 		<Info>
 			<Name>REQUIRED string</Name>
@@ -97,22 +97,22 @@
 			<Link title="Required String">VALID URL</Link>
 			<Citation>Optional String</Citation>
 		</External>
-		
-		
+
+
 		<Crises>
 			<!-- Repeat Crisis up to 10 times -->
 			<Crisis cID="CID" />
 		</Crises>	
-		
+
 		<People>
 			<!-- Repeat Person up to 10 times -->
 			<Person pID="PID" />
 		</People>
-		
+
 	</Organization>
-	
+
 	<!-- ALL  THE OTHER ORGANIZATIONS-->
-	
+
 	<Person pID="CC####">
 		<Info>
 			<Name>REQUIRED string</Name>
@@ -153,23 +153,20 @@
 			<Link title="Required String">VALID URL</Link>
 			<Citation>Optional String</Citation>
 		</External>
-		
-	
+
+
 
 
 		<Organizations>
 			<!-- Repeat Organization up to 10 times -->
 			<Organization oID="OID" />
 		</Organizations>
-		
+
 		<Crises>
 			<!-- Repeat Crisis up to 10 times -->
 			<Crisis cID="CID" />
 		</Crises>	
 
-		
-		
-		
 	</Person>
 
 	<!-- ALL  THE OTHER PEOPLE -->
