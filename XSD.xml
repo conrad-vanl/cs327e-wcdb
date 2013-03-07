@@ -227,23 +227,35 @@
 	<!-- Location Type (allows optional complete addresses, requires country) -->
 
 	<xsd:complexType name="locationType">
-		<xsd:sequence>
-			<xsd:element name="AddressLine" type="xsd:string"
-							minOccurs="0" maxOccurs="3">
-			</xsd:element>
-			<xsd:element name="City" type="xsd:string"
-							minOccurs="0" maxOccurs="1">
-			</xsd:element>
-			<xsd:element name="State" type="xsd:string"
-							minOccurs="0" maxOccurs="1">
-			</xsd:element>
-			<xsd:element name="Country" type="xsd:string"
-							minOccurs="1" maxOccurs="1">
-			</xsd:element>
-			<xsd:element name="Postal" type="xsd:string"
-							minOccurs="0" maxOccurs="1">
-			</xsd:element>
-		</xsd:sequence>
+		<xsd:choice>
+			<xsd:sequence>
+				<xsd:element name="AddressLine" type="xsd:string"
+								minOccurs="0" maxOccurs="3">
+				</xsd:element>
+				<xsd:element name="City" type="xsd:string"
+								minOccurs="0" maxOccurs="1">
+				</xsd:element>
+				<xsd:element name="State" type="xsd:string"
+								minOccurs="0" maxOccurs="1">
+				</xsd:element>
+				<xsd:element name="Country" type="xsd:string"
+								minOccurs="1" maxOccurs="1">
+				</xsd:element>
+				<xsd:element name="Postal" type="xsd:string"
+								minOccurs="0" maxOccurs="1">
+				</xsd:element>
+			</xsd:sequence>
+	
+			<xsd:element name="Coordinates" type="coordinatesType" minOccurs="0" maxOccurs="1">
+	
+	  </xsd:choice>
+	</xsd:complexType>
+
+	<!-- coordinatesType (allows more precision [or estimation] of a Crisis' area) -->
+	<xsd:complexType name="coordinatesType" type="xsd:string">
+		<xsd:attribute name="Lat" type="xsd:integer" use="required"/>
+		<xsd:attribute name="Lon" type="xsd:integer" use="required"/>
+		<xsd:attribute name="Radius" type="xsd:integer" use="optional"/>
 	</xsd:complexType>
 
 	<!-- Date Type-->
