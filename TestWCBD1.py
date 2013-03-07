@@ -19,13 +19,13 @@ class TestXML (unittest.TestCase):
 		temp = tempfile.NamedTemporaryFile()
 		temp.write('hello')
 		temp.seek(0)
-		file1 = WCDB1.XML.from_file("juan.xml")
+		file1 = WCDB1.XML.from_file("note.xml")
 		file1.export("from_file.txt")
-		self.assertTrue(open("juan.xml").readlines() == open("from_file.txt").readlines())
+		self.assertTrue(open("note.xml").readlines() == open("from_file.txt").readlines())
 
 
 	def test_from_file1(self):
-		file2 = WCDB1.XML.from_file("juan.xml")
+		file2 = WCDB1.XML.from_file("note.xml")
 		self.assertTrue(isinstance(file2, WCDB1.XML))
 
 	def test_from_file2(self):
