@@ -15,17 +15,22 @@ class TestXML (unittest.TestCase):
 	def test_from_file(self):
 		#sub = tempfile.mkdtemp("sub")
 		#sub.join("testfile.xml")
-		#open("sub/testfile.xml").write("<note> \n<to>Tove</to>\n<from>Jani</from>\n<heading>Reminder</heading>\n<body>Don't forget me this weekend!</body>\n</note>\n")
+		#open("sub/testfile.xml").write(")
 		temp = tempfile.NamedTemporaryFile()
-		temp.write('hello')
+		temp.write("<note> \n<to>Tove</to>\n<from>Jani</from>\n<heading>Reminder</heading>\n<body>Don't forget me this weekend!</body>\n</note>\n")
 		temp.seek(0)
-		file1 = WCDB1.XML.from_file("note.xml")
+		file1 = WCDB1.XML.from_file(temp.name)
 		file1.export("from_file.txt")
-		self.assertTrue(open("note.xml").readlines() == open("from_file.txt").readlines())
+		print open(temp.name).readlines()[0]
+		print open("from_file.txt").readlines()[0]
+		self.assertTrue(open(temp.name).readlines()[0] == open("from_file.txt").readlines()[0])
 
 
 	def test_from_file1(self):
-		file2 = WCDB1.XML.from_file("note.xml")
+		temp = tempfile.NamedTemporaryFile()
+		temp.write("<note> \n<to>Tove</to>\n<from>Jani</from>\n<heading>Reminder</heading>\n<body>Don't forget me this weekend!</body>\n</note>\n")
+		temp.seek(0)
+		file2 = WCDB1.XML.from_file(temp.name)
 		self.assertTrue(isinstance(file2, WCDB1.XML))
 
 	def test_from_file2(self):
