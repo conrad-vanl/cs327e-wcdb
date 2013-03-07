@@ -16,6 +16,10 @@
 				<State>OPTIONAL string</State>
 				<Country>REQUIRED string</Country>
 				<Postal>OPTIONAL string</Postal>
+				
+				<!-- optional coordinates: lat, lon required, radius optional -->
+				<!-- TODO: determine what unit radius should be in  -->
+				<Coordinates lat="36.167814" lon="-111.902618" radius="150">Grand Canyon National Park (OPTIONAL string)</Coordinates>
 			</Location>
 			<Date>
 				<StartDate>REQUIRED YYYY-MM-DD  can be string</StartDate>
