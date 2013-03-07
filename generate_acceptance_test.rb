@@ -22,7 +22,7 @@ def create_children (tag, n, i)
     p.text! random_tag()
   else
     levels.to_i.times do |ii|
-      tag.tag! random_tag(), randrom_attributes(n, i) do |p|
+      tag.tag! random_tag(), random_attributes(n, i) do |p|
         create_children(p, levels, i + 1)
       end
     end
@@ -36,17 +36,20 @@ end
 
 def random_attributes(n, i)
   att = {}
-  rand(n..i).times.do |b|
-      att[random_tag()] = random_tag()
+  r = rand(n..i)
+
+  
+
+  rand(n..i).times do |b|
+    att[random_tag()] = random_tag()
   end
 end
 
 
-def generate_file(filename, num_tests, seed)
+def generate_file(filename, i, seed)
   File.open(filename, 'w') do |file|
-    num_tests.to_i.times do |i|
-      file.write produce_random_xml(rand(i..seed))
-      file.write "\n"
-    end
+    file.write produce_random_xml(rand(i..seed))
   end
 end
+
+generate_file "RunWCDB1.in.xml", 10, 1000
