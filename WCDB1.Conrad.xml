@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<WorldCrisesDatabase>
+
+  <Crisis cID="RG1994">
+    <Info>
+      <Name>Rwanda Genocide</Name>
+      <!--<Abbreviation>OPTIONAL string</Abbreviation>-->
+      <!-- Repeat Kind element as many times as needed-->
+      <Kind>Genocide</Kind>
+      <Description>The Rwandan Genocide was a genocidal mass slaughter that took place in 1994 in the East African state of Rwanda. Over the course of approximately 100 days (from the assassination of Juvénal Habyarimana and Cyprien Ntaryamira on April 6 through mid-July) over 500,000 people were killed, according to a Human Rights Watch estimate. Estimates of the death toll have ranged from 500,000–1,000,000,[1] or as much as 20% of the country's total population. It was the culmination of longstanding ethnic competition and tensions between the minority Tutsi, who had controlled power for centuries, and the majority Hutu peoples, who had come to power in the rebellion of 1959–62.</Description>
+      <Location>
+        <!--<AddressLine>Optional string</AddressLine>
+        <AddressLine>Optional string </AddressLine>
+        <AddressLine>Optional string</AddressLine>
+        <City>OPTIONAL string</City>
+        <State>OPTIONAL string</State>-->
+        <Country>Rwanda</Country>
+        <!--<Postal>OPTIONAL string</Postal>-->
+
+        <!-- optional coordinates: lat, lon required, radius optional -->
+        <!-- use miles for radius  -->
+        <!--<Coordinates lat="36.167814" lon="-111.902618" radius="150">Grand Canyon National Park (OPTIONAL string)</Coordinates>-->
+      </Location>
+      <Date>
+        <StartDate>1994-04-06</StartDate>
+        <!--<StartTime>OPTIONAL hh:mm:ss</StartTime>-->
+        <EndDate>1994-07</EndDate>
+        <!--<EndTime>OPTIONAL hh:mm:s</EndTime>-->
+      </Date>
+    </Info>
+    <!--<History>Optional string</History>-->
+    <HumanImpact>500,000-1,000,000 Killed</HumanImpact>
+    <EconomicImpact>Rwanda lost 20% of population, many remaining citizens fleed to neighboring countries. Hurt Rwanda economically</EconomicImpact>
+    <ResourcesNeeded>Money, prayers, food and clothing donations</ResourcesNeeded>
+    <WaysToHelp>Money, prayers, food and clothing donations</WaysToHelp>
+    <External>
+      <!-- Repeat any External sub-element as needed-->
+      <Image title="Rwandan refugee camp in east Zaire following the genocide, 1994.">http://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Rwandan_refugee_camp_in_east_Zaire.jpg/320px-Rwandan_refugee_camp_in_east_Zaire.jpg</Image>
+      <Video title="Rwanda Genocide documentary">http://www.youtube.com/watch?v=u3DrvrrSgHI</Video>
+      <!--<Map title="Required String">VALID URL</Map>
+      <Social network="Choose: Facebook,Google+,Twitter,Other">VALID URL</Social>
+      <Link title="Required String">VALID URL</Link>-->
+      <Citation>Optional String</Citation>
+    </External>
+
+    <Organizations>
+      <!-- Repeat Organization up to 10 times -->
+      <Organization oID="OID" />
+    </Organizations>
+
+    <People>
+      <!-- Repeat Person up to 10 times -->
+      <Person pID="PID" />
+    </People>
+
+  </Crisis>
+
+  <!-- ALL THE OTHER CRISES -->
+
+  <Organization oID="CC####">
+    <Info>
+      <Name>REQUIRED string</Name>
+      <Abbreviation>OPTIONAL string</Abbreviation>
+      <!-- Repeat Kind element as many times as needed-->
+      <Kind>OPTIONAL string</Kind>
+      <Description>REQUIRED string</Description>
+      <Location>
+        <AddressLine>Optional string</AddressLine>
+        <AddressLine>Optional string </AddressLine>
+        <AddressLine>Optional string</AddressLine>
+        <City>OPTIONAL string</City>
+        <State>OPTIONAL string</State>
+        <Country>REQUIRED string</Country>
+        <Postal>OPTIONAL string</Postal>
+      </Location>
+      <Date>
+        <StartDate>REQUIRED YYYY-MM-DD</StartDate>
+        <StartTime>OPTIONAL hh:mm:ss</StartTime>
+        <EndDate>OPTIONAL YYYY-MM-DD</EndDate>
+        <EndTime>OPTIONA hh:mm:s</EndTime>
+      </Date>
+    </Info>
+    <History>REQUIRED string</History>
+    <ContactInfo>
+      <!-- all Contactinfo sub-elements occur 1 time and are optional-->
+      <Website>VAILD URL</Website>
+      <Telephone>STRING</Telephone>
+      <Fax>STRING</Fax>
+      <Email>STRING</Email>
+    </ContactInfo>
+    <External>
+      <!-- Repeat any External sub-element as needed-->
+      <Image title="Required String">VALID URL</Image>
+      <Video title="Required String">VALID URL</Video>
+      <Map title="Required String">VALID URL</Map>
+      <Social network="Choose: Facebook,Google+,Twitter,Other">VALID URL</Social>
+      <Link title="Required String">VALID URL</Link>
+      <Citation>Optional String</Citation>
+    </External>
+
+
+    <Crises>
+      <!-- Repeat Crisis up to 10 times -->
+      <Crisis cID="CID" />
+    </Crises> 
+
+    <People>
+      <!-- Repeat Person up to 10 times -->
+      <Person pID="PID" />
+    </People>
+
+  </Organization>
+
+  <!-- ALL  THE OTHER ORGANIZATIONS-->
+
+  <Person pID="CC####">
+    <Info>
+      <Name>REQUIRED string</Name>
+      <Abbreviation>OPTIONAL string</Abbreviation>
+      <!-- Repeat Kind element as many times as needed-->
+      <Kind>OPTIONAL string</Kind>
+      <Description>REQUIRED string</Description>
+      <Location>
+        <AddressLine>Optional string</AddressLine>
+        <AddressLine>Optional string </AddressLine>
+        <AddressLine>Optional string</AddressLine>
+        <City>OPTIONAL string</City>
+        <State>OPTIONAL string</State>
+        <Country>REQUIRED string</Country>
+        <Postal>OPTIONAL string</Postal>
+      </Location>
+      <Date>
+        <StartDate>REQUIRED YYYY-MM-DD</StartDate>
+        <StartTime>OPTIONAL hh:mm:ss</StartTime>
+        <EndDate>OPTIONAL YYYY-MM-DD</EndDate>
+        <EndTime>OPTIONA hh:mm:s</EndTime>
+      </Date>
+    </Info>
+    <History>Optional string</History>
+    <ContactInfo>
+      <!-- all Contactinfo sub-elements occur 1 time and are optional-->
+      <Website>VAILD URL</Website>
+      <Telephone>STRING</Telephone>
+      <Fax>STRING</Fax>
+      <Email>STRING</Email>
+    </ContactInfo>
+    <External>
+      <!-- Repeat any External sub-element as needed-->
+      <Image title="Required String">VALID URL</Image>
+      <Video title="Required String">VALID URL</Video>
+      <Map title="Required String">VALID URL</Map>
+      <Social network="Choose: Facebook,Google+,Twitter,Other">VALID URL</Social>
+      <Link title="Required String">VALID URL</Link>
+      <Citation>Optional String</Citation>
+    </External>
+
+
+
+
+    <Organizations>
+      <!-- Repeat Organization up to 10 times -->
+      <Organization oID="OID" />
+    </Organizations>
+
+    <Crises>
+      <!-- Repeat Crisis up to 10 times -->
+      <Crisis cID="CID" />
+    </Crises> 
+
+  </Person>
+
+  <!-- ALL  THE OTHER PEOPLE -->
+
+
+</WorldCrisesDatabase>
