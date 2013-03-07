@@ -1,36 +1,233 @@
-<Crisis cID="BS2009">
+<?xml version="1.0"?>
+<WorldCrisesDatabase>
+	<Crisis cID="BS2009">
 	
-	<Info>
-		<Name>Black Saturday Bushfires</Name>
-		<Abbreviation>Victorian Bushfires</Abbreviation>
-		<Kind>Wildfire</Kind>
-		<Description>Bushfires ignite, burning up a lot of Victoria, Australia</Description>
-		<Location>
-			<State>Victoria</State>
-			<Country>Australia</Country>
-		</Location>
-		<Date>
-			<StartDate>2009-02-07</StartDate>
-		</Date>
-	</Info>
+		<Info>
+			<Name>Black Saturday Bushfires</Name>
+			<Abbreviation>Victorian Bushfires</Abbreviation>
+			<Kind>Wildfire</Kind>
+			<Description>Bushfires ignite, burning up a lot of Victoria, Australia</Description>
+			<Location>
+				<State>Victoria</State>
+				<Country>Australia</Country>
+			</Location>
+			<Date>
+				<StartDate>2009-02-07</StartDate>
+			</Date>
+		</Info>
 	
-	<HumanImpact>173 killed, 414 injured</HumanImpact>
-	<EconomicImpact>$4.4 billion in damages</EconomicImpact>
-	<ResourcesNeeded>Human labor, construction, relief networks, firemen</ResourcesNeeded>
-	<WaysToHelp>Awareness of Devastation, donations</WaysToHelp>
+		<HumanImpact>173 killed, 414 injured</HumanImpact>
+		<EconomicImpact>$4.4 billion in damages</EconomicImpact>
+		<ResourcesNeeded>Human labor, construction, relief networks, firemen</ResourcesNeeded>
+		<WaysToHelp>Awareness of Devastation, donations</WaysToHelp>
 	
-	<External>
-		<Image title="Picture of bushfire">http://www.blacksaturdaybushfires.com.au/wp-content/uploads/2012/10/Black-Saturday-Bushfires.jpg</Image>
-		<Video title="Bushfire video">http://www.youtube.com/watch?v=t_mSHVxiVvo</Video>
-		<Map title="Map of the wildfires">http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Major_Victorian_bushfires_in_the_2000s.PNG/300px-Major_Victorian_bushfires_in_the_2000s.PNG</Map>
-		<Link title="Black Saturday Bushfires: Wikipedia">http://en.wikipedia.org/wiki/Black_Saturday_bushfires</Link>
-		<Citation>"Wikipedia, Youtube"</Citation>
-	</External>
+		<External>
+			<Image title="Picture of bushfire">http://www.blacksaturdaybushfires.com.au/wp-content/uploads/2012/10/Black-Saturday-Bushfires.jpg</Image>
+			<Video title="Bushfire video">http://www.youtube.com/watch?v=t_mSHVxiVvo</Video>
+			<Map title="Map of the wildfires">http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Major_Victorian_bushfires_in_the_2000s.PNG/300px-Major_Victorian_bushfires_in_the_2000s.PNG</Map>
+			<Link title="Black Saturday Bushfires: Wikipedia">http://en.wikipedia.org/wiki/Black_Saturday_bushfires</Link>
+			<Citation>"Wikipedia, Youtube"</Citation>
+		</External>
 	
-	<Organizations></Organizations>
+		<Organizations></Organizations>
 	
-	<People>
-		<Person pID="CN1953"></Person>
-	</People>
+		<People>
+			<Person pID="CN1953"/>
+		</People>
 
-</Crisis>		
+	</Crisis>
+
+	<Crisis cID="DS1989">
+
+		<Info>
+			<Name>Daulatpur-Saturia Tornados</Name>
+			<Kind>Tornado</Kind>
+			<Description>Horrible tornados ravage Bangladesh</Description>
+			<Location>
+				<State>Daulatpur-Saturia</State>
+				<Country>Bangladesh</Country>
+			</Location>
+			<Date>
+				<StartDate>1989-26-4</StartDate>
+			</Date>
+		</Info>
+
+		<HumanImpact>1300 killed, 12,000 injured</HumanImpact>
+		<EconomicImpact>80,000 people homeless</EconomicImpact>
+		<ResourcesNeeded>Human labor, constructuion, relief programs</ResourcesNeeded>
+		<WaysToHelp>Awareness of devastation, donations</WaysToHelp>
+
+		<External>
+			<Map title = "Map of the area hit by the tornado">http://upload.wikimedia.org/wikipedia/en/thumb/e/ef/Bangladesh_tornado_map_1989.png/240px-Bangladesh_tornado_map_1989.png</Map>
+			<Link title = "More information about the tornado">http://en.wikipedia.org/wiki/Daulatpur-Saturia_tornado</Link>
+			<Citation>Wikipedia</Citation>
+		</External>
+
+		<Organizations></Organizations>
+
+		<People></People>
+
+	
+	</Crisis>
+
+	<Crisis cID="BP2010">
+
+		<Info>
+			<Name>British Petroleum Deep Water Horizon Oil Spill</Name>
+			<Abbreviation>BP Oil Spill</Abbreviation>
+			<Kind>Oil spill</Kind>
+			<Description>Massive oil spill in the Gulf of Mexico</Description>
+			<Location>
+				<Country>United States</Country>
+			</Location>
+			<Date>
+				<StartDate>2010/20/04</StartDate>
+			</Date>
+		</Info>
+		
+		<History>Largest marine oil spill. Oil started gushing out of the floor and the hole was not capped for 87 days</History>
+		<HumanImpact>11 killed</HumanImpact>
+		<EconomicImpact>4.9 million barrels of oil lost, bad pollution</EconomicImpact>
+		<ResourcesNeeded>Labor, petroleum engineering expertise, cleaning crews</ResourcesNeeded>
+		<WaysToHelp>Donate, Volunteer to clean</WaysToHelp>
+		
+		<External>
+			<Image title="Explosion on oil rig">http://media.treehugger.com/assets/images/2011/10/burning-oil-rig-explosion-fire-photo11.jpg</Image>
+			<Video title="Oil spill video">http://www.oilspillcommission.gov/media/</Video>
+			<Map title="Map of affected area">http://3.bp.blogspot.com/_edvxM1dkFlo/TE9RbxxyTsI/AAAAAAAAAl0/r7Rs7VEqMz0/s1600/SkyTruth_cumulative_BP_spill_16jul10.jpg</Map>
+			<Social network="Twitter">https://twitter.com/noaa</Social>
+			<Link title="More information about the BP Oil Spill">http://www.oilspillcommission.gov/page/privacy-policy</Link>
+			<Citation>Wikipedia, oilspillcommission.gov</Citation>
+		</External>
+		
+		<Organizations>
+			<Organization oID="FE1979"/>
+		</Organizations>
+
+		<People>
+			<Person pID="BO1961"/>
+		</People>
+
+	</Crisis>
+
+	<Organization oID="FE1979">
+		<Info>
+			<Name>Federal Emergency Management Agency</Name>
+			<Abbreviation>FEMA</Abbreviation>
+			<Kind>Emergency Management</Kind>
+			<Description>Preperation for and response to disasters</Description>
+			<Location>
+				<AddressLine>500 C Street SW</AddressLine>
+				<City>Washington</City>
+				<State>DC</State>
+				<Country>United States</Country>
+				<Postal>20472</Postal>
+			</Location>
+			<Date>
+				<StartDate>1979-04-01</StartDate>
+			</Date>
+		</Info>
+		
+		<History>Established in 1979 to respond to disasters</History>
+		
+		<ContactInfo>
+			<Website>http://www.fema.gov/</Website>
+			<Telephone>(202)646-2500</Telephone>
+		</ContactInfo>
+		
+		<External>
+			<Image title="FEMA logo">https://si0.twimg.com/profile_images/2620163192/j143q33k69loivqmp2dg.gif</Image>
+			<Video title="FEMA video">http://www.fema.gov/medialibrary/media_records/7267</Video>
+			<Map title="FEMA's area of operation">http://www.nationsonline.org/maps/USA.jpg</Map>
+			<Social network="Twitter">https://twitter.com/fema</Social>
+			<Citation>FEMA website, Wikipedia, Twitter</Citation>
+		</External>
+
+		<Crises>
+			<Crisis cID="BP2010"/>
+		</Crises>
+
+		<People></People>
+
+	</Organization>
+
+	<Person pID="BO1961">
+		<Info>
+			<Name>Barack Obama</Name>
+			<Kind></Kind>
+			<Description>US President</Description>
+			<Location>
+				<AddressLine>1600 Pennsylvania Ave NW</AddressLine>
+				<City>Washington</City>
+				<State>DC</State>
+				<Country>United States</Country>
+				<Postal>20500</Postal>
+			</Location>
+			<Date>
+				<StartDate>1961-08-04</StartDate>
+			</Date>
+		</Info>
+
+		<History>Elected president of the United states in 2004</History>
+		
+		<ContactInfo>
+			<Website>www.barackobama.com/</Website>
+		</ContactInfo>
+		
+		<External>
+			<Image title="Picture of Barack Obama">http://upload.wikimedia.org/wikipedia/commons/0/01/Poster-sized_portrait_of_Barack_Obama_OrigRes.jpg</Image>
+			<Video title="Video of Barack Obama">http://www.youtube.com/watch?v=aOL7wzEIZSc</Video>
+			<Map title="Obama's country of origin">http://www.nationsonline.org/maps/USA.jpg</Map>
+			<Social network="Twitter">https://twitter.com/BarackObama</Social>
+			<Link title="Barack Obama's Wikipedia page">http://en.wikipedia.org/wiki/Barack_Obama</Link>
+			<Citation>Wikipedia, Twitter, Youtube</Citation>
+		</External>
+
+		<Organizations>
+			<Organization oID="PC1961"/>
+		</Organizations>
+
+		<Crises>
+			<Crisis cID="BP2010"/>
+		</Crises>
+
+	</Person>
+
+	<Person pID="CN1953">
+		<Info>
+			<Name>Christine Nixon</Name>
+			<Kind></Kind>
+			<Description>Chief Commissioner of Victoria Police</Description>
+			<Location>
+				<State>Victoria</State>
+				<Country>Australia</Country>
+			</Location>
+			<Date>
+				<StartDate>1961/06/11</StartDate>
+			</Date>
+		</Info>
+
+		<History>Chief Commissioner of Victoria Police later appointed chair of the Victorian Bushfire Reconstruction and Recovery Authority</History>
+		
+		<ContactInfo/>
+		
+		<External>
+			<Image title="Picture of Christine Nixon">http://en.wikipedia.org/wiki/File:Christine_Nixon_March_2012.jpg</Image>
+			<Video title="Christine Nixon Speech">http://www.youtube.com/watch?v=YP02mRea_so</Video>
+			<Map title="Map of Christine Nixon's home state">http://www.map-of-australia.co.uk/maps/victoria.gif</Map>
+			<Social network="Facebook">https://www.facebook.com/pages/Christine-Nixon/116116688436492</Social>
+			<Link title="Christine Nixon's Wikipedia page">http://en.wikipedia.org/wiki/Christine_Nixon</Link>
+			<Citation>Wikipedia, Facebook, Youtube</Citation>
+		</External>
+		
+		<Organizations></Organizations>
+		
+		<Crises>
+			<Crisis cID="BS2009"/>
+		</Crises>
+
+
+	</Person>
+
+
+</WorldCrisesDatabase>		
