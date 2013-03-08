@@ -1,0 +1,495 @@
+commit 96a9588836181e669bf73cb4960ff9dd8cb9d1a4
+Author: jupabago <jpbarraza@utexas.edu>
+Date:   Thu Mar 7 17:47:04 2013 -0600
+
+    unit test out file
+
+commit b43a4bb8bd3fef1b4f3475b22c4391585dd269d2
+Author: jupabago <jpbarraza@utexas.edu>
+Date:   Thu Mar 7 17:31:49 2013 -0600
+
+    fixed temp file bug
+
+commit 23455ab72799c4c973cdff01591f3914fa325b7a
+Author: = <=>
+Date:   Thu Mar 7 17:23:36 2013 -0600
+
+    Adding finished XML
+
+commit 48f7b3c43c26d707fdc2345d089dfc1bc8bf8a9a
+Author: jupabago <jpbarraza@utexas.edu>
+Date:   Thu Mar 7 17:19:05 2013 -0600
+
+    Last Unit tests
+
+commit 8659d8bc15c2997b0d96cbb3fb0e47a3ba72a28a
+Author: jupabago <jpbarraza@utexas.edu>
+Date:   Thu Mar 7 17:14:44 2013 -0600
+
+    more unit tests
+
+commit ff26b619e370d3e717e79bc3959fffdce9cfa9df
+Merge: 685d3f0 9607374
+Author: = <=>
+Date:   Thu Mar 7 15:35:24 2013 -0600
+
+    Merge branch 'master' of https://github.com/conrad-vanl/cs327e-wcdb
+
+commit 685d3f0b44c783812707e82b94eaa8013820aa91
+Author: = <=>
+Date:   Thu Mar 7 15:34:50 2013 -0600
+
+    Adding XML
+
+commit 96073743621123b31e4ede3f24956f4f6ec9eb33
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Thu Mar 7 15:09:40 2013 -0600
+
+    finished my data
+
+commit 14109228b55bf626d380ebd5dfc3edd5771c8c02
+Author: jupabago <jpbarraza@utexas.edu>
+Date:   Thu Mar 7 14:38:06 2013 -0600
+
+    Data
+
+commit e8beb881b8b2bb416c5fec8e9d22510f7d9a19d7
+Author: zfarn <zfarnsworth@utexas.edu>
+Date:   Thu Mar 7 14:36:20 2013 -0600
+
+    Updated data and added missing ending tag to xsd
+
+commit 8a1c07444a1f1328f1e9fea6775b0f6537a7d4df
+Merge: 0590b55 4c248ec
+Author: zfarn <zfarnsworth@utexas.edu>
+Date:   Thu Mar 7 14:13:09 2013 -0600
+
+    Merge branch 'master' of https://github.com/conrad-vanl/cs327e-wcdb
+
+commit 0590b55248eca4e34c8c6f0d41bd188b949f3363
+Author: zfarn <zfarnsworth@utexas.edu>
+Date:   Thu Mar 7 14:04:44 2013 -0600
+
+    Coordinates now accept decimals, and here is my data
+
+commit 4c248ec5ea0838de38a4abd92caf3ac522f13984
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Thu Mar 7 13:50:36 2013 -0600
+
+    started my data
+
+commit 9bbab69fdbf03fa768c8674f6cf84cb1459e05e1
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Thu Mar 7 12:12:39 2013 -0600
+
+    updated to latest XSD
+
+commit 607c68efb34a8dce3c4c6b240aeecca77fd6d50f
+Author: jupabago <jpbarraza@utexas.edu>
+Date:   Thu Mar 7 13:34:35 2013 -0600
+
+    Unit Test
+
+commit 50134c896581d101c003ef4490bf5b4db960c337
+Author: zfarn <zfarnsworth@utexas.edu>
+Date:   Thu Mar 7 13:15:12 2013 -0600
+
+    Minor capitalization correction
+
+commit 9f64bf9c41d44d707a398902aa2d3b567a85ac6e
+Author: zfarn <zfarnsworth@utexas.edu>
+Date:   Thu Mar 7 13:09:20 2013 -0600
+
+    Fixed coordinates, updated example, radius in miles
+
+commit 6ef0f74e8746633b1769c3b64557e96c5bab86ec
+Author: zfarn <zfarnsworth@utexas.edu>
+Date:   Thu Mar 7 12:33:57 2013 -0600
+
+    Added a missing ending tag
+
+commit e876dc9d65ff9bd283451c34b01576cc4c93f7bf
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Thu Mar 7 12:07:44 2013 -0600
+
+    added coordinatesType back in
+
+commit 662a3e2985ed8269b4c8b189cab8ea93ffe320a1
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Thu Mar 7 12:00:39 2013 -0600
+
+    added coordinatesType back in
+
+commit 94f14f20fbf983b6a65a8d3bd2907e88d75f2daa
+Author: zfarn <zfarnsworth@utexas.edu>
+Date:   Thu Mar 7 10:06:47 2013 -0600
+
+    Updated XSD to current version
+
+commit 3da09ea5e31c84c1fc1fbd922f1dd507366ccc68
+Author: zfarn <zfarnsworth@utexas.edu>
+Date:   Thu Mar 7 09:11:54 2013 -0600
+
+    Fixed mismatching tags in example
+
+commit 7e7d8d7139447c2dd35e09970bc651f2d011ed70
+Author: zfarn <zfarnsworth@utexas.edu>
+Date:   Thu Mar 7 08:24:22 2013 -0600
+
+    Fixed missing square braket
+
+commit 0f3830d9968778a120af27ea927e4494fcd461ca
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Thu Mar 7 00:46:28 2013 -0600
+
+    finalized acceptance tests
+
+commit 07f4688322e985f095bd8f17c6ca5ff4d45344a6
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Thu Mar 7 00:38:04 2013 -0600
+
+    can I get brownie points for gnerating a badass acceptance test?
+
+commit 24924c9e8544e6542e760babd3f9c53ee7fa7aeb
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Wed Mar 6 23:54:14 2013 -0600
+
+    okay, I guess we are uppercasing first letter on everything
+
+commit a7561237307d30ed89c0d8066c512f116b2665a5
+Merge: e716898 005bef3
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Wed Mar 6 23:45:08 2013 -0600
+
+    I think I got everything merged correctly now....
+
+commit 005bef3e8c800f46654c040fded917d14a70769c
+Author: Cheng Ma <totalpawnage@yahoo.com>
+Date:   Wed Mar 6 23:42:11 2013 -0600
+
+    Update XSD.xml
+    
+    Added name implementation for people, edited some syntax elements
+
+commit e716898f9d9605a3e77929a702d2858d17e75816
+Merge: ef915c7 15cd388
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Wed Mar 6 23:41:40 2013 -0600
+
+    merged from PublicXSD
+
+commit 15cd388896107c80a335f8ff937972cfd3211a3c
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Wed Mar 6 23:35:52 2013 -0600
+
+    added example
+
+commit c6c4726d401b2379849ca070e3a67dd77c3eb036
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Wed Mar 6 23:35:36 2013 -0600
+
+    added string so you can "label" a coordinatesType
+
+commit 380cd8effa2a3ea8ed03e14de5060943a4fbacc7
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Wed Mar 6 23:28:43 2013 -0600
+
+    added gps coordinates to locationType
+
+commit ef915c7443d459553473d6597db37f3b747b63a9
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Wed Mar 6 23:22:47 2013 -0600
+
+    getting acceptance tests ready
+
+commit 691aaaad8bcf66d22560ad0cca087cdf8485016c
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Wed Mar 6 23:22:32 2013 -0600
+
+    added GPS coordinates as optional param to locationType
+
+commit a4e0393fcbe9f0b9af940ec73c54b53744d9fefc
+Author: Conrad VanLandingham <conrad_vanl@convandesign.com>
+Date:   Wed Mar 6 22:59:39 2013 -0600
+
+    more acceptance test work
+
+commit 9215b86492396458b3d7dc3631dbd80eec8f7e42
+Merge: 30bce5b 0852c6e
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Wed Mar 6 22:49:30 2013 -0600
+
+    delete old / outdated files
+
+commit 0852c6e1988930c2137ad1387b5462fee9d717eb
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 20:20:14 2013 -0600
+
+    Added Youtube to Social network types
+
+commit 53f79482b9efae0d78c2b7a9943ec9044317c157
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 20:00:25 2013 -0600
+
+    Spelling is hard! Revisions!
+
+commit a9e512a0d8a6cf16f3331211682b4986c7c29d9d
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 19:00:19 2013 -0600
+
+    Clarified StartDate on Crisis
+    
+    can be string now
+
+commit fb284d955f87698db22ac05f9588e8d50f596829
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 18:58:32 2013 -0600
+
+    Fixed Typo
+    
+    plural citations to singular citation
+
+commit 93f6aa2ebda7bc8e626b9dde13c73ed359094968
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 18:30:12 2013 -0600
+
+    Fix bug in instance example
+    
+    Fixed incorrect closing tags forvide, map and link. Fixed ID refs
+
+commit f3d393d8fc517d13ea7ef5ff831f99e2ae818bf0
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 18:28:05 2013 -0600
+
+    Fixed XSD bugs
+    
+    StartDate is now a string allowing wiggle for nonspecific dates
+
+commit c423f7ab6648b07f4fa7c2dd75f780ebd6794095
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 17:42:29 2013 -0600
+
+    Allowed Start Date to be a date or string
+    
+    Used for ongoing things with not solid start dates
+
+commit b18cab7d9f1cb2b2b8eaefad42c917c77c903f1c
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 16:56:58 2013 -0600
+
+    Updated XSD and Instance Example
+
+commit 3437fd06f414e886ed5fd1d5c63ea022a242f90f
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 16:45:09 2013 -0600
+
+    Added Instance Example
+    
+    Will extend to include Org and People
+
+commit a156c09fb0daea2cee4b147f2f70df9a634fa39c
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 16:13:14 2013 -0600
+
+    Added Documentation and added consistancy
+    
+    changed info element t o Info (capital I)
+
+commit 4ae5d50bffd94617a7d241ad629561f817ffe991
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 15:54:55 2013 -0600
+
+    Revised XSD - Fully Validated!
+    
+    XSD vaildates: http://www.w3.org/2001/03/webdata/xsv
+
+commit 30bce5b91fd1e9115ad79dbb35ea3f9c7e4be27d
+Author: Conrad VanLandingham <conrad_vanl@convandesign.com>
+Date:   Wed Mar 6 13:58:34 2013 -0600
+
+    some changes to the scmea
+
+commit 9dac13a944e98258bb8356763223bd7f8f545216
+Author: Conrad VanLandingham <conrad_vanl@convandesign.com>
+Date:   Wed Mar 6 13:58:27 2013 -0600
+
+    started acceptance_test generators...not yet working
+
+commit cc983bac18715797c487d4ce904dc54e68ed09a0
+Author: Conrad VanLandingham <conrad_vanl@convandesign.com>
+Date:   Wed Mar 6 13:57:58 2013 -0600
+
+    fixed elementTree vs element bug
+
+commit 1243ef982ddee63bace90a3225a388c8478ff6ef
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 13:10:52 2013 -0600
+
+    Wrong file committ
+
+commit 39060084034906aea0c7ed019348c71543e29846
+Author: Cheng Ma <totalpawnage@yahoo.com>
+Date:   Wed Mar 6 13:03:42 2013 -0600
+
+    Update WCDB Version 2.xml
+
+commit 200edcc3f14623971989a20896772bd0f268ec6d
+Author: Cheng Ma <totalpawnage@yahoo.com>
+Date:   Wed Mar 6 13:02:34 2013 -0600
+
+    Update WCDB Version 2.xml
+
+commit c94ec1a3190bd764e9eb705cef5c07e5d2c19ab9
+Author: Cheng Ma <totalpawnage@yahoo.com>
+Date:   Wed Mar 6 12:52:03 2013 -0600
+
+    Update WCDB Version 2.xml
+
+commit bd4a8a5d5a02dce88d6978e826bc7e6ef1bd36a7
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 12:30:02 2013 -0600
+
+    Initial Commit
+
+commit cb0b3a35865f36f33875a722d2065dd35fa0ab16
+Author: Cheng Ma <totalpawnage@yahoo.com>
+Date:   Wed Mar 6 12:24:23 2013 -0600
+
+    Update Schema.xml
+
+commit f292c0b05535c0e180023135c83ddd1d6fe0f2c2
+Author: cm35498 <totalpawnage@yahoo.com>
+Date:   Wed Mar 6 12:17:57 2013 -0600
+
+    Updated XML Files fitting new schema
+
+commit 87f4a6af9337e08f4875ab35f430a94c97232f80
+Author: Cheng Ma <totalpawnage@yahoo.com>
+Date:   Wed Mar 6 12:08:58 2013 -0600
+
+    Update Schema.xml
+
+commit 94c18206f2379894e323e1c796eb8ed32635be7f
+Author: Cheng Ma <totalpawnage@yahoo.com>
+Date:   Wed Mar 6 12:03:33 2013 -0600
+
+    Update Schema.xml
+    
+    Fixed some syntax and implemented first name and last name
+
+commit 26c7e516c2fe85c8f5d829e0c4f63faa1244384c
+Author: Conrad VanLandingham <conrad_vanl@convandesign.com>
+Date:   Wed Mar 6 11:26:23 2013 -0600
+
+    maxOccurs on several elements to unbounded
+
+commit e75424884a60148847e0bbfc485190f2ec76e2c6
+Merge: df2617a ca500e2
+Author: Conrad VanLandingham <conrad_vanl@convandesign.com>
+Date:   Wed Mar 6 11:01:57 2013 -0600
+
+    Merge branch 'master' of https://github.com/conrad-vanl/cs327e-wcdb
+
+commit df2617adb2ff315834c12c0abdb034535f8a2fca
+Merge: 3cf4fde 581a088
+Author: Conrad VanLandingham <conrad_vanl@convandesign.com>
+Date:   Wed Mar 6 11:01:21 2013 -0600
+
+    Merge branch 'master' of https://gist.github.com/5098185
+
+commit 581a0886ffc67935291cbb68ce51f58512fba711
+Author: Taylor McCaslin <Taylor4484@gmail.com>
+Date:   Wed Mar 6 09:54:56 2013 +0000
+
+commit ca500e29eaa3d1318a3aa4a4a847f212da1c410f
+Author: Cheng Ma <totalpawnage@yahoo.com>
+Date:   Tue Mar 5 22:51:43 2013 -0600
+
+    Update WCDB1.xsd.xml
+
+commit f80665ccfe2c726b64fadd0ab5ae88655a77a5db
+Author: Cheng Ma <totalpawnage@yahoo.com>
+Date:   Tue Mar 5 22:50:04 2013 -0600
+
+    Update WCDB1.xsd.xml
+    
+    Fixed syntax and spacing errors
+
+commit c85570a4928320ca15cda57b6fb32abf4d5b294e
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Tue Mar 5 17:34:44 2013 -0600
+
+    basic XSD updates
+
+commit 3b7f1462d2c211e0fddc3ddb8ecb81b2920ce1f6
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Tue Mar 5 17:12:27 2013 -0600
+
+    import/export util
+
+commit dab8242b5e443f6856d7b0dd8b002ee9a442f399
+Author: jupabago <jpbarraza@utexas.edu>
+Date:   Tue Mar 5 15:31:13 2013 -0600
+
+    First draft of XML
+    
+    This is the xml of the data I gathered from the template Conrad puseh
+    earlier.
+    I created a tag "WCBD" andthat contains CRISES, ORGANIZATIONS and
+    PERSONS. I thought it would be better, but we can go back to the
+    original one
+
+commit b76055f4a5c16c31da2d9cc8e211c1fbaa055aa2
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Tue Mar 5 13:16:44 2013 -0600
+
+    Update WCDB1.xml
+
+commit 54355b475a4b068707e3b0770ce1563241e6c852
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Tue Mar 5 13:13:11 2013 -0600
+
+    Update WCDB1.xml
+
+commit c2b524293734cb2e15e67c7f70e39e18b949f5de
+Author: cm35498 <totalpawnage@yahoo.com>
+Date:   Mon Mar 4 20:59:39 2013 -0600
+
+    Added Organization XSD and fixed a few syntax bugs with the XSD
+
+commit 43987b127164ef8f64757b6e5ccd91ab4fd97782
+Merge: b7157e7 a678665
+Author: = <=>
+Date:   Mon Mar 4 13:20:54 2013 -0600
+
+    Merge branch 'master' of https://github.com/conrad-vanl/cs327e-wcdb
+
+commit b7157e7f54682aba223a9508dd472bd651e4423b
+Author: = <=>
+Date:   Mon Mar 4 13:03:30 2013 -0600
+
+    added description att to location elt
+
+commit a67866509e5343494609b38180814bf6d82e4578
+Author: zfarn <zfarnsworth@utexas.edu>
+Date:   Mon Mar 4 06:14:43 2013 -0600
+
+    Fixed a few things in the XML example file
+
+commit cac420be7569577ae7c5623b46e52a4beee6279f
+Author: zfarn <zfarnsworth@utexas.edu>
+Date:   Sun Mar 3 17:45:08 2013 -0600
+
+    Updated example XML and XSD from Sunday meeting
+
+commit 3cf4fdebeae41f25d47a09cf7d3ddfe55e4d3b53
+Author: Conrad VanLandingham <conrad_vanl@convandesign.com>
+Date:   Fri Mar 1 14:34:20 2013 -0600
+
+    Started xml and xsd
+
+commit 7ec3ece1cdc00da35329156ace13a7f63d33d6f0
+Author: Conrad VanLandingham <conrad@landdolph.in>
+Date:   Fri Mar 1 11:22:20 2013 -0800
+
+    Initial commit
