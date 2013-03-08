@@ -265,7 +265,7 @@ Rusesabagina's efforts were the basis of the Academy Award-nominated film Hotel 
       <Image title="Saddam Hussein in front of the Iraqi Flag">http://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Iraq%2C_Saddam_Hussein_%28222%29.jpg/220px-Iraq%2C_Saddam_Hussein_%28222%29.jpg</Image>
       <!--<Video title="Required String">VALID URL</Video>
       <Map title="Required String">VALID URL</Map>-->
-      <Social network="Facebook">https://www.facebook.com/pages/Sadam-Hussein/115081791840340?sid=0.461138435639441&rf=103999546303926</Social>
+      <Social network="Facebook">https://www.facebook.com/pages/Sadam-Hussein/115081791840340?sid=0.461138435639441&amp;rf=103999546303926</Social>
       <!--<Link title="Required String">VALID URL</Link>-->
       <Citation>http://en.wikipedia.org/wiki/Saddam_Hussein</Citation>
     </External>

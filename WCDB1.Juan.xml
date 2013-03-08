@@ -13,7 +13,7 @@
 				<Country>Mexico</Country>
 				<!-- optional coordinates: lat, lon required, radius optional -->
 				<!-- TODO: determine what unit radius should be in  -->
-				<Coordinates lat="19.434722" lon="-96.383056" radius="500"></Coordinates>
+				<!--Coordinates lat="19.434722" lon="-96.383056" radius="500"></Coordinates-->
 			</Location>
 			<Date>
 				<StartDate>2009-04-03</StartDate>
@@ -57,7 +57,7 @@
 				
 				<!-- optional coordinates: lat, lon required, radius optional -->
 				<!-- TODO: determine what unit radius should be in  -->
-				<Coordinates lat="22.278333" lon="-114.158889" radius="500"></Coordinates>
+				<!--Coordinates lat="22.278333" lon="-114.158889" radius="500"></Coordinates-->
 			</Location>
 			<Date>
 				<StartDate>2009-06-03</StartDate>
@@ -101,7 +101,7 @@
 				
 				<!-- optional coordinates: lat, lon required, radius optional -->
 				<!-- TODO: determine what unit radius should be in  -->
-				<Coordinates lat="30.111944" lon="-97.316944" radius="500"></Coordinates>
+				<!--Coordinates lat="30.111944" lon="-97.316944" radius="500"></Coordinates-->
 			</Location>
 			<Date>
 				<StartDate>2011-09-03</StartDate>
