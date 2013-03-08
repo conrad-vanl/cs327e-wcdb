@@ -32,9 +32,9 @@
 
 		<Organizations>
 			<!-- FEMA -->
-			<Organization oID="FE1978" />
+			<Organization oID="FE1979" />
 			<!-- USGS -->
-			<Organization oID="US1879" />
+			<Organization oID="UG1879" />
 		</Organizations>
 
 		<People>
@@ -73,9 +73,9 @@
 
 		<Organizations>
 			<!-- FEMA -->
-			<Organization oID="FE1978" />
+			<Organization oID="FE1979" />
 			<!-- USGS -->
-			<Organization oID="US1879" />
+			<Organization oID="UG1879" />
 		</Organizations>
 
 		<People>
@@ -123,9 +123,9 @@
 			<!-- Iraqi War -->
 			<Crisis cID="IW2003" />
 			<!-- SARS -->
-			<Crisis cID="SA2002" />
+			<Crisis cID="SR2002" />
 			<!-- H1N1 -->
-			<Crisis cID="SF2009" />
+			<Crisis cID="HN2009" />
 			<!-- BP Oil Spill -->
 			<Crisis cID="BP2010" />
 		</Crises>	
