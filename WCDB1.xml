@@ -432,10 +432,13 @@
 		
 		<Organizations>
 			<Organization oID="FE1979"/>
+			<Organization oID="UN1945"/>
+			<Organization oID="SA1865"/>
 		</Organizations>
 
 		<People>
 			<Person pID="BO1961"/>
+			<Person pID="DC1966"/>
 		</People>
 
 	</Crisis>
