@@ -140,7 +140,7 @@
 			<!-- Saddam Hussein -->
 			<Person pID="SH1937" />
 			<!-- George W. Bush -->
-			<Person pID="GW1946" />
+			<Person pID="GB1946" />
 			<!-- Margaret Chan -->
 			<Person pID="MC1947" />
 		</People>
@@ -229,8 +229,6 @@
 			<Citation>Wikipedia</Citation>
 		</External>
 		<Organizations>
-			<!-- WA Government -->
-			<Organization oID="WS1889" />
 		</Organizations>
 		<Crises>
 			<!-- Mt. St. Helens -->
