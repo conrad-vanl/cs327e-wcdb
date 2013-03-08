@@ -1,0 +1,400 @@
+	<Organization oID="GG1996">
+		<Info>
+			<Name>
+				Google
+			</Name>
+			<Kind>
+				International Corporation
+			</Kind>
+			<Description>
+				Multinational Technology Services Corporation
+			</Description>
+			<Location>
+				<AddressLine>
+					1600 Amphitheatre Parkway
+				</AddressLine>
+				<City>
+					Mountain View
+				</City>
+				<State>
+					CA
+				</State>
+				<Country>
+					United States
+				</Country>
+				<Postal>
+					94043
+				</Postal>
+			</Location>
+			<Date>
+				<StartDate>
+					1996
+				</StartDate>
+			</Date>
+		</Info>
+		<History>
+			Started in 1996 initially as a research project for Larry Page and Sergey Brin to create a search engine that would rank search results by relevancy and importance that evolved into a multinational technology services corporation.
+		</History>
+		<ContactInfo>
+			<Website>
+				www.google.com
+			</Website>
+			<Telephone>
+				1-650-253-0000
+			</Telephone>
+			<Fax>
+				1-650-253-0001
+			</Fax>
+		</ContactInfo>
+		<External>
+			<Image title="Google Logo">
+				http://media.npr.org/assets/img/2012/11/26/google262way_custom-b0a89fbf1933607665ebaac4a7c08bc85e11dfe3-s6-c10.jpg
+			</Image>
+			<Video title="Youtube Video">
+				http://www.youtube.com/watch?v=2FSE3TNFkJQ&feature=player_embedded
+			</Video>
+			<Map title="Map of Google Headquarters">
+				https://maps.google.com/maps?hl=en&sugexp=les%3B&gs_rn=5&gs_ri=psy-ab&tok=nyfd2p-eW6QBXPuXQmf0mQ&cp=11&gs_id=au&xhr=t&q=google+headquarters&biw=1600&bih=770&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.&bvm=bv.43148975,d.b2U&um=1&ie=UTF-8&sa=N&tab=wl
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/googledevs
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/Google
+			</Citation>
+		</External>
+		<Crises></Crises>
+		<People></People>
+	</Organization>
+
+	<Organization oID="PC1961">
+		<Info>
+			<Name>
+				Peace Corps
+			</Name>
+			<Kind>
+				Relief Organization
+			</Kind>
+			<Kind>
+				Mission
+			</Kind>
+			<Description>
+				International Aid Program, Culture Integration Organization
+			</Description>
+			<Location>
+				<City>
+					Washington DC
+				</City>
+				<Country>
+					United States
+				</Country>
+			</Location>
+			<Date>
+				<StartDate>
+					1961
+				</StartDate>
+			</Date>
+		</Info>
+		<History>
+			Established by sets of bills passed following World War II whose purpose was to help developing countries. Idea eventually developed into a volunteer organization funded by the American government.
+		</History>
+		<Contact Info>
+			<Telephone>
+				855-855-1961
+			</Telephone>
+		</Contact Info>
+		<External>
+			<Image title="Peace Corps Logo">
+				http://voltaicsystems.com/blog/wp-content/uploads/2011/05/Peace-Corps.jpeg
+			</Image>
+			<Video title="Youtube Video">
+				https://www.youtube.com/watch?v=kxR8XZOeV-s
+			</Video>
+			<Map title="Peace Corps Locations">
+				http://upload.wikimedia.org/wikipedia/commons/0/00/PeaceCorpsMap-currentandformer.PNG
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/peacecorps
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/Peace_Corps, peacecorps.gov
+			</Citation>
+		</External>
+		<Crises>
+			<Crisis cID="RG1994"/>
+		</Crises>
+		<People>
+			<Person pID="JC1924"/>
+			<Person pID="BO1961"/>
+		</People>
+	</Organization>
+
+	<Organization oID="CD1946">
+		<Info>
+			<Name>
+				Center for Disease Control and Prevention
+			</Name>
+			<Abbreviation>
+				CDC
+			</Abbreviation>
+			<Kind>
+				Federal Agency
+			</Kind>
+			<Kind>
+				World Health
+			</Kind>
+			<Description>
+				The CDC was established to promote research on treatment and prevention of various diseases.
+			</Description>
+			<Location>
+				<AddressLine>
+					1600 Clifton Rd.
+				</AddressLine>
+				<City>
+					Atlanta
+				</City>
+				<State>
+					GA
+				</State>
+				<Country>
+					United States
+				</Country>
+				<Postal>
+					30333
+				</Postal>
+			</Location>
+			<Date>
+				<StartDate>
+					1946
+				</StartDate>
+			</Date>
+		</Info>
+		<History>
+			Founded as the Communicable Diseases Center on July 1st 1946, created originally to deal with malaria and was originally based in Atlanta. It has evolved into a general disease research center.
+		</History>
+		<ContactInfo>
+			<Website>
+				www.cdc.gov
+			</Website>
+			<Telephone>
+				800-232-4636
+			</Telephone>
+		</ContactInfo>
+		<External>
+			<Image title="CDC Logo">
+				http://evaluation.umn.edu/wp-content/uploads/CDC-Logo.jpg
+			</Image>
+			<Video title="Youtube Video">
+				https://www.youtube.com/watch?v=yZkd-ESHvKA&list=PL1BB7628180AA0452&index=1
+			</Video>
+			<Map title="CDC Headquarters">
+				http://imazinebrand.com/shop/files/2010/06/cdc_map.jpg
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/CDCgov
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/Centers_for_Disease_Control_and_Prevention
+			</Citation>
+		</External>
+		<Crises>
+			<Crisis cID="HN2009"/>
+			<Crisis cID="SR2002"/>
+		</Crises>
+		<People>
+		</People>
+	</Organization>
+
+	<Organization oID="UG1879">
+		<Info>
+			<Name>
+				United States Geological Survey
+			</Name>
+			<Abbreviation>
+				USGS
+			</Abbreviation>
+			<Kind>
+				Federal Agency
+			</Kind>
+			<Kind>
+				Geographic Research
+			</Kind>
+			<Description>
+				Geographic surveying and research agency
+			</Description>
+			<Location>
+				<AddressLine>
+					12201 Sunrise Valley Dr.
+				</AddressLine>
+				<City>
+					Reston
+				</City>
+				<State>
+					VA
+				</State>
+				<Country>
+					United States
+				</Country>
+				<Postal>
+					20192
+				</Postal>
+			</Location>
+			<Date>
+				<StartDate>
+					1879
+				</StartDate>
+			</Date>
+		</Info>
+		<History>
+			Created by an act of Congress on March 3rd 1879 to survey and classify the lands acquired in the Louisiana Purchase and the Mexican War.
+		</History>
+		<ContactInfo>
+			<Website>
+				http://www.usgs.gov/
+			</Website>
+			<Telephone>
+				1-888-275-8747
+			</Telephone>
+		</ContactInfo>
+		<External>
+			<Image title="USGS Logo">
+				http://escweb.wr.usgs.gov/share/mooney/USGS_green.jpg
+			</Image>
+			<Video title="Youtube Video">
+				https://www.youtube.com/watch?v=SI0mvM_ECvw&list=PL7BE7DF311014D017&index=76
+			</Video>
+			<Map title="Plate Techtonics">
+				http://vulcan.wr.usgs.gov/Imgs/Gif/PlateTectonics/Maps/map_plate_tectonics_world_med.gif
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/usgs
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/United_States_Geological_Survey
+			</Citation>
+		</External>
+		<Crises>
+			<Crisis cID="MS1980"/>
+			<Crisis cID="CW2009"/>
+		</Crises>
+		<People>
+		</People>
+	</Organization>
+
+	<Organization oID="RC1881">
+		<Info>
+			<Name>
+				American Red Cross
+			</Name>
+			<Kind>
+				Relief Organization
+			</Kind>
+			<Description>
+				Humanitarian Organization that provides disaster relief and education
+			</Description>
+			<Location>
+				<AddressLine>
+					2025 East St.
+				</AddressLine>
+				<City>
+					Washington DC
+				</City>
+				<Country>
+					United States
+				</Country>
+				<Postal>
+					20006
+				</Postal>
+			</Location>
+			<Date>
+				<StartDate>
+					1881
+				</StartDate>
+			</Date>
+		</Info>
+		<History>
+			Established in Washington, D.C. by Clara Barton in 1881 to bring crises relief to individuals in the U.S.
+		</History>
+		<ContactInfo>
+			<Website>
+				www.redcross.org
+			</Website>
+			<Telephone>
+				1-800-733-2767
+			</Telephone>
+		</ContactInfo>
+		<External>
+			<Image title="Red Cross Logo">
+				http://carladavisshow.com/wp-content/uploads/2012/11/red-cross1.jpg
+			</Image>
+			<Video title="Youtube Video">
+				https://www.youtube.com/watch?v=7k0D01ODDFA
+			</Video>
+			<Map title="Worldwide Red Cross Locations">
+				http://redcrosschat.org/wp-content/uploads/2011/10/sheltermap.png
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/redcross
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/American_Red_Cross
+			</Citation>
+		</External>
+		<Crises>
+		</Crises>
+		<People>
+		</People>
+	</Organization>
+
+	<Person pID="DC1966">
+		<Info>
+			<Name>
+				David Cameron
+			</Name>
+			<Kind>
+				Prime Minister
+			</Kind>
+			<Description>
+				David Cameron, born on October 9th, 1966, is the current Prime Minister of the UK.
+			</Description>
+			<Location>
+				<City>
+					London
+				</City>
+				<Country>
+					United Kingdom
+				</Country>
+			</Location>
+			<Date>
+				<StartDate>
+					1966-10-09
+				</StartDate>
+			</Date>
+		</Info>
+		<ContactInfo>
+		</ContactInfo>
+		<External>
+			<Image title="David Cameron Portrait">
+				http://upload.wikimedia.org/wikipedia/commons/2/21/David_Cameron_official.jpg
+			</Image>
+			<Video title="Youtube Video">
+				https://www.youtube.com/watch?v=V1CcBBLLiEo
+			</Video>
+			<Map title="United Kingdom">
+				http://europa.eu/about-eu/countries/images/unitedkingdom_map.gif
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/David_Cameron
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/David_Cameron
+			</Citation>
+		</External>
+		<Organizations>
+			<Organization oID="UN1945"/>
+		</Organizations>
+		<Crises>
+			<Crisis cID="BP2010"/>
+			<Crisis cID="IW2003"/>
+		</Crises>
+	</Person>
