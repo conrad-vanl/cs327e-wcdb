@@ -126,6 +126,7 @@
 			<!-- Repeat Organization up to 10 times -->
 			<Organization oID="TX0000" />
 			<Organization oID="US0000" />
+			<Organization oID="SA1865" />
 		</Organizations>
 		
 		<People>
@@ -182,6 +183,7 @@
       <Organization oID="UN1945" />
       <Organization oID="UN1993" />
       <Organization oID="PC1961" />
+      <Organization oID="SA1865" />
     </Organizations>
 
     <People>
@@ -323,6 +325,7 @@
 			<Organization oID="FE1979" />
 			<!-- USGS -->
 			<Organization oID="UG1879" />
+			<Organization oID="SA1865" />
 		</Organizations>
 
 		<People>
@@ -661,6 +664,7 @@
 		<People>
 			<!-- Barack Obama -->
 			<Person pID="BO1961" />
+			<Person pID="JC1924" />
 		</People>
 
 	</Organization>
@@ -1403,6 +1407,7 @@ Rusesabagina's efforts were the basis of the Academy Award-nominated film Hotel 
 		<Organizations>
 			<Organization oID="PC1961"/>
 			<Organization oID="UN1945"/>
+			<Organization oID="SA1865"/>
 		</Organizations>
 
 		<Crises>
