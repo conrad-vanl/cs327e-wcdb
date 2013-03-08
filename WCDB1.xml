@@ -1,0 +1,1493 @@
+<?xml version="1.0" ?>
+<WorldCrisesDatabase>
+	
+	<Crisis cID="HN2009">
+		<Info>
+			<Name>Swine Flu (H1N1)</Name>
+			<Abbreviation>H1N1</Abbreviation>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>viral-outbreak</Kind>
+			<Description>Pandemic</Description>
+			<Location>
+				<State>Veracruz</State>
+				<Country>Mexico</Country>
+				<!-- optional coordinates: lat, lon required, radius optional -->
+				<!-- TODO: determine what unit radius should be in  -->
+				<!--Coordinates lat="19.434722" lon="-96.383056" radius="500"></Coordinates-->
+			</Location>
+			<Date>
+				<StartDate>2009-04-03</StartDate>
+			</Date>
+		</Info>
+		<HumanImpact>1,632,258 infected, 19,633 killed</HumanImpact>
+		<EconomicImpact>$200000000</EconomicImpact>
+		<ResourcesNeeded>vaccines, antivirals</ResourcesNeeded>
+		<WaysToHelp>prevention, awareness</WaysToHelp>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Virus">http://upload.wikimedia.org/wikipedia/commons/f/f0/H1N1_influenza_virus.jpg</Image>
+			<Video title="Video of virus">http://www.youtube.com/watch?v=lFl3FRNpU4E</Video>
+			<Social network="Facebook">http://www.facebook.com/h1n1Influenza</Social>
+			<Link title="Wiki Page">http://en.wikipedia.org/wiki/2009_flu_pandemic</Link>
+		</External>
+		
+		<Organizations>
+			<!-- Repeat Organization up to 10 times -->
+			<Organization oID="WH1948" />
+			<Organization oID="US0000" />
+		</Organizations>
+		
+		<People>
+			<!-- Repeat Person up to 10 times -->
+			<Person pID="MC1947" />
+			<Person pID="BO1961" />
+		</People>
+		
+	</Crisis>
+	<Crisis cID="SA2009">
+		<Info>
+			<Name>Severe acute respiratory syndrome</Name>
+			<Abbreviation>SARS</Abbreviation>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>viral-outbreak</Kind>
+			<Description>Epidemic</Description>
+			<Location>
+				<State>Hong Kong</State>
+				<Country>China</Country>
+				
+				<!-- optional coordinates: lat, lon required, radius optional -->
+				<!-- TODO: determine what unit radius should be in  -->
+				<!--Coordinates lat="22.278333" lon="-114.158889" radius="500"></Coordinates-->
+			</Location>
+			<Date>
+				<StartDate>2009-06-03</StartDate>
+			</Date>
+		</Info>
+		<HumanImpact>8,273 infected, 775 killed</HumanImpact>
+		<EconomicImpact>$1650000</EconomicImpact>
+		<ResourcesNeeded>vaccines, antipyretics, supplemental oxygen and ventilation support</ResourcesNeeded>
+		<WaysToHelp>prevention, awareness</WaysToHelp>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="SARS Virus">http://upload.wikimedia.org/wikipedia/commons/6/6c/Sars-corona.png</Image>
+			<Video title="Video of virus">http://www.aljazeera.com/news/asia-pacific/2013/02/2013210153855381447.html</Video>
+			<Social network="Facebook">http://www.facebook.com/pages/SARS-outbreak/132956950074605#</Social>
+			<Link title="Wiki Page">http://en.wikipedia.org/wiki/Progress_of_the_SARS_outbreak</Link>
+		</External>
+		
+		<Organizations>
+			<!-- Repeat Organization up to 10 times -->
+			<Organization oID="WH1948" />
+			<Organization oID="CD1946" />
+		</Organizations>
+		
+		<People>
+			<!-- Repeat Person up to 10 times -->
+			<Person pID="MC1947" />
+		</People>
+		
+	</Crisis>
+	<Crisis cID="BF2011">
+		<Info>
+			<Name>Bastrop Wildfires</Name>
+			<Abbreviation></Abbreviation>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>Environmental Disaster</Kind>
+			<Description>Wildfire</Description>
+			<Location>
+				<City>Bastrop</City>
+				<State>Texas</State>
+				<Country>United States</Country>
+				
+				<!-- optional coordinates: lat, lon required, radius optional -->
+				<!-- TODO: determine what unit radius should be in  -->
+				<!--Coordinates lat="30.111944" lon="-97.316944" radius="500"></Coordinates-->
+			</Location>
+			<Date>
+				<StartDate>2011-09-03</StartDate>
+			</Date>
+		</Info>
+		<HumanImpact>1,696 homes destroyed, 2 killed</HumanImpact>
+		<EconomicImpact>$350000000</EconomicImpact>
+		<ResourcesNeeded>human labor, construction equipment, funds, firemen</ResourcesNeeded>
+		<WaysToHelp>donations, awareness</WaysToHelp>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Firemen extinguishing flames">http://upload.wikimedia.org/wikipedia/commons/8/84/Texas_National_Guard_extinguishing_flames_from_Ch-47_helicopter.jpg</Image>
+			<Video title="News Video">http://www.kxan.com/dpp/news/local/bird's-eye-view-of-bastrop-fires</Video>
+			<Social network="Facebook">http://www.facebook.com/pages/Bastrop-Fire-Information-and-Help/284897838194470</Social>
+			<Link title="Wiki Page">http://en.wikipedia.org/wiki/Bastrop_County_Complex_fire</Link>
+		</External>
+		
+		<Organizations>
+			<!-- Repeat Organization up to 10 times -->
+			<Organization oID="TX0000" />
+			<Organization oID="US0000" />
+		</Organizations>
+		
+		<People>
+			<!-- Repeat Person up to 10 times -->
+			<Person pID="RP1950" />
+			<Person pID="BO1961" />
+		</People>
+		
+	</Crisis>
+	<Crisis cID="RG1994">
+    <Info>
+      <Name>Rwanda Genocide</Name>
+      <!--<Abbreviation>OPTIONAL string</Abbreviation>-->
+      <!-- Repeat Kind element as many times as needed-->
+      <Kind>Genocide</Kind>
+      <Description>The Rwandan Genocide was a genocidal mass slaughter that took place in 1994 in the East African state of Rwanda. Over the course of approximately 100 days (from the assassination of Juvénal Habyarimana and Cyprien Ntaryamira on April 6 through mid-July) over 500,000 people were killed, according to a Human Rights Watch estimate. Estimates of the death toll have ranged from 500,000–1,000,000,[1] or as much as 20% of the country's total population. It was the culmination of longstanding ethnic competition and tensions between the minority Tutsi, who had controlled power for centuries, and the majority Hutu peoples, who had come to power in the rebellion of 1959–62.</Description>
+      <Location>
+        <!--<AddressLine>Optional string</AddressLine>
+        <AddressLine>Optional string </AddressLine>
+        <AddressLine>Optional string</AddressLine>
+        <City>OPTIONAL string</City>
+        <State>OPTIONAL string</State>-->
+        <Country>Rwanda</Country>
+        <!--<Postal>OPTIONAL string</Postal>-->
+
+        <!-- optional coordinates: lat, lon required, radius optional -->
+        <!-- use miles for radius  -->
+        <!--<Coordinates lat="36.167814" lon="-111.902618" radius="150">Grand Canyon National Park (OPTIONAL string)</Coordinates>-->
+      </Location>
+      <Date>
+        <StartDate>1994-04-06</StartDate>
+        <!--<StartTime>OPTIONAL hh:mm:ss</StartTime>-->
+        <EndDate>1994-07-01</EndDate>
+        <!--<EndTime>OPTIONAL hh:mm:s</EndTime>-->
+      </Date>
+    </Info>
+    <!--<History>Optional string</History>-->
+    <HumanImpact>500,000-1,000,000 Killed</HumanImpact>
+    <EconomicImpact>Rwanda lost 20% of population, many remaining citizens fleed to neighboring countries. Hurt Rwanda economically</EconomicImpact>
+    <ResourcesNeeded>Money, prayers, food and clothing donations</ResourcesNeeded>
+    <WaysToHelp>Money, prayers, food and clothing donations</WaysToHelp>
+    <External>
+      <!-- Repeat any External sub-element as needed-->
+      <Image title="Rwandan refugee camp in east Zaire following the genocide, 1994.">http://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Rwandan_refugee_camp_in_east_Zaire.jpg/320px-Rwandan_refugee_camp_in_east_Zaire.jpg</Image>
+      <Video title="Rwanda Genocide documentary">http://www.youtube.com/watch?v=u3DrvrrSgHI</Video>
+      <!--<Map title="Required String">VALID URL</Map>
+      <Social network="Choose: Facebook,Google+,Twitter,Other">VALID URL</Social>
+      <Link title="Required String">VALID URL</Link>-->
+      <Citation>http://en.wikipedia.org/wiki/Rwandan_Genocide</Citation>
+    </External>
+
+    <Organizations>
+      <!-- Repeat Organization up to 10 times -->
+      <Organization oID="UN1945" />
+      <Organization oID="UN1993" />
+      <Organization oID="PC1961" />
+    </Organizations>
+
+    <People>
+      <!-- Repeat Person up to 10 times -->
+      <Person pID="PR1954" />
+    </People>
+
+  </Crisis>
+
+  <Crisis cID="IW2003">
+    <Info>
+      <Name>Iraq War</Name>
+      <!--<Abbreviation>OPTIONAL string</Abbreviation>-->
+      <!-- Repeat Kind element as many times as needed-->
+      <Kind>War</Kind>
+      <Kind>Armed Conflict</Kind>
+      <Description>The Iraq War was an armed conflict in Iraq that consisted of two phases.[39] The first was an invasion of Ba'athist Iraq starting on 20 March 2003 by an invasion force led by the United States. It was followed by a longer phase of fighting, in which an insurgency emerged to oppose the occupying forces and the newly formed Iraqi government. The U.S. completed its withdrawal of military personnel in December 2011. However, the Iraqi insurgency continues and has caused thousands of fatalities in 2012.</Description>
+      <Location>
+        <!--<AddressLine>Optional string</AddressLine>
+        <AddressLine>Optional string </AddressLine>
+        <AddressLine>Optional string</AddressLine>
+        <City>OPTIONAL string</City>
+        <State>OPTIONAL string</State>-->
+        <Country>Iraq</Country>
+        <!--<Postal>OPTIONAL string</Postal>-->
+
+        <!-- optional coordinates: lat, lon required, radius optional -->
+        <!-- use miles for radius  -->
+        <!--<Coordinates lat="36.167814" lon="-111.902618" radius="150">Grand Canyon National Park (OPTIONAL string)</Coordinates>-->
+      </Location>
+      <Date>
+        <StartDate>2003-03-20</StartDate>
+        <!--<StartTime>OPTIONAL hh:mm:ss</StartTime>-->
+        <EndDate>2011-12-15</EndDate>
+        <!--<EndTime>OPTIONAL hh:mm:s</EndTime>-->
+      </Date>
+    </Info>
+    <!--<History>Optional string</History>-->
+    <HumanImpact>100,000 civilian deaths, 60,000 casualties of war</HumanImpact>
+    <EconomicImpact>cost more then $9 billion to the UK, and over $845 billion to the US, with estimated 1.9 trillion burdened on tax payers</EconomicImpact>
+    <ResourcesNeeded>supplies, troops</ResourcesNeeded>
+    <WaysToHelp>enlist, join an activist group, lobby in congress</WaysToHelp>
+    <External>
+      <!-- Repeat any External sub-element as needed-->
+      <Image title="Clockwise from top: Delta Force of Task Force 20 alongside troops of 3rd Battalion, 327th Infantry Regiment, at Uday Hussain and Qusay Hussein's hideout.; Iraqi insurgents with a flag; an Iraqi insurgent firing a MANPADS; the toppling of the Saddam Hussein statue in Firdos Square.">http://upload.wikimedia.org/wikipedia/commons/c/ca/Iraq_War_collage.png</Image>
+      <!--<Video title="Rwanda Genocide documentary">http://www.youtube.com/watch?v=u3DrvrrSgHI</Video>-->
+      <Map title="Map of the invasion routes and major operations/battles of the Iraq War as of 2007.">http://upload.wikimedia.org/wikipedia/commons/d/de/Iraq-War-Map.png</Map>
+      <!--<Social network="Choose: Facebook,Google+,Twitter,Other">VALID URL</Social>
+      <Link title="Required String">VALID URL</Link>-->
+      <Citation>http://en.wikipedia.org/wiki/Iraq_War</Citation>
+    </External>
+
+    <Organizations>
+      <!-- Repeat Organization up to 10 times -->
+
+    </Organizations>
+
+    <People>
+      <!-- Repeat Person up to 10 times -->
+      <Person pID="SH1937" />
+      <Person pID="GB1946" />
+    </People>
+
+  </Crisis>
+  <Crisis cID="MS1980">
+		<Info>
+			<Name>Mount Saint Helens Eruption</Name>
+			<Kind>Volcanic Eruption</Kind>
+			<Kind>Plinian</Kind>
+			<Description>Massive eruption spewing ash across multiple states</Description>
+			<Location>
+				<Coordinates lat="46.200278" lon="-122.186667" radius="27">Mount Saint Helens</Coordinates>
+			</Location>
+			<Date>
+				<StartDate>1980-05-18</StartDate>
+				<StartTime>08:32:00</StartTime>
+			</Date>
+		</Info>
+		<History>Series of earthquakes eventually prompted the eruption</History>
+		<HumanImpact>57 deaths</HumanImpact>
+		<EconomicImpact>$2,740,000,000</EconomicImpact>
+		<ResourcesNeeded>human labor, specialized dump sites</ResourcesNeeded>
+		<WaysToHelp>awareness of devastation</WaysToHelp>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Plume picture">http://davidnussbaum88.files.wordpress.com/2010/01/msh80_eruption_mount_st_helens_plume_07-22-80.jpg</Image>
+			<Video title="Eruption Summary">http://www.youtube.com/watch?v=xP2dreOI8gI</Video>
+			<Map title="Ash Distribution">http://en.wikipedia.org/wiki/File:1980_Mount_st_helens_ash_distribution.svg</Map>
+			<Social network="Facebook">https://www.facebook.com/MountStHelens</Social>
+			<Link title="1980 Eruption of Mount St. Helens">http://en.wikipedia.org/wiki/1980_eruption_of_Mount_St._Helens</Link>
+			<Citation>Wikipedia</Citation>
+		</External>
+
+		<Organizations>
+			<!-- FEMA -->
+			<Organization oID="FE1978" />
+			<!-- USGS -->
+			<Organization oID="US1879" />
+		</Organizations>
+
+		<People>
+			<!-- Dixy Lee Ray -->
+			<Person pID="DL1914" />
+			<!-- Jimmy Carter -->
+			<Person pID="JC1924" />
+		</People>
+	</Crisis>
+	<Crisis cID="CW2009">
+		<Info>
+			<Name>California Wildfires of 2009</Name>
+			<Kind>Wildfires</Kind>
+			<Description>The series of wildfires throughout California in 2009</Description>
+			<Location>
+				<Coordinates lat="37.387617" lon="-120.27832" radius="400">California</Coordinates>
+			</Location>
+			<Date>
+				<StartDate>2009-07-07</StartDate>
+				<EndDate>2009-10-27</EndDate>
+			</Date>
+		</Info>
+		<History>California's dry conditions allow for yearly and threatning wildfires</History>
+		<HumanImpact>2 deaths</HumanImpact>
+		<EconomicImpact>$822,177,000</EconomicImpact>
+		<ResourcesNeeded>firefighters</ResourcesNeeded>
+		<WaysToHelp>prevention, awreness</WaysToHelp>
+		<External>
+			<Image title="Pasadena Wildfire">http://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/2009_California_Wildfires_at_JPL_-_Pasadena%2C_California.jpg/1280px-2009_California_Wildfires_at_JPL_-_Pasadena%2C_California.jpg</Image>
+			<Video title="Wildfire Video">http://www.youtube.com/watch?v=ncSosDIKbb0</Video>
+			<Map title="Station Fire Area Map">http://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/StationFire4Sept.jpg/1280px-StationFire4Sept.jpg</Map>
+			<Social network="Facebook">http://www.facebook.com/pages/California-Fire-News-California-News-and-Wildland-Fire-Information/53417841526</Social>
+			<Link title="Wikipedia Entry">http://en.wikipedia.org/wiki/August_2009_California_wildfires</Link>
+			<Citation>Wikipedia</Citation>
+		</External>
+
+		<Organizations>
+			<!-- FEMA -->
+			<Organization oID="FE1978" />
+			<!-- USGS -->
+			<Organization oID="US1879" />
+		</Organizations>
+
+		<People>
+			<!-- Barack Obama -->
+			<Person pID="BO1961" />
+		</People>
+
+	</Crisis>
+	<Crisis cID="BS2009">
+	
+		<Info>
+			<Name>Black Saturday Bushfires</Name>
+			<Abbreviation>Victorian Bushfires</Abbreviation>
+			<Kind>Wildfire</Kind>
+			<Description>Bushfires ignite, burning up a lot of Victoria, Australia</Description>
+			<Location>
+				<State>Victoria</State>
+				<Country>Australia</Country>
+			</Location>
+			<Date>
+				<StartDate>2009-02-07</StartDate>
+			</Date>
+		</Info>
+	
+		<HumanImpact>173 killed, 414 injured</HumanImpact>
+		<EconomicImpact>$4.4 billion in damages</EconomicImpact>
+		<ResourcesNeeded>Human labor, construction, relief networks, firemen</ResourcesNeeded>
+		<WaysToHelp>Awareness of Devastation, donations</WaysToHelp>
+	
+		<External>
+			<Image title="Picture of bushfire">http://www.blacksaturdaybushfires.com.au/wp-content/uploads/2012/10/Black-Saturday-Bushfires.jpg</Image>
+			<Video title="Bushfire video">http://www.youtube.com/watch?v=t_mSHVxiVvo</Video>
+			<Map title="Map of the wildfires">http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Major_Victorian_bushfires_in_the_2000s.PNG/300px-Major_Victorian_bushfires_in_the_2000s.PNG</Map>
+			<Link title="Black Saturday Bushfires: Wikipedia">http://en.wikipedia.org/wiki/Black_Saturday_bushfires</Link>
+			<Citation>"Wikipedia, Youtube"</Citation>
+		</External>
+	
+		<Organizations></Organizations>
+	
+		<People>
+			<Person pID="CN1953"/>
+		</People>
+
+	</Crisis>
+
+	<Crisis cID="DS1989">
+
+		<Info>
+			<Name>Daulatpur-Saturia Tornados</Name>
+			<Kind>Tornado</Kind>
+			<Description>Horrible tornados ravage Bangladesh</Description>
+			<Location>
+				<State>Daulatpur-Saturia</State>
+				<Country>Bangladesh</Country>
+			</Location>
+			<Date>
+				<StartDate>1989-26-4</StartDate>
+			</Date>
+		</Info>
+
+		<HumanImpact>1300 killed, 12,000 injured</HumanImpact>
+		<EconomicImpact>80,000 people homeless</EconomicImpact>
+		<ResourcesNeeded>Human labor, constructuion, relief programs</ResourcesNeeded>
+		<WaysToHelp>Awareness of devastation, donations</WaysToHelp>
+
+		<External>
+			<Map title = "Map of the area hit by the tornado">http://upload.wikimedia.org/wikipedia/en/thumb/e/ef/Bangladesh_tornado_map_1989.png/240px-Bangladesh_tornado_map_1989.png</Map>
+			<Link title = "More information about the tornado">http://en.wikipedia.org/wiki/Daulatpur-Saturia_tornado</Link>
+			<Citation>Wikipedia</Citation>
+		</External>
+
+		<Organizations></Organizations>
+
+		<People></People>
+
+	
+	</Crisis>
+
+	<Crisis cID="BP2010">
+
+		<Info>
+			<Name>British Petroleum Deep Water Horizon Oil Spill</Name>
+			<Abbreviation>BP Oil Spill</Abbreviation>
+			<Kind>Oil spill</Kind>
+			<Description>Massive oil spill in the Gulf of Mexico</Description>
+			<Location>
+				<Country>United States</Country>
+			</Location>
+			<Date>
+				<StartDate>2010/20/04</StartDate>
+			</Date>
+		</Info>
+		
+		<History>Largest marine oil spill. Oil started gushing out of the floor and the hole was not capped for 87 days</History>
+		<HumanImpact>11 killed</HumanImpact>
+		<EconomicImpact>4.9 million barrels of oil lost, bad pollution</EconomicImpact>
+		<ResourcesNeeded>Labor, petroleum engineering expertise, cleaning crews</ResourcesNeeded>
+		<WaysToHelp>Donate, Volunteer to clean</WaysToHelp>
+		
+		<External>
+			<Image title="Explosion on oil rig">http://media.treehugger.com/assets/images/2011/10/burning-oil-rig-explosion-fire-photo11.jpg</Image>
+			<Video title="Oil spill video">http://www.oilspillcommission.gov/media/</Video>
+			<Map title="Map of affected area">http://3.bp.blogspot.com/_edvxM1dkFlo/TE9RbxxyTsI/AAAAAAAAAl0/r7Rs7VEqMz0/s1600/SkyTruth_cumulative_BP_spill_16jul10.jpg</Map>
+			<Social network="Twitter">https://twitter.com/noaa</Social>
+			<Link title="More information about the BP Oil Spill">http://www.oilspillcommission.gov/page/privacy-policy</Link>
+			<Citation>Wikipedia, oilspillcommission.gov</Citation>
+		</External>
+		
+		<Organizations>
+			<Organization oID="FE1979"/>
+		</Organizations>
+
+		<People>
+			<Person pID="BO1961"/>
+		</People>
+
+	</Crisis>
+
+	<!-- ALL THE OTHER CRISES -->
+	
+	<Organization oID="WH1948">
+		<Info>
+			<Name>World Health Organization</Name>
+			<Abbreviation>wWHO</Abbreviation>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>Healt Organization</Kind>
+			<Description>The World Health Organization is a specialized agency of the United Nations that is concerned with international public health</Description>
+			<Location>
+				<AddressLine>Avenue Appia 20</AddressLine>
+				<State>Geneva</State>
+				<Country>Switzerlan</Country>
+			</Location>
+			<Date>
+				<StartDate>1948-04-07</StartDate>
+			</Date>
+		</Info>
+		<History>The World Health Organization (WHO) is a specialized agency of the United Nations (UN) that is concerned with international public health. It was established on 7 April 1948, with headquarters in Geneva, Switzerland, and is a member of the United Nations Development Group. Its predecessor, the Health Organization, was an agency of the League of Nations.</History>
+		<ContactInfo>
+			<!-- all Contactinfo sub-elements occur 1 time and are optional-->
+			<Website>http://www.who.int/en/</Website>
+			<Telephone>41 22 791 21 11</Telephone>
+			<Email>publications@who.int</Email>
+		</ContactInfo>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Logo">http://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_WHO.svg</Image>
+			<Video title="Presentation">http://www.youtube.com/user/who</Video>
+			<Social network="Facebook">http://www.facebook.com/WorldHealthOrganization?fref=ts</Social>
+			<Link title="Wiki page">http://en.wikipedia.org/wiki/World_Health_Organization</Link>
+		</External>
+		
+		
+		<Crises>
+			<!-- Repeat Crisis up to 10 times -->
+			<Crisis cID="SA2009" />
+			<Crisis cID="HN2009" />
+		</Crises>	
+		
+		<People>
+			<!-- Repeat Person up to 10 times -->
+			<Person pID="MC1947" />
+		</People>
+		
+	</Organization>
+	<Organization oID="UN1993">
+    <Info>
+      <Name>United Nations Assistance Mission for Rwanda</Name>
+      <Abbreviation>UNAMIR</Abbreviation>
+      <!-- Repeat Kind element as many times as needed-->
+      <Kind>Relief Organization</Kind>
+      <Kind>Mission</Kind>
+      <Description>he United Nations Assistance Mission For Rwanda was a mission instituted by the United Nations to aid the implementation of the Arusha Accords, signed August 4, 1993, which were meant to end the Rwandan Civil War. The mission lasted from October 1993 to March 1996. Its activities were meant to aid the peace process between the Hutu-dominated Rwandese government and the Tutsi-dominated rebel Rwandan Patriotic Front (RPF).</Description>
+      <Location>
+        <!--<AddressLine>Optional string</AddressLine>
+        <AddressLine>Optional string </AddressLine>
+        <AddressLine>Optional string</AddressLine>
+        <City>OPTIONAL string</City>
+        <State>OPTIONAL string</State>-->
+        <Country>Rwnada</Country>
+        <!--<Postal>OPTIONAL string</Postal>-->
+      </Location>
+      <Date>
+        <StartDate>1993</StartDate>
+        <!--<StartTime>OPTIONAL hh:mm:ss</StartTime>-->
+        <!--EndDate>1996</EndDate-->
+        <!--<EndTime>OPTIONA hh:mm:s</EndTime>-->
+      </Date>
+    </Info>
+    <History>UNAMIR was established on 5 October 1993 by Security Council Resolution 872 (1993). Its mandate included "ensuring the security of the capital city of Kigali; monitoring the ceasefire agreement, including establishment of an expanded demilitarized zone and demobilization procedures; monitoring the security situation during the final period of the transitional Government's mandate leading up to elections; assisting with mine-clearance; and assisting in the coordination of humanitarian assistance activities in conjunction with relief operations." Its authorised strength was 2,500 personnel, but it took some five months of piecemeal commitments for the mission to reach this level.</History>
+    <ContactInfo>
+      <!-- all Contactinfo sub-elements occur 1 time and are optional-->
+      <Website>http://www.un.org/en/peacekeeping/missions/past/unamir.htm</Website>
+      <!--<Telephone>STRING</Telephone>
+      <Fax>STRING</Fax>
+      <Email>STRING</Email>-->
+    </ContactInfo>
+    <External>
+      <!-- Repeat any External sub-element as needed-->
+      <!--<Image title="Required String">VALID URL</Image>
+      <Video title="Required String">VALID URL</Video>
+      <Map title="Required String">VALID URL</Map>
+      <Social network="Choose: Facebook,Google+,Twitter,Other">VALID URL</Social>
+      <Link title="Required String">VALID URL</Link>-->
+      <Citation>http://en.wikipedia.org/wiki/UNAMIR</Citation>
+    </External>
+
+
+    <Crises>
+      <!-- Repeat Crisis up to 10 times -->
+      <Crisis cID="RG1994" />
+    </Crises> 
+
+    <People>
+      <!-- Repeat Person up to 10 times -->
+      <!-- <Person pID="PID" /> -->
+    </People>
+
+  </Organization>
+
+  <Organization oID="UN1945">
+		<Info>
+			<Name>United Nations</Name>
+			<Abbreviation>UN</Abbreviation>
+			<Kind>International</Kind>
+			<Kind>Policy Council</Kind>
+			<Kind>Multinational</Kind>
+			<Description>International platform for multinational problem solving</Description>
+			<Location>
+				<AddressLine>1st Avenue at 46th Street</AddressLine>
+				<City>New York</City>
+				<State>New York</State>
+				<Country>United States of America</Country>
+			</Location>
+			<Date>
+				<StartDate>1945-6-1945</StartDate>
+			</Date>
+		</Info>
+		<History>Designed as a replacement to the League of Nations under the goal of preventing another world war though cooperative problem solving to international problems.</History>
+		<ContactInfo>
+			<Website>http://www.un.org/en/</Website>
+		</ContactInfo>
+		<External>
+			<Image title="UN Flag">http://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_the_United_Nations.svg/1024px-Flag_of_the_United_Nations.svg.png</Image>
+			<Video title="UN Video Summary">http://www.youtube.com/watch?v=1cqw8-ongtY</Video>
+			<Map title="UN Members">http://upload.wikimedia.org/wikipedia/commons/thumb/1/13/United_Nations_Members.svg/2000px-United_Nations_Members.svg.png</Map>
+			<Social network="Facebook">https://www.facebook.com/unitednations</Social>
+			<Link title="Wikipedia UN Entry">http://en.wikipedia.org/wiki/Un</Link>
+			<Citation>Wikipedia, UN Website</Citation>
+		</External>
+
+
+		<Crises>
+			<!-- Rwanda Genocide -->
+			<Crisis cID="RG1994" />
+			<!-- Iraqi War -->
+			<Crisis cID="IW2003" />
+			<!-- SARS -->
+			<Crisis cID="SA2002" />
+			<!-- H1N1 -->
+			<Crisis cID="SF2009" />
+			<!-- BP Oil Spill -->
+			<Crisis cID="BP2010" />
+		</Crises>	
+
+		<People>
+			<!-- David Cameron -->
+			<Person pID="DC1966" />
+			<!-- Barack Obama -->
+			<Person pID="BO1961" />
+			<!-- Jimmy Carter -->
+			<Person pID="JC1924" />
+			<!-- Saddam Hussein -->
+			<Person pID="SH1937" />
+			<!-- George W. Bush -->
+			<Person pID="GW1946" />
+			<!-- Margaret Chan -->
+			<Person pID="MC1947" />
+		</People>
+
+	</Organization>
+	<Organization oID="SA1865">
+		<Info>
+			<Name>Salvation Army</Name>
+			<Kind>Charity</Kind>
+			<Kind>Military</Kind>
+			<Kind>International</Kind>
+			<Description>Quai-military charity organization</Description>
+			<Location>
+				<AddressLine>The Salvation Army National Headquarters</AddressLine>
+				<AddressLine>615 Slaters Lane</AddressLine>
+				<AddressLine>P.O. Box 269</AddressLine>
+				<City>Alexandria</City>
+				<State>Virgina</State>
+				<Country>United States of America</Country>
+				<Postal>22313</Postal>
+			</Location>
+			<Date>
+				<StartDate>1865-05-20</StartDate>
+			</Date>
+		</Info>
+		<History>Started by William and Catherine Booth as service organization modeled after military hiarchy under the notion that to be effective the organization need to have the force of an army.</History>
+		<ContactInfo>
+			<Website>www.salvationarmy.org</Website>
+		</ContactInfo>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Salvation Army Emblem">http://upload.wikimedia.org/wikipedia/en/thumb/c/c4/The_Salvation_Army.svg/2000px-The_Salvation_Army.svg.png</Image>
+			<Video title="Video History">http://www.youtube.com/watch?v=ey8n3n3MgF4</Video>
+			<Map title="Salvation Army Areas of Operation">http://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Salvation_army_world_map.PNG/640px-Salvation_army_world_map.PNG</Map>
+			<Social network="Facebook">https://www.facebook.com/SalvationArmyUSA</Social>
+			<Link title="Wikipedia Entry">http://en.wikipedia.org/wiki/Salvation_army</Link>
+			<Citation>Wikipedia</Citation>
+		</External>
+
+
+		<Crises>
+			<!-- Bastrop Fires -->
+			<Crisis cID="BF2011" />
+			<!-- Black Saturday Bushfires -->
+			<Crisis cID="BS2009" />
+			<!-- Rwanda Genocide -->
+			<Crisis cID="RG1994" />
+			<!-- California Wildfires -->
+			<Crisis cID="CW2009" />
+			<!-- Iraqi War -->
+			<Crisis cID="IW2003" />
+			<!-- BP Oil Spill -->
+			<Crisis cID="BP2010" />
+		</Crises>	
+
+		<People>
+			<!-- Barack Obama -->
+			<Person pID="BO1961" />
+		</People>
+
+	</Organization>
+
+	<Organization oID="FE1979">
+		<Info>
+			<Name>Federal Emergency Management Agency</Name>
+			<Abbreviation>FEMA</Abbreviation>
+			<Kind>Emergency Management</Kind>
+			<Description>Preperation for and response to disasters</Description>
+			<Location>
+				<AddressLine>500 C Street SW</AddressLine>
+				<City>Washington</City>
+				<State>DC</State>
+				<Country>United States</Country>
+				<Postal>20472</Postal>
+			</Location>
+			<Date>
+				<StartDate>1979-04-01</StartDate>
+			</Date>
+		</Info>
+		
+		<History>Established in 1979 to respond to disasters</History>
+		
+		<ContactInfo>
+			<Website>http://www.fema.gov/</Website>
+			<Telephone>(202)646-2500</Telephone>
+		</ContactInfo>
+		
+		<External>
+			<Image title="FEMA logo">https://si0.twimg.com/profile_images/2620163192/j143q33k69loivqmp2dg.gif</Image>
+			<Video title="FEMA video">http://www.fema.gov/medialibrary/media_records/7267</Video>
+			<Map title="FEMA's area of operation">http://www.nationsonline.org/maps/USA.jpg</Map>
+			<Social network="Twitter">https://twitter.com/fema</Social>
+			<Citation>FEMA website, Wikipedia, Twitter</Citation>
+		</External>
+
+		<Crises>
+			<Crisis cID="BP2010"/>
+		</Crises>
+
+		<People></People>
+
+	</Organization>
+<Organization oID="GG1996">
+		<Info>
+			<Name>
+				Google
+			</Name>
+			<Kind>
+				International Corporation
+			</Kind>
+			<Description>
+				Multinational Technology Services Corporation
+			</Description>
+			<Location>
+				<AddressLine>
+					1600 Amphitheatre Parkway
+				</AddressLine>
+				<City>
+					Mountain View
+				</City>
+				<State>
+					CA
+				</State>
+				<Country>
+					United States
+				</Country>
+				<Postal>
+					94043
+				</Postal>
+			</Location>
+			<Date>
+				<StartDate>
+					1996
+				</StartDate>
+			</Date>
+		</Info>
+		<History>
+			Started in 1996 initially as a research project for Larry Page and Sergey Brin to create a search engine that would rank search results by relevancy and importance that evolved into a multinational technology services corporation.
+		</History>
+		<ContactInfo>
+			<Website>
+				www.google.com
+			</Website>
+			<Telephone>
+				1-650-253-0000
+			</Telephone>
+			<Fax>
+				1-650-253-0001
+			</Fax>
+		</ContactInfo>
+		<External>
+			<Image title="Google Logo">
+				http://media.npr.org/assets/img/2012/11/26/google262way_custom-b0a89fbf1933607665ebaac4a7c08bc85e11dfe3-s6-c10.jpg
+			</Image>
+			<Video title="Youtube Video">
+				http://www.youtube.com/watch?v=2FSE3TNFkJQ&amp;feature=player_embedded
+			</Video>
+			<Social network="Twitter">
+				https://twitter.com/googledevs
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/Google
+			</Citation>
+		</External>
+		<Crises></Crises>
+		<People></People>
+	</Organization>
+
+	<Organization oID="PC1961">
+		<Info>
+			<Name>
+				Peace Corps
+			</Name>
+			<Kind>
+				Relief Organization
+			</Kind>
+			<Kind>
+				Mission
+			</Kind>
+			<Description>
+				International Aid Program, Culture Integration Organization
+			</Description>
+			<Location>
+				<City>
+					Washington DC
+				</City>
+				<Country>
+					United States
+				</Country>
+			</Location>
+			<Date>
+				<StartDate>
+					1961
+				</StartDate>
+			</Date>
+		</Info>
+		<History>
+			Established by sets of bills passed following World War II whose purpose was to help developing countries. Idea eventually developed into a volunteer organization funded by the American government.
+		</History>
+		<ContactInfo>
+			<Telephone>
+				855-855-1961
+			</Telephone>
+		</ContactInfo>
+		<External>
+			<Image title="Peace Corps Logo">
+				http://voltaicsystems.com/blog/wp-content/uploads/2011/05/Peace-Corps.jpeg
+			</Image>
+			<Video title="Youtube Video">
+				https://www.youtube.com/watch?v=kxR8XZOeV-s
+			</Video>
+			<Map title="Peace Corps Locations">
+				http://upload.wikimedia.org/wikipedia/commons/0/00/PeaceCorpsMap-currentandformer.PNG
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/peacecorps
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/Peace_Corps, peacecorps.gov
+			</Citation>
+		</External>
+		<Crises>
+			<Crisis cID="RG1994"/>
+		</Crises>
+		<People>
+			<Person pID="JC1924"/>
+			<Person pID="BO1961"/>
+		</People>
+	</Organization>
+
+	<Organization oID="CD1946">
+		<Info>
+			<Name>
+				Center for Disease Control and Prevention
+			</Name>
+			<Abbreviation>
+				CDC
+			</Abbreviation>
+			<Kind>
+				Federal Agency
+			</Kind>
+			<Kind>
+				World Health
+			</Kind>
+			<Description>
+				The CDC was established to promote research on treatment and prevention of various diseases.
+			</Description>
+			<Location>
+				<AddressLine>
+					1600 Clifton Rd.
+				</AddressLine>
+				<City>
+					Atlanta
+				</City>
+				<State>
+					GA
+				</State>
+				<Country>
+					United States
+				</Country>
+				<Postal>
+					30333
+				</Postal>
+			</Location>
+			<Date>
+				<StartDate>
+					1946
+				</StartDate>
+			</Date>
+		</Info>
+		<History>
+			Founded as the Communicable Diseases Center on July 1st 1946, created originally to deal with malaria and was originally based in Atlanta. It has evolved into a general disease research center.
+		</History>
+		<ContactInfo>
+			<Website>
+				www.cdc.gov
+			</Website>
+			<Telephone>
+				800-232-4636
+			</Telephone>
+		</ContactInfo>
+		<External>
+			<Image title="CDC Logo">
+				http://evaluation.umn.edu/wp-content/uploads/CDC-Logo.jpg
+			</Image>
+			<Video title="Youtube Video">
+				https://www.youtube.com/watch?v=yZkd-ESHvKA&amp;list=PL1BB7628180AA0452&amp;index=1
+			</Video>
+			<Map title="CDC Headquarters">
+				http://imazinebrand.com/shop/files/2010/06/cdc_map.jpg
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/CDCgov
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/Centers_for_Disease_Control_and_Prevention
+			</Citation>
+		</External>
+		<Crises>
+			<Crisis cID="HN2009"/>
+			<Crisis cID="SR2002"/>
+		</Crises>
+		<People>
+		</People>
+	</Organization>
+
+	<Organization oID="UG1879">
+		<Info>
+			<Name>
+				United States Geological Survey
+			</Name>
+			<Abbreviation>
+				USGS
+			</Abbreviation>
+			<Kind>
+				Federal Agency
+			</Kind>
+			<Kind>
+				Geographic Research
+			</Kind>
+			<Description>
+				Geographic surveying and research agency
+			</Description>
+			<Location>
+				<AddressLine>
+					12201 Sunrise Valley Dr.
+				</AddressLine>
+				<City>
+					Reston
+				</City>
+				<State>
+					VA
+				</State>
+				<Country>
+					United States
+				</Country>
+				<Postal>
+					20192
+				</Postal>
+			</Location>
+			<Date>
+				<StartDate>
+					1879
+				</StartDate>
+			</Date>
+		</Info>
+		<History>
+			Created by an act of Congress on March 3rd 1879 to survey and classify the lands acquired in the Louisiana Purchase and the Mexican War.
+		</History>
+		<ContactInfo>
+			<Website>
+				http://www.usgs.gov/
+			</Website>
+			<Telephone>
+				1-888-275-8747
+			</Telephone>
+		</ContactInfo>
+		<External>
+			<Image title="USGS Logo">
+				http://escweb.wr.usgs.gov/share/mooney/USGS_green.jpg
+			</Image>
+			<Video title="Youtube Video">
+				https://www.youtube.com/watch?v=SI0mvM_ECvw&amp;list=PL7BE7DF311014D017&amp;index=76
+			</Video>
+			<Map title="Plate Techtonics">
+				http://vulcan.wr.usgs.gov/Imgs/Gif/PlateTectonics/Maps/map_plate_tectonics_world_med.gif
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/usgs
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/United_States_Geological_Survey
+			</Citation>
+		</External>
+		<Crises>
+			<Crisis cID="MS1980"/>
+			<Crisis cID="CW2009"/>
+		</Crises>
+		<People>
+		</People>
+	</Organization>
+
+	<Organization oID="RC1881">
+		<Info>
+			<Name>
+				American Red Cross
+			</Name>
+			<Kind>
+				Relief Organization
+			</Kind>
+			<Description>
+				Humanitarian Organization that provides disaster relief and education
+			</Description>
+			<Location>
+				<AddressLine>
+					2025 East St.
+				</AddressLine>
+				<City>
+					Washington DC
+				</City>
+				<Country>
+					United States
+				</Country>
+				<Postal>
+					20006
+				</Postal>
+			</Location>
+			<Date>
+				<StartDate>
+					1881
+				</StartDate>
+			</Date>
+		</Info>
+		<History>
+			Established in Washington, D.C. by Clara Barton in 1881 to bring crises relief to individuals in the U.S.
+		</History>
+		<ContactInfo>
+			<Website>
+				www.redcross.org
+			</Website>
+			<Telephone>
+				1-800-733-2767
+			</Telephone>
+		</ContactInfo>
+		<External>
+			<Image title="Red Cross Logo">
+				http://carladavisshow.com/wp-content/uploads/2012/11/red-cross1.jpg
+			</Image>
+			<Video title="Youtube Video">
+				https://www.youtube.com/watch?v=7k0D01ODDFA
+			</Video>
+			<Map title="Worldwide Red Cross Locations">
+				http://redcrosschat.org/wp-content/uploads/2011/10/sheltermap.png
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/redcross
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/American_Red_Cross
+			</Citation>
+		</External>
+		<Crises>
+		</Crises>
+		<People>
+		</People>
+	</Organization>
+	<!-- ALL  THE OTHER ORGANIZATIONS-->
+	
+	<Person pID="MC1947">
+		<Info>
+			<Name>Margaret Chan</Name>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>Doctor</Kind>
+			<Description>Director of WHO</Description>
+			<Location>
+				<State>Hong Kong</State>
+				<Country>China</Country>
+			</Location>
+			<Date>
+				<StartDate>REQUIRED 1947-01-01</StartDate>
+			</Date>
+		</Info>
+		<History> Margaret Chan Fung Fu-chun, OBE, JP (born 1947 in Hong Kong) is the Director-General of the World Health Organization (WHO). Chan was elected by the Executive Board of WHO on 8 November 2006, and was endorsed in a special meeting of the World Health Assembly on the following day. Chan has previously served as Director of Health in the Hong Kong Government (1994-2003), representative of the WHO Director-General for Pandemic Influenza and WHO Assistant Director-General for Communicable Diseases (2003-2006).</History>
+		<ContactInfo>
+			<!-- all Contactinfo sub-elements occur 1 time and are optional-->
+			<Website>http://en.wikipedia.org/wiki/Margaret_chan</Website>
+			<Telephone>41 22 791 21 11</Telephone>
+		</ContactInfo>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Picture">http://upload.wikimedia.org/wikipedia/commons/3/3c/Margaret_Chan_-_World_Economic_Forum_Annual_Meeting_2011_crop.jpg</Image>
+			<Video title="Conference Video">http://www.youtube.com/watch?v=Aah9e4FA--k</Video>
+			<Social network="Facebook">http://www.facebook.com/pages/Dr-Margaret-Chan/88513510368</Social>
+		</External>
+
+		<Organizations>
+			<!-- Repeat Organization up to 10 times -->
+			<Organization oID="WH1948" />
+		</Organizations>
+		
+		<Crises>
+			<!-- Repeat Crisis up to 10 times -->
+			<Crisis cID="SA2009" />
+			<Crisis cID="HN2009" />
+		</Crises>
+	</Person>
+	<Person pID="RP1950">
+		<Info>
+			<Name>James Richard Perry</Name>
+			<!-- Repeat Kind element as many times as needed-->
+			<Kind>Polititian</Kind>
+			<Description>Governor of Texas</Description>
+			<Location>
+				<City>Austin</City>
+				<State>Texas</State>
+				<Country>China</Country>
+			</Location>
+			<Date>
+				<StartDate>1950-03-04</StartDate>
+			</Date>
+		</Info>
+		<History>James Richard "Rick" Perry (born March 4, 1950) is the 47th and current Governor of Texas. Perry, a Republican, was elected Lieutenant Governor of Texas in 1998 and assumed the governorship in December 2000 when then-governor George W. Bush resigned to become President of the United States. Perry was elected to full gubernatorial terms in 2002, 2006 and 2010 and is the fourth Texas governor since Allan Shivers, Price Daniel, and John Connally to serve three terms. With a tenure in office to date of 12 years, 74 days, Perry is the second longest serving current U.S. governor—after Terry Branstad of Iowa. Perry served as Chairman of the Republican Governors Association in 2008 (succeeding Sonny Perdue of Georgia) and again in 2011.[2] Perry is the longest serving governor in Texas state history. As a result, he is the only governor in modern Texas history to have appointed at least one person to every eligible state office, board, or commission position (as well as to several elected offices to which the governor can appoint someone to fill an unexpired term, such as six of the nine current members of the Texas Supreme Court).</History>
+		<ContactInfo>
+			<!-- all Contactinfo sub-elements occur 1 time and are optional-->
+			<Website>http://en.wikipedia.org/wiki/Rick_Perry</Website>
+		</ContactInfo>
+		<External>
+			<!-- Repeat any External sub-element as needed-->
+			<Image title="Picture">http://upload.wikimedia.org/wikipedia/commons/c/ce/Rick_Perry_by_Gage_Skidmore_8.jpg</Image>
+			<Video title="Conference Video">http://www.youtube.com/user/govperry</Video>
+			<Social network="Facebook">http://www.facebook.com/GovernorPerry</Social>
+		</External>
+
+		<Organizations>
+			<!-- Repeat Organization up to 10 times -->
+			<Organization oID="TX0000" />
+		</Organizations>
+		
+		<Crises>
+			<!-- Repeat Crisis up to 10 times -->
+			<Crisis cID="BF2011" />
+		</Crises>
+	</Person>
+
+	<Person pID="PR1954">
+    <Info>
+      <Name>Paul Rusesabagina</Name>
+
+      <!-- Repeat Kind element as many times as needed-->
+      <Kind>Humanitarian</Kind>
+      <Kind>Rwandan hotel manager</Kind>
+      <Kind>Life-saver</Kind>
+      <Description>Paul Rusesabagina (who was born 15 June 1954) is a Rwandan hotel manager and humanitarian known for hiding and protecting 1,268 refugees during the Rwandan Genocide. None of those refugees were hurt or killed during the attacks. He was the assistant manager of the Sabena-owned Hôtel des Mille Collines before he became the manager of the Hôtel des Diplomates, both in Rwanda's capital of Kigali. During the genocide he used his influence and connections as temporary manager of the Hôtel des Mille Collines to shelter Tutsis from being slaughtered by the interahamwe militia.
+
+Rusesabagina's efforts were the basis of the Academy Award-nominated film Hotel Rwanda (2004). He currently lives in Brussels, Belgium with his wife, four children, and two adopted nieces.</Description>
+      <Location>
+        <!--<AddressLine>Optional string</AddressLine>
+        <AddressLine>Optional string </AddressLine>
+        <AddressLine>Optional string</AddressLine>-->
+        <City>Brussels</City>
+        <!--<State>OPTIONAL string</State>-->
+        <Country>Belgium</Country>
+        <!--<Postal>OPTIONAL string</Postal>-->
+      </Location>
+      <Date>
+        <StartDate>1954-06-15</StartDate>
+        <!--<StartTime>OPTIONAL hh:mm:ss</StartTime>
+        <EndDate>OPTIONAL YYYY-MM-DD</EndDate>
+        <EndTime>OPTIONA hh:mm:s</EndTime>-->
+      </Date>
+    </Info>
+    <!--<History>Optional string</History>-->
+    <ContactInfo>
+      <!-- all Contactinfo sub-elements occur 1 time and are optional-->
+      <!--<Website>VAILD URL</Website>
+      <Telephone>STRING</Telephone>
+      <Fax>STRING</Fax>
+      <Email>STRING</Email>-->
+    </ContactInfo>
+    <External>
+      <!-- Repeat any External sub-element as needed-->
+      <Image title="Paul sits next to actor on set of critically-acclaimed film of his story, Hotel Rwanda (2004)">http://therisingcontinent.files.wordpress.com/2013/01/paul-rusesabagina-and-don-cheadle.jpg</Image>
+      <!--<Video title="Required String">VALID URL</Video>
+      <Map title="Required String">VALID URL</Map>-->
+      <Social network="Facebook">https://www.facebook.com/pages/Paul-Rusesabagina/</Social>
+      <!--<Link title="Required String">VALID URL</Link>-->
+      <Citation>http://en.wikipedia.org/wiki/Paul_Rusesabagina</Citation>
+    </External>
+
+    <Organizations>
+      <!-- Repeat Organization up to 10 times -->
+      <!--<Organization oID="OID" />-->
+    </Organizations>
+
+    <Crises>
+      <!-- Repeat Crisis up to 10 times -->
+      <Crisis cID="RG1993" />
+    </Crises> 
+
+  </Person>
+
+  <Person pID="SH1979">
+    <Info>
+      <Name>Saddam Hussein</Name>
+
+      <!-- Repeat Kind element as many times as needed-->
+      <Kind>President</Kind>
+      <Description>Saddam Hussein Abd al-Majid al-Tikriti (Arabic: صدام حسين عبد المجيد التكريتي Ṣaddām Ḥusayn ʿAbd al-Maǧīd al-Tikrītī; 28 April 1937 – 30 December 2006) was the fifth President of Iraq, serving in this capacity from 16 July 1979 until 9 April 2003.[4][5] A leading member of the revolutionary Arab Socialist Ba'ath Party, and later, the Baghdad-based Ba'ath Party and its regional organisation Ba'ath Party – Iraq Region--which espoused ba'athism, a mix of Arab nationalism and Arab socialism--Saddam played a key role in the 1968 coup (later referred to as the 17 July Revolution) that brought the party to power in Iraq.</Description>
+      <Location>
+        <!--<AddressLine>Optional string</AddressLine>
+        <AddressLine>Optional string </AddressLine>
+        <AddressLine>Optional string</AddressLine>-->
+        <!--<City>Brussels</City>-->
+        <!--<State>OPTIONAL string</State>-->
+        <Country>Iraq</Country>
+        <!--<Postal>OPTIONAL string</Postal>-->
+      </Location>
+      <Date>
+        <StartDate>1937-04-28</StartDate>
+        <!--<StartTime>OPTIONAL hh:mm:ss</StartTime>-->
+        <EndDate>2006-12-30</EndDate>
+        <!--<EndTime>OPTIONA hh:mm:s</EndTime>-->
+      </Date>
+    </Info>
+    <!--<History>Optional string</History>-->
+    <ContactInfo>
+      <!-- all Contactinfo sub-elements occur 1 time and are optional-->
+      <!--<Website>VAILD URL</Website>
+      <Telephone>STRING</Telephone>
+      <Fax>STRING</Fax>
+      <Email>STRING</Email>-->
+    </ContactInfo>
+    <External>
+      <!-- Repeat any External sub-element as needed-->
+      <Image title="Saddam Hussein in front of the Iraqi Flag">http://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Iraq%2C_Saddam_Hussein_%28222%29.jpg/220px-Iraq%2C_Saddam_Hussein_%28222%29.jpg</Image>
+      <!--<Video title="Required String">VALID URL</Video>
+      <Map title="Required String">VALID URL</Map>-->
+      <Social network="Facebook">https://www.facebook.com/pages/Sadam-Hussein/115081791840340?sid=0.461138435639441&amp;rf=103999546303926</Social>
+      <!--<Link title="Required String">VALID URL</Link>-->
+      <Citation>http://en.wikipedia.org/wiki/Saddam_Hussein</Citation>
+    </External>
+
+    <Organizations>
+      <!-- Repeat Organization up to 10 times -->
+      <!--<Organization oID="OID" />-->
+    </Organizations>
+
+    <Crises>
+      <!-- Repeat Crisis up to 10 times -->
+      <Crisis cID="IW2003" />
+    </Crises> 
+
+  </Person>
+
+  <Person pID="GB1946">
+    <Info>
+      <Name>George W. Bush Jr.</Name>
+
+      <!-- Repeat Kind element as many times as needed-->
+      <Kind>President</Kind>
+      <Description>George Walker Bush (born July 6, 1946) is an American politician and businessman who was the 43rd President of the United States from 2001 to 2009 and the 46th Governor of Texas from 1995 to 2000. The eldest son of Barbara and George H. W. Bush, he was born in New Haven, Connecticut. After graduating from Yale University in 1968 and Harvard Business School in 1975, Bush worked in oil businesses. He married Laura Welch in 1977 and ran unsuccessfully for the House of Representatives shortly thereafter. He later co-owned the Texas Rangers baseball team before defeating Ann Richards in the 1994 Texas gubernatorial election. Bush was elected president in 2000 after a close and controversial election, becoming the fourth president to be elected while receiving fewer popular votes nationwide than his opponent. Bush is the second president to have been the son of a former president, the first being John Quincy Adams. He is also the brother of Jeb Bush, former Governor of Florida.</Description>
+      <Location>
+        <!--<AddressLine>Optional string</AddressLine>
+        <AddressLine>Optional string </AddressLine>
+        <AddressLine>Optional string</AddressLine>-->
+        <City>Dallas</City>
+        <State>Texas</State>
+        <Country>United States</Country>
+        <!--<Postal>OPTIONAL string</Postal>-->
+      </Location>
+      <Date>
+        <StartDate>1937-04-28</StartDate>
+        <!--<StartTime>OPTIONAL hh:mm:ss</StartTime>-->
+        <EndDate>2006-12-30</EndDate>
+        <!--<EndTime>OPTIONA hh:mm:s</EndTime>-->
+      </Date>
+    </Info>
+    <!--<History>Optional string</History>-->
+    <ContactInfo>
+      <!-- all Contactinfo sub-elements occur 1 time and are optional-->
+      <!--<Website>VAILD URL</Website>
+      <Telephone>STRING</Telephone>
+      <Fax>STRING</Fax>
+      <Email>STRING</Email>-->
+    </ContactInfo>
+    <External>
+      <!-- Repeat any External sub-element as needed-->
+      <Image title="Presidential Portrait">http://upload.wikimedia.org/wikipedia/commons/d/d4/George-W-Bush.jpeg</Image>
+      <!--<Video title="Required String">VALID URL</Video>
+      <Map title="Required String">VALID URL</Map>-->
+      <Social network="Facebook">https://www.facebook.com/georgewbush?sid=0.8331221432890743</Social>
+      <!--<Link title="Required String">VALID URL</Link>-->
+      <Citation>http://en.wikipedia.org/wiki/George_W._Bush</Citation>
+    </External>
+
+    <Organizations>
+      <!-- Repeat Organization up to 10 times -->
+      <!--<Organization oID="OID" />-->
+    </Organizations>
+
+    <Crises>
+      <!-- Repeat Crisis up to 10 times -->
+      <Crisis cID="IW2003" />
+    </Crises> 
+
+  </Person>
+
+  <Person pID="DL1914">
+		<Info>
+			<Name>Dixy Lee Ray</Name>
+			<Kind>Governor</Kind>
+			<Description>Governor of Washington</Description>
+			<Location>
+				<State>Washington</State>
+				<Country>United States of America</Country>
+			</Location>
+			<Date>
+				<StartDate>1914-09-03</StartDate>
+				<EndDate>1994-09-03</EndDate>
+			</Date>
+		</Info>
+		<ContactInfo>
+			<Website>http://en.wikipedia.org/wiki/Dixy_Lee_Ray</Website>
+		</ContactInfo>
+		<External>
+			<Image title="Dixy Ray Portrait Shot">http://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Dixy_Lee_Ray.jpg/341px-Dixy_Lee_Ray.jpg</Image>
+			<Video title="Video of Dixy Ray">http://www.youtube.com/watch?v=BT56juVplT0</Video>
+			<Map title="Picture of Washington">http://www.lib.utexas.edu/maps/united_states/washington_90.jpg</Map>
+			<Social network="Facebook">http://www.facebook.com/pages/Dixie-Lee-Ray/114927621855969?rf=112037578826926</Social>
+			<Link title="Wikipedia Entry">http://en.wikipedia.org/wiki/Dixy_Lee_Ray</Link>
+			<Citation>Wikipedia</Citation>
+		</External>
+		<Organizations>
+			<!-- WA Government -->
+			<Organization oID="WS1889" />
+		</Organizations>
+		<Crises>
+			<!-- Mt. St. Helens -->
+			<Crisis cID="MS1980" />
+		</Crises>	
+
+	</Person>
+	<Person pID="JC1924">
+		<Info>
+			<Name>Jimmy Carter</Name>
+			<Kind>President</Kind>
+			<Description>39th President of the United States of America</Description>
+			<Location>
+				<City>Washington DC</City>
+				<Country>United States of America</Country>
+			</Location>
+			<Date>
+				<StartDate>1924-10-01</StartDate>
+			</Date>
+		</Info>
+		<ContactInfo>
+			<!-- all Contactinfo sub-elements occur 1 time and are optional-->
+			<Website>http://www.jimmycarterlibrary.gov/</Website>
+		</ContactInfo>
+		<External>
+			<Image title="Portrait">http://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/JimmyCarterPortrait2.jpg/833px-JimmyCarterPortrait2.jpg</Image>
+			<Video title="Video Bio">http://www.youtube.com/watch?v=Lcr89vg9Fpg</Video>
+			<Map title="Map of USA">http://www.nationsonline.org/maps/USA.jpg</Map>
+			<Social network="Facebook">https://www.facebook.com/CarterPresidentialLibrary</Social>
+			<Link title="Wikipedia Entry">http://en.wikipedia.org/wiki/Jimmy_carter</Link>
+			<Citation>Wikipedia</Citation>
+		</External>
+		<Organizations>
+			<!-- United Nations -->
+			<Organization oID="UN1945" />
+			<!-- Salvation Army -->
+			<Organization oID="SA1865" />
+			<!-- Peace Corps -->
+			<Organization oID="PC1961" />
+		</Organizations>
+
+		<Crises>
+			<!-- Mt. St. Helens Eruption -->
+			<Crisis cID="MS1980" />
+		</Crises>	
+	</Person>
+
+	<Person pID="BO1961">
+		<Info>
+			<Name>Barack Obama</Name>
+			<Kind></Kind>
+			<Description>US President</Description>
+			<Location>
+				<AddressLine>1600 Pennsylvania Ave NW</AddressLine>
+				<City>Washington</City>
+				<State>DC</State>
+				<Country>United States</Country>
+				<Postal>20500</Postal>
+			</Location>
+			<Date>
+				<StartDate>1961-08-04</StartDate>
+			</Date>
+		</Info>
+
+		<History>Elected president of the United states in 2004</History>
+		
+		<ContactInfo>
+			<Website>www.barackobama.com/</Website>
+		</ContactInfo>
+		
+		<External>
+			<Image title="Picture of Barack Obama">http://upload.wikimedia.org/wikipedia/commons/0/01/Poster-sized_portrait_of_Barack_Obama_OrigRes.jpg</Image>
+			<Video title="Video of Barack Obama">http://www.youtube.com/watch?v=aOL7wzEIZSc</Video>
+			<Map title="Obama's country of origin">http://www.nationsonline.org/maps/USA.jpg</Map>
+			<Social network="Twitter">https://twitter.com/BarackObama</Social>
+			<Link title="Barack Obama's Wikipedia page">http://en.wikipedia.org/wiki/Barack_Obama</Link>
+			<Citation>Wikipedia, Twitter, Youtube</Citation>
+		</External>
+
+		<Organizations>
+			<Organization oID="PC1961"/>
+		</Organizations>
+
+		<Crises>
+			<Crisis cID="BP2010"/>
+		</Crises>
+
+	</Person>
+
+	<Person pID="CN1953">
+		<Info>
+			<Name>Christine Nixon</Name>
+			<Kind></Kind>
+			<Description>Chief Commissioner of Victoria Police</Description>
+			<Location>
+				<State>Victoria</State>
+				<Country>Australia</Country>
+			</Location>
+			<Date>
+				<StartDate>1961/06/11</StartDate>
+			</Date>
+		</Info>
+
+		<History>Chief Commissioner of Victoria Police later appointed chair of the Victorian Bushfire Reconstruction and Recovery Authority</History>
+		
+		<ContactInfo/>
+		
+		<External>
+			<Image title="Picture of Christine Nixon">http://en.wikipedia.org/wiki/File:Christine_Nixon_March_2012.jpg</Image>
+			<Video title="Christine Nixon Speech">http://www.youtube.com/watch?v=YP02mRea_so</Video>
+			<Map title="Map of Christine Nixon's home state">http://www.map-of-australia.co.uk/maps/victoria.gif</Map>
+			<Social network="Facebook">https://www.facebook.com/pages/Christine-Nixon/116116688436492</Social>
+			<Link title="Christine Nixon's Wikipedia page">http://en.wikipedia.org/wiki/Christine_Nixon</Link>
+			<Citation>Wikipedia, Facebook, Youtube</Citation>
+		</External>
+		
+		<Organizations></Organizations>
+		
+		<Crises>
+			<Crisis cID="BS2009"/>
+		</Crises>
+
+
+	</Person>
+
+
+	<Person pID="DC1966">
+		<Info>
+			<Name>
+				David Cameron
+			</Name>
+			<Kind>
+				Prime Minister
+			</Kind>
+			<Description>
+				David Cameron, born on October 9th, 1966, is the current Prime Minister of the UK.
+			</Description>
+			<Location>
+				<City>
+					London
+				</City>
+				<Country>
+					United Kingdom
+				</Country>
+			</Location>
+			<Date>
+				<StartDate>
+					1966-10-09
+				</StartDate>
+			</Date>
+		</Info>
+		<ContactInfo>
+		</ContactInfo>
+		<External>
+			<Image title="David Cameron Portrait">
+				http://upload.wikimedia.org/wikipedia/commons/2/21/David_Cameron_official.jpg
+			</Image>
+			<Video title="Youtube Video">
+				https://www.youtube.com/watch?v=V1CcBBLLiEo
+			</Video>
+			<Map title="United Kingdom">
+				http://europa.eu/about-eu/countries/images/unitedkingdom_map.gif
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/David_Cameron
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/David_Cameron
+			</Citation>
+		</External>
+		<Organizations>
+			<Organization oID="UN1945"/>
+		</Organizations>
+		<Crises>
+			<Crisis cID="BP2010"/>
+			<Crisis cID="IW2003"/>
+		</Crises>
+	</Person>
+
+	<!-- ALL  THE OTHER PEOPLE -->
+
+
+</WorldCrisesDatabase>
