@@ -51,8 +51,11 @@
 				http://media.npr.org/assets/img/2012/11/26/google262way_custom-b0a89fbf1933607665ebaac4a7c08bc85e11dfe3-s6-c10.jpg
 			</Image>
 			<Video title="Youtube Video">
-				http://www.youtube.com/watch?v=2FSE3TNFkJQ&amp;feature=player_embedded
+				http://www.youtube.com/watch?v=2FSE3TNFkJQ&feature=player_embedded
 			</Video>
+			<Map title="Map of Google Headquarters">
+				https://maps.google.com/maps?hl=en&sugexp=les%3B&gs_rn=5&gs_ri=psy-ab&tok=nyfd2p-eW6QBXPuXQmf0mQ&cp=11&gs_id=au&xhr=t&q=google+headquarters&biw=1600&bih=770&bav=on.2,or.r_gc.r_pw.r_cp.r_qf.&bvm=bv.43148975,d.b2U&um=1&ie=UTF-8&sa=N&tab=wl
+			</Map>
 			<Social network="Twitter">
 				https://twitter.com/googledevs
 			</Social>
@@ -95,11 +98,11 @@
 		<History>
 			Established by sets of bills passed following World War II whose purpose was to help developing countries. Idea eventually developed into a volunteer organization funded by the American government.
 		</History>
-		<ContactInfo>
+		<Contact Info>
 			<Telephone>
 				855-855-1961
 			</Telephone>
-		</ContactInfo>
+		</Contact Info>
 		<External>
 			<Image title="Peace Corps Logo">
 				http://voltaicsystems.com/blog/wp-content/uploads/2011/05/Peace-Corps.jpeg
@@ -182,7 +185,7 @@
 				http://evaluation.umn.edu/wp-content/uploads/CDC-Logo.jpg
 			</Image>
 			<Video title="Youtube Video">
-				https://www.youtube.com/watch?v=yZkd-ESHvKA&amp;list=PL1BB7628180AA0452&amp;index=1
+				https://www.youtube.com/watch?v=yZkd-ESHvKA&list=PL1BB7628180AA0452&index=1
 			</Video>
 			<Map title="CDC Headquarters">
 				http://imazinebrand.com/shop/files/2010/06/cdc_map.jpg
@@ -196,7 +199,7 @@
 		</External>
 		<Crises>
 			<Crisis cID="HN2009"/>
-			<Crisis cID="SA2009"/>
+			<Crisis cID="SR2002"/>
 		</Crises>
 		<People>
 		</People>
@@ -258,7 +261,7 @@
 				http://escweb.wr.usgs.gov/share/mooney/USGS_green.jpg
 			</Image>
 			<Video title="Youtube Video">
-				https://www.youtube.com/watch?v=SI0mvM_ECvw&amp;list=PL7BE7DF311014D017&amp;index=76
+				https://www.youtube.com/watch?v=SI0mvM_ECvw&list=PL7BE7DF311014D017&index=76
 			</Video>
 			<Map title="Plate Techtonics">
 				http://vulcan.wr.usgs.gov/Imgs/Gif/PlateTectonics/Maps/map_plate_tectonics_world_med.gif
@@ -342,3 +345,56 @@
 		<People>
 		</People>
 	</Organization>
+
+	<Person pID="DC1966">
+		<Info>
+			<Name>
+				David Cameron
+			</Name>
+			<Kind>
+				Prime Minister
+			</Kind>
+			<Description>
+				David Cameron, born on October 9th, 1966, is the current Prime Minister of the UK.
+			</Description>
+			<Location>
+				<City>
+					London
+				</City>
+				<Country>
+					United Kingdom
+				</Country>
+			</Location>
+			<Date>
+				<StartDate>
+					1966-10-09
+				</StartDate>
+			</Date>
+		</Info>
+		<ContactInfo>
+		</ContactInfo>
+		<External>
+			<Image title="David Cameron Portrait">
+				http://upload.wikimedia.org/wikipedia/commons/2/21/David_Cameron_official.jpg
+			</Image>
+			<Video title="Youtube Video">
+				https://www.youtube.com/watch?v=V1CcBBLLiEo
+			</Video>
+			<Map title="United Kingdom">
+				http://europa.eu/about-eu/countries/images/unitedkingdom_map.gif
+			</Map>
+			<Social network="Twitter">
+				https://twitter.com/David_Cameron
+			</Social>
+			<Citation>
+				http://en.wikipedia.org/wiki/David_Cameron
+			</Citation>
+		</External>
+		<Organizations>
+			<Organization oID="UN1945"/>
+		</Organizations>
+		<Crises>
+			<Crisis cID="BP2010"/>
+			<Crisis cID="IW2003"/>
+		</Crises>
+	</Person>
