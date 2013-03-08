@@ -241,6 +241,7 @@
       <!-- Repeat Person up to 10 times -->
       <Person pID="SH1937" />
       <Person pID="GB1946" />
+      <Person pID="DC1966" />
     </People>
 
   </Crisis>
