@@ -692,6 +692,8 @@
 
 		<Crises>
 			<Crisis cID="BP2010"/>
+			<Crisis cID="MS1980"/>
+			<Crisis cID="CW2009"/>
 		</Crises>
 
 		<People></People>
