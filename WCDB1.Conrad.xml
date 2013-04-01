@@ -24,7 +24,7 @@
       <Date>
         <StartDate>1994-04-06</StartDate>
         <!--<StartTime>OPTIONAL hh:mm:ss</StartTime>-->
-        <EndDate>1994-07</EndDate>
+        <EndDate>1994-07-01</EndDate>
         <!--<EndTime>OPTIONAL hh:mm:s</EndTime>-->
       </Date>
     </Info>
@@ -135,7 +135,7 @@
       <Date>
         <StartDate>1993</StartDate>
         <!--<StartTime>OPTIONAL hh:mm:ss</StartTime>-->
-        <EndDate>1996</EndDate>
+        <!--EndDate>1996</EndDate-->
         <!--<EndTime>OPTIONA hh:mm:s</EndTime>-->
       </Date>
     </Info>
