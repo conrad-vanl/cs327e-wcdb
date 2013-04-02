@@ -1,25 +1,27 @@
 import xml.etree.ElementTree as ET
 import os.path
+import _mysql
 
 # "Global" vars
-MYSQL_CONNECT = 
-{ 
-  host   : "external-db.s6813.gridserver.com", #"z",
-  user   : "db6813_cs327e", #"<username>",
-  passwd : "grouppassword", #"<password>",
-  db     : "db6813_cs327e" #"downing_test"
+MYSQL_CONNECT = { 
+  "host"   : "external-db.s6813.gridserver.com", #"z",
+  "user"   : "db6813_cs327e", #"<username>",
+  "passwd" : "grouppassword", #"<password>",
+  "db"     : "db6813_cs327e" #"downing_test"
 }
 
 # WCDB Wrapper class
 class WCDB:
 
-  """General I/O Factory. This is where all the magic happens"""
   class Factory:
+    """General I/O Factory. This is where all the magic will happen eventually"""
+
     def __init__(self):
       # nothing for now
+      return None
 
-  """XML i/o utility"""
   class XML:
+    """XML i/o utility"""
 
     def __init__(self, element):
       """Creates an WCDB:XML object. Argument must be an xml.etree.Element!"""
@@ -50,5 +52,17 @@ class WCDB:
       f.write(self.__str__())
 
 
-  """MySQL i/o utility and tools"""
   class MySQL:
+    """MySQL i/o utility and tools"""
+
+    def login(self, **connection):
+      """Logs in to MySQL Database."""
+
+      # assert that the connection hash has all required elements
+      assert( all(key in connection for key in ("host", "user", "passwd", "db")) )
+        
+      _c = _mysql.connect(**connection)
+      assert isinstance(_c, _mysql.connect)
+
+      self._c = _c
+      return _c
