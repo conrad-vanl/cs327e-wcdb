@@ -83,15 +83,15 @@ SCHEMAS = {
     organization_id                       VARCHAR(30) NOT NULL,
     organizationKind_id                   VARCHAR(30) NOT NULL,
     name                                  TEXT NOT NULL,
-    history                               TEXT NOT NULL,
-    contactInfoTelephone                  TEXT,
-    contactInfoFax                        TEXT,
-    contactInfoEmail                      TEXT,
-    contactInfoPostalAddressStreetAddress TEXT,
-    contactInfoPostalAddressLocality      TEXT,
-    contactInfoPostalAddressRegion        TEXT,
-    contactInfoPostalAddressPostalCode    TEXT,
-    contactInfoPostalAddressCountry       TEXT
+    history                               TEXT,
+    telephone                  TEXT,
+    fax                        TEXT,
+    email                      TEXT,
+    streetAddress              TEXT,
+    locality            TEXT,
+    region              TEXT,
+    postalCode          TEXT,
+    country             TEXT
     """,
   "OrganizationKinds":
     """
@@ -142,10 +142,11 @@ def main():
   global DEFAULT_MAPPINGS
   DEFAULT_MAPPINGS = {
     "Person": [
-      ("Name.FirstName", "firstName", Serializers.Text),
-      ("Name.LastName", "lastName", Serializers.Text),
-      ("Name.MiddleName", "middleName", Serializers.Text),
-      ("Name.Suffix", "suffix", Serializers.Text),
+      ("Person", ("personIdent", "person_id"), Serializers.Attribute ),
+      ("Name/FirstName", "firstName", Serializers.Text),
+      ("Name/LastName", "lastName", Serializers.Text),
+      ("Name/MiddleName", "middleName", Serializers.Text),
+      ("Name/Suffix", "suffix", Serializers.Text),
       ("Location", Location, Serializers.HasMany),
       ("Kind", ("personKindIdent", "personkind_id"), Serializers.Attribute)
     ],
@@ -371,6 +372,8 @@ class Model:
   plural = ""
   hasMany = [] # [Model]
   belongsTo = [] # [Model]
+  keys = []
+  foreign_key = ""
 
   def __init__(self, **params):
     """Initializes a new model with the given params"""
@@ -380,11 +383,11 @@ class Model:
 
   def get(self, key):
     """Get an attribute/associative model"""
-    self.params.get(key)
+    return self.params.get(key)
 
   def set(self, key, value):
     """Set an attribute/associative model"""
-    self.params.set(key, value)
+    return self.params.__setitem__(key, value)
 
   @classmethod
   def from_xml(_class, xml, mappings = None):
@@ -418,18 +421,30 @@ class Model:
     raise Exception("Must override method")
 
   @classmethod
-  def all(cls, connection = DEFAULT_CONNECTION):
+  def all(cls, connection = None):
     """Quick hack just to be able to experiment, returns all records in table"""
+
+    if connection == None:
+      connection = DEFAULT_CONNECTION
+
     a = connection.query("select * from " + cls.table_name, how = 1)
     return a
 
-  def persist(self, connection = DEFAULT_CONNECTION):
+  def persist(self, connection = None):
     """Persists model to DB, including all associations (TODO)"""
-    return connection.query("insert into `"+str(self.table_name)+"` ("+",".join(self.params.keys())+") values("+",".join('"{0}"'.format(w) for w in self.params.values())+")")
 
+    if connection == None:
+      connection = DEFAULT_CONNECTION
 
+    # Persist model to DB:
+    return connection.query("insert into `"+str(self.table_name)+"` ("+",".join(self.keys)+") values("+",".join('"{0}"'.format(w) for w in self.vals())+")")
 
-
+  def vals(self):
+    """returns a list [in order of keys] of attribute values"""
+    result = []
+    for key in self.keys:
+      result.append(self.get(key))
+    return result
 
 
 
@@ -448,15 +463,15 @@ class Serializers():
     @staticmethod
     def from_xml(model, xml_element, path, key):
       element = xml_element.find(path)
-      if element:
-        model.set(key, element.text())
+      if element is not None:
+        model.set(key, element.text)
 
   class HasMany():
     """Serializer that initializes elements from a hasMany association"""
     @staticmethod
     def from_xml(model, xml_element, path, foreignModel):
       elements = xml_element.findall(path)
-      if elements:
+      if elements is not None:
         # create foreign objects
         foreign_records = []
         for e in elements:
@@ -468,8 +483,13 @@ class Serializers():
     """Simple serialize that retrieves attribute value on element, such as <element attr="val" />"""
     @staticmethod
     def from_xml(model, xml_element, path, (attribute, key)):
-      element = xml_element.find(path)
-      if element:
+      # first check if looking for root element:
+      if path == model.__class__.__name__:
+        element = xml_element
+      else:
+        element = xml_element.find(path)
+
+      if element is not None:
         model.set(key, element.attrib.get(attribute))
 
 
@@ -490,71 +510,78 @@ class Crisis(Model):
   plural = "crises"
   table_name = "Crises"
   foreign_key = "crisis_id"
+  keys = ["crisis_id", "crisisKind_id", "name", "startDateTime", "endDateTime", "economicImpact"]
 
 class RelatedPerson(Model):
   plural = "relatedPeople"
   table_name = "RelatedPeople"
-  foreign_key = "relatedPerson_id"
+  keys = ["person_id","crisis_id","organization_id"]
 
 class RelatedOrganization(Model):
   plural = "relatedOrganizations"
   table_name = "RelatedOrganizations"
-  foreign_key = "relatedOrganization_id"
+  keys = ["person_id","crisis_id","organization_id"]
 
 class RelatedCrisis(Model):
   plural = "relatedCrises"
   table_name = "RelatedCrises"
-  foreign_key = "relatedCrisis_id"
+  keys = ["person_id","crisis_id","organization_id"]
 
 class Location(Model):
   plural = "locations"
   table_name = "Locations"
-  foreign_key = "location_id"
+  keys = ["crisis_id","person_id","organization_id","locality","region","country"]
 
 class ExternalResource(Model):
   plural = "externalResources"
   table_name= "ExternalResources"
-  foreign_key = "externalResource_id"
+  keys = ["crisis_id","organization_id","type","content"]
 
 class HumanImpact(Model):
   plural = "humanImpacts"
   table_name = "HumanImpact"
-  foreign_key = "humanImpact_id"
+  keys = ["crisis_id","resource","type"]
 
 class ResourceNeeded(Model):
   plural = "resourcesNeeded"
   table_name = "ResourcesNeeded"
-  foreign_key = "resourceNeeded_id"
+  keys = ["crisis_id", "resource"]
 
 class WayToHelp(Model):
   pural = "waysToHelp"
   table_name = "WaysToHelp"
   foreign_key = "wayToHelp_id"
+  keys = ["crisis_id","waysToHelp"]
 
 class Organization(Model):
   plural = "organizations"
   table_name = "Organizations"
   foreign_key = "organization_id"
+  keys = ["organization_id","organizationKind_id","name","history","telephone","fax","email","streetAddress","locality","region","postalCode","country"]
 
 class OrganizationKind(Model):
   plural = "organizationKinds"
   table_name = "OrganizationKinds"
   foreign_key = "organizationKind_id"
+  keys = ["organizationKind_id","name","description"]
 
 class CrisisKind(Model):
   plural = "crisisKinds"
   table_name = "CrisisKinds"
   foreign_key = "crisisKind_id"
+  keys = ["crisisKind_id","name","description"]
 
 class PersonKind(Model):
   plural = "personKinds"
   table_name = "PersonKinds"
   foreign_key = "personKind_id"
+  keys = ["personKind_id","name","description"]
 
 class Person(Model):
   plural = "people"
   table_name = "People"
   foreign_key = "person_id"
+  keys = ["person_id","firstName","lastName","middleName","suffix","personKind_id"]
 
 # call up runetime stuff:
 main()

@@ -10,7 +10,7 @@ print "\n"
 # setup XML:
 xml_string = """
 <WorldCrises>
- <Person>
+ <Person personIdent="BTownsend">
    <Name>
      <FirstName>Bob</FirstName>
      <LastName>Townsend</LastName>
@@ -34,3 +34,4 @@ print "\n"
 
 # test serializing XML:
 factory.import_xml(xml)
+
