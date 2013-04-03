@@ -21,9 +21,100 @@ SCHEMAS = {
     startDateTime   DATETIME NOT NULL,
     endDateTime     DATETIME,
     ecnomicImpact   TEXT
-    """ 
+    """,
+  "RelatedPeople":
+    """
+    person_id       VARCHAR(30) NOT NULL,
+    crisis_id       VARCHAR(30),
+    organization_id VARCHAR(30)
+    """,
+  "RelatedOrganizations":
+    """
+    organization_id VARCHAR(30) NOT NULL,
+    person_id       VARCHAR(30),
+    crisis_id       VARCHAR(30)
+    """,
+  "RelatedCrises":
+    """
+    crisis_id       VARCHAR(30) NOT NULL,
+    organization_id VARCHAR(30),
+    person_id       VARCHAR(30)
+    """,
+  "Locations":
+    """
+    crisis_id       VARCHAR(30),
+    organization_id VARCHAR(30),
+    person_id       VARCHAR(30),
+    locality        TEXT
+    region          TEXT
+    country         TEXT
+    """,
+  "ExternalResources":
+    """
+    crisis_id       VARCHAR(30),
+    organization_id VARCHAR(30),
+    type            ENUM("ImageURL","VideoURL","MapURL","SocialNetworkURL","Citation","ExternalLinkUrl"),
+    content         TEXT
+    """,
+  "HumanImpacts":
+    """
+    crisis_id       VARCHAR(30),
+    type            TINYTEXT,
+    number          INT
+    """,
+  "ResourcesNeeded":
+    """
+    crisis_id       VARCHAR(30),
+    resource        TEXT
+    """,
+  "WaysToHelp":
+    """
+    crisis_id       VARCHAR(30),
+    waysToHelp      TEXT
+    """,
+  "Organizations":
+    """
+    organization_id                       VARCHAR(30) NOT NULL,
+    organizationKind_id                   VARCHAR(30),
+    name                                  TEXT NOT NULL,
+    history                               TEXT
+    contactInfoTelephone                  TEXT
+    contactInfoFax                        TEXT
+    contactInfoEmail                      TEXT
+    contactInfoPostalAddressStreetAddress TEXT
+    contactInfoPostalAddressLocality      TEXT
+    contactInfoPostalAddressRegion        TEXT
+    contactInfoPostalAddressPostalCode    TEXT
+    contactInfoPostalAddressCountry       TEXT
+    """,
+  "OrganizationKinds":
+    """
+    organizationKind_id VARCHAR(30),
+    name                TEXT,
+    description         TEXT
+    """,
+  "CrisisKinds":
+    """
+    crisisKind_id       VARCHAR(30),
+    name                TEXT,
+    description         TEXT
+    """,
+  "PersonKinds":
+    """
+    personKind_id       VARCHAR(30),
+    name                TEXT,
+    description         TEXT
+    """,
+  "People":
+    """
+    person_id           VARCHAR(30),
+    firstName           TEXT,
+    lastName            TEXT,
+    middleName          TEXT,
+    suffix              TEXT,
+    personKind_id       VARCHAR(30)
+    """
 }
-#, "RelatedPeople", "RelatedOrganizations", "RelatedCrises", "Locations", "ExternalResources", "HumanImpacts", "ResourcesNeeded", "WaysToHelp", "Organizations", "OrganizationKinds", "CrisisKinds", "PersonKinds", "People"}
 
 DEFAULT_CONNECTION = MySQL()
 
