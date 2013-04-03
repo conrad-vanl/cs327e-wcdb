@@ -1,0 +1,24 @@
+// Note: yUML can not parse empty lines
+// World Crises Diagram
+// Crises Main
+[CrisisType|Name: string;Kind: ??;Location: LocationType;StartDateTime: DateTime; EndDateTime: DateTime;HumanImpact: ??;EconomicImpact: string; ResourceNeeded: string;WaysToHelp: string;ExternalResources: ExternalResources;RelatedPersons: ??;RelatedOrganizations: ??;crisisIdent: string]
+// Organization Main
+[OrganizationType|Name: string;Kind: ??; Location: LocationType; History: string; ContactInfo: ??; ExternalResources: ExternalResources; RelatedCrises: ??; RelatedPersons: ??; organizationIdent: string]
+//Person Main
+[PersonType|Name: ??; Kind: ??; Location: LocationType; ExternalResources: ExternalResources; RelatedCrises: ??; RelatedOrganizations: ??; personIdent: string]
+[Name|FirstName: string; MiddleName: sting; LastName: string; Suffix: string]
+//LocationType
+[LocationType|Locality: string; Region: string; Country: string]
+//DateTime
+[DateTime|Date: date; Time: time]
+//ExternalResources
+[ExternalResources|ImageURL: URL; VideoURL: URL; MapURL: URL; SocialNetworkURL: URL; Citation: string; ExternalLinkURL: URL]
+//Inheritance (May have to be Cardinality)
+[CrisisType]-^[LocationType]
+[CrisisType]-^[DateTime]
+[CrisisType]-^[ExternalResources]
+[OrganizationType]-^[LocationType]
+[OrganizationType]-^[ExternalResources]
+[PersonType]-^[LocationType]
+[PersonType]-^[ExternalResources]
+[PersonType]-^[Name]
