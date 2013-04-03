@@ -25,7 +25,7 @@ SCHEMAS = {
     name            TEXT NOT NULL,
     startDateTime   DATETIME NOT NULL,
     endDateTime     DATETIME,
-    ecnomicImpact   TEXT
+    economicImpact   TEXT
     """,
   "RelatedPeople":
     """
@@ -148,12 +148,42 @@ def main():
       ("Name/MiddleName", "middleName", Serializers.Text),
       ("Name/Suffix", "suffix", Serializers.Text),
       ("Location", Location, Serializers.HasMany),
+      ("ExternalResources", ExternalResources, Serializers.HasMany),
       ("Kind", ("personKindIdent", "personkind_id"), Serializers.Attribute)
     ],
     "Location": [
       ("Locality", "locality", Serializers.Text),
       ("Region", "region", Serializers.Text),
       ("Country", "country", Serializers.Text)
+    ],
+    "ExternalResources": [
+      ("ImageURL", "type", Serializers.Text),
+      ("VideoURL", "type", Serializers.Text),
+      ("MapURL", "type", Serializers.Text),
+      ("SocialNetworkURL", "type", Serializers.Text),
+      ("ExternalLinkURL", "type", Serializers.Text),
+      ("Citation", "type", Serializers.Text)
+      ],
+    "Crisis": [
+      ("Crisis", ("crisisIdent", "crisis_id"), Serializers.Attribute),
+      ("Name", "name", Serializers.Text),
+      ("Kind", ("crisisKindIdent", "crisiskind_id"), Serializers.Attribute),
+      ("Location", Location, Serializers.HasMany),
+      ("StartDateTime/Date", "startDateTime", Serializers.Text),
+      ("EndDateTime/Date", "endDateTime", Serializers.Text),
+      ("HumanImpact/Type", "type", Serializers.Text),
+      ("HumanImpact/Number", "number", Serializers.Text),
+      ("EconomicImpact", "economicImpact", Serializers.Text),
+      ("ResourceNeeded", ResourcesNeeded, Serializers.HasMany),
+      ("WaysToHelp", WaysToHelp, Serializers.HasMany),
+      ("RelatedPersons", RelatedPeople, Serializers.HasMany),
+      ("RelatedOrganizations", RelatedOrganizations, Serializers.HasMany)
+    ],
+    "ResourcesNeeded": [
+      ("ResouceNeeded", "resource", Serializers.Text)
+    ],
+    "WaysToHelp": [
+      ("WaysToHelp", "waysToHelp", Serializers.Text)
     ]
   }
 
