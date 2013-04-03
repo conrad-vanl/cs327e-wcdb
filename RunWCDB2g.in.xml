@@ -1,0 +1,20 @@
+<WorldCrises>
+	<!--People-->
+	<Person personIdent="BO1969">
+		<Name>
+			<FirstName>Snoop</FirstName>
+			<LastName>Lion</LastName>
+		</Name>
+		<Kind personKindIdent="PR"/>
+		<Location>
+			<Locality>N</Locality>
+			<Region>F</Region>
+			<Country>Albania</Country>
+		</Location>
+		<ExternalResources></ExternalResources>
+	</Person>
+	<PersonKind personKindIdent = "PR">
+		<Name>President</Name>
+		<Description>does stuff</Description>
+	</PersonKind>
+</WorldCrises>

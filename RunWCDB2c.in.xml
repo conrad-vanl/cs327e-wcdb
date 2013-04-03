@@ -26,4 +26,13 @@
 
 	
 </Crisis>
+
+
+<CrisisKind crisisKindIdent="EQ">
+	<Name>EarthQuake</Name>
+
+
+<Description>The earth shaking due to techtonic plate activity</Description>
+		</CrisisKind>
+
 		</WorldCrises>
