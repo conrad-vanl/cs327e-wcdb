@@ -1,0 +1,29 @@
+<WorldCrises>
+	
+
+<!--Crises-->
+		<Crisis crisisIdent = "XY2012">
+	
+
+	<Name>A</Name>
+<Kind crisisKindIdent="EQ"/>
+	
+			<Location><Country>D</Country></Location>
+		<StartDateTime><Date>2011-05-06</Date></StartDateTime>
+		<EndDateTime><Date>2012-02-03</Date></EndDateTime>
+<HumanImpact>
+	<Type>Death</Type>
+	<Number>120</Number>
+</HumanImpact>
+
+<EconomicImpact>123029</EconomicImpact>
+<ResourceNeeded>food</ResourceNeeded>
+<WaysToHelp>Donation</WaysToHelp>
+
+
+<ExternalResources></ExternalResources>
+
+
+	
+</Crisis>
+		</WorldCrises>

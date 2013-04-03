@@ -1,0 +1,25 @@
+<WorldCrises>
+<!--Organizations-->
+<Organization organizationIdent="PZ2005">
+<Name>A</Name>
+<Kind organizationKindIdent="HO"/>
+<Location>
+<Locality>kjfds3</Locality>
+<Country>France</Country>
+</Location>
+<History>Blah</History>
+<ContactInfo>
+<Telephone>+ 41 22 791 21 11</Telephone>
+<Fax></Fax>
+<Email></Email>
+<PostalAddress>
+<StreetAddress>2012 G Road</StreetAddress>
+<Locality>LA</Locality>
+<Region>Midwest</Region>
+<PostalCode>78650</PostalCode>
+<Country>China</Country>
+</PostalAddress>
+</ContactInfo>
+<ExternalResources></ExternalResources>
+</Organization>
+</WorldCrises>
