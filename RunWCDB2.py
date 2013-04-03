@@ -1,15 +1,19 @@
 # lets grab the library
-from WCDB2 import *
+import WCDB2
+
+factory1 = WCDB2.Factory()
 
 # import
-data = WCDB2.XML.from_file("RunWCDB2.in.xml")
+factory1.import_xml("RunWCDB2.in.xml")
 
 # export
-data.export("RunWCDB2.out.xml")
+factory1.export("RunWCDB2.out.xml")
+
+factory2 = WCDB2.Factory()
 
 # importing the export and re-exporting it
-data2 = WCDB2.XML.from_file("RunWCDB2.out.xml")
-data2.export("RunWCDB2data2.out.xml")
+factory2.import_xml("RunWCDB2.out.xml")
+factory2.export("RunWCDB2data2.out.xml")
 
 file1 = open("RunWCDB2.out.xml", 'r')
 file2 = open("RunWCDB2data2.out.xml", 'r')

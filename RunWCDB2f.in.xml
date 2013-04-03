@@ -39,4 +39,11 @@
 		<ExternalResources></ExternalResources>
 
 		</Organization>
+
+
+<OrganizationKind organizationKindIdent = "HO">
+			<Name>HO</Name>
+		
+		<Description>Does stuff</Description>
+</OrganizationKind>
 </WorldCrises>
