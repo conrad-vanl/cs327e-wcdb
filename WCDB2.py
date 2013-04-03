@@ -1,10 +1,14 @@
 import xml.etree.ElementTree as ET
 import os.path
 import _mysql
-"""Really wish I could split ths up into multiple files...."""
+"""Really wish I could split ths all up into multiple files/modules...."""
 
 
-# "Global" vars
+# ********************************************** 
+# "GLOBAL" vars                              
+# **********************************************
+
+# Default Database Connection 
 MYSQL_CONNECT = { 
   "host"   : "cs327ewcdb.cz0aokgawzgn.us-east-1.rds.amazonaws.com", #"z",
   "user"   : "cs327ewcdb", #"<username>",
@@ -12,6 +16,7 @@ MYSQL_CONNECT = {
   "db"     : "cs327ewcdb" #"downing_test"
 }
 
+# Database Schemas
 SCHEMAS = {
   "Crises":
     """
@@ -117,11 +122,47 @@ SCHEMAS = {
 }
 
 DEFAULT_CONNECTION = None
+DEFAULT_MAPPINGS   = None
 
-# Setup defaults
+# Setup defaults needed at runtimes
 def main():
   DEFAULT_CONNECTION = MySQL()
 
+  # Default mappings:
+  # a mapping is a collection of tuples that map:
+  #   xml_path, mapping, serializer function
+  # where:
+  #   xml_path is the serach path on the elementTree
+  #   mapping is the argument for the serializer function
+  #   serializer function is the ... serializer function!
+  # 
+  # a serializer function will location the element, map it out properly, and set its data on the model
+  DEFAULT_MAPPINGS = {
+    "Person": [
+      ("Name.FirstName", "firstName", Serializers.Text),
+      ("Name.LastName", "lastName", Serializers.Text),
+      ("Name.MiddleName", "middleName", Serializers.Text),
+      ("Name.Suffix", "suffix", Serializers.Text),
+      ("Location", Location, Serializers.HasMany),
+      ("Kind", ("personKindIdent", "personkind_id"), Serializers.Attribute)
+    ]
+  }
+
+# ********************************************** 
+#                 FACTORY Class                                  
+# ----------------------------------------------              
+# - creates Models (and persist to DB) from XML
+# - creates XML from Models
+# ----------------------------------------------
+# Usage:
+#   Initialize empty database and prepare for i/o
+#     factory = WCDB2.Factory()
+#
+#   Import XML 
+#
+#   Export XML
+#
+# ********************************************** 
 class Factory:
   """General I/O Factory. This is what ties everything together - it initializes the database, imports XML into the database, exports XML from the database, etc."""
 
@@ -133,17 +174,41 @@ class Factory:
 
     # Setup tables
     self._c.setup_database()
-    
-  def import_xml_from_file(self, xml):
-    """Import XML file into database"""
 
-  def import_xml_from_string(self, string):
-    """Import XML STRING into database"""
+  def import_xml(self, xml):
+    """Imports XML (must be initialized already) into database"""
 
-  def export_xml(self):
+    # Basic idea: loop over root elements in XML and apply some sort of mapping function, then save the result:
+    for element in xml:
+      Models.lookup(element.tag).from_xml(element).persist()
+
+  def export_xml(self, filename):
     """Exports XML from database"""
 
 
+
+# ********************************************** 
+#                 XML Class                                  
+# ----------------------------------------------              
+# - parses/loads XML documents
+# - create/exports XML documents
+# ----------------------------------------------
+# Usage:
+#   Initialize XML from etree.element:
+#     xml = WCDB2.XML(element)  # element must be a etree.element
+#
+#   Initialize XML from XML file:
+#     xml = WCDB2.XML.from_file(filename)
+#
+#   Initialize XML from XML string:
+#     xml = WCDB2.XML.from_string(xml_string)
+#
+#   Get XML string:
+#     str(xml)
+#
+#   Export XML to a file:
+#     xml.export(filename)
+# ********************************************** 
 class XML:
   """XML I/O utility and tools"""
 
@@ -176,6 +241,28 @@ class XML:
     f.write(self.__str__())
 
 
+
+
+
+# ********************************************** 
+#                 MySQL Class                                  
+# ----------------------------------------------              
+# - initializes database connection
+# - sets up database tables
+# - perform RAW SQL queries on database
+# ----------------------------------------------
+# Usage:
+#   Initialize new database connection:
+#     mysql = WCDB2.MySQL(connection_params)
+#
+#   Run SQL query on database:
+#     mysql.query("show tables")
+#
+#   Setup tables based on loaded schema
+#   (drops tables, creates new tables)
+#     mysql.setup_database()
+#
+# ********************************************** 
 class MySQL:
   """MySQL I/O utility and tools"""
 
@@ -238,52 +325,183 @@ class MySQL:
     return self.query("create table "+table+" ("+schema+")")
 
 
+
+
+
+
+# ********************************************** 
+#                    MODELS                                  
+# ----------------------------------------------              
+#
+# ----------------------------------------------
+#
+# ********************************************** 
 class Models:
   """A model is a mapper/representation of a relation. allows us to split up tasks a little easier.
     Basically, a model will be responsible for:
       - the serialization to/from xml of itself
       - persisting itself to the DB
   """
+  
+
   # Internal: I'm hoping that splitting out each relation into it's own model/class will pay off in the long run
   # Each model should have from_xml, to_xml methods
   # Each model should have a plural, table_name attributes
-
   class Base:
     """This is the base model class that each relation will inherit"""
     table_name = ""
     plural = ""
+    hasMany = [] # [Model]
+    belongsTo = [] # [Model]
 
     def __init__(self, **params):
       """Initializes a new model with the given params"""
-      self.params = params
+      self.params = {}
+      for key, value in params.items():
+        self.set(key, value)
 
-    def from_xml(self, xml_string):
+    def get(self, key):
+      """Get an attribute/associative model"""
+      self.params.get(key)
+
+    def set(self, key, value):
+      """Set an attribute/associative model"""
+      self.params.set(key, value)
+
+    @classmethod
+    def from_xml(_class, xml, mappings = None):
       """Creates model from xml"""
-      raise Exception("Must override method")
+      # initialize empty model
+      model = _class()
+
+      # conform xml to proper type
+      if isinstance(xml, basestring):
+        xml = XML.from_string(xml)
+
+      # revert to default mappings if not supplied
+      if mappings == None:
+        mappings = DEFAULT_MAPPINGS[_class.__name__]
+
+      # loop through mappings
+      for _map in mappings:
+        # _map is a tuple
+        # first element is XML +path+
+        # second element is either:
+        #   string: key                       => key = xml_element.find(path).text()
+        #   modelClass: HAS_MANY association  => key = modelClass.plural() = **create each from_xml and return array: xml_element.findAll(path)**
+        #   tuple: (attribute, key)           => key = xml_element.find(path).get(attribute)
+        # third element is the serialization function to be used
+        _map[2].from_xml(model, xml_element, _map[0], _map[1])     
+
+      return model
 
     def to_xml(self):
       """returns xml string of model"""
       raise Exception("Must override method")
 
     @classmethod
-    def select(cls, filter_function = lambda v: True, connection = DEFAULT_CONNECTION):
-      """Quick hack just to be able to experiment"""
+    def all(cls, connection = DEFAULT_CONNECTION):
+      """Quick hack just to be able to experiment, returns all records in table"""
       a = connection.query("select * from " + cls.table_name, how = 1)
-      x = []
-      for v in a:
-        if(filter_function(v)):
-          x.append(v)
-      return x
+      return a
 
     def persist(self, c = None):
-      """Persists model to DB"""
+      """Persists model to DB, including all associations (TODO)"""
       if c is None:
         c = DEFAULT_CONNECTION
       return c.query("insert into `"+str(self.table_name)+"` ("+",".join(self.params.keys())+") values("+",".join('"{0}"'.format(w) for w in self.params.values())+")")
+
+
+# Serializers 
+class Serializers():
+  """Serialization class to take models from one data type to another"""
+
+  class Text():
+    """Simple serializer that retrieves text value on element, such as <element>text value</element>"""
+    @classmethod
+    def from_xml(model, xml_element, path, key):
+      element = xml_element.find(path)
+      if element:
+        model.set(key, element.text())
+
+  class HasMany():
+    """Serializer that initializes elements from a hasMany association"""
+    @classmethod
+    def from_xml(model, xml_element, path, foreignModel):
+      elements = xml_element.findAll(path)
+      if elements:
+        # create foreign objects
+        foreign_records = []
+        for e in elements:
+          foreign_records.append(foreignModel.from_xml(e))
+        # set relation on model
+        model.set(foreignModel.plural, foreign_records)
+
+  class Attribute():
+    """Simple serialize that retrieves attribute value on element, such as <element attr="val" />"""
+    @classmethod
+    def from_xml(model, xml_element, path, (attribute, key)):
+      element = xml_element.find(path)
+      if element:
+        model.set(key, element.attrib.get(attribute))
+
+
 
 
 # NOW for the actual models:
 class Crisis(Models.Base):
   plural = "crises"
   table_name = "Crises"
+
+class RelatedPerson(Models.Base):
+  plural = "relatedPeople"
+  table_name = "RelatedPeople"
+
+class RelatedOrganization(Models.Base):
+  plural = "relatedOrganizations"
+  table_name = "RelatedOrganizations"
+
+class RelatedCrisis(Models.Base):
+  plural = "relatedCrises"
+  table_name = "RelatedCrises"
+
+class Location(Models.Base):
+  plural = "locations"
+  table_name = "Locations"
+
+class ExternalResource(Models.Base):
+  plural = "externalResources"
+  table_name= "ExternalResources"
+
+class HumanImpact(Models.Base):
+  plural = "humanImpacts"
+  table_name = "HumanImpact"
+
+class ResourceNeeded(Models.Base):
+  plural = "resourcesNeeded"
+  table_name = "ResourcesNeeded"
+
+class WayToHelp(Models.Base):
+  pural = "waysToHelp"
+  table_name = "WaysToHelp"
+
+class Organization(Models.Base):
+  plural = "organizations"
+  table_name = "Organizations"
+
+class OrganizationKind(Models.Base):
+  plural = "organizationKinds"
+  table_name = "OrganizationKinds"
+
+class CrisisKind(Models.Base):
+  plural = "crisisKinds"
+  table_name = "CrisisKinds"
+
+class PersonKind(Models.Base):
+  plural = "personKinds"
+  table_name = "PersonKinds"
+
+class Person(Models.Base):
+  plural = "people"
+  table_name = "People"
 
