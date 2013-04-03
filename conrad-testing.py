@@ -33,3 +33,4 @@ print "\n"
 
 
 # test serializing XML:
+factory.import_xml(xml)

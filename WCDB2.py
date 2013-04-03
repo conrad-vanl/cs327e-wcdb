@@ -126,6 +126,7 @@ DEFAULT_MAPPINGS   = None
 
 # Setup defaults needed at runtimes
 def main():
+  global DEFAULT_CONNECTION
   DEFAULT_CONNECTION = MySQL()
 
   # Default mappings:
@@ -137,6 +138,7 @@ def main():
   #   serializer function is the ... serializer function!
   # 
   # a serializer function will location the element, map it out properly, and set its data on the model
+  global DEFAULT_MAPPINGS
   DEFAULT_MAPPINGS = {
     "Person": [
       ("Name.FirstName", "firstName", Serializers.Text),
@@ -145,8 +147,16 @@ def main():
       ("Name.Suffix", "suffix", Serializers.Text),
       ("Location", Location, Serializers.HasMany),
       ("Kind", ("personKindIdent", "personkind_id"), Serializers.Attribute)
+    ],
+    "Location": [
+      ("Locality", "locality", Serializers.Text),
+      ("Region", "region", Serializers.Text),
+      ("Country", "country", Serializers.Text)
     ]
   }
+
+
+
 
 # ********************************************** 
 #                 FACTORY Class                                  
@@ -179,11 +189,17 @@ class Factory:
     """Imports XML (must be initialized already) into database"""
 
     # Basic idea: loop over root elements in XML and apply some sort of mapping function, then save the result:
-    for element in xml:
-      Models.lookup(element.tag).from_xml(element).persist()
+    for element in xml.tree:
+      self.lookup_model(element.tag).from_xml(element).persist()
 
   def export_xml(self, filename):
     """Exports XML from database"""
+
+  def lookup_model(self, model_name):
+    """Lookup model class from model_name, returns Class"""
+    return eval(model_name) # just do this until we have problems
+
+
 
 
 
@@ -239,6 +255,8 @@ class XML:
     """Converts an XML object into an xml file"""
     f = open(filename, 'w')
     f.write(self.__str__())
+
+
 
 
 
@@ -329,96 +347,104 @@ class MySQL:
 
 
 
+
+
 # ********************************************** 
-#                    MODELS                                  
+#                   MODEL                                
 # ----------------------------------------------              
 #
 # ----------------------------------------------
 #
 # ********************************************** 
-class Models:
-  """A model is a mapper/representation of a relation. allows us to split up tasks a little easier.
+# Internal: I'm hoping that splitting out each relation into it's own model/class will pay off in the long run
+# Each model should have from_xml, to_xml methods
+# Each model should have a plural, table_name attributes
+class Model:
+  """
+    A model is a mapper/representation of a relation. allows us to split up tasks a little easier.
     Basically, a model will be responsible for:
       - the serialization to/from xml of itself
       - persisting itself to the DB
-  """
-  
+  """  
+  table_name = ""
+  plural = ""
+  hasMany = [] # [Model]
+  belongsTo = [] # [Model]
 
-  # Internal: I'm hoping that splitting out each relation into it's own model/class will pay off in the long run
-  # Each model should have from_xml, to_xml methods
-  # Each model should have a plural, table_name attributes
-  class Base:
-    """This is the base model class that each relation will inherit"""
-    table_name = ""
-    plural = ""
-    hasMany = [] # [Model]
-    belongsTo = [] # [Model]
+  def __init__(self, **params):
+    """Initializes a new model with the given params"""
+    self.params = {}
+    for key, value in params.items():
+      self.set(key, value)
 
-    def __init__(self, **params):
-      """Initializes a new model with the given params"""
-      self.params = {}
-      for key, value in params.items():
-        self.set(key, value)
+  def get(self, key):
+    """Get an attribute/associative model"""
+    self.params.get(key)
 
-    def get(self, key):
-      """Get an attribute/associative model"""
-      self.params.get(key)
+  def set(self, key, value):
+    """Set an attribute/associative model"""
+    self.params.set(key, value)
 
-    def set(self, key, value):
-      """Set an attribute/associative model"""
-      self.params.set(key, value)
+  @classmethod
+  def from_xml(_class, xml, mappings = None):
+    """Creates model from xml"""
+    # initialize empty model
+    model = _class()
 
-    @classmethod
-    def from_xml(_class, xml, mappings = None):
-      """Creates model from xml"""
-      # initialize empty model
-      model = _class()
+    # conform xml to proper type
+    if isinstance(xml, basestring):
+      xml = XML.from_string(xml)
 
-      # conform xml to proper type
-      if isinstance(xml, basestring):
-        xml = XML.from_string(xml)
+    # revert to default mappings if not supplied
+    if mappings == None:
+      mappings = DEFAULT_MAPPINGS[_class.__name__]
 
-      # revert to default mappings if not supplied
-      if mappings == None:
-        mappings = DEFAULT_MAPPINGS[_class.__name__]
+    # loop through mappings
+    for _map in mappings:
+      # _map is a tuple
+      # first element is XML +path+
+      # second element is either:
+      #   string: key                       => key = xml_element.find(path).text()
+      #   modelClass: HAS_MANY association  => key = modelClass.plural() = **create each from_xml and return array: xml_element.findAll(path)**
+      #   tuple: (attribute, key)           => key = xml_element.find(path).get(attribute)
+      # third element is the serialization function to be used
+      _map[2].from_xml(model, xml, _map[0], _map[1])     
 
-      # loop through mappings
-      for _map in mappings:
-        # _map is a tuple
-        # first element is XML +path+
-        # second element is either:
-        #   string: key                       => key = xml_element.find(path).text()
-        #   modelClass: HAS_MANY association  => key = modelClass.plural() = **create each from_xml and return array: xml_element.findAll(path)**
-        #   tuple: (attribute, key)           => key = xml_element.find(path).get(attribute)
-        # third element is the serialization function to be used
-        _map[2].from_xml(model, xml_element, _map[0], _map[1])     
+    return model
 
-      return model
+  def to_xml(self):
+    """returns xml string of model"""
+    raise Exception("Must override method")
 
-    def to_xml(self):
-      """returns xml string of model"""
-      raise Exception("Must override method")
+  @classmethod
+  def all(cls, connection = DEFAULT_CONNECTION):
+    """Quick hack just to be able to experiment, returns all records in table"""
+    a = connection.query("select * from " + cls.table_name, how = 1)
+    return a
 
-    @classmethod
-    def all(cls, connection = DEFAULT_CONNECTION):
-      """Quick hack just to be able to experiment, returns all records in table"""
-      a = connection.query("select * from " + cls.table_name, how = 1)
-      return a
-
-    def persist(self, c = None):
-      """Persists model to DB, including all associations (TODO)"""
-      if c is None:
-        c = DEFAULT_CONNECTION
-      return c.query("insert into `"+str(self.table_name)+"` ("+",".join(self.params.keys())+") values("+",".join('"{0}"'.format(w) for w in self.params.values())+")")
+  def persist(self, connection = DEFAULT_CONNECTION):
+    """Persists model to DB, including all associations (TODO)"""
+    return connection.query("insert into `"+str(self.table_name)+"` ("+",".join(self.params.keys())+") values("+",".join('"{0}"'.format(w) for w in self.params.values())+")")
 
 
-# Serializers 
+
+
+
+
+
+# ********************************************** 
+#                  SERIALIZERS                                  
+# ----------------------------------------------              
+#
+# ----------------------------------------------
+#
+# ********************************************** 
 class Serializers():
   """Serialization class to take models from one data type to another"""
 
   class Text():
     """Simple serializer that retrieves text value on element, such as <element>text value</element>"""
-    @classmethod
+    @staticmethod
     def from_xml(model, xml_element, path, key):
       element = xml_element.find(path)
       if element:
@@ -426,9 +452,9 @@ class Serializers():
 
   class HasMany():
     """Serializer that initializes elements from a hasMany association"""
-    @classmethod
+    @staticmethod
     def from_xml(model, xml_element, path, foreignModel):
-      elements = xml_element.findAll(path)
+      elements = xml_element.findall(path)
       if elements:
         # create foreign objects
         foreign_records = []
@@ -439,7 +465,7 @@ class Serializers():
 
   class Attribute():
     """Simple serialize that retrieves attribute value on element, such as <element attr="val" />"""
-    @classmethod
+    @staticmethod
     def from_xml(model, xml_element, path, (attribute, key)):
       element = xml_element.find(path)
       if element:
@@ -448,60 +474,86 @@ class Serializers():
 
 
 
+
+
+
+# ********************************************** 
+#               INDIVIDUAL MODELS                                 
+# ----------------------------------------------              
+#
+# ----------------------------------------------
+#
+# ********************************************** 
 # NOW for the actual models:
-class Crisis(Models.Base):
+class Crisis(Model):
   plural = "crises"
   table_name = "Crises"
+  foreign_key = "crisis_id"
 
-class RelatedPerson(Models.Base):
+class RelatedPerson(Model):
   plural = "relatedPeople"
   table_name = "RelatedPeople"
+  foreign_key = "relatedPerson_id"
 
-class RelatedOrganization(Models.Base):
+class RelatedOrganization(Model):
   plural = "relatedOrganizations"
   table_name = "RelatedOrganizations"
+  foreign_key = "relatedOrganization_id"
 
-class RelatedCrisis(Models.Base):
+class RelatedCrisis(Model):
   plural = "relatedCrises"
   table_name = "RelatedCrises"
+  foreign_key = "relatedCrisis_id"
 
-class Location(Models.Base):
+class Location(Model):
   plural = "locations"
   table_name = "Locations"
+  foreign_key = "location_id"
 
-class ExternalResource(Models.Base):
+class ExternalResource(Model):
   plural = "externalResources"
   table_name= "ExternalResources"
+  foreign_key = "externalResource_id"
 
-class HumanImpact(Models.Base):
+class HumanImpact(Model):
   plural = "humanImpacts"
   table_name = "HumanImpact"
+  foreign_key = "humanImpact_id"
 
-class ResourceNeeded(Models.Base):
+class ResourceNeeded(Model):
   plural = "resourcesNeeded"
   table_name = "ResourcesNeeded"
+  foreign_key = "resourceNeeded_id"
 
-class WayToHelp(Models.Base):
+class WayToHelp(Model):
   pural = "waysToHelp"
   table_name = "WaysToHelp"
+  foreign_key = "wayToHelp_id"
 
-class Organization(Models.Base):
+class Organization(Model):
   plural = "organizations"
   table_name = "Organizations"
+  foreign_key = "organization_id"
 
-class OrganizationKind(Models.Base):
+class OrganizationKind(Model):
   plural = "organizationKinds"
   table_name = "OrganizationKinds"
+  foreign_key = "organizationKind_id"
 
-class CrisisKind(Models.Base):
+class CrisisKind(Model):
   plural = "crisisKinds"
   table_name = "CrisisKinds"
+  foreign_key = "crisisKind_id"
 
-class PersonKind(Models.Base):
+class PersonKind(Model):
   plural = "personKinds"
   table_name = "PersonKinds"
+  foreign_key = "personKind_id"
 
-class Person(Models.Base):
+class Person(Model):
   plural = "people"
   table_name = "People"
+  foreign_key = "person_id"
 
+# call up runetime stuff:
+main()
