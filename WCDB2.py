@@ -45,8 +45,8 @@ SCHEMAS = {
     crisis_id       VARCHAR(30),
     organization_id VARCHAR(30),
     person_id       VARCHAR(30),
-    locality        TEXT
-    region          TEXT
+    locality        TEXT,
+    region          TEXT,
     country         TEXT
     """,
   "ExternalResources":
@@ -77,14 +77,14 @@ SCHEMAS = {
     organization_id                       VARCHAR(30) NOT NULL,
     organizationKind_id                   VARCHAR(30),
     name                                  TEXT NOT NULL,
-    history                               TEXT
-    contactInfoTelephone                  TEXT
-    contactInfoFax                        TEXT
-    contactInfoEmail                      TEXT
-    contactInfoPostalAddressStreetAddress TEXT
-    contactInfoPostalAddressLocality      TEXT
-    contactInfoPostalAddressRegion        TEXT
-    contactInfoPostalAddressPostalCode    TEXT
+    history                               TEXT,
+    contactInfoTelephone                  TEXT,
+    contactInfoFax                        TEXT,
+    contactInfoEmail                      TEXT,
+    contactInfoPostalAddressStreetAddress TEXT,
+    contactInfoPostalAddressLocality      TEXT,
+    contactInfoPostalAddressRegion        TEXT,
+    contactInfoPostalAddressPostalCode    TEXT,
     contactInfoPostalAddressCountry       TEXT
     """,
   "OrganizationKinds":
@@ -116,7 +116,11 @@ SCHEMAS = {
     """
 }
 
-DEFAULT_CONNECTION = MySQL()
+DEFAULT_CONNECTION = None
+
+# Setup defaults
+def main():
+  DEFAULT_CONNECTION = MySQL()
 
 class Factory:
   """General I/O Factory. This is what ties everything together - it initializes the database, imports XML into the database, exports XML from the database, etc."""
