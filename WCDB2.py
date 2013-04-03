@@ -58,31 +58,32 @@ SCHEMAS = {
     """
     crisis_id       VARCHAR(30),
     organization_id VARCHAR(30),
-    type            ENUM("ImageURL","VideoURL","MapURL","SocialNetworkURL","Citation","ExternalLinkUrl"),
+    person_id       VARCHAR(30),
+    type            ENUM("ImageURL","VideoURL","MapURL","SocialNetworkURL","Citation","ExternalLinkUrl") NOT NULL,
     content         TEXT
     """,
   "HumanImpacts":
     """
-    crisis_id       VARCHAR(30),
+    crisis_id       VARCHAR(30) NOT NULL,
     type            TINYTEXT,
     number          INT
     """,
   "ResourcesNeeded":
     """
-    crisis_id       VARCHAR(30),
+    crisis_id       VARCHAR(30) NOT NULL,
     resource        TEXT
     """,
   "WaysToHelp":
     """
-    crisis_id       VARCHAR(30),
+    crisis_id       VARCHAR(30) NOT NULL,
     waysToHelp      TEXT
     """,
   "Organizations":
     """
     organization_id                       VARCHAR(30) NOT NULL,
-    organizationKind_id                   VARCHAR(30),
+    organizationKind_id                   VARCHAR(30) NOT NULL,
     name                                  TEXT NOT NULL,
-    history                               TEXT,
+    history                               TEXT NOT NULL,
     contactInfoTelephone                  TEXT,
     contactInfoFax                        TEXT,
     contactInfoEmail                      TEXT,
@@ -94,30 +95,30 @@ SCHEMAS = {
     """,
   "OrganizationKinds":
     """
-    organizationKind_id VARCHAR(30),
+    organizationKind_id VARCHAR(30) NOT NULL,
     name                TEXT,
     description         TEXT
     """,
   "CrisisKinds":
     """
-    crisisKind_id       VARCHAR(30),
+    crisisKind_id       VARCHAR(30) NOT NULL,
     name                TEXT,
     description         TEXT
     """,
   "PersonKinds":
     """
-    personKind_id       VARCHAR(30),
+    personKind_id       VARCHAR(30) NOT NULL,
     name                TEXT,
     description         TEXT
     """,
   "People":
     """
-    person_id           VARCHAR(30),
-    firstName           TEXT,
-    lastName            TEXT,
+    person_id           VARCHAR(30) NOT NULL,
+    firstName           TEXT NOT NULL,
+    lastName            TEXT NOT NULL,
     middleName          TEXT,
     suffix              TEXT,
-    personKind_id       VARCHAR(30)
+    personKind_id       VARCHAR(30) NOT NULL
     """
 }
 
