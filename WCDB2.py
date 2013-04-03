@@ -4,10 +4,10 @@ import _mysql
 
 # "Global" vars
 MYSQL_CONNECT = { 
-  "host"   : "external-db.s6813.gridserver.com", #"z",
-  "user"   : "db6813_cs327e", #"<username>",
+  "host"   : "cs327ewcdb.cz0aokgawzgn.us-east-1.rds.amazonaws.com", #"z",
+  "user"   : "cs327ewcdb", #"<username>",
   "passwd" : "grouppassword", #"<password>",
-  "db"     : "db6813_cs327e" #"downing_test"
+  "db"     : "cs327ewcdb" #"downing_test"
 }
 
 # WCDB Wrapper class
@@ -55,14 +55,15 @@ class WCDB:
   class MySQL:
     """MySQL i/o utility and tools"""
 
-    def login(self, **connection):
-      """Logs in to MySQL Database."""
+    @staticmethod
+    def login(**connection):
+      """Logs in to MySQL Database and returns a MySQL connection"""
 
       # assert that the connection hash has all required elements
       assert( all(key in connection for key in ("host", "user", "passwd", "db")) )
         
       _c = _mysql.connect(**connection)
-      assert isinstance(_c, _mysql.connect)
+      #assert isinstance(_c, _mysql.connect)
 
-      self._c = _c
+      #self._c = _c
       return _c
