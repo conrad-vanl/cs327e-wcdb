@@ -9,7 +9,7 @@
 [HumanImpacts|crisis_id: string; type: string; number: integer]
 [ResourcesNeeded|crisis_id: string; resource: text]
 [WaysToHelp|crisis_id: string; waysToHelp: text]
-[Organizations|organization_id: string; organizationKind_id: string; name: string; history: text; contactInfoTelephone: string; contactInfoFax: string; contactInfoEmail: string; contactInfoPostalAddressStreetAddress: string; contactInfoPostalAddressLocality: string; contactInfoPostalAddressRegion: string; contactInfoPostalAddressPostalCode: string; contactInfoPostalAddressCountry: string]
+[Organizations|organization_id: string; organizationKind_id: string; name: string; history: text; Telephone: string; Fax: string; Email: string; StreetAddress: string; Locality: string; Region: string; PostalCode: string; Country: string]
 [OrganizationKinds|organizationKind_id: string; name: string; description: text]
 [CrisisKinds|crisisKind_id: string; name: string; description: text]
 [PersonKinds|personKind_id: string; name: string; description: text]
@@ -17,7 +17,7 @@
 //Cardinality
 [Crises]1-0..*[RelatedPeople]
 [Crises]1-0..*[RelatedOrganizations]
-[Crises]1-1[Locations]			//Could multiple crises ref a single location?
+[Crises]1-1[Locations]
 [Crises]1-0..*[HumanImpacts]
 [Crises]1-0..*[ResourcesNeeded]
 [Crises]1-1[ExternalResources]
