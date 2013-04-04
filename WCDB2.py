@@ -27,58 +27,75 @@ SCHEMAS = {
     startTime       TIME,
     endDate         DATE,
     endTime         TIME,
-    economicImpact  TEXT
+    economicImpact  TEXT,
+    PRIMARY KEY (crisis_id)
     """,
   "RelatedPeople":
     """
+    relatedPerson_id INT(10) NOT NULL AUTO_INCREMENT,
     person_id       VARCHAR(30) NOT NULL,
     crisis_id       VARCHAR(30),
-    organization_id VARCHAR(30)
+    organization_id VARCHAR(30),
+    PRIMARY KEY (relatedPerson_id)
     """,
   "RelatedOrganizations":
     """
+    relatedOrganization_id INT(10) NOT NULL AUTO_INCREMENT,
     organization_id VARCHAR(30) NOT NULL,
     person_id       VARCHAR(30),
-    crisis_id       VARCHAR(30)
+    crisis_id       VARCHAR(30),
+    PRIMARY KEY (relatedOrganization_id)
     """,
   "RelatedCrises":
     """
+    relatedCrisis_id INT(10) NOT NULL AUTO_INCREMENT,
     crisis_id       VARCHAR(30) NOT NULL,
     organization_id VARCHAR(30),
-    person_id       VARCHAR(30)
+    person_id       VARCHAR(30),
+    PRIMARY KEY (relatedCrisis_id)
     """,
   "Locations":
     """
+    location_id INT(10) NOT NULL AUTO_INCREMENT,
     crisis_id       VARCHAR(30),
     organization_id VARCHAR(30),
     person_id       VARCHAR(30),
     locality        TEXT,
     region          TEXT,
-    country         TEXT
+    country         TEXT,
+    PRIMARY KEY (location_id)
     """,
   "ExternalResources":
     """
+    externalResource_id INT(10) NOT NULL AUTO_INCREMENT,
     crisis_id       VARCHAR(30),
     organization_id VARCHAR(30),
     person_id       VARCHAR(30),
     type            ENUM("ImageURL","VideoURL","MapURL","SocialNetworkURL","Citation","ExternalLinkUrl") NOT NULL,
-    content         TEXT
+    content         TEXT,
+    PRIMARY KEY (externalResource_id)
     """,
   "HumanImpacts":
     """
+    humanImpact_id INT(10) NOT NULL AUTO_INCREMENT,
     crisis_id       VARCHAR(30) NOT NULL,
     type            TINYTEXT,
-    number          INT
+    number          INT,
+    PRIMARY KEY (humanImpact_id)
     """,
   "ResourcesNeeded":
     """
+    resourceNeeded_id INT(10) NOT NULL AUTO_INCREMENT,
     crisis_id       VARCHAR(30) NOT NULL,
-    resource        TEXT
+    resource        TEXT,
+    PRIMARY KEY (resourceNeeded_id)
     """,
   "WaysToHelp":
     """
+    waysToHelp_id INT(10) NOT NULL AUTO_INCREMENT,
     crisis_id       VARCHAR(30) NOT NULL,
-    waysToHelp      TEXT
+    waysToHelp      TEXT,
+    PRIMARY KEY (waysToHelp_id)
     """,
   "Organizations":
     """
@@ -93,25 +110,29 @@ SCHEMAS = {
     locality            TEXT,
     region              TEXT,
     postalCode          TEXT,
-    country             TEXT
+    country             TEXT,
+    PRIMARY KEY (organization_id)
     """,
   "OrganizationKinds":
     """
     organizationKind_id VARCHAR(30) NOT NULL,
     name                TEXT,
-    description         TEXT
+    description         TEXT,
+    PRIMARY KEY (organizationKind_id)
     """,
   "CrisisKinds":
     """
     crisisKind_id       VARCHAR(30) NOT NULL,
     name                TEXT,
-    description         TEXT
+    description         TEXT,
+    PRIMARY KEY (crisisKind_id)
     """,
   "PersonKinds":
     """
     personKind_id       VARCHAR(30) NOT NULL,
     name                TEXT,
-    description         TEXT
+    description         TEXT,
+    PRIMARY KEY (personKind_id)
     """,
   "People":
     """
@@ -120,7 +141,8 @@ SCHEMAS = {
     lastName            TEXT NOT NULL,
     middleName          TEXT,
     suffix              TEXT,
-    personKind_id       VARCHAR(30) NOT NULL
+    personKind_id       VARCHAR(30) NOT NULL,
+    PRIMARY KEY (person_id)
     """
 }
 
@@ -492,19 +514,24 @@ class Model(object):
   plural = ""
   hasMany = [] # [Model]
   keys = []
-  foreign_key = ""
+  foreign_key = "id"
+
+  instances = []
 
   def __init__(self, **params):
     """Initializes a new model with the given params"""
     self.params = {}
+    self.is_new = True
     for key, value in params.items():
       self.set(key, value)
 
+    self.__class__.instances.append(self)
+
   def get(self, key):
     """Get an attribute/associative model"""
-
     # special case for associative model:
     if key in self.hasMany and self.params.get(key) is None:
+      # no, lets get it!
       self.params.__setitem__(key, lookup_model_from_plural(key).find("*","where "+self.foreign_key+"=\""+self.get(self.foreign_key)+"\""))
     
     return self.params.get(key)
@@ -518,6 +545,7 @@ class Model(object):
     """Creates model from xml"""
     # initialize empty model
     model = _class()
+    #model = {}
 
     # conform xml to proper type
     if isinstance(xml, basestring):
@@ -538,6 +566,9 @@ class Model(object):
       # third element is the serialization function to be used
       _map[2].from_xml(model, xml, _map[0], _map[1])     
 
+    # make sure that this model is unique:
+    model = model.attempt_combine()
+
     return model
 
   def to_xml(self, mappings = None):
@@ -552,6 +583,21 @@ class Model(object):
       _map[2].to_xml(self, root.tree, _map[0], _map[1])
 
     return root.tree
+
+  def attempt_combine(self):
+    """Looks at other loaded models and affirms that this dude is unique. otherwise replaces model with the original"""
+    # this will be handy when we have to start combining other groups' xml
+    for record in self.__class__.instances:
+      #if record is not self and (record.params == self.params or record.get(self.__class__.foreign_key) == self.get(self.__class__.foreign_key)):
+      if record is not self and record.__class__ is self.__class__ and self.foreign_key == record.foreign_key and ((record.get(self.__class__.foreign_key) is not None and record.get(self.__class__.foreign_key) == self.get(self.__class__.foreign_key)) or record.params == self.params):
+        # if previous record use it (this is where combine method would exist, but for now...yeah)
+        self.destroy()
+        return record
+    return self 
+
+  def destroy(self):
+    """destroys record from instances"""
+    self.__class__.instances.remove(self)
 
   @classmethod
   def all(cls, connection = None):
@@ -579,7 +625,17 @@ class Model(object):
     """Returns a list of records from database +result+"""
     a = []
     for result in results:
-      a.append(_class(**result))
+      # first, see if already cached/loaded:
+      should_append = True
+      for record in _class.instances:
+        if record.params == result or record.get(_class.foreign_key) == result.get(_class.foreign_key):
+          should_append = False
+          a.append(record)
+          break
+      if should_append:
+        record = _class(**result)
+        record.is_new = False
+        a.append(record)
     return a
 
   def persist(self, connection = None):
@@ -589,7 +645,12 @@ class Model(object):
       connection = DEFAULT_CONNECTION
 
     # Persist model to DB:
-    connection.query("insert into `"+str(self.table_name)+"` ("+",".join(self.keys)+") values("+",".join(self.vals())+")")
+    if self.is_new or self.get(self.foreign_key) is None:
+      connection.query("insert into `"+str(self.table_name)+"` ("+",".join(self.keys)+") values("+",".join(self.vals())+")")
+      self.is_new = False
+    else:
+      print "update", self.table_name, "sql", ",".join(self.keyValueSQL()), "where", self.foreign_key, "=", self.get(self.foreign_key)
+      connection.query("update `"+str(self.table_name)+"` set "+",".join(self.keyValueSQL())+" where "+self.foreign_key+"=\""+self.get(self.foreign_key)+"\"")
 
     # Persist associations to DB:
     # for now, we only need to persist hasMany associations:
@@ -599,6 +660,12 @@ class Model(object):
 
     return True
 
+  def keyValueSQL(self):
+    """returns a key="value", pair for sql"""
+    s = []
+    for key, value in zip(self.keys, self.vals()):
+      s.append(str(key)+"="+value)
+    return s
 
   def vals(self):
     """returns a list [in order of keys] of attribute values wrapped in quotes"""
@@ -636,7 +703,7 @@ class Serializers():
       if model.get(key) is not None:
         # get element to add text to:
         element = XML.find_or_build_element(xml_element, path)
-        element.text = model.get(key).decode('utf-8')
+        element.text = model.get(key)
 
   class HasMany():
     """Serializer that initializes elements from a hasMany association"""
@@ -723,6 +790,7 @@ class Serializers():
 # ********************************************** 
 # NOW for the actual models:
 class Crisis(Model):
+  instances = []
   plural = "crises"
   table_name = "Crises"
   foreign_key = "crisis_id"
@@ -730,47 +798,63 @@ class Crisis(Model):
   hasMany = ["locations","humanImpacts","resourcesNeeded","waysToHelp","relatedPeople","externalResources","relatedOrganizations"]
 
 class RelatedPerson(Model):
+  instances = []
   plural = "relatedPeople"
   table_name = "RelatedPeople"
+  foreign_key = "relatedPerson_id"
   keys = ["person_id","crisis_id","organization_id"]
 
 class RelatedOrganization(Model):
+  instances = []
   plural = "relatedOrganizations"
   table_name = "RelatedOrganizations"
+  foreign_key = "relatedOrganization_id"
   keys = ["person_id","crisis_id","organization_id"]
 
 class RelatedCrisis(Model):
+  instances = []
   plural = "relatedCrises"
   table_name = "RelatedCrises"
+  foreign_key = "relatedCrisis_id"
   keys = ["person_id","crisis_id","organization_id"]
 
 class Location(Model):
+  instances = []
   plural = "locations"
   table_name = "Locations"
+  foreign_key = "location_id"
   keys = ["crisis_id","person_id","organization_id","locality","region","country"]
 
 class ExternalResource(Model):
+  instances = []
   plural = "externalResources"
   table_name= "ExternalResources"
+  foreign_key = "externalResource_id"
   keys = ["crisis_id","organization_id","type","content"]
 
 class HumanImpact(Model):
+  instances = []
   plural = "humanImpacts"
   table_name = "HumanImpacts"
+  foreign_key = "humanImpact_id"
   keys = ["crisis_id","number","type"]
 
 class ResourceNeeded(Model):
+  instances = []
   plural = "resourcesNeeded"
   table_name = "ResourcesNeeded"
+  foreign_key = "resourceNeeded_id"
   keys = ["crisis_id", "resource"]
 
 class WaysToHelp(Model):
+  instances = []
   plural = "waysToHelp"
   table_name = "WaysToHelp"
   foreign_key = "waysToHelp_id"
   keys = ["crisis_id","waysToHelp"]
 
 class Organization(Model):
+  instances = []
   plural = "organizations"
   table_name = "Organizations"
   foreign_key = "organization_id"
@@ -778,24 +862,28 @@ class Organization(Model):
   hasMany = ["locations","externalResources","relatedPeople","relatedCrises"]
 
 class OrganizationKind(Model):
+  instances = []
   plural = "organizationKinds"
   table_name = "OrganizationKinds"
   foreign_key = "organizationKind_id"
   keys = ["organizationKind_id","name","description"]
 
 class CrisisKind(Model):
+  instances = []
   plural = "crisisKinds"
   table_name = "CrisisKinds"
   foreign_key = "crisisKind_id"
   keys = ["crisisKind_id","name","description"]
 
 class PersonKind(Model):
+  instances = []
   plural = "personKinds"
   table_name = "PersonKinds"
   foreign_key = "personKind_id"
   keys = ["personKind_id","name","description"]
 
 class Person(Model):
+  instances = []
   plural = "people"
   table_name = "People"
   foreign_key = "person_id"
