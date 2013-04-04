@@ -83,7 +83,34 @@ class TestXML (unittest.TestCase):
 		self.assertTrue('open' in str(testConnect))		
 
 	def test_query(self):
-		testQuery = WCDB2.MySQL.query("show databases")
+		testQuery = WCDB2.DEFAULT_CONNECTION.query("show databases")
+		self.assertTrue(type(testQuery) == types.TupleType)
+
+
+	def test_query1(self):
+		testQuery = WCDB2.DEFAULT_CONNECTION.query("show databases")
+		testQuery1 = WCDB2.DEFAULT_CONNECTION.query("use "+testQuery[1]['Database'])
+		self.assertTrue(type(testQuery1) == types.NoneType)		
+
+	def test_setup_database(self):
+		testSetup = WCDB2.DEFAULT_CONNECTION.setup_database()
+		self.assertTrue(type(testSetup) == types.NoneType)	
+
+	def test_get(self):
+		sampleDict = {'a' : '1'}
+		testGet = WCDB2.Model(**sampleDict)
+		test1 = WCDB2.Model.get(testGet, 'a')
+		self.assertTrue(test1 == '1')
+
+	def test_set(self):
+		sampleDict = {'a' : '1'}
+		testSet = WCDB2.Model(**sampleDict)
+		WCDB2.Model.set(testSet, 'a', '2')
+		test2 = WCDB2.Model.get(testSet, 'a')
+		self.assertTrue(test2 == '2')
+
+
+
 
 print ("TestXML.py")
 unittest.main()
