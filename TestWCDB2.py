@@ -195,18 +195,6 @@ class TestWCDB2 (unittest.TestCase):
 
 
 
-
-
-		
-
-
-
-
-
-
-
-
-
 print ("TestXML.py")
 unittest.main()
 print ("Done.")
