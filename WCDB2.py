@@ -151,6 +151,18 @@ def main():
       ("ExternalResources", ExternalResources, Serializers.HasMany),
       ("Kind", ("personKindIdent", "personkind_id"), Serializers.Attribute)
     ],
+    "Organization": [
+      ("Organization", ("organizationIdent", "organization_id"), Serializers.Attribute ),
+      ("Name", "name", Serializers.Text),
+      ("ContactInfo/Telephone", "telephone", Serializers.Text),
+      ("ContactInfo/Fax", "fax", Serializers.Text),
+      ("ContactInfo/Email", "email", Serializers.Text),
+      ("ContactInfo/PostalAddress/StreetAddress", "streetAddress", Serializers.Text),
+      ("ContactInfo/PostalAddress/Locality", "locality", Serializers.Text),
+      ("ContactInfo/PostalAddress/Region", "region", Serializers.Text),
+      ("ContactInfo/PostalAddress/PostalCode", "postalCode", Serializers.Text),
+      ("ContactInfo/PostalAddress/Country", "country", Serializers.Text)
+    ],
     "Location": [
       ("Locality", "locality", Serializers.Text),
       ("Region", "region", Serializers.Text),

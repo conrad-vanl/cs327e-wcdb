@@ -20,12 +20,13 @@
 		<EconomicImpact>123029</EconomicImpact>
 		<ResourceNeeded>food</ResourceNeeded>
 		<WaysToHelp>Donation</WaysToHelp>
-		<ExternalResources></ExternalResources>	
+		<ExternalResources>
+		<ImageURL>http://inapcache.boston.com/universal/site_graphics/blogs/bigpicture/quake1/bp15.jpg</ImageURL>
+		</ExternalResources>	
 	</Crisis>
 
 	<CrisisKind crisisKindIdent="EQ">
 		<Name>EarthQuake</Name>
 		<Description>The earth shaking due to techtonic plate activity</Description>
 	</CrisisKind>
-
 </WorldCrises>

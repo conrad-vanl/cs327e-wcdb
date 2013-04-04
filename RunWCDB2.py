@@ -7,13 +7,13 @@ factory1 = WCDB2.Factory()
 factory1.import_xml("RunWCDB2.in.xml")
 
 # export
-factory1.export("RunWCDB2.out.xml")
+factory1.export_xml("RunWCDB2.out.xml")
 
 factory2 = WCDB2.Factory()
 
 # importing the export and re-exporting it
 factory2.import_xml("RunWCDB2.out.xml")
-factory2.export("RunWCDB2data2.out.xml")
+factory2.export_xml("RunWCDB2data2.out.xml")
 
 file1 = open("RunWCDB2.out.xml", 'r')
 file2 = open("RunWCDB2data2.out.xml", 'r')
