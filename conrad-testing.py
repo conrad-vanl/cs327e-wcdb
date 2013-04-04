@@ -20,7 +20,7 @@ xml_string = """
       <Region>D.C.</Region>
       <Country>United States</Country>
     </Location>
-   <kind personKindIdent="LD"/>
+   <Kind personKindIdent="LD"/>
  </Person>
 </WorldCrises>
 """

@@ -142,14 +142,14 @@ def main():
   global DEFAULT_MAPPINGS
   DEFAULT_MAPPINGS = {
     "Person": [
-      ("Person", ("personIdent", "person_id"), Serializers.Attribute ),
+      ("Person", ("personIdent", "person_id"), Serializers.Attribute),
       ("Name/FirstName", "firstName", Serializers.Text),
       ("Name/LastName", "lastName", Serializers.Text),
       ("Name/MiddleName", "middleName", Serializers.Text),
       ("Name/Suffix", "suffix", Serializers.Text),
       ("Location", Location, Serializers.HasMany),
       ("ExternalResources", ExternalResources, Serializers.HasMany),
-      ("Kind", ("personKindIdent", "personkind_id"), Serializers.Attribute)
+      ("Kind", ("personKindIdent", "personKind_id"), Serializers.Attribute)
     ],
     "Organization": [
       ("Organization", ("organizationIdent", "organization_id"), Serializers.Attribute ),
@@ -237,7 +237,15 @@ class Factory:
       self.lookup_model(element.tag).from_xml(element).persist()
 
   def export_xml(self, filename):
-    """Exports XML from database"""
+    """Exports XML from database to specified filename"""
+    # Get each Model:
+    model_classes = Model.__subclasses__()
+    xml = XML.from_string("<WorldCrises></WorldCrises>")
+
+    for model_class in model_classes:
+      records = model_class.all
+      for record in records:
+        xml.append(record.to_xml())
 
   def lookup_model(self, model_name):
     """Lookup model class from model_name, returns Class"""
@@ -299,6 +307,10 @@ class XML:
     """Converts an XML object into an xml file"""
     f = open(filename, 'w')
     f.write(self.__str__())
+
+  def append(self, obj):
+    """Appends an XML object into current XML's subclass"""
+    self.tree.append(obj.tree)
 
 
 
@@ -403,7 +415,7 @@ class MySQL:
 # Internal: I'm hoping that splitting out each relation into it's own model/class will pay off in the long run
 # Each model should have from_xml, to_xml methods
 # Each model should have a plural, table_name attributes
-class Model:
+class Model(object):
   """
     A model is a mapper/representation of a relation. allows us to split up tasks a little easier.
     Basically, a model will be responsible for:
@@ -413,7 +425,6 @@ class Model:
   table_name = ""
   plural = ""
   hasMany = [] # [Model]
-  belongsTo = [] # [Model]
   keys = []
   foreign_key = ""
 
@@ -459,8 +470,8 @@ class Model:
     return model
 
   def to_xml(self):
-    """returns xml string of model"""
-    raise Exception("Must override method")
+    """returns xml object of model"""
+    
 
   @classmethod
   def all(cls, connection = None):
@@ -473,19 +484,31 @@ class Model:
     return a
 
   def persist(self, connection = None):
-    """Persists model to DB, including all associations (TODO)"""
+    """Persists model to DB, including all associationsx"""
 
     if connection == None:
       connection = DEFAULT_CONNECTION
 
     # Persist model to DB:
-    return connection.query("insert into `"+str(self.table_name)+"` ("+",".join(self.keys)+") values("+",".join('"{0}"'.format(w) for w in self.vals())+")")
+    connection.query("insert into `"+str(self.table_name)+"` ("+",".join(self.keys)+") values("+",".join(self.vals())+")")
+
+    # Persist associations to DB:
+    # for now, we only need to persist hasMany associations:
+    for association in self.hasMany:
+      for record in self.get(association):
+        record.persist()
+
+    return True
+
 
   def vals(self):
-    """returns a list [in order of keys] of attribute values"""
+    """returns a list [in order of keys] of attribute values wrapped in quotes"""
     result = []
     for key in self.keys:
-      result.append(self.get(key))
+      if self.get(key) == None:
+        result.append("NULL")
+      else:
+        result.append("\""+str(self.get(key))+"\"")
     return result
 
 
@@ -517,7 +540,12 @@ class Serializers():
         # create foreign objects
         foreign_records = []
         for e in elements:
-          foreign_records.append(foreignModel.from_xml(e))
+          m = foreignModel.from_xml(e)
+
+          assert(model.get(model.foreign_key) is not None) # the foreign key must be set first!!!
+          m.set(model.foreign_key, model.get(model.foreign_key))
+
+          foreign_records.append(m)
         # set relation on model
         model.set(foreignModel.plural, foreign_records)
 
@@ -553,6 +581,7 @@ class Crisis(Model):
   table_name = "Crises"
   foreign_key = "crisis_id"
   keys = ["crisis_id", "crisisKind_id", "name", "startDateTime", "endDateTime", "economicImpact"]
+
 
 class RelatedPerson(Model):
   plural = "relatedPeople"
@@ -624,6 +653,7 @@ class Person(Model):
   table_name = "People"
   foreign_key = "person_id"
   keys = ["person_id","firstName","lastName","middleName","suffix","personKind_id"]
+  hasMany = ["locations"]
 
 # call up runetime stuff:
 main()
