@@ -1,37 +1,10 @@
 import WCDB2
 
-# setup factory:
-factory = WCDB2.Factory()
+WCDB2.MYSQL_DEBUG = True
 
-print "###### Factory: ######"
-print factory
-print "\n"
+f = WCDB2.Factory()
+f.import_xml( WCDB2.XML.from_file("instance.xml") )
 
-# setup XML:
-xml_string = """
-<WorldCrises>
- <Person personIdent="BTownsend">
-   <Name>
-     <FirstName>Bob</FirstName>
-     <LastName>Townsend</LastName>
-   </Name>
-   <Location>
-      <Locality>Washington</Locality>
-      <Region>D.C.</Region>
-      <Country>United States</Country>
-    </Location>
-   <Kind personKindIdent="LD"/>
- </Person>
-</WorldCrises>
-"""
+xml = f.export_xml()
 
-xml = WCDB2.XML.from_string(xml_string)
-
-print "###### XML: ######"
-print xml
-print "\n"
-
-
-# test serializing XML:
-factory.import_xml(xml)
-
+xml.export("test.xml")

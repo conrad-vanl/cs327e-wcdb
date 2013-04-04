@@ -1,7 +1,5 @@
 <WorldCrises>
 
-  <!--Crises-->
-
   <Crisis crisisIdent="Japan_Earthquake">
     <Name>2011 Great East Japan Earthquake and Tsunami</Name>
     <Kind crisisKindIdent="EQ"/>

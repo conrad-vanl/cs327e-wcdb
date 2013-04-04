@@ -23,8 +23,8 @@ SCHEMAS = {
     crisis_id       VARCHAR(30) NOT NULL,
     crisisKind_id   VARCHAR(30) NOT NULL,
     name            TEXT NOT NULL,
-    startDate       DATE NOT NULL,
-    startTime       TIME NOT NULL,
+    startDate       DATE,
+    startTime       TIME,
     endDate         DATE,
     endTime         TIME,
     economicImpact  TEXT
@@ -126,11 +126,15 @@ SCHEMAS = {
 
 DEFAULT_CONNECTION = None
 DEFAULT_MAPPINGS   = None
+MYSQL_DEBUG = False
 
 # Setup defaults needed at runtimes
 def main():
   global DEFAULT_CONNECTION
   DEFAULT_CONNECTION = MySQL()
+
+  global XML_ROOT_ELEMENTS
+  XML_ROOT_ELEMENTS = [Crisis, Organization, Person, CrisisKind, OrganizationKind, PersonKind]
 
   # Default mappings:
   # a mapping is a collection of tuples that map:
@@ -201,7 +205,7 @@ def main():
     "Crisis": [
       (".", ("crisisIdent", "crisis_id"), Serializers.Attribute),
       ("Name", "name", Serializers.Text),
-      ("Kind", ("crisisKindIdent", "crisiskind_id"), Serializers.Attribute),
+      ("Kind", ("crisisKindIdent", "crisisKind_id"), Serializers.Attribute),
       ("Location", Location, Serializers.HasMany),
       ("StartDateTime/Date", "startDate", Serializers.Text),
       ("StartDateTime/Time", "startTime", Serializers.Text),
@@ -245,7 +249,6 @@ def lookup_model_from_plural(plural):
   for model_class in model_classes:
     if model_class.plural == plural:
       return model_class
-  raise("Model not found")
 
 # ********************************************** 
 #                 FACTORY Class                                  
@@ -287,8 +290,8 @@ class Factory:
     model_classes = Model.__subclasses__()
     xml = XML.from_string("<WorldCrises></WorldCrises>")
 
-    for model_class in model_classes:
-      records = model_class.all
+    for model_class in XML_ROOT_ELEMENTS:
+      records = model_class.all()
       for record in records:
         xml.tree.append(record.to_xml())
 
@@ -344,13 +347,9 @@ class XML:
     assert isinstance(string, str) or isinstance(string, basestring)
     return XML( ET.fromstring(string) )
 
-  def __str__(self):
-    return ET.tostring( self.tree )
-
   def export(self, filename):
     """Converts an XML object into an xml file"""
-    f = open(filename, 'w')
-    f.write(self.__str__())
+    ET.ElementTree(self.tree).write(filename, "UTF-8")
 
   def append(self, obj):
     """Appends an XML object into current XML's subclass"""
@@ -423,12 +422,13 @@ class MySQL:
 
   def query (self, query, **options) :
     """Runs MySQL query on database"""
+    if MYSQL_DEBUG:
+      print query
     # Setup options:
     maxrows = options.get("maxrows", 0) # default to 0 / no max
     how     = options.get("how", 1) # default to table.column syntax
 
     assert str(type(self._c)) == "<type '_mysql.connection'>"
-    assert type(query)      is str
 
     self._c.query(query)
     r = self._c.store_result()
@@ -604,7 +604,7 @@ class Model(object):
       if self.get(key) == None:
         result.append("NULL")
       else:
-        result.append("\""+str(self.get(key))+"\"")
+        result.append("\""+_mysql.escape_string(unicode(self.get(key)).encode('utf8'))+"\"")
     return result
 
 
@@ -633,7 +633,7 @@ class Serializers():
       if model.get(key) is not None:
         # get element to add text to:
         element = XML.find_or_build_element(xml_element, path)
-        element.text = model.get(key)
+        element.text = model.get(key).decode('utf-8')
 
   class HasMany():
     """Serializer that initializes elements from a hasMany association"""
@@ -656,6 +656,7 @@ class Serializers():
     @staticmethod
     def to_xml(model, xml_element, path, foreignModel):
       # only do something if value is there:
+
       if model.get(foreignModel.plural) is not None:
         models = model.get(foreignModel.plural)
         # if path ends with an all delimeter, we know that we have a wrapper element
@@ -684,12 +685,12 @@ class Serializers():
       if model.get(key) is not None:
         # get element to add attribute to:
         element = XML.find_or_build_element(xml_element, path)
-        element.set(attribute, model.get(key))
+        element.set(attribute, model.get(key).decode('utf-8'))
 
   class Tag():
     """Simple serializer that retrieves tag name on element, such as <tagName/>"""
     @staticmethod
-    def from_xml(model, xml_element, path, (attribute, key)):
+    def from_xml(model, xml_element, path, key):
       # first check if looking for root element:
       element = xml_element.find(path)
 
@@ -697,11 +698,11 @@ class Serializers():
         model.set(key, element.tag)
 
     @staticmethod
-    def to_xml(model, xml_element, path, (attribute, key)):
+    def to_xml(model, xml_element, path, key):
       # only do something if value is there:
       if model.get(key) is not None:
         # need to rename root (current element to value)
-        element.tag = model
+        xml_element.tag = model.get(key)
 
 
 
@@ -722,8 +723,8 @@ class Crisis(Model):
   plural = "crises"
   table_name = "Crises"
   foreign_key = "crisis_id"
-  keys = ["crisis_id", "crisisKind_id", "name", "startDateTime", "endDateTime", "economicImpact"]
-
+  keys = ["crisis_id", "crisisKind_id", "name", "startDate", "startTime", "endDate", "endTime", "economicImpact"]
+  hasMany = ["locations","humanImpacts","resourcesNeeded","waysToHelp","relatedPeople","externalResources","relatedOrganizations"]
 
 class RelatedPerson(Model):
   plural = "relatedPeople"
@@ -752,8 +753,8 @@ class ExternalResource(Model):
 
 class HumanImpact(Model):
   plural = "humanImpacts"
-  table_name = "HumanImpact"
-  keys = ["crisis_id","resource","type"]
+  table_name = "HumanImpacts"
+  keys = ["crisis_id","number","type"]
 
 class ResourceNeeded(Model):
   plural = "resourcesNeeded"
@@ -761,7 +762,7 @@ class ResourceNeeded(Model):
   keys = ["crisis_id", "resource"]
 
 class WaysToHelp(Model):
-  pural = "waysToHelp"
+  plural = "waysToHelp"
   table_name = "WaysToHelp"
   foreign_key = "waysToHelp_id"
   keys = ["crisis_id","waysToHelp"]
@@ -771,6 +772,7 @@ class Organization(Model):
   table_name = "Organizations"
   foreign_key = "organization_id"
   keys = ["organization_id","organizationKind_id","name","history","telephone","fax","email","streetAddress","locality","region","postalCode","country"]
+  hasMany = ["locations","externalResources","relatedPeople","relatedCrises"]
 
 class OrganizationKind(Model):
   plural = "organizationKinds"
@@ -795,7 +797,7 @@ class Person(Model):
   table_name = "People"
   foreign_key = "person_id"
   keys = ["person_id","firstName","lastName","middleName","suffix","personKind_id"]
-  hasMany = ["locations"]
+  hasMany = ["locations","externalResources","relatedPeople","relatedOrganizations"]
 
 # call up runetime stuff:
 main()
