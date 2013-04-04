@@ -20,14 +20,23 @@ file2 = open("RunWCDB2data2.out.xml", 'r')
 
 # comparing the initial export with its own export
 
-file1xml = ""
-file2xml = ""
+file1xml = []
+file2xml = []
 
 for line in file1:
-    file1xml += line
+    file1xml.append(line)
 for line in file2:
-    file2xml +=line
+    file2xml.append(line)
 
-assert file1xml == file2xml
+flag = True
+
+for line in file1xml:
+    if line not in file2xml:
+        flag = False
+        break
+    else:
+        pass
+    
+assert flag
 
 # done!
