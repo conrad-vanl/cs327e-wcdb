@@ -23,9 +23,11 @@ SCHEMAS = {
     crisis_id       VARCHAR(30) NOT NULL,
     crisisKind_id   VARCHAR(30) NOT NULL,
     name            TEXT NOT NULL,
-    startDateTime   DATETIME NOT NULL,
-    endDateTime     DATETIME,
-    economicImpact   TEXT
+    startDate       DATE NOT NULL,
+    startTime       TIME NOT NULL,
+    endDate         DATE,
+    endTime         TIME,
+    economicImpact  TEXT
     """,
   "RelatedPeople":
     """
@@ -142,18 +144,30 @@ def main():
   global DEFAULT_MAPPINGS
   DEFAULT_MAPPINGS = {
     "Person": [
-      ("Person", ("personIdent", "person_id"), Serializers.Attribute),
+      (".", ("personIdent", "person_id"), Serializers.Attribute),
       ("Name/FirstName", "firstName", Serializers.Text),
       ("Name/LastName", "lastName", Serializers.Text),
       ("Name/MiddleName", "middleName", Serializers.Text),
       ("Name/Suffix", "suffix", Serializers.Text),
       ("Location", Location, Serializers.HasMany),
-      ("ExternalResources", ExternalResources, Serializers.HasMany),
-      ("Kind", ("personKindIdent", "personKind_id"), Serializers.Attribute)
+      ("ExternalResources/*", ExternalResource, Serializers.HasMany),
+      ("Kind", ("personKindIdent", "personKind_id"), Serializers.Attribute),
+      ("RelatedPersons/*", RelatedPerson, Serializers.HasMany),
+      ("RelatedOrganizations/*", RelatedOrganization, Serializers.HasMany)
+    ],
+    "RelatedPerson": [
+      (".", ("personIdent", "person_id"), Serializers.Attribute)
+    ],
+    "RelatedOrganization": [
+      (".", ("organizationIdent", "organization_id"), Serializers.Attribute)
+    ],
+    "RelatedCrisis": [
+      (".", ("crisisIdent", "crisis_id"), Serializers.Attribute)
     ],
     "Organization": [
-      ("Organization", ("organizationIdent", "organization_id"), Serializers.Attribute ),
+      (".", ("organizationIdent", "organization_id"), Serializers.Attribute ),
       ("Name", "name", Serializers.Text),
+      ("History", "history", Serializers.Text),
       ("ContactInfo/Telephone", "telephone", Serializers.Text),
       ("ContactInfo/Fax", "fax", Serializers.Text),
       ("ContactInfo/Email", "email", Serializers.Text),
@@ -161,46 +175,77 @@ def main():
       ("ContactInfo/PostalAddress/Locality", "locality", Serializers.Text),
       ("ContactInfo/PostalAddress/Region", "region", Serializers.Text),
       ("ContactInfo/PostalAddress/PostalCode", "postalCode", Serializers.Text),
-      ("ContactInfo/PostalAddress/Country", "country", Serializers.Text)
+      ("ContactInfo/PostalAddress/Country", "country", Serializers.Text),
+      ("Kind", ("organizationKindIdent", "organizationKind_id"), Serializers.Attribute),
+      ("RelatedPersons/*", RelatedPerson, Serializers.HasMany),
+      ("RelatedCrises/*", RelatedCrisis, Serializers.HasMany),
+      ("ExternalResources/*", ExternalResource, Serializers.HasMany),
+      ("Location", Location, Serializers.HasMany)
     ],
     "Location": [
       ("Locality", "locality", Serializers.Text),
       ("Region", "region", Serializers.Text),
       ("Country", "country", Serializers.Text)
     ],
-    "ExternalResources": [
-      ("ImageURL", "type", Serializers.Text),
-      ("VideoURL", "type", Serializers.Text),
-      ("MapURL", "type", Serializers.Text),
-      ("SocialNetworkURL", "type", Serializers.Text),
-      ("ExternalLinkURL", "type", Serializers.Text),
-      ("Citation", "type", Serializers.Text)
-      ],
+    "ExternalResource": [
+      (".", "type", Serializers.Tag),
+      (".", "content", Serializers.Text)
+    ],
+    "HumanImpact": [
+      ("Type", "type", Serializers.Text),
+      ("Number", "number", Serializers.Text)
+    ],
+    "ResourceNeeded": [
+      (".", "resource", Serializers.Text)
+    ],
     "Crisis": [
-      ("Crisis", ("crisisIdent", "crisis_id"), Serializers.Attribute),
+      (".", ("crisisIdent", "crisis_id"), Serializers.Attribute),
       ("Name", "name", Serializers.Text),
       ("Kind", ("crisisKindIdent", "crisiskind_id"), Serializers.Attribute),
       ("Location", Location, Serializers.HasMany),
-      ("StartDateTime/Date", "startDateTime", Serializers.Text),
-      ("EndDateTime/Date", "endDateTime", Serializers.Text),
-      ("HumanImpact/Type", "type", Serializers.Text),
-      ("HumanImpact/Number", "number", Serializers.Text),
+      ("StartDateTime/Date", "startDate", Serializers.Text),
+      ("StartDateTime/Time", "startTime", Serializers.Text),
+      ("EndDateTime/Date", "endDate", Serializers.Text),
+      ("EndDateTime/Time", "endDate", Serializers.Text),
+      ("HumanImpact", HumanImpact, Serializers.HasMany),
       ("EconomicImpact", "economicImpact", Serializers.Text),
-      ("ResourceNeeded", ResourcesNeeded, Serializers.HasMany),
+      ("ResourceNeeded", ResourceNeeded, Serializers.HasMany),
       ("WaysToHelp", WaysToHelp, Serializers.HasMany),
-      ("RelatedPersons", RelatedPeople, Serializers.HasMany),
-      ("RelatedOrganizations", RelatedOrganizations, Serializers.HasMany)
-    ],
-    "ResourcesNeeded": [
-      ("ResouceNeeded", "resource", Serializers.Text)
+      ("RelatedPersons/*", RelatedPerson, Serializers.HasMany),
+      ("ExternalResources/*", ExternalResource, Serializers.HasMany),
+      ("RelatedOrganizations/*", RelatedOrganization, Serializers.HasMany)
     ],
     "WaysToHelp": [
-      ("WaysToHelp", "waysToHelp", Serializers.Text)
+      (".", "waysToHelp", Serializers.Text)
+    ],
+    "OrganizationKind": [
+      (".", ("organizationKindIdent", "organizationKind_id"), Serializers.Attribute),
+      ("Name", "name", Serializers.Text),
+      ("Description", "description", Serializers.Text)
+    ],
+    "PersonKind": [
+      (".", ("personKindIdent", "personKind_id"), Serializers.Attribute),
+      ("Name", "name", Serializers.Text),
+      ("Description", "description", Serializers.Text)
+    ],
+    "CrisisKind": [
+      (".", ("crisisKindIdent", "crisisKind_id"), Serializers.Attribute),
+      ("Name", "name", Serializers.Text),
+      ("Description", "description", Serializers.Text)
     ]
   }
 
+def lookup_model(model_name):
+  """Lookup model class from model_name, returns Class"""
+  return eval(model_name) # just do this until we have problems
 
-
+def lookup_model_from_plural(plural):
+  """Lookup model class from a plural model_name, returns Class"""
+  model_classes = Model.__subclasses__()
+  for model_class in model_classes:
+    if model_class.plural == plural:
+      return model_class
+  raise("Model not found")
 
 # ********************************************** 
 #                 FACTORY Class                                  
@@ -234,9 +279,9 @@ class Factory:
 
     # Basic idea: loop over root elements in XML and apply some sort of mapping function, then save the result:
     for element in xml.tree:
-      self.lookup_model(element.tag).from_xml(element).persist()
+      lookup_model(element.tag).from_xml(element).persist()
 
-  def export_xml(self, filename):
+  def export_xml(self):
     """Exports XML from database to specified filename"""
     # Get each Model:
     model_classes = Model.__subclasses__()
@@ -245,11 +290,10 @@ class Factory:
     for model_class in model_classes:
       records = model_class.all
       for record in records:
-        xml.append(record.to_xml())
+        xml.tree.append(record.to_xml())
 
-  def lookup_model(self, model_name):
-    """Lookup model class from model_name, returns Class"""
-    return eval(model_name) # just do this until we have problems
+    return xml
+  
 
 
 
@@ -312,6 +356,25 @@ class XML:
     """Appends an XML object into current XML's subclass"""
     self.tree.append(obj.tree)
 
+  @classmethod
+  def find_or_build_element(_class, tree, path):
+    """Either finds a path in tree, or builds elements to the path. either way returns element"""
+    if tree.find(path) is not None:
+      return tree.find(path)
+    else:
+      # first, seperate out path to work on only one element:
+      if path.find("/") > 0:
+        path, try_again_path = path[0:path.find("/")], path[path.find("/")+1::]
+      else:
+        try_again_path = "."
+
+      # create element if it needs to:
+      if tree.find(path) is not None:
+        element = tree.find(path)
+      else:
+        element = ET.SubElement(tree, path)
+
+      return _class.find_or_build_element(element, try_again_path)
 
 
 
@@ -436,6 +499,11 @@ class Model(object):
 
   def get(self, key):
     """Get an attribute/associative model"""
+
+    # special case for associative model:
+    if key in self.hasMany and self.params.get(key) is None:
+      self.params.__setitem__(key, lookup_model_from_plural(key).find("*","where "+self.foreign_key+"=\""+self.get(self.foreign_key)+"\""))
+    
     return self.params.get(key)
 
   def set(self, key, value):
@@ -450,7 +518,7 @@ class Model(object):
 
     # conform xml to proper type
     if isinstance(xml, basestring):
-      xml = XML.from_string(xml)
+      xml = XML.from_string(xml).tree
 
     # revert to default mappings if not supplied
     if mappings == None:
@@ -469,9 +537,18 @@ class Model(object):
 
     return model
 
-  def to_xml(self):
+  def to_xml(self, mappings = None):
     """returns xml object of model"""
-    
+
+    if mappings == None:
+      mappings = DEFAULT_MAPPINGS[self.__class__.__name__]
+
+    root = XML.from_string("<"+self.__class__.__name__+"></"+self.__class__.__name__+">")
+    # loop through mappings
+    for _map in mappings:
+      _map[2].to_xml(self, root.tree, _map[0], _map[1])
+
+    return root.tree
 
   @classmethod
   def all(cls, connection = None):
@@ -481,6 +558,25 @@ class Model(object):
       connection = DEFAULT_CONNECTION
 
     a = connection.query("select * from " + cls.table_name, how = 1)
+    
+    return cls.build_from_db_result(a)
+
+  @classmethod
+  def find(_class, project, select, connection = None):
+    """Quick project/select find"""
+    if connection == None:
+      connection = DEFAULT_CONNECTION
+
+    a = connection.query("select "+project+" from "+_class.table_name+" "+select)
+
+    return _class.build_from_db_result(a)
+
+  @classmethod
+  def build_from_db_result(_class, results):
+    """Returns a list of records from database +result+"""
+    a = []
+    for result in results:
+      a.append(_class(**result))
     return a
 
   def persist(self, connection = None):
@@ -531,6 +627,14 @@ class Serializers():
       if element is not None:
         model.set(key, element.text)
 
+    @staticmethod
+    def to_xml(model, xml_element, path, key):
+      # only do something if value is there:
+      if model.get(key) is not None:
+        # get element to add text to:
+        element = XML.find_or_build_element(xml_element, path)
+        element.text = model.get(key)
+
   class HasMany():
     """Serializer that initializes elements from a hasMany association"""
     @staticmethod
@@ -549,18 +653,56 @@ class Serializers():
         # set relation on model
         model.set(foreignModel.plural, foreign_records)
 
+    @staticmethod
+    def to_xml(model, xml_element, path, foreignModel):
+      # only do something if value is there:
+      if model.get(foreignModel.plural) is not None:
+        models = model.get(foreignModel.plural)
+        # if path ends with an all delimeter, we know that we have a wrapper element
+        # and therefore should create or select that element to build in
+        if path[-1] == "*":
+          xml_element = XML.find_or_build_element(xml_element, path[0:-2])
+
+        if models is not None:
+          for m in models:
+            # for each model, append the element:
+            xml_element.append(m.to_xml())
+
   class Attribute():
     """Simple serialize that retrieves attribute value on element, such as <element attr="val" />"""
     @staticmethod
     def from_xml(model, xml_element, path, (attribute, key)):
       # first check if looking for root element:
-      if path == model.__class__.__name__:
-        element = xml_element
-      else:
-        element = xml_element.find(path)
+      element = xml_element.find(path)
 
       if element is not None:
         model.set(key, element.attrib.get(attribute))
+
+    @staticmethod
+    def to_xml(model, xml_element, path, (attribute, key)):
+      # only do something if value is there:
+      if model.get(key) is not None:
+        # get element to add attribute to:
+        element = XML.find_or_build_element(xml_element, path)
+        element.set(attribute, model.get(key))
+
+  class Tag():
+    """Simple serializer that retrieves tag name on element, such as <tagName/>"""
+    @staticmethod
+    def from_xml(model, xml_element, path, (attribute, key)):
+      # first check if looking for root element:
+      element = xml_element.find(path)
+
+      if element is not None:
+        model.set(key, element.tag)
+
+    @staticmethod
+    def to_xml(model, xml_element, path, (attribute, key)):
+      # only do something if value is there:
+      if model.get(key) is not None:
+        # need to rename root (current element to value)
+        element.tag = model
+
 
 
 
@@ -618,10 +760,10 @@ class ResourceNeeded(Model):
   table_name = "ResourcesNeeded"
   keys = ["crisis_id", "resource"]
 
-class WayToHelp(Model):
+class WaysToHelp(Model):
   pural = "waysToHelp"
   table_name = "WaysToHelp"
-  foreign_key = "wayToHelp_id"
+  foreign_key = "waysToHelp_id"
   keys = ["crisis_id","waysToHelp"]
 
 class Organization(Model):
