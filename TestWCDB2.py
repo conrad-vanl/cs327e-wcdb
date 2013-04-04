@@ -93,9 +93,30 @@ class TestWCDB2 (unittest.TestCase):
 		testQuery1 = WCDB2.DEFAULT_CONNECTION.query("use "+testQuery[1]['Database'])
 		self.assertTrue(type(testQuery1) == types.NoneType)		
 
+	def test_query2(self):
+		testQuery = WCDB2.DEFAULT_CONNECTION.query("show databases")
+		testQuery1 = WCDB2.DEFAULT_CONNECTION.query("use "+testQuery[2]['Database'])
+		self.assertTrue(type(testQuery1) == types.NoneType)	
+
 	def test_setup_database(self):
 		testSetup = WCDB2.DEFAULT_CONNECTION.setup_database()
 		self.assertTrue(type(testSetup) == types.NoneType)	
+
+	def test_setup_database1(self):
+		testSetup = WCDB2.DEFAULT_CONNECTION.setup_database()
+		testQuery = WCDB2.DEFAULT_CONNECTION.query("show databases")
+		self.assertTrue(type(testQuery) == types.TupleType)
+		
+	def test_setup_database1(self):
+		testSetup = WCDB2.DEFAULT_CONNECTION.setup_database()	
+		testQuery = WCDB2.DEFAULT_CONNECTION.query("show databases")
+		self.assertTrue(len(testQuery)!= 0 )
+
+	def test_drop_table(self):
+		testQuery = WCDB2.DEFAULT_CONNECTION.query("show databases")
+		testQuery1 = WCDB2.DEFAULT_CONNECTION.drop_table('nsd')
+		self.assertTrue(type(testQuery1)==types.NoneType)
+
 
 	def test_get(self):
 		sampleDict = {'a' : '1'}
@@ -103,11 +124,37 @@ class TestWCDB2 (unittest.TestCase):
 		test1 = WCDB2.Model.get(testGet, 'a')
 		self.assertTrue(test1 == '1')
 
+	def test_get2(self):
+		sampleDict = {'a' : 'b'}
+		testGet = WCDB2.Model(**sampleDict)
+		test1 = WCDB2.Model.get(testGet, 'a')
+		self.assertTrue(test1 == 'b')
+
+	def test_get3(self):
+		sampleDict = {'b' : '3', 'r': '55', 'te':'323'}
+		testGet = WCDB2.Model(**sampleDict)
+		test1 = WCDB2.Model.get(testGet, 'b')
+		self.assertTrue(test1 == '3')		
+
 	def test_set(self):
 		sampleDict = {'a' : '1'}
 		testSet = WCDB2.Model(**sampleDict)
 		WCDB2.Model.set(testSet, 'a', '2')
 		test2 = WCDB2.Model.get(testSet, 'a')
+		self.assertTrue(test2 == '2')
+
+	def test_set2(self):
+		sampleDict = {'a' : 'b'}
+		testSet = WCDB2.Model(**sampleDict)
+		WCDB2.Model.set(testSet, 'a', 'c')
+		test2 = WCDB2.Model.get(testSet, 'a')
+		self.assertTrue(test2 == 'c')
+	
+	def test_set3(self):
+		sampleDict = {'b' : '3', 'r': '55', 'te':'323'}
+		testSet = WCDB2.Model(**sampleDict)
+		WCDB2.Model.set(testSet, 'r', '2')
+		test2 = WCDB2.Model.get(testSet, 'r')
 		self.assertTrue(test2 == '2')
 
 	def test_lookup_model(self):
@@ -136,11 +183,14 @@ class TestWCDB2 (unittest.TestCase):
 		self.assertTrue(type(test)== types.NoneType)
 
 	def test_import_xml(self):
-		seed_query = 
+		file2 = WCDB2.XML.from_file('RunWCDB2a.in.xml')
+		file1 = open('RunWCDB2a.in.xml')
+		testString = ''
+		for i in file1:
+			testString+=i
 		test_factory = WCDB2.Factory()
-		stringFile = WCDB2.XML.from_string(seed_query)
+		stringFile = WCDB2.XML.from_string(testString)
 		test_factory.import_xml(stringFile)
-		self.assertTrue(isinstance(test_factory,WCDB2.Factory))
 		#WCDB2.Factory.import_xml(seed_query)
 
 
