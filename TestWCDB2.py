@@ -10,15 +10,16 @@ import os
 import tempfile
 import WCDB2  
 import types
+import xml.etree.ElementTree as ET
 
-class TestXML (unittest.TestCase):
+class TestWCDB2 (unittest.TestCase):
 	def test_from_file(self):
 		temp = tempfile.NamedTemporaryFile()
 		temp.write("<note> \n<to>Tove</to>\n<from>Jani</from>\n<heading>Reminder</heading>\n<body>Don't forget me this weekend!</body>\n</note>\n")
 		temp.seek(0)
 		file1 = WCDB2.XML.from_file(temp.name)
 		file1.export("from_file.txt")
-		self.assertTrue(open(temp.name).readlines()[0] == open("from_file.txt").readlines()[0])
+		self.assertTrue(open(temp.name).readlines()[0] == open("from_file.txt").readlines()[1])
 
 	def test_from_file1(self):
 		temp = tempfile.NamedTemporaryFile()
@@ -60,7 +61,7 @@ class TestXML (unittest.TestCase):
 		seed_query = "<team> <abby> </abby> </team>"
 		exp1 = WCDB2.XML.from_string(seed_query)
 		exp1.export("testwcbd1.txt")
-		self.assertTrue(open("testwcbd1.txt").readlines()[0] == seed_query)
+		self.assertTrue(open("testwcbd1.txt").readlines()[1] == seed_query)
 
 	def test_export2(self):
 		seed_query1 = "<organizations> <organization> World Health Organization </organization> </organizations>"
@@ -108,6 +109,50 @@ class TestXML (unittest.TestCase):
 		WCDB2.Model.set(testSet, 'a', '2')
 		test2 = WCDB2.Model.get(testSet, 'a')
 		self.assertTrue(test2 == '2')
+
+	def test_lookup_model(self):
+		y = WCDB2.lookup_model('1+1')
+		self.assertTrue(y==2)
+
+	def test_lookup_model2(self):
+		lookupTest = WCDB2.lookup_model('1+1')
+		lookupTest1 = eval('1+1')
+		self.assertTrue(lookupTest1==lookupTest)
+
+	def test_lookup_model3(self):
+		lookupTest = WCDB2.lookup_model('1+1')
+		self.assertTrue(type(lookupTest) == types.IntType)
+
+	def test_lookup_model_from_plural(self):
+		test = WCDB2.lookup_model_from_plural('crises')
+		self.assertTrue( WCDB2.Crisis == test)
+
+	def test_lookup_model_from_plural2(self):
+		test = WCDB2.lookup_model_from_plural(WCDB2.Person.plural)
+		self.assertTrue( WCDB2.Person == test)
+
+	def test_lookup_model_from_plural3(self):
+		test = WCDB2.lookup_model_from_plural('ASD')
+		self.assertTrue(type(test)== types.NoneType)
+
+	def test_import_xml(self):
+		seed_query = 
+		test_factory = WCDB2.Factory()
+		stringFile = WCDB2.XML.from_string(seed_query)
+		test_factory.import_xml(stringFile)
+		self.assertTrue(isinstance(test_factory,WCDB2.Factory))
+		#WCDB2.Factory.import_xml(seed_query)
+
+
+
+
+
+		
+
+
+
+
+
 
 
 

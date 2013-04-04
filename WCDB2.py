@@ -340,6 +340,9 @@ class XML:
     assert os.path.isfile(filename)
     return XML( ET.parse( open(filename) ).getroot() )
 
+  def __str__(self):
+      return ET.tostring( self.tree )
+
   @staticmethod
   def from_string(string):
     """Creates an XML object from an input string"""
