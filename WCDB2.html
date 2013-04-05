@@ -1,0 +1,1159 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module WCDB2</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>WCDB2</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/v/filer4b/v35q001/zfarns/Desktop/WCDB2.py">/v/filer4b/v35q001/zfarns/Desktop/WCDB2.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="xml.etree.ElementTree.html">xml.etree.ElementTree</a><br>
+</td><td width="25%" valign=top><a href="_mysql.html">_mysql</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="WCDB2.html#Factory">Factory</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#MySQL">MySQL</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#Serializers">Serializers</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#XML">XML</a>
+</font></dt><dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="WCDB2.html#Model">Model</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="WCDB2.html#Crisis">Crisis</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#CrisisKind">CrisisKind</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#ExternalResource">ExternalResource</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#HumanImpact">HumanImpact</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#Location">Location</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#Organization">Organization</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#OrganizationKind">OrganizationKind</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#Person">Person</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#PersonKind">PersonKind</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#RelatedCrisis">RelatedCrisis</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#RelatedOrganization">RelatedOrganization</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#RelatedPerson">RelatedPerson</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#ResourceNeeded">ResourceNeeded</a>
+</font></dt><dt><font face="helvetica, arial"><a href="WCDB2.html#WaysToHelp">WaysToHelp</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Crisis">class <strong>Crisis</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>#&nbsp;**********************************************&nbsp;<br>
+#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INDIVIDUAL&nbsp;MODELS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+#&nbsp;----------------------------------------------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+#<br>
+#&nbsp;----------------------------------------------<br>
+#<br>
+#&nbsp;**********************************************&nbsp;<br>
+#&nbsp;NOW&nbsp;for&nbsp;the&nbsp;actual&nbsp;models:<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#Crisis">Crisis</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'crisis_id'</dl>
+
+<dl><dt><strong>hasMany</strong> = ['locations', 'humanImpacts', 'resourcesNeeded', 'waysToHelp', 'relatedPeople', 'externalResources', 'relatedOrganizations']</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['crisis_id', 'crisisKind_id', 'name', 'startDate', 'startTime', 'endDate', 'endTime', 'economicImpact']</dl>
+
+<dl><dt><strong>plural</strong> = 'crises'</dl>
+
+<dl><dt><strong>table_name</strong> = 'Crises'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="Crisis-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="Crisis-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="Crisis-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Crisis-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Crisis-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="Crisis-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="Crisis-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Crisis-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Crisis-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="Crisis-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="Crisis-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="Crisis-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="Crisis-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="CrisisKind">class <strong>CrisisKind</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#CrisisKind">CrisisKind</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'crisisKind_id'</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['crisisKind_id', 'name', 'description']</dl>
+
+<dl><dt><strong>plural</strong> = 'crisisKinds'</dl>
+
+<dl><dt><strong>table_name</strong> = 'CrisisKinds'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="CrisisKind-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="CrisisKind-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="CrisisKind-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="CrisisKind-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="CrisisKind-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="CrisisKind-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="CrisisKind-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="CrisisKind-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="CrisisKind-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="CrisisKind-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="CrisisKind-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="CrisisKind-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="CrisisKind-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ExternalResource">class <strong>ExternalResource</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#ExternalResource">ExternalResource</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'externalResource_id'</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['crisis_id', 'organization_id', 'type', 'content']</dl>
+
+<dl><dt><strong>plural</strong> = 'externalResources'</dl>
+
+<dl><dt><strong>table_name</strong> = 'ExternalResources'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="ExternalResource-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="ExternalResource-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="ExternalResource-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="ExternalResource-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ExternalResource-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="ExternalResource-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="ExternalResource-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ExternalResource-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ExternalResource-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="ExternalResource-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="ExternalResource-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="ExternalResource-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="ExternalResource-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Factory">class <strong>Factory</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>General&nbsp;I/O&nbsp;<a href="#Factory">Factory</a>.&nbsp;This&nbsp;is&nbsp;what&nbsp;ties&nbsp;everything&nbsp;together&nbsp;-&nbsp;it&nbsp;initializes&nbsp;the&nbsp;database,&nbsp;imports&nbsp;<a href="#XML">XML</a>&nbsp;into&nbsp;the&nbsp;database,&nbsp;exports&nbsp;<a href="#XML">XML</a>&nbsp;from&nbsp;the&nbsp;database,&nbsp;etc.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Factory-__init__"><strong>__init__</strong></a>(self, **options)</dt><dd><tt>Initializes&nbsp;everything!</tt></dd></dl>
+
+<dl><dt><a name="Factory-export_xml"><strong>export_xml</strong></a>(self)</dt><dd><tt>Exports&nbsp;<a href="#XML">XML</a>&nbsp;from&nbsp;database&nbsp;to&nbsp;specified&nbsp;filename</tt></dd></dl>
+
+<dl><dt><a name="Factory-import_xml"><strong>import_xml</strong></a>(self, xml)</dt><dd><tt>Imports&nbsp;<a href="#XML">XML</a>&nbsp;(must&nbsp;be&nbsp;initialized&nbsp;already)&nbsp;into&nbsp;database</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="HumanImpact">class <strong>HumanImpact</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#HumanImpact">HumanImpact</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'humanImpact_id'</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['crisis_id', 'number', 'type']</dl>
+
+<dl><dt><strong>plural</strong> = 'humanImpacts'</dl>
+
+<dl><dt><strong>table_name</strong> = 'HumanImpacts'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="HumanImpact-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="HumanImpact-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="HumanImpact-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="HumanImpact-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="HumanImpact-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="HumanImpact-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="HumanImpact-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="HumanImpact-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="HumanImpact-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="HumanImpact-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="HumanImpact-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="HumanImpact-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="HumanImpact-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Location">class <strong>Location</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#Location">Location</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'location_id'</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['crisis_id', 'person_id', 'organization_id', 'locality', 'region', 'country']</dl>
+
+<dl><dt><strong>plural</strong> = 'locations'</dl>
+
+<dl><dt><strong>table_name</strong> = 'Locations'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="Location-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="Location-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="Location-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Location-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Location-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="Location-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="Location-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Location-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Location-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="Location-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="Location-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="Location-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="Location-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Model">class <strong>Model</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>A&nbsp;model&nbsp;is&nbsp;a&nbsp;mapper/representation&nbsp;of&nbsp;a&nbsp;relation.&nbsp;allows&nbsp;us&nbsp;to&nbsp;split&nbsp;up&nbsp;tasks&nbsp;a&nbsp;little&nbsp;easier.<br>
+Basically,&nbsp;a&nbsp;model&nbsp;will&nbsp;be&nbsp;responsible&nbsp;for:<br>
+&nbsp;&nbsp;-&nbsp;the&nbsp;serialization&nbsp;to/from&nbsp;xml&nbsp;of&nbsp;itself<br>
+&nbsp;&nbsp;-&nbsp;persisting&nbsp;itself&nbsp;to&nbsp;the&nbsp;DB<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Model-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="Model-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="Model-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Model-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Model-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="Model-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="Model-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Model-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Model-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="Model-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="Model-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="Model-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="Model-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'id'</dl>
+
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = []</dl>
+
+<dl><dt><strong>plural</strong> = ''</dl>
+
+<dl><dt><strong>table_name</strong> = ''</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MySQL">class <strong>MySQL</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#MySQL">MySQL</a>&nbsp;I/O&nbsp;utility&nbsp;and&nbsp;tools<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MySQL-__init__"><strong>__init__</strong></a>(self, c<font color="#909090">={'db': 'cs327ewcdb', 'host': 'cs327ewcdb.cz0aokgawzgn.us-east-1.rds.amazonaws.com', 'passwd': 'grouppassword', 'user': 'cs327ewcdb'}</font>)</dt><dd><tt>Creates&nbsp;<a href="#MySQL">MySQL</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;and&nbsp;sets&nbsp;up&nbsp;database</tt></dd></dl>
+
+<dl><dt><a name="MySQL-create_table"><strong>create_table</strong></a>(self, table, schema)</dt><dd><tt>Creates&nbsp;+table+&nbsp;from&nbsp;+schema+</tt></dd></dl>
+
+<dl><dt><a name="MySQL-drop_table"><strong>drop_table</strong></a>(self, table)</dt><dd><tt>Drops&nbsp;a&nbsp;table&nbsp;(if&nbsp;it&nbsp;exists)</tt></dd></dl>
+
+<dl><dt><a name="MySQL-query"><strong>query</strong></a>(self, query, **options)</dt><dd><tt>Runs&nbsp;<a href="#MySQL">MySQL</a>&nbsp;query&nbsp;on&nbsp;database</tt></dd></dl>
+
+<dl><dt><a name="MySQL-setup_database"><strong>setup_database</strong></a>(self, schemas<font color="#909090">={'Crises': '<font color="#c040c0">\n</font>    crisis_id       VARCHAR(30) NOT NULL,<font color="#c040c0">\n</font>    c...micImpact  TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (crisis_id)<font color="#c040c0">\n</font>    ', 'CrisisKinds': '<font color="#c040c0">\n</font>    crisisKind_id       VARCHAR(30) NOT NULL,<font color="#c040c0">\n</font> ...       TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (crisisKind_id)<font color="#c040c0">\n</font>    ', 'ExternalResources': '<font color="#c040c0">\n</font>    externalResource_id INT(10) NOT NULL AUTO_I... TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (externalResource_id)<font color="#c040c0">\n</font>    ', 'HumanImpacts': '<font color="#c040c0">\n</font>    humanImpact_id INT(10) NOT NULL AUTO_INCREM...       INT,<font color="#c040c0">\n</font>    PRIMARY KEY (humanImpact_id)<font color="#c040c0">\n</font>    ', 'Locations': '<font color="#c040c0">\n</font>    location_id INT(10) NOT NULL AUTO_INCREMENT...         TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (location_id)<font color="#c040c0">\n</font>    ', 'OrganizationKinds': '<font color="#c040c0">\n</font>    organizationKind_id VARCHAR(30) NOT NULL,<font color="#c040c0">\n</font> ... TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (organizationKind_id)<font color="#c040c0">\n</font>    ', 'Organizations': '<font color="#c040c0">\n</font>    organization_id                       VARCH...     TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (organization_id)<font color="#c040c0">\n</font>    ', 'People': '<font color="#c040c0">\n</font>    person_id           VARCHAR(30) NOT NULL,<font color="#c040c0">\n</font> ...AR(30) NOT NULL,<font color="#c040c0">\n</font>    PRIMARY KEY (person_id)<font color="#c040c0">\n</font>    ', 'PersonKinds': '<font color="#c040c0">\n</font>    personKind_id       VARCHAR(30) NOT NULL,<font color="#c040c0">\n</font> ...       TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (personKind_id)<font color="#c040c0">\n</font>    ', 'RelatedCrises': '<font color="#c040c0">\n</font>    relatedCrisis_id INT(10) NOT NULL AUTO_INCR...CHAR(30),<font color="#c040c0">\n</font>    PRIMARY KEY (relatedCrisis_id)<font color="#c040c0">\n</font>    ', ...}</font>)</dt><dd><tt>Sets&nbsp;up&nbsp;database</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="MySQL-login"><strong>login</strong></a>(**connection)</dt><dd><tt>Logs&nbsp;in&nbsp;to&nbsp;<a href="#MySQL">MySQL</a>&nbsp;Database&nbsp;and&nbsp;returns&nbsp;a&nbsp;<a href="#MySQL">MySQL</a>&nbsp;connection</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Organization">class <strong>Organization</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#Organization">Organization</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'organization_id'</dl>
+
+<dl><dt><strong>hasMany</strong> = ['locations', 'externalResources', 'relatedPeople', 'relatedCrises']</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['organization_id', 'organizationKind_id', 'name', 'history', 'telephone', 'fax', 'email', 'streetAddress', 'locality', 'region', 'postalCode', 'country']</dl>
+
+<dl><dt><strong>plural</strong> = 'organizations'</dl>
+
+<dl><dt><strong>table_name</strong> = 'Organizations'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="Organization-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="Organization-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="Organization-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Organization-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Organization-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="Organization-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="Organization-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Organization-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Organization-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="Organization-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="Organization-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="Organization-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="Organization-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="OrganizationKind">class <strong>OrganizationKind</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#OrganizationKind">OrganizationKind</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'organizationKind_id'</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['organizationKind_id', 'name', 'description']</dl>
+
+<dl><dt><strong>plural</strong> = 'organizationKinds'</dl>
+
+<dl><dt><strong>table_name</strong> = 'OrganizationKinds'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="OrganizationKind-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="OrganizationKind-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="OrganizationKind-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="OrganizationKind-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="OrganizationKind-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="OrganizationKind-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="OrganizationKind-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="OrganizationKind-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="OrganizationKind-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="OrganizationKind-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="OrganizationKind-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="OrganizationKind-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="OrganizationKind-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Person">class <strong>Person</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#Person">Person</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'person_id'</dl>
+
+<dl><dt><strong>hasMany</strong> = ['locations', 'externalResources', 'relatedPeople', 'relatedOrganizations']</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['person_id', 'firstName', 'lastName', 'middleName', 'suffix', 'personKind_id']</dl>
+
+<dl><dt><strong>plural</strong> = 'people'</dl>
+
+<dl><dt><strong>table_name</strong> = 'People'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="Person-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="Person-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="Person-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="Person-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Person-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="Person-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="Person-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Person-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="Person-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="Person-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="Person-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="Person-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="Person-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PersonKind">class <strong>PersonKind</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#PersonKind">PersonKind</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'personKind_id'</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['personKind_id', 'name', 'description']</dl>
+
+<dl><dt><strong>plural</strong> = 'personKinds'</dl>
+
+<dl><dt><strong>table_name</strong> = 'PersonKinds'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="PersonKind-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="PersonKind-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="PersonKind-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="PersonKind-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="PersonKind-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="PersonKind-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="PersonKind-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="PersonKind-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="PersonKind-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="PersonKind-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="PersonKind-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="PersonKind-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="PersonKind-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RelatedCrisis">class <strong>RelatedCrisis</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#RelatedCrisis">RelatedCrisis</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'relatedCrisis_id'</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['person_id', 'crisis_id', 'organization_id']</dl>
+
+<dl><dt><strong>plural</strong> = 'relatedCrises'</dl>
+
+<dl><dt><strong>table_name</strong> = 'RelatedCrises'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="RelatedCrisis-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="RelatedCrisis-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="RelatedCrisis-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="RelatedCrisis-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="RelatedCrisis-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="RelatedCrisis-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="RelatedCrisis-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="RelatedCrisis-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="RelatedCrisis-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="RelatedCrisis-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="RelatedCrisis-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="RelatedCrisis-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="RelatedCrisis-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RelatedOrganization">class <strong>RelatedOrganization</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#RelatedOrganization">RelatedOrganization</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'relatedOrganization_id'</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['person_id', 'crisis_id', 'organization_id']</dl>
+
+<dl><dt><strong>plural</strong> = 'relatedOrganizations'</dl>
+
+<dl><dt><strong>table_name</strong> = 'RelatedOrganizations'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="RelatedOrganization-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="RelatedOrganization-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="RelatedOrganization-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="RelatedOrganization-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="RelatedOrganization-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="RelatedOrganization-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="RelatedOrganization-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="RelatedOrganization-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="RelatedOrganization-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="RelatedOrganization-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="RelatedOrganization-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="RelatedOrganization-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="RelatedOrganization-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RelatedPerson">class <strong>RelatedPerson</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#RelatedPerson">RelatedPerson</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'relatedPerson_id'</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['person_id', 'crisis_id', 'organization_id']</dl>
+
+<dl><dt><strong>plural</strong> = 'relatedPeople'</dl>
+
+<dl><dt><strong>table_name</strong> = 'RelatedPeople'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="RelatedPerson-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="RelatedPerson-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="RelatedPerson-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="RelatedPerson-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="RelatedPerson-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="RelatedPerson-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="RelatedPerson-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="RelatedPerson-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="RelatedPerson-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="RelatedPerson-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="RelatedPerson-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="RelatedPerson-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="RelatedPerson-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ResourceNeeded">class <strong>ResourceNeeded</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#ResourceNeeded">ResourceNeeded</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'resourceNeeded_id'</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['crisis_id', 'resource']</dl>
+
+<dl><dt><strong>plural</strong> = 'resourcesNeeded'</dl>
+
+<dl><dt><strong>table_name</strong> = 'ResourcesNeeded'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="ResourceNeeded-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="ResourceNeeded-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="ResourceNeeded-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="ResourceNeeded-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ResourceNeeded-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="ResourceNeeded-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="ResourceNeeded-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ResourceNeeded-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ResourceNeeded-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="ResourceNeeded-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="ResourceNeeded-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="ResourceNeeded-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="ResourceNeeded-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Serializers">class <strong>Serializers</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Serialization&nbsp;class&nbsp;to&nbsp;take&nbsp;models&nbsp;from&nbsp;one&nbsp;data&nbsp;type&nbsp;to&nbsp;another<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Data and other attributes defined here:<br>
+<dl><dt><strong>Attribute</strong> = &lt;class WCDB2.Attribute&gt;</dl>
+
+<dl><dt><strong>HasMany</strong> = &lt;class WCDB2.HasMany&gt;</dl>
+
+<dl><dt><strong>Tag</strong> = &lt;class WCDB2.Tag&gt;</dl>
+
+<dl><dt><strong>Text</strong> = &lt;class WCDB2.Text&gt;</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="WaysToHelp">class <strong>WaysToHelp</strong></a>(<a href="WCDB2.html#Model">Model</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="WCDB2.html#WaysToHelp">WaysToHelp</a></dd>
+<dd><a href="WCDB2.html#Model">Model</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>foreign_key</strong> = 'waysToHelp_id'</dl>
+
+<dl><dt><strong>instances</strong> = []</dl>
+
+<dl><dt><strong>keys</strong> = ['crisis_id', 'waysToHelp']</dl>
+
+<dl><dt><strong>plural</strong> = 'waysToHelp'</dl>
+
+<dl><dt><strong>table_name</strong> = 'WaysToHelp'</dl>
+
+<hr>
+Methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="WaysToHelp-__init__"><strong>__init__</strong></a>(self, **params)</dt><dd><tt>Initializes&nbsp;a&nbsp;new&nbsp;model&nbsp;with&nbsp;the&nbsp;given&nbsp;params</tt></dd></dl>
+
+<dl><dt><a name="WaysToHelp-attempt_combine"><strong>attempt_combine</strong></a>(self)</dt><dd><tt>Looks&nbsp;at&nbsp;other&nbsp;loaded&nbsp;models&nbsp;and&nbsp;affirms&nbsp;that&nbsp;this&nbsp;dude&nbsp;is&nbsp;unique.&nbsp;otherwise&nbsp;replaces&nbsp;model&nbsp;with&nbsp;the&nbsp;original</tt></dd></dl>
+
+<dl><dt><a name="WaysToHelp-destroy"><strong>destroy</strong></a>(self)</dt><dd><tt>destroys&nbsp;record&nbsp;from&nbsp;instances</tt></dd></dl>
+
+<dl><dt><a name="WaysToHelp-get"><strong>get</strong></a>(self, key)</dt><dd><tt>Get&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="WaysToHelp-keyValueSQL"><strong>keyValueSQL</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;key="value",&nbsp;pair&nbsp;for&nbsp;sql</tt></dd></dl>
+
+<dl><dt><a name="WaysToHelp-persist"><strong>persist</strong></a>(self, connection<font color="#909090">=None</font>)</dt><dd><tt>Persists&nbsp;model&nbsp;to&nbsp;DB,&nbsp;including&nbsp;all&nbsp;associationsx</tt></dd></dl>
+
+<dl><dt><a name="WaysToHelp-set"><strong>set</strong></a>(self, key, value)</dt><dd><tt>Set&nbsp;an&nbsp;attribute/associative&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="WaysToHelp-to_xml"><strong>to_xml</strong></a>(self, mappings<font color="#909090">=None</font>)</dt><dd><tt>returns&nbsp;xml&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;of&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="WaysToHelp-vals"><strong>vals</strong></a>(self)</dt><dd><tt>returns&nbsp;a&nbsp;list&nbsp;[in&nbsp;order&nbsp;of&nbsp;keys]&nbsp;of&nbsp;attribute&nbsp;values&nbsp;wrapped&nbsp;in&nbsp;quotes</tt></dd></dl>
+
+<hr>
+Class methods inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><a name="WaysToHelp-all"><strong>all</strong></a>(cls, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;hack&nbsp;just&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;experiment,&nbsp;returns&nbsp;all&nbsp;records&nbsp;in&nbsp;table</tt></dd></dl>
+
+<dl><dt><a name="WaysToHelp-build_from_db_result"><strong>build_from_db_result</strong></a>(_class, results)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Returns&nbsp;a&nbsp;list&nbsp;of&nbsp;records&nbsp;from&nbsp;database&nbsp;+result+</tt></dd></dl>
+
+<dl><dt><a name="WaysToHelp-find"><strong>find</strong></a>(_class, project, select, connection<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Quick&nbsp;project/select&nbsp;find</tt></dd></dl>
+
+<dl><dt><a name="WaysToHelp-from_xml"><strong>from_xml</strong></a>(_class, xml, mappings<font color="#909090">=None</font>)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Creates&nbsp;model&nbsp;from&nbsp;xml</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="WCDB2.html#Model">Model</a>:<br>
+<dl><dt><strong>hasMany</strong> = []</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="XML">class <strong>XML</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#XML">XML</a>&nbsp;I/O&nbsp;utility&nbsp;and&nbsp;tools<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="XML-__init__"><strong>__init__</strong></a>(self, element)</dt><dd><tt>Creates&nbsp;an&nbsp;<a href="#XML">XML</a>&nbsp;<a href="__builtin__.html#object">object</a>.&nbsp;Argument&nbsp;must&nbsp;be&nbsp;an&nbsp;xml.etree.Element!</tt></dd></dl>
+
+<dl><dt><a name="XML-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="XML-append"><strong>append</strong></a>(self, obj)</dt><dd><tt>Appends&nbsp;an&nbsp;<a href="#XML">XML</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;into&nbsp;current&nbsp;<a href="#XML">XML</a>'s&nbsp;subclass</tt></dd></dl>
+
+<dl><dt><a name="XML-export"><strong>export</strong></a>(self, filename)</dt><dd><tt>Converts&nbsp;an&nbsp;<a href="#XML">XML</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;into&nbsp;an&nbsp;xml&nbsp;file</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="XML-find_or_build_element"><strong>find_or_build_element</strong></a>(_class, tree, path)<font color="#909090"><font face="helvetica, arial"> from __builtin__.classobj</font></font></dt><dd><tt>Either&nbsp;finds&nbsp;a&nbsp;path&nbsp;in&nbsp;tree,&nbsp;or&nbsp;builds&nbsp;elements&nbsp;to&nbsp;the&nbsp;path.&nbsp;either&nbsp;way&nbsp;returns&nbsp;element</tt></dd></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="XML-from_file"><strong>from_file</strong></a>(filename)</dt><dd><tt>Creates&nbsp;an&nbsp;<a href="#XML">XML</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;from&nbsp;an&nbsp;input&nbsp;file</tt></dd></dl>
+
+<dl><dt><a name="XML-from_string"><strong>from_string</strong></a>(string)</dt><dd><tt>Creates&nbsp;an&nbsp;<a href="#XML">XML</a>&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;from&nbsp;an&nbsp;input&nbsp;string</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-lookup_model"><strong>lookup_model</strong></a>(model_name)</dt><dd><tt>Lookup&nbsp;model&nbsp;class&nbsp;from&nbsp;model_name,&nbsp;returns&nbsp;Class</tt></dd></dl>
+ <dl><dt><a name="-lookup_model_from_plural"><strong>lookup_model_from_plural</strong></a>(plural)</dt><dd><tt>Lookup&nbsp;model&nbsp;class&nbsp;from&nbsp;a&nbsp;plural&nbsp;model_name,&nbsp;returns&nbsp;Class</tt></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><tt>#&nbsp;Setup&nbsp;defaults&nbsp;needed&nbsp;at&nbsp;runtimes</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>DEFAULT_CONNECTION</strong> = &lt;WCDB2.MySQL instance&gt;<br>
+<strong>DEFAULT_MAPPINGS</strong> = {'Crisis': [('.', ('crisisIdent', 'crisis_id'), &lt;class WCDB2.Attribute&gt;), ('Name', 'name', &lt;class WCDB2.Text&gt;), ('Kind', ('crisisKindIdent', 'crisisKind_id'), &lt;class WCDB2.Attribute&gt;), ('Location', &lt;class 'WCDB2.Location'&gt;, &lt;class WCDB2.HasMany&gt;), ('StartDateTime/Date', 'startDate', &lt;class WCDB2.Text&gt;), ('StartDateTime/Time', 'startTime', &lt;class WCDB2.Text&gt;), ('EndDateTime/Date', 'endDate', &lt;class WCDB2.Text&gt;), ('EndDateTime/Time', 'endDate', &lt;class WCDB2.Text&gt;), ('HumanImpact', &lt;class 'WCDB2.HumanImpact'&gt;, &lt;class WCDB2.HasMany&gt;), ('EconomicImpact', 'economicImpact', &lt;class WCDB2.Text&gt;), ('ResourceNeeded', &lt;class 'WCDB2.ResourceNeeded'&gt;, &lt;class WCDB2.HasMany&gt;), ('WaysToHelp', &lt;class 'WCDB2.WaysToHelp'&gt;, &lt;class WCDB2.HasMany&gt;), ('RelatedPersons/*', &lt;class 'WCDB2.RelatedPerson'&gt;, &lt;class WCDB2.HasMany&gt;), ('ExternalResources/*', &lt;class 'WCDB2.ExternalResource'&gt;, &lt;class WCDB2.HasMany&gt;), ('RelatedOrganizations/*', &lt;class 'WCDB2.RelatedOrganization'&gt;, &lt;class WCDB2.HasMany&gt;)], 'CrisisKind': [('.', ('crisisKindIdent', 'crisisKind_id'), &lt;class WCDB2.Attribute&gt;), ('Name', 'name', &lt;class WCDB2.Text&gt;), ('Description', 'description', &lt;class WCDB2.Text&gt;)], 'ExternalResource': [('.', 'type', &lt;class WCDB2.Tag&gt;), ('.', 'content', &lt;class WCDB2.Text&gt;)], 'HumanImpact': [('Type', 'type', &lt;class WCDB2.Text&gt;), ('Number', 'number', &lt;class WCDB2.Text&gt;)], 'Location': [('Locality', 'locality', &lt;class WCDB2.Text&gt;), ('Region', 'region', &lt;class WCDB2.Text&gt;), ('Country', 'country', &lt;class WCDB2.Text&gt;)], 'Organization': [('.', ('organizationIdent', 'organization_id'), &lt;class WCDB2.Attribute&gt;), ('Name', 'name', &lt;class WCDB2.Text&gt;), ('History', 'history', &lt;class WCDB2.Text&gt;), ('ContactInfo/Telephone', 'telephone', &lt;class WCDB2.Text&gt;), ('ContactInfo/Fax', 'fax', &lt;class WCDB2.Text&gt;), ('ContactInfo/Email', 'email', &lt;class WCDB2.Text&gt;), ('ContactInfo/PostalAddress/StreetAddress', 'streetAddress', &lt;class WCDB2.Text&gt;), ('ContactInfo/PostalAddress/Locality', 'locality', &lt;class WCDB2.Text&gt;), ('ContactInfo/PostalAddress/Region', 'region', &lt;class WCDB2.Text&gt;), ('ContactInfo/PostalAddress/PostalCode', 'postalCode', &lt;class WCDB2.Text&gt;), ('ContactInfo/PostalAddress/Country', 'country', &lt;class WCDB2.Text&gt;), ('Kind', ('organizationKindIdent', 'organizationKind_id'), &lt;class WCDB2.Attribute&gt;), ('RelatedPersons/*', &lt;class 'WCDB2.RelatedPerson'&gt;, &lt;class WCDB2.HasMany&gt;), ('RelatedCrises/*', &lt;class 'WCDB2.RelatedCrisis'&gt;, &lt;class WCDB2.HasMany&gt;), ('ExternalResources/*', &lt;class 'WCDB2.ExternalResource'&gt;, &lt;class WCDB2.HasMany&gt;), ('Location', &lt;class 'WCDB2.Location'&gt;, &lt;class WCDB2.HasMany&gt;)], 'OrganizationKind': [('.', ('organizationKindIdent', 'organizationKind_id'), &lt;class WCDB2.Attribute&gt;), ('Name', 'name', &lt;class WCDB2.Text&gt;), ('Description', 'description', &lt;class WCDB2.Text&gt;)], 'Person': [('.', ('personIdent', 'person_id'), &lt;class WCDB2.Attribute&gt;), ('Name/FirstName', 'firstName', &lt;class WCDB2.Text&gt;), ('Name/LastName', 'lastName', &lt;class WCDB2.Text&gt;), ('Name/MiddleName', 'middleName', &lt;class WCDB2.Text&gt;), ('Name/Suffix', 'suffix', &lt;class WCDB2.Text&gt;), ('Location', &lt;class 'WCDB2.Location'&gt;, &lt;class WCDB2.HasMany&gt;), ('ExternalResources/*', &lt;class 'WCDB2.ExternalResource'&gt;, &lt;class WCDB2.HasMany&gt;), ('Kind', ('personKindIdent', 'personKind_id'), &lt;class WCDB2.Attribute&gt;), ('RelatedPersons/*', &lt;class 'WCDB2.RelatedPerson'&gt;, &lt;class WCDB2.HasMany&gt;), ('RelatedOrganizations/*', &lt;class 'WCDB2.RelatedOrganization'&gt;, &lt;class WCDB2.HasMany&gt;)], 'PersonKind': [('.', ('personKindIdent', 'personKind_id'), &lt;class WCDB2.Attribute&gt;), ('Name', 'name', &lt;class WCDB2.Text&gt;), ('Description', 'description', &lt;class WCDB2.Text&gt;)], 'RelatedCrisis': [('.', ('crisisIdent', 'crisis_id'), &lt;class WCDB2.Attribute&gt;)], ...}<br>
+<strong>MYSQL_CONNECT</strong> = {'db': 'cs327ewcdb', 'host': 'cs327ewcdb.cz0aokgawzgn.us-east-1.rds.amazonaws.com', 'passwd': 'grouppassword', 'user': 'cs327ewcdb'}<br>
+<strong>MYSQL_DEBUG</strong> = False<br>
+<strong>SCHEMAS</strong> = {'Crises': '<font color="#c040c0">\n</font>    crisis_id       VARCHAR(30) NOT NULL,<font color="#c040c0">\n</font>    c...micImpact  TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (crisis_id)<font color="#c040c0">\n</font>    ', 'CrisisKinds': '<font color="#c040c0">\n</font>    crisisKind_id       VARCHAR(30) NOT NULL,<font color="#c040c0">\n</font> ...       TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (crisisKind_id)<font color="#c040c0">\n</font>    ', 'ExternalResources': '<font color="#c040c0">\n</font>    externalResource_id INT(10) NOT NULL AUTO_I... TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (externalResource_id)<font color="#c040c0">\n</font>    ', 'HumanImpacts': '<font color="#c040c0">\n</font>    humanImpact_id INT(10) NOT NULL AUTO_INCREM...       INT,<font color="#c040c0">\n</font>    PRIMARY KEY (humanImpact_id)<font color="#c040c0">\n</font>    ', 'Locations': '<font color="#c040c0">\n</font>    location_id INT(10) NOT NULL AUTO_INCREMENT...         TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (location_id)<font color="#c040c0">\n</font>    ', 'OrganizationKinds': '<font color="#c040c0">\n</font>    organizationKind_id VARCHAR(30) NOT NULL,<font color="#c040c0">\n</font> ... TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (organizationKind_id)<font color="#c040c0">\n</font>    ', 'Organizations': '<font color="#c040c0">\n</font>    organization_id                       VARCH...     TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (organization_id)<font color="#c040c0">\n</font>    ', 'People': '<font color="#c040c0">\n</font>    person_id           VARCHAR(30) NOT NULL,<font color="#c040c0">\n</font> ...AR(30) NOT NULL,<font color="#c040c0">\n</font>    PRIMARY KEY (person_id)<font color="#c040c0">\n</font>    ', 'PersonKinds': '<font color="#c040c0">\n</font>    personKind_id       VARCHAR(30) NOT NULL,<font color="#c040c0">\n</font> ...       TEXT,<font color="#c040c0">\n</font>    PRIMARY KEY (personKind_id)<font color="#c040c0">\n</font>    ', 'RelatedCrises': '<font color="#c040c0">\n</font>    relatedCrisis_id INT(10) NOT NULL AUTO_INCR...CHAR(30),<font color="#c040c0">\n</font>    PRIMARY KEY (relatedCrisis_id)<font color="#c040c0">\n</font>    ', ...}<br>
+<strong>XML_ROOT_ELEMENTS</strong> = [&lt;class 'WCDB2.Crisis'&gt;, &lt;class 'WCDB2.Organization'&gt;, &lt;class 'WCDB2.Person'&gt;, &lt;class 'WCDB2.CrisisKind'&gt;, &lt;class 'WCDB2.OrganizationKind'&gt;, &lt;class 'WCDB2.PersonKind'&gt;]</td></tr></table>
+</body></html>
