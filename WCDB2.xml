@@ -1,6 +1,6 @@
 <WorldCrises>
 
-    <Crisis crisisIdent="HN2009">
+    <Crisis crisisIdent="HN_DS_2009">
         <Name>
             Swine Flu
         </Name>
@@ -65,15 +65,15 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/2009_flu_pandemic</ExternalLinkURL>
         </ExternalResources>
         <RelatedPersons>
-            <RelatedPerson personIdent="BO1961" />
-            <RelatedPerson personIdent="MC1947" />
+            <RelatedPerson personIdent="BHObama" />
+            <RelatedPerson personIdent="MChan" />
         </RelatedPersons>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="WH1948" />
+            <RelatedOrganization organizationIdent="WHO" />
         </RelatedOrganizations>
     </Crisis>
             
-    <Crisis crisisIdent="BF2011">
+    <Crisis crisisIdent="Bastrop_FR_2011">
         <Name>
             Bastrop Fires
         </Name>
@@ -134,15 +134,15 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/Bastrop_County_Complex_fire</ExternalLinkURL>
         </ExternalResources>
         <RelatedPersons>
-            <RelatedPerson personIdent="RP1950" />
-            <RelatedPerson personIdent="BO1961" />
+            <RelatedPerson personIdent="RPerry" />
+            <RelatedPerson personIdent="BHObama" />
         </RelatedPersons>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="SA1865" />
+            <RelatedOrganization organizationIdent="SA" />
         </RelatedOrganizations>
     </Crisis>
 
-    <Crisis crisisIdent="MS1980">
+    <Crisis crisisIdent="Helens_VO_1980">
         <Name>
             Mt. St. Helen's Eruption
         </Name>
@@ -194,12 +194,12 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/1980_eruption_of_Mount_St._Helens</ExternalLinkURL>
         </ExternalResources>
         <RelatedPersons>
-            <RelatedPerson personIdent="JC1924" />
-            <RelatedPerson personIdent="DL1914" />
+            <RelatedPerson personIdent="JECarter" />
+            <RelatedPerson personIdent="DLRay" />
         </RelatedPersons>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="FE1979" />
-            <RelatedOrganization organizationIdent="UG1879" />
+            <RelatedOrganization organizationIdent="FEMA" />
+            <RelatedOrganization organizationIdent="USGS" />
         </RelatedOrganizations>
     </Crisis>
 
