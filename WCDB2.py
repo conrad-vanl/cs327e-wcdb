@@ -18,131 +18,135 @@ MYSQL_CONNECT = {
 
 # Database Schemas
 SCHEMAS = {
-  "Crises":
+  "Crisis":
     """
-    crisis_id       VARCHAR(30) NOT NULL,
-    crisisKind_id   VARCHAR(30) NOT NULL,
-    name            TEXT NOT NULL,
-    startDate       DATE,
-    startTime       TIME,
-    endDate         DATE,
-    endTime         TIME,
-    economicImpact  TEXT,
-    PRIMARY KEY (crisis_id)
+    id char(100) NOT NULL
+    PRIMARY KEY,
+    name text NOT NULL,
+    kind char(100) NOT NULL
+    REFERENCES CrisisKind(id),
+    start_date date NOT NULL,
+    start_time time,
+    end_date date,
+    end_time time,
+    economic_impact char(100) NOT NULL
     """,
-  "RelatedPeople":
+  "OrganizationPerson":
     """
-    relatedPerson_id INT(10) NOT NULL AUTO_INCREMENT,
-    person_id       VARCHAR(30) NOT NULL,
-    crisis_id       VARCHAR(30),
-    organization_id VARCHAR(30),
-    PRIMARY KEY (relatedPerson_id)
+    id_organization char(100) NOT NULL
+    REFERENCES Organization(id),
+    id_person char(100) NOT NULL
+    REFERENCES Person(id),
+    PRIMARY KEY (id_organization, id_person)
     """,
-  "RelatedOrganizations":
+  "CrisisOrganization":
     """
-    relatedOrganization_id INT(10) NOT NULL AUTO_INCREMENT,
-    organization_id VARCHAR(30) NOT NULL,
-    person_id       VARCHAR(30),
-    crisis_id       VARCHAR(30),
-    PRIMARY KEY (relatedOrganization_id)
+    id_crisis char(100) NOT NULL
+    REFERENCES Crisis(id),
+    id_organization char(100) NOT NULL
+    REFERENCES Organization(id),
+    PRIMARY KEY (id_crisis, id_organization)
     """,
-  "RelatedCrises":
+  "PersonCrisis":
     """
-    relatedCrisis_id INT(10) NOT NULL AUTO_INCREMENT,
-    crisis_id       VARCHAR(30) NOT NULL,
-    organization_id VARCHAR(30),
-    person_id       VARCHAR(30),
-    PRIMARY KEY (relatedCrisis_id)
+    id_person char(100) NOT NULL
+    REFERENCES Person(id),
+    id_crisis char(100) NOT NULL
+    REFERENCES Crisis(id),
+    PRIMARY KEY (id_person, id_crisis)
     """,
-  "Locations":
+  "Location":
     """
-    location_id INT(10) NOT NULL AUTO_INCREMENT,
-    crisis_id       VARCHAR(30),
-    organization_id VARCHAR(30),
-    person_id       VARCHAR(30),
-    locality        TEXT,
-    region          TEXT,
-    country         TEXT,
-    PRIMARY KEY (location_id)
+    id int NOT NULL AUTO_INCREMENT
+    PRIMARY KEY,
+    entity_type ENUM('C', 'O', 'P') NOT NULL,
+    entity_id char(100) NOT NULL,
+    locality char(100),
+    region char(100),
+    country char(100)
     """,
-  "ExternalResources":
+  "ExternalResource":
     """
-    externalResource_id INT(10) NOT NULL AUTO_INCREMENT,
-    crisis_id       VARCHAR(30),
-    organization_id VARCHAR(30),
-    person_id       VARCHAR(30),
-    type            ENUM("ImageURL","VideoURL","MapURL","SocialNetworkURL","Citation","ExternalLinkUrl") NOT NULL,
-    content         TEXT,
-    PRIMARY KEY (externalResource_id)
+    id int NOT NULL AUTO_INCREMENT
+    PRIMARY KEY,
+    entity_type ENUM('C', 'O', 'P') NOT NULL,
+    entity_id char(100) NOT NULL,
+    type ENUM('IMAGE', 'VIDEO', 'MAP', 'SOCIAL_NETWORK', 'CITATION', 'EXTERNAL_LINK') NOT NULL,
+    link text NOT NULL
     """,
-  "HumanImpacts":
+  "HumanImpact":
     """
-    humanImpact_id INT(10) NOT NULL AUTO_INCREMENT,
-    crisis_id       VARCHAR(30) NOT NULL,
-    type            TINYTEXT,
-    number          INT,
-    PRIMARY KEY (humanImpact_id)
+    id int NOT NULL AUTO_INCREMENT
+    PRIMARY KEY,
+    crisis_id char(100) NOT NULL
+    REFERENCES Crisis(id),
+    type char(100) NOT NULL,
+    number int NOT NULL
     """,
-  "ResourcesNeeded":
+  "ResourceNeeded":
     """
-    resourceNeeded_id INT(10) NOT NULL AUTO_INCREMENT,
-    crisis_id       VARCHAR(30) NOT NULL,
-    resource        TEXT,
-    PRIMARY KEY (resourceNeeded_id)
+    id int NOT NULL AUTO_INCREMENT
+    PRIMARY KEY,
+    crisis_id char(100) NOT NULL
+    REFERENCES Crisis(id),
+    description text
     """,
   "WaysToHelp":
     """
-    waysToHelp_id INT(10) NOT NULL AUTO_INCREMENT,
-    crisis_id       VARCHAR(30) NOT NULL,
-    waysToHelp      TEXT,
-    PRIMARY KEY (waysToHelp_id)
+    id int NOT NULL AUTO_INCREMENT
+    PRIMARY KEY,
+    crisis_id char(100) NOT NULL
+    REFERENCES Crisis(id),
+    description text
     """,
-  "Organizations":
+  "Organization":
     """
-    organization_id                       VARCHAR(30) NOT NULL,
-    organizationKind_id                   VARCHAR(30) NOT NULL,
-    name                                  TEXT NOT NULL,
-    history                               TEXT,
-    telephone                  TEXT,
-    fax                        TEXT,
-    email                      TEXT,
-    streetAddress              TEXT,
-    locality            TEXT,
-    region              TEXT,
-    postalCode          TEXT,
-    country             TEXT,
-    PRIMARY KEY (organization_id)
+    id char(100) NOT NULL
+    PRIMARY KEY,
+    name char(100) NOT NULL,
+    kind char(100) NOT NULL
+    REFERENCES OrganizationKind(id),
+    history text NOT NULL,
+    telephone char(100) NOT NULL,
+    fax char(100) NOT NULL,
+    email char(100) NOT NULL,
+    street_address char(100) NOT NULL,
+    locality char(100) NOT NULL,
+    region char(100) NOT NULL,
+    postal_code char(100) NOT NULL,
+    country char(100) NOT NULL
     """,
-  "OrganizationKinds":
+  "OrganizationKind":
     """
-    organizationKind_id VARCHAR(30) NOT NULL,
-    name                TEXT,
-    description         TEXT,
-    PRIMARY KEY (organizationKind_id)
+    id char(100) NOT NULL
+    PRIMARY KEY,
+    name char(100) NOT NULL,
+    description text NOT NULL
     """,
-  "CrisisKinds":
+  "CrisisKind":
     """
-    crisisKind_id       VARCHAR(30) NOT NULL,
-    name                TEXT,
-    description         TEXT,
-    PRIMARY KEY (crisisKind_id)
+    id char(100) NOT NULL
+    PRIMARY KEY,
+    name char(100) NOT NULL,
+    description text NOT NULL
     """,
-  "PersonKinds":
+  "PersonKind":
     """
-    personKind_id       VARCHAR(30) NOT NULL,
-    name                TEXT,
-    description         TEXT,
-    PRIMARY KEY (personKind_id)
+    id char(100) NOT NULL
+    PRIMARY KEY,
+    name char(100) NOT NULL,
+    description text NOT NULL
     """,
-  "People":
+  "Person":
     """
-    person_id           VARCHAR(30) NOT NULL,
-    firstName           TEXT NOT NULL,
-    lastName            TEXT NOT NULL,
-    middleName          TEXT,
-    suffix              TEXT,
-    personKind_id       VARCHAR(30) NOT NULL,
-    PRIMARY KEY (person_id)
+    id char(100) NOT NULL
+    PRIMARY KEY,
+    first_name char(100) NOT NULL,
+    middle_name char(100),
+    last_name char(100) NOT NULL,
+    suffix char(100),
+    kind char(100) NOT NULL
+    REFERENCES PersonKind(id)
     """
 }
 
@@ -170,41 +174,44 @@ def main():
   global DEFAULT_MAPPINGS
   DEFAULT_MAPPINGS = {
     "Person": [
-      (".", ("personIdent", "person_id"), Serializers.Attribute),
-      ("Name/FirstName", "firstName", Serializers.Text),
-      ("Name/LastName", "lastName", Serializers.Text),
-      ("Name/MiddleName", "middleName", Serializers.Text),
+      (".", ("personIdent", "id"), Serializers.Attribute),
+      ("Name/FirstName", "first_name", Serializers.Text),
+      ("Name/LastName", "last_name", Serializers.Text),
+      ("Name/MiddleName", "middle_name", Serializers.Text),
       ("Name/Suffix", "suffix", Serializers.Text),
       ("Location", Location, Serializers.HasMany),
       ("ExternalResources/*", ExternalResource, Serializers.HasMany),
-      ("Kind", ("personKindIdent", "personKind_id"), Serializers.Attribute),
-      ("RelatedPersons/*", RelatedPerson, Serializers.HasMany),
-      ("RelatedOrganizations/*", RelatedOrganization, Serializers.HasMany)
+      ("Kind", ("personKindIdent", "kind"), Serializers.Attribute),
+      ("RelatedCrises/*", PersonCrisis, Serializers.HasMany),
+      ("RelatedOrganizations/*", OrganizationPerson, Serializers.HasMany)
     ],
-    "RelatedPerson": [
-      (".", ("personIdent", "person_id"), Serializers.Attribute)
+    "PersonCrisis": [
+      (".", ("personIdent", "id_person"), Serializers.Attribute),
+      (".", ("crisisIdent", "id_crisis"), Serializers.Attribute)
     ],
-    "RelatedOrganization": [
-      (".", ("organizationIdent", "organization_id"), Serializers.Attribute)
+    "OrganizationPerson": [
+      (".", ("organizationIdent", "id_organization"), Serializers.Attribute),
+      (".", ("personIdent", "id_person"), Serializers.Attribute)
     ],
-    "RelatedCrisis": [
-      (".", ("crisisIdent", "crisis_id"), Serializers.Attribute)
+    "CrisisOrganization": [
+      (".", ("crisisIdent", "id_crisis"), Serializers.Attribute),
+      (".", ("organizationIdent", "id_organization"), Serializers.Attribute)
     ],
     "Organization": [
-      (".", ("organizationIdent", "organization_id"), Serializers.Attribute ),
+      (".", ("organizationIdent", "id"), Serializers.Attribute ),
       ("Name", "name", Serializers.Text),
       ("History", "history", Serializers.Text),
       ("ContactInfo/Telephone", "telephone", Serializers.Text),
       ("ContactInfo/Fax", "fax", Serializers.Text),
       ("ContactInfo/Email", "email", Serializers.Text),
-      ("ContactInfo/PostalAddress/StreetAddress", "streetAddress", Serializers.Text),
+      ("ContactInfo/PostalAddress/StreetAddress", "street_address", Serializers.Text),
       ("ContactInfo/PostalAddress/Locality", "locality", Serializers.Text),
       ("ContactInfo/PostalAddress/Region", "region", Serializers.Text),
-      ("ContactInfo/PostalAddress/PostalCode", "postalCode", Serializers.Text),
+      ("ContactInfo/PostalAddress/PostalCode", "postal_code", Serializers.Text),
       ("ContactInfo/PostalAddress/Country", "country", Serializers.Text),
-      ("Kind", ("organizationKindIdent", "organizationKind_id"), Serializers.Attribute),
-      ("RelatedPersons/*", RelatedPerson, Serializers.HasMany),
-      ("RelatedCrises/*", RelatedCrisis, Serializers.HasMany),
+      ("Kind", ("organizationKindIdent", "kind"), Serializers.Attribute),
+      ("RelatedPersons/*", OrganizationPerson, Serializers.HasMany),
+      ("RelatedCrises/*", CrisisOrganization, Serializers.HasMany),
       ("ExternalResources/*", ExternalResource, Serializers.HasMany),
       ("Location", Location, Serializers.HasMany)
     ],
@@ -215,47 +222,47 @@ def main():
     ],
     "ExternalResource": [
       (".", "type", Serializers.Tag),
-      (".", "content", Serializers.Text)
+      (".", "link", Serializers.Text)
     ],
     "HumanImpact": [
       ("Type", "type", Serializers.Text),
       ("Number", "number", Serializers.Text)
     ],
     "ResourceNeeded": [
-      (".", "resource", Serializers.Text)
+      (".", "description", Serializers.Text)
     ],
     "Crisis": [
-      (".", ("crisisIdent", "crisis_id"), Serializers.Attribute),
+      (".", ("crisisIdent", "id"), Serializers.Attribute),
       ("Name", "name", Serializers.Text),
-      ("Kind", ("crisisKindIdent", "crisisKind_id"), Serializers.Attribute),
+      ("Kind", ("crisisKindIdent", "kind"), Serializers.Attribute),
       ("Location", Location, Serializers.HasMany),
-      ("StartDateTime/Date", "startDate", Serializers.Text),
-      ("StartDateTime/Time", "startTime", Serializers.Text),
-      ("EndDateTime/Date", "endDate", Serializers.Text),
-      ("EndDateTime/Time", "endDate", Serializers.Text),
+      ("StartDateTime/Date", "start_date", Serializers.Text),
+      ("StartDateTime/Time", "start_time", Serializers.Text),
+      ("EndDateTime/Date", "end_date", Serializers.Text),
+      ("EndDateTime/Time", "end_date", Serializers.Text),
       ("HumanImpact", HumanImpact, Serializers.HasMany),
-      ("EconomicImpact", "economicImpact", Serializers.Text),
+      ("EconomicImpact", "economic_impact", Serializers.Text),
       ("ResourceNeeded", ResourceNeeded, Serializers.HasMany),
       ("WaysToHelp", WaysToHelp, Serializers.HasMany),
-      ("RelatedPersons/*", RelatedPerson, Serializers.HasMany),
+      ("RelatedPersons/*", PersonCrisis, Serializers.HasMany),
       ("ExternalResources/*", ExternalResource, Serializers.HasMany),
-      ("RelatedOrganizations/*", RelatedOrganization, Serializers.HasMany)
+      ("RelatedOrganizations/*", CrisisOrganization, Serializers.HasMany)
     ],
     "WaysToHelp": [
-      (".", "waysToHelp", Serializers.Text)
+      (".", "description", Serializers.Text)
     ],
     "OrganizationKind": [
-      (".", ("organizationKindIdent", "organizationKind_id"), Serializers.Attribute),
+      (".", ("organizationKindIdent", "id"), Serializers.Attribute),
       ("Name", "name", Serializers.Text),
       ("Description", "description", Serializers.Text)
     ],
     "PersonKind": [
-      (".", ("personKindIdent", "personKind_id"), Serializers.Attribute),
+      (".", ("personKindIdent", "id"), Serializers.Attribute),
       ("Name", "name", Serializers.Text),
       ("Description", "description", Serializers.Text)
     ],
     "CrisisKind": [
-      (".", ("crisisKindIdent", "crisisKind_id"), Serializers.Attribute),
+      (".", ("crisisKindIdent", "id"), Serializers.Attribute),
       ("Name", "name", Serializers.Text),
       ("Description", "description", Serializers.Text)
     ]
@@ -382,7 +389,7 @@ class XML:
 
   @classmethod
   def find_or_build_element(_class, tree, path):
-    """Either finds a path in tree, or builds elements to the path. either way returns element"""
+    """Either finds a path in tree, or builds elements to create that path. either way returns element"""
     if tree.find(path) is not None:
       return tree.find(path)
     else:
@@ -587,10 +594,14 @@ class Model(object):
   def attempt_combine(self):
     """Looks at other loaded models and affirms that this dude is unique. otherwise replaces model with the original"""
     # this will be handy when we have to start combining other groups' xml
+
+    # iterate through all loaded records
     for record in self.__class__.instances:
-      #if record is not self and (record.params == self.params or record.get(self.__class__.foreign_key) == self.get(self.__class__.foreign_key)):
+
+      # if record has a 'copy'
+      # a copy is determined by: two records that are the same relation and either have the same ID / ident or both have the same data
       if record is not self and record.__class__ is self.__class__ and self.foreign_key == record.foreign_key and ((record.get(self.__class__.foreign_key) is not None and record.get(self.__class__.foreign_key) == self.get(self.__class__.foreign_key)) or record.params == self.params):
-        # if previous record use it (this is where combine method would exist, but for now...yeah)
+        # we have to destroy the current record and return the older one
         self.destroy()
         return record
     return self 
