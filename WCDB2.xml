@@ -203,7 +203,7 @@
         </RelatedOrganizations>
     </Crisis>
 
-    <Crisis crisisIdent="BS2009">
+    <Crisis crisisIdent="Victoria_FR_2009">
         <Name>
             Black Saturday Bush Fires
         </Name>
@@ -268,14 +268,14 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/Black_Saturday_bushfires</ExternalLinkURL>
         </ExternalResources>
         <RelatedPersons>
-            <RelatedPerson personIdent="CN1953" />
+            <RelatedPerson personIdent="CNixon" />
         </RelatedPersons>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="SA1865" />
+            <RelatedOrganization organizationIdent="SA" />
         </RelatedOrganizations>
     </Crisis>
 
-    <Crisis crisisIdent="DS1989">
+    <Crisis crisisIdent="Daulatpur_TO_1989">
         <Name>
             Daulatpur-Saturia Tornadoes
         </Name>
@@ -333,7 +333,7 @@
         </ExternalResources>
     </Crisis>
 
-    <Crisis crisisIdent="RG1994">
+    <Crisis crisisIdent="Rwanda_GC_1994">
         <Name>
             Rwanda Genocide
         </Name>
@@ -373,14 +373,14 @@
             <RelatedPerson personIdent="PR1954" />
         </RelatedPersons>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="UN1945" />
-            <RelatedOrganization organizationIdent="UN1993" />
-            <RelatedOrganization organizationIdent="PC1961" />
-            <RelatedOrganization organizationIdent="SA1865" />
+            <RelatedOrganization organizationIdent="UN" />
+            <RelatedOrganization organizationIdent="UNAMIR" />
+            <RelatedOrganization organizationIdent="PC" />
+            <RelatedOrganization organizationIdent="SA" />
         </RelatedOrganizations>
     </Crisis>
 
-    <Crisis crisisIdent="CW2009">
+    <Crisis crisisIdent="California_FR_2009">
         <Name>
             California Wildfires
         </Name>
@@ -426,13 +426,13 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/August_2009_California_wildfires</ExternalLinkURL>
         </ExternalResources>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="FE1979" />
-            <RelatedOrganization organizationIdent="UG1879" />
-            <RelatedOrganization organizationIdent="SA1865" />
+            <RelatedOrganization organizationIdent="FEMA" />
+            <RelatedOrganization organizationIdent="USGS" />
+            <RelatedOrganization organizationIdent="SA" />
         </RelatedOrganizations>
     </Crisis>
 
-    <Crisis crisisIdent="IW2003">
+    <Crisis crisisIdent="WAR_Terror_2001">
         <Name>
             Iraqi War
         </Name>
@@ -464,17 +464,17 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/Iraq_War</ExternalLinkURL>
         </ExternalResources>
         <RelatedPersons>
-            <RelatedPerson personIdent="DC1966" />
-            <RelatedPerson personIdent="GB1946" />
-            <RelatedPerson personIdent="SH1937" />
+            <RelatedPerson personIdent="DCameron" />
+            <RelatedPerson personIdent="GWBush" />
+            <RelatedPerson personIdent="SHussein" />
         </RelatedPersons>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="UN1945" />
-            <RelatedOrganization organizationIdent="SA1865" />
+            <RelatedOrganization organizationIdent="UN" />
+            <RelatedOrganization organizationIdent="SA" />
         </RelatedOrganizations>
     </Crisis>
 
-    <Crisis crisisIdent="BP2010">
+    <Crisis crisisIdent="Deepwater_ACC_2010">
         <Name>
             BP Oil Spill
         </Name>
@@ -529,14 +529,14 @@
             <ExternalLinkURL>http://www.oilspillcommission.gov/page/privacy-policy</ExternalLinkURL>
         </ExternalResources>
         <RelatedPersons>
-            <RelatedPerson personIdent="BO1961" />
+            <RelatedPerson personIdent="BHObama" />
         </RelatedPersons>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="SA1865" />
+            <RelatedOrganization organizationIdent="SA" />
         </RelatedOrganizations>
     </Crisis>
 
-    <Crisis crisisIdent="SA2002">
+    <Crisis crisisIdent="SARS_DS_2003">
         <Name>
             SARS Outbreak
         </Name>
@@ -609,15 +609,15 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/Progress_of_the_SARS_outbreak</ExternalLinkURL>
         </ExternalResources>
         <RelatedPersons>
-            <RelatedPerson personIdent="MC1947" />
+            <RelatedPerson personIdent="MChan" />
         </RelatedPersons>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="WH1948" />
-            <RelatedOrganization organizationIdent="CD1946" />
+            <RelatedOrganization organizationIdent="WHO" />
+            <RelatedOrganization organizationIdent="CDC" />
         </RelatedOrganizations>
     </Crisis>
 
-    <Organization organizationIdent="GG1996">
+    <Organization organizationIdent="Google">
         <Name>
             Google
         </Name>
@@ -670,7 +670,7 @@
         </ExternalResources>
     </Organization>
 
-    <Organization organizationIdent="FE1979">
+    <Organization organizationIdent="FEMA">
         <Name>
             FEMA
         </Name>
@@ -717,11 +717,11 @@
             <ExternalLinkURL>http://www.fema.gov/</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="BP2010" />
+            <RelatedCrisis crisisIdent="Deepwater_ACC_2010" />
         </RelatedCrises>
     </Organization>
 
-    <Organization organizationIdent="PC1961">
+    <Organization organizationIdent="PC">
         <Name>
             Peace Corps
         </Name>
@@ -775,15 +775,15 @@
             <ExternalLinkURL>http://peacecorps.gov</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="RG1994" />
+            <RelatedCrisis crisisIdent="Rwanda_GC_1994" />
         </RelatedCrises>
         <RelatedPersons>
-            <RelatedPerson personIdent="JC1924" />
-            <RelatedPerson personIdent="BO1961" />
+            <RelatedPerson personIdent="JECarter" />
+            <RelatedPerson personIdent="BHObama" />
         </RelatedPersons>
     </Organization>
 
-    <Organization organizationIdent="CD1946">
+    <Organization organizationIdent="CDC">
         <Name>
             CDC
         </Name>
@@ -842,12 +842,12 @@
             <ExternalLinkURL>http://cdc.gov</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="HN2009" />
-            <RelatedCrisis crisisIdent="SA2002" />
+            <RelatedCrisis crisisIdent="H1N1_DS_2009" />
+            <RelatedCrisis crisisIdent="SARS_DS_2003" />
         </RelatedCrises>
     </Organization>
 
-    <Organization organizationIdent="UG1879">
+    <Organization organizationIdent="USGS">
         <Name>
             USGS
         </Name>
@@ -906,12 +906,12 @@
             <ExternalLinkURL>http://www.usgs.gov/</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="MS1980" />
-            <RelatedCrisis crisisIdent="CW2009" />
+            <RelatedCrisis crisisIdent="Helens_VO_1980" />
+            <RelatedCrisis crisisIdent="California_FR_2009" />
         </RelatedCrises>
     </Organization>
 
-    <Organization organizationIdent="UN1993">
+    <Organization organizationIdent="UNAMIR">
         <Name>
             UNAMIR
         </Name>
@@ -948,11 +948,11 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/UNAMIR</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="RG1994" />
+            <RelatedCrisis crisisIdent="Rwanda_GC_1994" />
         </RelatedCrises>
     </Organization>
 
-    <Organization organizationIdent="RC1881">
+    <Organization organizationIdent="ARC">
         <Name>
             American Red Cross
         </Name>
@@ -1012,7 +1012,7 @@
         </ExternalResources>
     </Organization>
 
-    <Organization organizationIdent="UN1945">
+    <Organization organizationIdent="UN">
         <Name>
             United Nations
         </Name>
@@ -1059,23 +1059,23 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/Un</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="RG1994" />
-            <RelatedCrisis crisisIdent="IW2003" />
-            <RelatedCrisis crisisIdent="HN2009" />
-            <RelatedCrisis crisisIdent="SA2002" />
-            <RelatedCrisis crisisIdent="BP2010" />
+            <RelatedCrisis crisisIdent="Rwanda_GC_1994" />
+            <RelatedCrisis crisisIdent="WAR_Terror_2001" />
+            <RelatedCrisis crisisIdent="H1N1_DS_2009" />
+            <RelatedCrisis crisisIdent="SARS_DS_2002" />
+            <RelatedCrisis crisisIdent="Deepwater_ACC_2010" />
         </RelatedCrises>
         <RelatedPersons>
-            <RelatedPerson personIdent="DC1966" />
-            <RelatedPerson personIdent="BO1961" />
-            <RelatedPerson personIdent="JC1924" />
-            <RelatedPerson personIdent="SH1937" />
-            <RelatedPerson personIdent="GB1946" />
-            <RelatedPerson personIdent="MC1947" />
+            <RelatedPerson personIdent="DCameron" />
+            <RelatedPerson personIdent="BHObama" />
+            <RelatedPerson personIdent="JECarter" />
+            <RelatedPerson personIdent="SHussein" />
+            <RelatedPerson personIdent="GWBush" />
+            <RelatedPerson personIdent="MChan" />
         </RelatedPersons>
     </Organization>
 
-    <Organization organizationIdent="SA1865">
+    <Organization organizationIdent="SA">
         <Name>
             Salvation Army
         </Name>
@@ -1124,19 +1124,19 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/Salvation_army</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="BF2011" />
-            <RelatedCrisis crisisIdent="BS2009" />
-            <RelatedCrisis crisisIdent="RG1994" />
-            <RelatedCrisis crisisIdent="IW2003" />
-            <RelatedCrisis crisisIdent="BP2010" />
-            <RelatedCrisis crisisIdent="CW2009" />
+            <RelatedCrisis crisisIdent="Bastrop_FR_2011" />
+            <RelatedCrisis crisisIdent="Victoria_FR_2009" />
+            <RelatedCrisis crisisIdent="Rwanda_CG_1994" />
+            <RelatedCrisis crisisIdent="WAR_Terror_2001" />
+            <RelatedCrisis crisisIdent="Deepwater_ACC_2010" />
+            <RelatedCrisis crisisIdent="California_FR_2009" />
         </RelatedCrises>
         <RelatedPersons>
-            <RelatedPerson personIdent="BO1961" />
+            <RelatedPerson personIdent="BHObama" />
         </RelatedPersons>
     </Organization>
 
-    <Organization organizationIdent="WH1948">
+    <Organization organizationIdent="WHO">
         <Name>
             WHO
         </Name>
@@ -1185,15 +1185,15 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/World_Health_Organization</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="HN2009" />
-            <RelatedCrisis crisisIdent="SA2002" />
+            <RelatedCrisis crisisIdent="H1N1_DS_2009" />
+            <RelatedCrisis crisisIdent="SARS_DS_2003" />
         </RelatedCrises>
         <RelatedPersons>
-            <RelatedPerson personIdent="MC1947" />
+            <RelatedPerson personIdent="MChan" />
         </RelatedPersons>
     </Organization>
 
-    <Person personIdent="RP1950">
+    <Person personIdent="RPerry">
         <Name>
             <FirstName>
                 Rick
@@ -1228,11 +1228,11 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/Rick_Perry</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="BF2011" />
+            <RelatedCrisis crisisIdent="Bastrop_FR_2011" />
         </RelatedCrises>
     </Person>
 
-    <Person personIdent="DC1966">
+    <Person personIdent="DCameron">
         <Name>
             <FirstName>
                 David
@@ -1261,15 +1261,15 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/David_Cameron</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="BP2010" />
-            <RelatedCrisis crisisIdent="IW2003" />
+            <RelatedCrisis crisisIdent="Deepwater_ACC_2010" />
+            <RelatedCrisis crisisIdent="WAR_Terror_2001" />
         </RelatedCrises>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="UN1945" />
+            <RelatedOrganization organizationIdent="UN" />
         </RelatedOrganizations>
     </Person>
 
-    <Person personIdent="DL1914">
+    <Person personIdent="DLRay">
         <Name>
             <FirstName>
                 Dixy
@@ -1301,11 +1301,11 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/Dixy_Lee_Ray</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="MS1980" />
+            <RelatedCrisis crisisIdent="Helens_VO_1980" />
         </RelatedCrises>
     </Person>
 
-    <Person personIdent="CN1953">
+    <Person personIdent="CNixon">
         <Name>
             <FirstName>
                 Christine
@@ -1339,11 +1339,11 @@
             </Citation>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="BS2009" />
+            <RelatedCrisis crisisIdent="Victoria_WF_2009" />
         </RelatedCrises>
     </Person>
 
-    <Person personIdent="PR1954">
+    <Person personIdent="PRusesabagina">
         <Name>
             <FirstName>
                 Paul
@@ -1366,15 +1366,15 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/Paul_Rusesabagina</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="RG1994" />
+            <RelatedCrisis crisisIdent="Rwanda_GC_1994" />
         </RelatedCrises>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="UN1945" />
-            <RelatedOrganization organizationIdent="UN1993" />
+            <RelatedOrganization organizationIdent="UN" />
+            <RelatedOrganization organizationIdent="UNAMIR" />
         </RelatedOrganizations>
     </Person>
 
-    <Person personIdent="BO1961">
+    <Person personIdent="BHObama">
         <Name>
             <FirstName>
                 Barack
@@ -1414,15 +1414,15 @@
             </Citation>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="BP2010" />
-            <RelatedCrisis crisisIdent="IW2003" />
+            <RelatedCrisis crisisIdent="Deepwater_ACC_2010" />
+            <RelatedCrisis crisisIdent="War_Terror_2001" />
         </RelatedCrises>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="PC1961" />
+            <RelatedOrganization organizationIdent="PC" />
         </RelatedOrganizations>
     </Person>
 
-    <Person personIdent="JC1924">
+    <Person personIdent="JECarter">
         <Name>
             <FirstName>
                 Jimmy
@@ -1454,16 +1454,16 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/Jimmy_carter</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="MS1980" />
+            <RelatedCrisis crisisIdent="Helens_VO_1980" />
         </RelatedCrises>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="UN1945" />
-            <RelatedOrganization organizationIdent="SA1865" />
-            <RelatedOrganization organizationIdent="PC1961" />
+            <RelatedOrganization organizationIdent="UN" />
+            <RelatedOrganization organizationIdent="SA" />
+            <RelatedOrganization organizationIdent="PC" />
         </RelatedOrganizations>
     </Person>
 
-    <Person personIdent="MC1947">
+    <Person personIdent="MChan">
         <Name>
             <FirstName>
                 Margaret
@@ -1498,15 +1498,15 @@
             <ExternalLinkURL>http://www.who.int/dg/chan/en/index.html</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="SA2002" />
-            <RelatedCrisis crisisIdent="HN2009" />
+            <RelatedCrisis crisisIdent="SARS_DS_2003" />
+            <RelatedCrisis crisisIdent="H1N1_DS_2009" />
         </RelatedCrises>
         <RelatedOrganizations>
-            <RelatedOrganization organizationIdent="WH1948" />
+            <RelatedOrganization organizationIdent="WHO" />
         </RelatedOrganizations>
     </Person>
 
-    <Person personIdent="SH1937">
+    <Person personIdent="SHussein">
         <Name>
             <FirstName>
                 Saddam
@@ -1537,11 +1537,11 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/Saddam_Hussein</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="IW2003" />
+            <RelatedCrisis crisisIdent="WAR_Terror_2001" />
         </RelatedCrises>
     </Person>
 
-    <Person personIdent="GB1946">
+    <Person personIdent="GWBush">
         <Name>
             <FirstName>
                 George
@@ -1579,7 +1579,7 @@
             <ExternalLinkURL>http://en.wikipedia.org/wiki/George_W_Bush_Jr</ExternalLinkURL>
         </ExternalResources>
         <RelatedCrises>
-            <RelatedCrisis crisisIdent="IW2003" />
+            <RelatedCrisis crisisIdent="WAR_Terror_2001" />
         </RelatedCrises>
     </Person>
 
