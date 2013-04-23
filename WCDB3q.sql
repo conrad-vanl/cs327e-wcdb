@@ -1,4 +1,115 @@
+/* -----------------------------------------------------------------------
+24. Crisis listed based on occurence from earlier to latest
+*/
 
+SELECT *
+		FROM Crisis
+			ORDER BY start_date DESC, start_time DESC;
+
+/* -----------------------------------------------------------------------
+25. Name and kind of all people in the United States
+*/
+
+SELECT R.name, S.name
+		FROM Person as R INNER JOIN PersonKind as S
+			ON R.kind = S.id
+			INNER JOIN Location
+			ON R.id = S.entity_id
+				WHERE (R.Country = "US" OR country = "USA" OR country = "United States");
+
+/* -----------------------------------------------------------------------
+26. Person with the longest name
+*/
+
+SELECT first_name, middle_name, last_name
+		FROM
+			(SELECT first_name, middle_name, last_name, SUM(A, B, C) AS length
+				FROM
+					(SELECT first_name, middle_name, last_name, CHAR_LENGTH(first_name) AS A, CHAR_LENGTH(middle_name) AS B, CHAR_LENGTH(last_name) AS C))
+		WHERE (length = MAX(length));
+
+/* -----------------------------------------------------------------------
+27. Crisis type with only one example
+*/
+
+SELECT kind
+		FROM
+			(SELECT kind, COUNT(name)
+				FROM Crisis INNER JOIN CrisisKind
+					ON Crisis.kind = CrisisKind.id
+						GROUP BY kind)
+			WHERE (COUNT(name) = 1);
+
+/* -----------------------------------------------------------------------
+28. People that don't have a middle name
+*/
+
+SELECT name
+		FROM Person
+			WHERE (middle_name IS NULL);
+
+/* -----------------------------------------------------------------------
+29. Names that start with "B"
+*/
+
+SELECT name
+		FROM Person
+			WHERE (LEFT(name, 1) = "B" or LEFT(name, 1) = "b");
+
+/* -----------------------------------------------------------------------
+30. People associated with each country
+*/
+
+SELECT first_name, middle_name, last_name
+		FROM Person INNER JOIN Location
+			ON Person.id = Location.entity_id
+				GROUP BY country;
+
+/* -----------------------------------------------------------------------
+31. Crisis affecting the most countries
+*/
+
+SELECT name
+		FROM
+			(SELECT name, COUNT(country)
+				FROM Crisis INNER JOIN Location
+					ON Crisis.id = Location.entity_id
+						GROUP BY name);
+		WHERE (COUNT(country) = MAX(COUNT(country)));
+
+/* -----------------------------------------------------------------------
+32. Earliest crisis
+*/
+
+SELECT name
+		FROM Crisis
+			ORDER BY start_date DESC, start_time DESC
+				WHERE (start_date > start_date AND start_time > start_time);
+
+/* -----------------------------------------------------------------------
+33. Number of organizations in the US
+*/
+
+SELECT COUNT(DISTINCT id)
+		FROM Organization INNER JOIN Location
+			ON Organization.id = Location.entity_id
+				WHERE (country = "US" OR country = "USA" OR country = "United States");
+
+/* -----------------------------------------------------------------------
+34. Number of Singers
+*/
+
+SELECT COUNT(id)
+		FROM Person
+			WHERE (kind = "SNG");
+
+/* -----------------------------------------------------------------------
+35. Number of current and former leaders
+*/
+
+SELECT COUNT(id)
+		FROM Person
+			WHERE (kind = "LD");
 
 /* -----------------------------------------------------------------------
 36. Hurricane Start Dates
