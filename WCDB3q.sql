@@ -143,7 +143,8 @@ select count(*) from Crisis
 38. Number of political figures by country
 */
 
-select country, count(id) from Person natural join Location
+select country, count(id) from Person inner join Location
+	on Person.id = Location.entity_id
 	where id in
 		(select id from PersonKind
 			where name = 'DI'
@@ -158,79 +159,68 @@ select country, count(id) from Person natural join Location
 			   or name = 'SA'
 			   or name = 'VP'
 			   or name = 'AMB')
-	order by count(id);
+	group by country;
 
 /* -----------------------------------------------------------------------
 39. Location with the highest number of natural disasters
 */
 
-select region, count(id) from Location
-	where id in 
-		(select id from CrisisKind
-			where name = 'EQ'
-			   or name = 'FR'
-			   or name = 'HU'
-			   or name = 'ME'
-			   or name = 'ST'
-			   or name = 'TO'
-			   or name = 'TS'
-			   or name = 'VO'
-			   or name = 'FL');
+select region from
+	(select region, count(id) from Location
+		where id in
+			(select id from CrisisKind
+				where name = 'EQ'
+				or name = 'FR'
+				or name = 'HU'
+				or name = 'ME'
+				or name = 'ST'
+				or name = 'TO'
+				or name = 'TS'
+				or name = 'VO'
+				or name = 'FL')
+				group by region)
+	where total = max(count(id));
 
 /* -----------------------------------------------------------------------
 40. Average number of deaths in hurricanes
 */
-select avg(number) from HumanImpact
-	where id in
-		(select id from CrisisKind
-			where name = 'HU');
+
+select avg(number) from HumanImpact inner join Crisis
+	on HumanImpact.crisis_id = Crisis.id
+	where (kind = "HU") and (type = "Death");
 
 /* -----------------------------------------------------------------------
 41. Total number of deaths caused by terrorist attacks
 */
 
-select sum(number) from HumanImpact
-	where type = 'Death'
-	  and id in
-		(select id from CrisisKind
-			where name = 'TA');
+select sum(number) from HumanImpact inner join Crisis
+	on HumanImpact.crisis_id = Crisis.id
+	where (type = 'Death') and (kind = "TA");
 
 /* -----------------------------------------------------------------------
 42. List of Hurricanes in the US that Wallace Stickney (WStickney) helped out with--
 */
 
-select name from Crisis
-	where id in
-		(select id from CrisisKind
-			where name = 'HU') as R
-		natural join
-		(select id_crisis id from PersonCrisis
-			where id_person = 'WStickney') as S; 
+select name from Crisis where id in
+	(select Crisis.id 
+		from inner join CrisisKind on Crisis.kind = CrisisKind.id 
+		inner join PersonCrisis on Crisis.id = PersonCrisis.id_crisis
+		where kind = "HU" and id_person = "WStickney");
 
 /* -----------------------------------------------------------------------
 43. List of hurricanes in the US where FEMA was NOT involved--
 */
 
 select name from Crisis
-	where id in
-		(select id from CrisisKind
-			where name = 'HU') as R
-		natural join
-		(select id_crisis as id from PersonCrisis
-			where id_person != 'FEMA') as S
-		natural join
-		(select id from Location
-			where country = 'US') as T;
+	where id not in
+		(select id from Crisis inner join CrisisOrganization on Crisis.id = CrisisOrganization.id_crisis as id inner join Location on Crisis.id = Location.entity_id
+			where id_organization = "FEMA" and not (country = "US" or country = "USA" or country = "United States");
 
-/* ----------------------------------------------------------------------- 
+/* -----------------------------------------------------------------------
 44. Number of crises that intelligence agencies were involved in--
 */
 
 select count(*) from CrisisOrganization
 	where id_organization in
-		(select id as id_organizaiton from OrganizationKind
-			where name = 'IA');
-
-/* -----------------------------------------------------------------------
-45. How many more orgs does America have than Britain
-*/
+		(select id as id_organization from OrganizationKind
+		where name = 'IA');
