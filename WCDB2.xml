@@ -1,10 +1,10 @@
 <WorldCrises>
 
-    <Crisis crisisIdent="HN_DS_2009">
+    <Crisis crisisIdent="H1N1_DS_2009">
         <Name>
             Swine Flu
         </Name>
-        <Kind crisisKindIdent="WWIE" />
+        <Kind crisisKindIdent="DS" />
         <Location>
             <Region>
                 Worldwide
@@ -77,7 +77,7 @@
         <Name>
             Bastrop Fires
         </Name>
-        <Kind crisisKindIdent="SRWF" />
+        <Kind crisisKindIdent="FR" />
         <Location>
             <Locality>
                 Bastrop
@@ -146,7 +146,7 @@
         <Name>
             Mt. St. Helen's Eruption
         </Name>
-        <Kind crisisKindIdent="VEPT" />
+        <Kind crisisKindIdent="VO" />
         <Location>
             <Locality>
                 Mount St. Helens
@@ -207,7 +207,7 @@
         <Name>
             Black Saturday Bush Fires
         </Name>
-        <Kind crisisKindIdent="SRWF" />
+        <Kind crisisKindIdent="FR" />
         <Location>
             <Region>
                 Victoria
@@ -279,7 +279,7 @@
         <Name>
             Daulatpur-Saturia Tornadoes
         </Name>
-        <Kind crisisKindIdent="TRND" />
+        <Kind crisisKindIdent="TO" />
         <Location>
             <Region>
                 Daulatpur and Saturia
@@ -337,7 +337,7 @@
         <Name>
             Rwanda Genocide
         </Name>
-        <Kind crisisKindIdent="WWRC" />
+        <Kind crisisKindIdent="GC" />
         <Location>
             <Country>
                 Rwanda
@@ -384,7 +384,7 @@
         <Name>
             California Wildfires
         </Name>
-        <Kind crisisKindIdent="SRWF" />
+        <Kind crisisKindIdent="FR" />
         <Location>
             <Region>
                 California
@@ -436,7 +436,7 @@
         <Name>
             Iraqi War
         </Name>
-        <Kind crisisKindIdent="WWRC" />
+        <Kind crisisKindIdent="WAR" />
         <Location>
             <Country>
                 Iraq
@@ -478,7 +478,7 @@
         <Name>
             BP Oil Spill
         </Name>
-        <Kind crisisKindIdent="OLSP" />
+        <Kind crisisKindIdent="ACC" />
         <Location>
             <Region>
                 Gulf of Mexico
@@ -540,7 +540,7 @@
         <Name>
             SARS Outbreak
         </Name>
-        <Kind crisisKindIdent="WWIE" />
+        <Kind crisisKindIdent="DS" />
         <Location>
             <Region>
                 Hong Kong
@@ -621,7 +621,7 @@
         <Name>
             Google
         </Name>
-        <Kind organizationKindIdent="TECH" />
+        <Kind organizationKindIdent="IO" />
         <Location>
             <Region>
                 California
@@ -674,7 +674,7 @@
         <Name>
             FEMA
         </Name>
-        <Kind organizationKindIdent="RELF" />
+        <Kind organizationKindIdent="GOV" />
         <Location>
             <Country>
                 US
@@ -725,7 +725,7 @@
         <Name>
             Peace Corps
         </Name>
-        <Kind organizationKindIdent="RELF" />
+        <Kind organizationKindIdent="HO" />
         <Location>
             <Locality>
                 Washington, D.C.
@@ -787,7 +787,7 @@
         <Name>
             CDC
         </Name>
-        <Kind organizationKindIdent="HLRS" />
+        <Kind organizationKindIdent="HEA" />
         <Location>
             <Locality>
                 Druid Hills
@@ -851,7 +851,7 @@
         <Name>
             USGS
         </Name>
-        <Kind organizationKindIdent="GOVT" />
+        <Kind organizationKindIdent="GOV" />
         <Location>
             <Locality>
                 Reston
@@ -915,7 +915,7 @@
         <Name>
             UNAMIR
         </Name>
-        <Kind organizationKindIdent="GOVT" />
+        <Kind organizationKindIdent="GOV" />
         <Location>
             <Country>
                 Rwanda
@@ -956,7 +956,7 @@
         <Name>
             American Red Cross
         </Name>
-        <Kind organizationKindIdent="RELF" />
+        <Kind organizationKindIdent="HEA" />
         <Location>
             <Locality>
                 Washington D.C.
@@ -1016,7 +1016,7 @@
         <Name>
             United Nations
         </Name>
-        <Kind organizationKindIdent="GOVT" />
+        <Kind organizationKindIdent="GOV" />
         <Location>
             <Locality>
                 New York City
@@ -1079,7 +1079,7 @@
         <Name>
             Salvation Army
         </Name>
-        <Kind organizationKindIdent="RELF" />
+        <Kind organizationKindIdent="HO" />
         <Location>
             <Locality>
                 London
@@ -1140,7 +1140,7 @@
         <Name>
             WHO
         </Name>
-        <Kind organizationKindIdent="HLRS" />
+        <Kind organizationKindIdent="HEA" />
         <Location>
             <Region>
                 Geneva
@@ -1202,7 +1202,7 @@
                 Perry
             </LastName>
         </Name>
-        <Kind personKindIdent="GVNR" />
+        <Kind personKindIdent="GOV" />
         <Location>
             <Locality>
                 Austin
@@ -1241,7 +1241,7 @@
                 Cameron
             </LastName>
         </Name>
-        <Kind personKindIdent="PSDT" />
+        <Kind personKindIdent="PR" />
         <Location>
             <Region>
                 London
@@ -1281,7 +1281,7 @@
                 Ray
             </LastName>
         </Name>
-        <Kind personKindIdent="GVNR" />
+        <Kind personKindIdent="GOV" />
         <Location>
             <Region>
                 Washington
@@ -1314,7 +1314,7 @@
                 Nixon
             </LastName>
         </Name>
-        <Kind personKindIdent="PBFG" />
+        <Kind personKindIdent="PO" />
         <Location>
             <Region>
                 Victoria
@@ -1352,7 +1352,7 @@
                 Rusesabagina
             </LastName>
         </Name>
-        <Kind personKindIdent="HSFG" />
+        <Kind personKindIdent="MIS" />
         <Location>
             <Country>
                 Rwanda
@@ -1383,7 +1383,7 @@
                 Obama
             </LastName>
         </Name>
-        <Kind personKindIdent="PSDT" />
+        <Kind personKindIdent="PR" />
         <Location>
             <Locality>
                 Washington, D.C.
@@ -1431,7 +1431,7 @@
                 Carter
             </LastName>
         </Name>
-        <Kind personKindIdent="PSDT" />
+        <Kind personKindIdent="PR" />
         <Location>
             <Locality>
                 Washington, D.C.
@@ -1472,7 +1472,7 @@
                 Chan
             </LastName>
         </Name>
-        <Kind personKindIdent="PBFG" />
+        <Kind personKindIdent="PO" />
         <Location>
             <Region>
                 Hong Kong
@@ -1515,7 +1515,7 @@
                 Hussein
             </LastName>
         </Name>
-        <Kind personKindIdent="PSDT" />
+        <Kind personKindIdent="PR" />
         <Location>
             <Country>
                 Iraq
@@ -1556,7 +1556,7 @@
                 Jr.
             </Suffix>
         </Name>
-        <Kind personKindIdent="PSDT" />
+        <Kind personKindIdent="PR" />
         <Location>
             <Locality>
                 Dallas
@@ -1583,25 +1583,130 @@
         </RelatedCrises>
     </Person>
 
-        <CrisisKind crisisKindIdent="WWIE">
+
+    <CrisisKind crisisKindIdent="ACC">
         <Name>
-            Worldwide Illness or Epidemic
+            Accident
         </Name>
         <Description>
-            A disease or illness that has worldwide repercussions.
+            An accident
         </Description>
-    </CrisisKind>
+    </CrisisKind>	
 
-    <CrisisKind crisisKindIdent="SRWF">
+    <CrisisKind crisisKindIdent="CO">
+	<Name>
+	    Conflict
+	</Name>
+	<Description>
+	    A conflict, usually violent, that occurs either on the worldwide or regional scale.
+	</Description>
+
+    <CrisisKind crisisKindIdent="DS">
+	<Name>
+	    Disease
+	</Name>
+	<Description>
+	    A disease outbreak
+	</Description>
+
+    <CrisisKind crisisKindIdent="EQ">
+	<Name>
+	    Earthquake
+	</Name>
+	<Description>
+	    An earthquake
+	</Description>
+
+    <CrisisKind crisisKindIdent="EC">
+	<Name>
+	    Economic Crisis
+	</Name>
+	<Description>
+	    An economic crisis
+	</Description>
+
+    <CrisisKind crisisKindIdent="FR">
         <Name>
-            Spontaneous Regional Wildfire
+            Fire
         </Name>
         <Description>
             A wildfire that occurs within a specific region.
         </Description>
     </CrisisKind>
 
-    <CrisisKind crisisKindIdent="VEPT">
+    <CrisisKind crisisKindIdent="FL">
+	<Name>
+	    Flood
+	</Name>
+	<Description>
+	    A Flood
+	</Description>
+
+    <CrisisKind crisisKindIdent="FC">
+	<Name>
+	    Food Crisis
+	</Name>
+	<Description>
+	    A Food Crisis
+	</Description>
+
+    <CrisisKind crisisKindIdent="GC">
+	<Name>
+	    Genocide
+	</Name>
+	<Description>
+	    A mass killing of a racial or ethnic group
+	</Description>
+
+    <CrisisKind crisisKindIdent="HT">
+	<Name>
+	    Human Trafficking
+	</Name>
+	<Description>
+	    The sale of humans
+	</Description>
+
+    <CrisisKind crisisKindIdent="HU">
+	<Name>
+	    Hurricane
+	</Name>
+	<Description>
+	    A storm from the tropics with high winds and lots of rain
+	</Description>
+
+    <CrisisKind crisisKindIdent="ME">
+	<Name>
+	    Meteor
+	</Name>
+	<Description>
+	    A meteor
+	</Description>
+
+    <CrisisKind crisisKindIdent="ST">
+	<Name>
+	    Storm
+	</Name>
+	<Description>
+	    A storm
+	</Description>
+
+    <CrisisKind crisisKindIdent="TA">
+	<Name>
+	    Terrorist Attack
+	</Name>
+	<Description>
+	    An attack by terrorists
+	</Description>
+
+    <CrisisKind crisisKindIdent="TS">
+	<Name>
+	    Tsunami
+	</Name>
+	<Description>
+	    A giant wave
+	</Description>
+
+    <CrisisKind crisisKindIdent="VO">
         <Name>
             Volcanic Eruption
         </Name>
@@ -1610,16 +1715,24 @@
         </Description>
     </CrisisKind>
 
-    <CrisisKind crisisKindIdent="WWRC">
+    <CrisisKind crisisKindIdent="WAR">
         <Name>
-            Worldwide or Regional Conflict
+            War
         </Name>
         <Description>
-            A conflict, usually violent, that occurs either on the worldwide or regional scale.
+            A War
         </Description>
     </CrisisKind>
 
-    <CrisisKind crisisKindIdent="TRND">
+    <CrisisKind crisisKindIdent="WP">
+	<Name>
+	    Weapons
+	</Name>
+	<Description>
+	    Problems with weapons
+	</Description>
+
+    <CrisisKind crisisKindIdent="TO">
         <Name>
             Tornado
         </Name>
@@ -1628,61 +1741,402 @@
         </Description>
     </CrisisKind>
 
-    <CrisisKind crisisKindIdent="OLSP">
-        <Name>
-            Oil Spill
-        </Name>
-        <Description>
-            A large oil spill caused by either physical destruction of the oil rig or a leak.
-        </Description>
-    </CrisisKind>
+    <CrisisKind crisisKindIdent="MIS">
+	<Name>
+	    Miscellaneous
+	</Name>
+	<Description>
+	    Anything that does not fall under another category
+	</Description>
 
-    <OrganizationKind organizationKindIdent="TECH">
+    <OrganizationKind organizationKindIdent="AUN">
         <Name>
-            Technological Organization
+            Agency of the United Nations
         </Name>
         <Description>
-            Multinational Technology Services Corporation
-        </Description>
-    </OrganizationKind>
-
-    <OrganizationKind organizationKindIdent="RELF">
-        <Name>
-            Emergency Relief Organization
-        </Name>
-        <Description>
-            Provides relief and assistance for emergencies
+            Agency of the United Nations
         </Description>
     </OrganizationKind>
 
-    <OrganizationKind organizationKindIdent="HLRS">
+    <OrganizationKind organizationKindIdent="AD">
         <Name>
-            Health Research, Awareness, and Prevention Organization
+            Agricultural Department
         </Name>
         <Description>
-            Provides relief, awareness, and performs research on a number of diseases and illnesses on a worldwide basis.
+            Agriculutural Department
         </Description>
     </OrganizationKind>
 
-    <OrganizationKind organizationKindIdent="GOVT">
+    <OrganizationKind organizationKindIdent="APA">
         <Name>
-            Governmental and Political Organization
+            Animal Protection Agency
+        </Name>
+        <Description>
+            Animal Protection Agency
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="CB">
+        <Name>
+            Central Bank
+        </Name>
+        <Description>
+            Central Bank
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="CHA">
+        <Name>
+            Charitable Organization
+        </Name>
+        <Description>
+            Charitable Organization
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="DRA">
+        <Name>
+            Disaster Relief Agency
+        </Name>
+        <Description>
+            Disaster Relief Agency
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="EPU">
+        <Name>
+            Economic and Political Union
+        </Name>
+        <Description>
+            Economic and Political Union
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="ENV">
+        <Name>
+            Environmental Organization
+        </Name>
+        <Description>
+            Environmental Organization
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="GMB">
+        <Name>
+            Government Military Branch
+        </Name>
+        <Description>
+            Government Military Branch
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="GOV">
+        <Name>
+            Governmental Organization
         </Name>
         <Description>
             An organization chartered by the government for a specific purpose such as research or diplomatic relations and negotiation.
         </Description>
     </OrganizationKind>
 
-    <PersonKind personKindIdent="PSDT">
+    <OrganizationKind organizationKindIdent="HEA">
+        <Name>
+            Health
+        </Name>
+        <Description>
+            An agency that tries to preserve public health
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="HO">
+        <Name>
+            Humanitarian Organization
+        </Name>
+        <Description>
+            Humanitarian Organization
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="INS">
+        <Name>
+            Insurance Corporation
+        </Name>
+        <Description>
+            Insurance Corporation
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="IA">
+        <Name>
+            Intelligence Agency
+        </Name>
+        <Description>
+            Intelligence Agency
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="IFI">
+        <Name>
+            International Financial Institution
+        </Name>
+        <Description>
+            International Financial Institution
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="IO">
+        <Name>
+            International Organization
+        </Name>
+        <Description>
+            International Organization
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="INV">
+        <Name>
+            Investment Bank
+        </Name>
+        <Description>
+            Investment Bank
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="ISO">
+        <Name>
+            Islamist Organization
+        </Name>
+        <Description>
+            Organization for Islamic faith
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="MA">
+        <Name>
+            Military Alliance
+        </Name>
+        <Description>
+            Military Alliance
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="MO">
+        <Name>
+            Military Organization
+        </Name>
+        <Description>
+            Military Organization
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="NG">
+        <Name>
+            National Government
+        </Name>
+        <Description>
+            National Government
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="NS">
+        <Name>
+            National Security
+        </Name>
+        <Description>
+            Tends to matters of national security
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="NPO">
+        <Name>
+            Non-Profit Organization
+        </Name>
+        <Description>
+            Non-Profit Organization
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="PHA">
+        <Name>
+            Public Health Advocate
+        </Name>
+        <Description>
+            Public Health Advocate
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="PUB">
+        <Name>
+            Public Service
+        </Name>
+        <Description>
+            Public Service
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="SOC">
+        <Name>
+            Social Organization
+        </Name>
+        <Description>
+            Social Organization
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="TORG">
+        <Name>
+            Terrorist Organization
+        </Name>
+        <Description>
+            Terrorist Organization
+        </Description>
+    </OrganizationKind>
+
+    <OrganizationKind organizationKindIdent="MIS">
+        <Name>
+            Miscellaneous
+        </Name>
+        <Description>
+            Organizations that did not fall into any other category
+        </Description>
+    </OrganizationKind>
+
+    <PersonKind personKindIdent="BU">
+        <Name>
+            Businessperson
+        </Name>
+        <Description>
+            A businessman or businesswoman
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="CM">
+        <Name>
+            Chairman
+        </Name>
+        <Description>
+            A chairman
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="CEO">
+        <Name>
+            CEO
+        </Name>
+        <Description>
+            A Cheif Executive Officer
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="DI">
+        <Name>
+            Dictator
+        </Name>
+        <Description>
+            A dicator of a country
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="FRC">
+        <Name>
+            Federal Reserve Chairman
+        </Name>
+        <Description>
+            A federal reserve chairman
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="FO">
+        <Name>
+            Founder
+        </Name>
+        <Description>
+            A person who founded something
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="GO">
+        <Name>
+            Government Official
+        </Name>
+        <Description>
+            A government official
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="HO">
+        <Name>
+            Head of Organization
+        </Name>
+        <Description>
+            The head of an organization
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="HM">
+        <Name>
+            Humanitarian
+        </Name>
+        <Description>
+            A humanitarian
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="LD">
+        <Name>
+            Leader
+        </Name>
+        <Description>
+            A leader
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="PE">
+        <Name>
+            Personality
+        </Name>
+        <Description>
+            A person well known in pop culture
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="PH">
+        <Name>
+            Philanthropist
+        </Name>
+        <Description>
+            A philanthropist
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="PO">
+        <Name>
+            Politician
+        </Name>
+        <Description>
+            A politician
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="PR">
         <Name>
             President
         </Name>
         <Description>
-            A president or prime minister of a country
+            A president of a country
         </Description>
     </PersonKind>
 
-    <PersonKind personKindIdent="GVNR">
+    <PersonKind personKindIdent="PM">
+        <Name>
+            President
+        </Name>
+        <Description>
+            A prime minister of a country
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="GOV">
         <Name>
             Governor
         </Name>
@@ -1691,21 +2145,84 @@
         </Description>
     </PersonKind>
 
-    <PersonKind personKindIdent="PBFG">
+    <PersonKind personKindIdent="PCEO">
         <Name>
-            Public Figure
+            President and CEO
         </Name>
         <Description>
-            A person holding a public office.
+            A president and CEO of a company
         </Description>
     </PersonKind>
 
-    <PersonKind personKindIdent="HSFG">
+    <PersonKind personKindIdent="RE">
         <Name>
-            Historical Figure
+            Researcher
         </Name>
         <Description>
-            A person that played a significant role in history.
+            A researcher
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="SA">
+        <Name>
+            Secretary of Agriculture
+        </Name>
+        <Description>
+            A secretary of agriculture
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="SNG">
+        <Name>
+            Singer
+        </Name>
+        <Description>
+            A singer
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="SW">
+        <Name>
+            Social Worker
+        </Name>
+        <Description>
+            A social worker
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="TL">
+        <Name>
+            Terrorist Leader
+        </Name>
+        <Description>
+            A terrorist leader
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="AMB">
+        <Name>
+            United States Ambassador
+        </Name>
+        <Description>
+            A US Ambassador
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="VP">
+        <Name>
+            Vice President
+        </Name>
+        <Description>
+            A vice president of a country
+        </Description>
+    </PersonKind>
+
+    <PersonKind personKindIdent="MIS">
+        <Name>
+            Others
+        </Name>
+        <Description>
+            Another person that is not listed
         </Description>
     </PersonKind>
 
