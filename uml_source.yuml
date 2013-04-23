@@ -10,8 +10,9 @@
 [HumanImpact|id; crisis_id; type; number]
 [CrisisKind|id; name; description]
 [PersonCrisis|id_person; id_crisis]
-[Person|id; first_name; middle_name; suffix; kind]
+[Person|id; first_name; middle_name; last_name; suffix; kind]
 [PersonKind|id; name; description]
+[ResourceNeeded|id; crisis_id; description]
 //Connections
 [Organization]-related persons-^[OrganizationPerson]
 [Organization]*-*[Person]
@@ -27,6 +28,7 @@
 [Crisis]*-*[Organization]
 [Crisis]*-*[Person]
 [Crisis]++-*>[ExternalResource]
+[Crisis]++-*>[ResourceNeeded]
 [Crisis]++-*>[Location]
 [Crisis]++-*>[WaysToHelp]
 [Crisis]++-*>[HumanImpact]
