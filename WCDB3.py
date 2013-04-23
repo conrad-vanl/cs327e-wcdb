@@ -33,27 +33,27 @@ SCHEMAS = {
     """,
   "OrganizationPerson":
     """
-    id_organization char(100) NOT NULL
+    organization_id char(100) NOT NULL
     REFERENCES Organization(id),
-    id_person char(100) NOT NULL
+    person_id char(100) NOT NULL
     REFERENCES Person(id),
-    PRIMARY KEY (id_organization, id_person)
+    PRIMARY KEY (organization_id, person_id)
     """,
   "CrisisOrganization":
     """
-    id_crisis char(100) NOT NULL
+    crisis_id char(100) NOT NULL
     REFERENCES Crisis(id),
-    id_organization char(100) NOT NULL
+    organization_id char(100) NOT NULL
     REFERENCES Organization(id),
-    PRIMARY KEY (id_crisis, id_organization)
+    PRIMARY KEY (crisis_id, organization_id)
     """,
   "PersonCrisis":
     """
-    id_person char(100) NOT NULL
+    person_id char(100) NOT NULL
     REFERENCES Person(id),
-    id_crisis char(100) NOT NULL
+    crisis_id char(100) NOT NULL
     REFERENCES Crisis(id),
-    PRIMARY KEY (id_person, id_crisis)
+    PRIMARY KEY (person_id, crisis_id)
     """,
   "Location":
     """
@@ -186,16 +186,16 @@ def main():
       ("RelatedOrganizations/*", OrganizationPerson, Serializers.HasMany)
     ],
     "PersonCrisis": [
-      (".", ("personIdent", "id_person"), Serializers.Attribute),
-      (".", ("crisisIdent", "id_crisis"), Serializers.Attribute)
+      (".", ("personIdent", "person_id"), Serializers.Attribute),
+      (".", ("crisisIdent", "crisis_id"), Serializers.Attribute)
     ],
     "OrganizationPerson": [
-      (".", ("organizationIdent", "id_organization"), Serializers.Attribute),
-      (".", ("personIdent", "id_person"), Serializers.Attribute)
+      (".", ("organizationIdent", "organization_id"), Serializers.Attribute),
+      (".", ("personIdent", "person_id"), Serializers.Attribute)
     ],
     "CrisisOrganization": [
-      (".", ("crisisIdent", "id_crisis"), Serializers.Attribute),
-      (".", ("organizationIdent", "id_organization"), Serializers.Attribute)
+      (".", ("crisisIdent", "crisis_id"), Serializers.Attribute),
+      (".", ("organizationIdent", "organization_id"), Serializers.Attribute)
     ],
     "Organization": [
       (".", ("organizationIdent", "id"), Serializers.Attribute ),
@@ -509,7 +509,8 @@ class MySQL:
 # ********************************************** 
 # Internal: I'm hoping that splitting out each relation into it's own model/class will pay off in the long run
 # Each model should have from_xml, to_xml methods
-# Each model should have a plural, table_name attributes
+# Each model should have a plural, table_name, keys attributes
+# Each model can hasMany other models
 class Model(object):
   """
     A model is a mapper/representation of a relation. allows us to split up tasks a little easier.
@@ -522,6 +523,7 @@ class Model(object):
   hasMany = [] # [Model]
   keys = []
   foreign_key = "id"
+  primary_key = "id"
 
   instances = []
 
@@ -539,7 +541,12 @@ class Model(object):
     # special case for associative model:
     if key in self.hasMany and self.params.get(key) is None:
       # no, lets get it!
-      self.params.__setitem__(key, lookup_model_from_plural(key).find("*","where "+self.foreign_key+"=\""+self.get(self.foreign_key)+"\""))
+      # TODO: need to look up for is_entity
+      model = lookup_model_from_plural(key)
+      if model.is_entity:
+        self.params.__setitem__(key, model.find("*","where "+self.entity_id+"=\""+self.get(self.primary_key)+"\" and "+mode.is_entity[model.__name__])
+      else:
+        self.params.__setitem__(key, model.find("*","where "+self.foreign_key+"=\""+self.get(self.primary_key)+"\""))
     
     return self.params.get(key)
 
@@ -600,7 +607,7 @@ class Model(object):
 
       # if record has a 'copy'
       # a copy is determined by: two records that are the same relation and either have the same ID / ident or both have the same data
-      if record is not self and record.__class__ is self.__class__ and self.foreign_key == record.foreign_key and ((record.get(self.__class__.foreign_key) is not None and record.get(self.__class__.foreign_key) == self.get(self.__class__.foreign_key)) or record.params == self.params):
+      if record is not self and record.__class__ is self.__class__ and ((record.get(self.__class__.primary_key) is not None and record.get(self.__class__.primary_key) == self.get(self.__class__.primary_key)) or record.params == self.params):
         # we have to destroy the current record and return the older one
         self.destroy()
         return record
@@ -639,7 +646,7 @@ class Model(object):
       # first, see if already cached/loaded:
       should_append = True
       for record in _class.instances:
-        if record.params == result or record.get(_class.foreign_key) == result.get(_class.foreign_key):
+        if record.params == result or record.get(_class.primary_key) == result.get(_class.primary_key):
           should_append = False
           a.append(record)
           break
@@ -656,12 +663,11 @@ class Model(object):
       connection = DEFAULT_CONNECTION
 
     # Persist model to DB:
-    if self.is_new or self.get(self.foreign_key) is None:
+    if self.is_new or self.get(self.primary_key) is None:
       connection.query("insert into `"+str(self.table_name)+"` ("+",".join(self.keys)+") values("+",".join(self.vals())+")")
       self.is_new = False
     else:
-      print "update", self.table_name, "sql", ",".join(self.keyValueSQL()), "where", self.foreign_key, "=", self.get(self.foreign_key)
-      connection.query("update `"+str(self.table_name)+"` set "+",".join(self.keyValueSQL())+" where "+self.foreign_key+"=\""+self.get(self.foreign_key)+"\"")
+      connection.query("update `"+str(self.table_name)+"` set "+",".join(self.keyValueSQL())+" where "+self.primary_key+"=\""+self.get(self.primary_key)+"\"")
 
     # Persist associations to DB:
     # for now, we only need to persist hasMany associations:
@@ -726,9 +732,13 @@ class Serializers():
         foreign_records = []
         for e in elements:
           m = foreignModel.from_xml(e)
-
           assert(model.get(model.foreign_key) is not None) # the foreign key must be set first!!!
-          m.set(model.foreign_key, model.get(model.foreign_key))
+
+          if foreignModel.is_entity:
+            m.set("entity_type", m.is_entity[model.__name__])
+            m.set("entity_id", model.get(model.primary_key))
+          else:          
+            m.set(model.foreign_key, model.get(model.primary_key))
 
           foreign_records.append(m)
         # set relation on model
@@ -803,103 +813,96 @@ class Serializers():
 class Crisis(Model):
   instances = []
   plural = "crises"
+  enum = "C"
   table_name = "Crises"
   foreign_key = "crisis_id"
-  keys = ["crisis_id", "crisisKind_id", "name", "startDate", "startTime", "endDate", "endTime", "economicImpact"]
-  hasMany = ["locations","humanImpacts","resourcesNeeded","waysToHelp","relatedPeople","externalResources","relatedOrganizations"]
+  keys = ["id","id", "kind", "name", "start_date", "start_time", "end_date", "end_time", "economic_impact"]
+  hasMany = ["locations","humanImpacts","resourcesNeeded","waysToHelp","relatedPeople","externalResources","crisisOrganizations","personCrises"]
 
-class RelatedPerson(Model):
-  instances = []
-  plural = "relatedPeople"
-  table_name = "RelatedPeople"
-  foreign_key = "relatedPerson_id"
-  keys = ["person_id","crisis_id","organization_id"]
 
-class RelatedOrganization(Model):
+class OrganizationPerson(Model):
   instances = []
-  plural = "relatedOrganizations"
-  table_name = "RelatedOrganizations"
-  foreign_key = "relatedOrganization_id"
-  keys = ["person_id","crisis_id","organization_id"]
+  plural = "organizationPersons"
+  table_name = "OrganizationPerson"
+  keys = ["id","person_id","organization_id"]
 
-class RelatedCrisis(Model):
+class CrisisOrganization(Model):
   instances = []
-  plural = "relatedCrises"
-  table_name = "RelatedCrises"
-  foreign_key = "relatedCrisis_id"
-  keys = ["person_id","crisis_id","organization_id"]
+  plural = "crisisOrganizations"
+  table_name = "CrisisOrganization"
+  keys = ["id","crisis_id","organization_id"]
+
+class PersonCrisis(Model):
+  instances = []
+  plural = "personCrises"
+  table_name = "PersonCrisis"
+  keys = ["id","person_id","organization_id"]
+
 
 class Location(Model):
   instances = []
   plural = "locations"
-  table_name = "Locations"
-  foreign_key = "location_id"
-  keys = ["crisis_id","person_id","organization_id","locality","region","country"]
+  table_name = "Location"
+  is_entity = {"Crisis":"C", "Person":"P", "Organization":"O"}
+  keys = ["id","entity_type","entity_id","locality","region","country"]
 
 class ExternalResource(Model):
   instances = []
   plural = "externalResources"
   table_name= "ExternalResources"
-  foreign_key = "externalResource_id"
-  keys = ["crisis_id","organization_id","type","content"]
+  is_entity = {"Crisis":"C", "Person":"P", "Organization":"O"}
+  keys = ["id","entity_type","entity_id","type","link"]
 
 class HumanImpact(Model):
   instances = []
   plural = "humanImpacts"
   table_name = "HumanImpacts"
-  foreign_key = "humanImpact_id"
-  keys = ["crisis_id","number","type"]
+  keys = ["id","crisis_id","number","type"]
 
 class ResourceNeeded(Model):
   instances = []
   plural = "resourcesNeeded"
   table_name = "ResourcesNeeded"
-  foreign_key = "resourceNeeded_id"
-  keys = ["crisis_id", "resource"]
+  keys = ["id","crisis_id", "description"]
 
 class WaysToHelp(Model):
   instances = []
   plural = "waysToHelp"
   table_name = "WaysToHelp"
-  foreign_key = "waysToHelp_id"
-  keys = ["crisis_id","waysToHelp"]
+  keys = ["id","crisis_id","description"]
 
 class Organization(Model):
   instances = []
   plural = "organizations"
-  table_name = "Organizations"
+  table_name = "Organization"
   foreign_key = "organization_id"
-  keys = ["organization_id","organizationKind_id","name","history","telephone","fax","email","streetAddress","locality","region","postalCode","country"]
-  hasMany = ["locations","externalResources","relatedPeople","relatedCrises"]
+  keys = ["id","kind","name","history","telephone","fax","email","street_address","locality","region","postal_code","country"]
+  hasMany = ["locations","externalResources","crisisOrganizations","organizationPersons"]
 
 class OrganizationKind(Model):
   instances = []
   plural = "organizationKinds"
-  table_name = "OrganizationKinds"
-  foreign_key = "organizationKind_id"
-  keys = ["organizationKind_id","name","description"]
+  table_name = "OrganizationKind"
+  keys = ["id","name","description"]
 
 class CrisisKind(Model):
   instances = []
   plural = "crisisKinds"
-  table_name = "CrisisKinds"
-  foreign_key = "crisisKind_id"
-  keys = ["crisisKind_id","name","description"]
+  table_name = "CrisisKind"
+  keys = ["id","name","description"]
 
 class PersonKind(Model):
   instances = []
   plural = "personKinds"
-  table_name = "PersonKinds"
-  foreign_key = "personKind_id"
-  keys = ["personKind_id","name","description"]
+  table_name = "PersonKind"
+  keys = ["id","name","description"]
 
 class Person(Model):
   instances = []
   plural = "people"
-  table_name = "People"
+  hasMany = ["locations","externalResources","organizationPersons","crisisOrganizations"]
+  keys = ["id","first_name","middle_name","last_name","suffix","kind"]
   foreign_key = "person_id"
-  keys = ["person_id","firstName","lastName","middleName","suffix","personKind_id"]
-  hasMany = ["locations","externalResources","relatedPeople","relatedOrganizations"]
 
-# call up runetime stuff:
+# call up runtime stuff:
 main()
