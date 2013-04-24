@@ -28,7 +28,7 @@ SELECT telephone, fax, email, street_address, locality, region, postal_code, cou
 
 SELECT COUNT(id)
 	FROM Crisis
-	WHERE (kind - "HU");
+	WHERE (kind = "HU");
 
 /* -----------------------------------------------------------------------
 23. Name all humanitarian orgs in the DB
