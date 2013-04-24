@@ -1,41 +1,50 @@
 /* -----------------------------------------------------------------------
 16. How many orgs are government based?
 */
-SELECT COUNT( organizationKind_id ) as kindID 
-	FROM Organizations 
-		WHERE organizationKind_id ='GMB'
-		OR organizationKind_id ='GOV' 
-		OR organizationKind_id ='NG';
+SELECT COUNT( kind ) as kindID 
+	FROM Organization 
+		WHERE kind ='GMB'
+		OR kind ='GOV' 
+		OR kind ='NG';
 
 /* -----------------------------------------------------------------------
 17. What is the total number of casualties across the DB?
 */
 SELECT SUM( number ) AS TotalCasualties 
-	FROM HumanImpacts
+	FROM HumanImpact
 		WHERE type = 'Death';
 	
 /* -----------------------------------------------------------------------
 19. Create a list of telephone numbers, emails, and other contact info for all orgs
 */
-CREATE TEMPORARY TABLE contacts AS (SELECT name, contactInfoTelephone, 
-	contactInfoFax, contactInfoEmail, contactInfoPostalAddressStreetAddress, 
-	contactInfoPostalAddressLocality, contactInfoPostalAddressRegion, 
-	contactInfoPostalAddressPostalCode, contactInfoPostalAddressCountry  
-	FROM Organizations);
+CREATE TEMPORARY TABLE contacts AS (SELECT name, telephone,fax,email,street_address,
+	locality,region,postal_code,country 
+	FROM Organization);
+
+/* -----------------------------------------------------------------------
+
+21. Which person(s) is involved or associated with the most organizations?
+*/
+SELECT first_name, middle_name, last_name 
+	FROM (SELECT first_name, middle_name, last_name, COUNT (organization_id)
+		FROM Person INNER JOIN OrganizationPerson
+			ON Person.id = OrganizationPerson.person_id
+				GROUP BY last_name);
+		WHERE (COUNT(organization_id) = MAX(COUNT(organization_id)));
 
 /* -----------------------------------------------------------------------
 22. How many hurricane crises (CrisisKind=HU)?
 */
-SELECT COUNT( crisisKind_id ) as kindID 
-	FROM Crises
+SELECT COUNT(kind) as kindID 
+	FROM Crisis
 		WHERE crisisKind_id ='HU';
 
 
 /* -----------------------------------------------------------------------
 23. Name all humanitarian orgs in the DB
 */
-SELECT Name FROM organizations
-	WHERE organizationKind_id = 'HO';
+SELECT Name FROM Organizations
+	WHERE kind = 'HO';
 
 /* -----------------------------------------------------------------------
 24. Crisis listed based on occurence from earlier to latest
