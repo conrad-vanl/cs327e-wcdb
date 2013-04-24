@@ -1,50 +1,42 @@
 /* -----------------------------------------------------------------------
 16. How many orgs are government based?
 */
-SELECT COUNT( kind ) as kindID 
-	FROM Organization 
-		WHERE kind ='GMB'
-		OR kind ='GOV' 
-		OR kind ='NG';
+
+SELECT COUNT(id)
+	FROM (SELECT id
+		FROM Organization
+		WHERE (kind = "GMB") OR (kind = "GOV") OR (kind = "NG"));
 
 /* -----------------------------------------------------------------------
 17. What is the total number of casualties across the DB?
 */
-SELECT SUM( number ) AS TotalCasualties 
-	FROM HumanImpact
-		WHERE type = 'Death';
+
+SELECT SUM("number") AS TotalCasualties 
+	FROM HumanImpacts
+		WHERE (type = 'Death');
 	
 /* -----------------------------------------------------------------------
 19. Create a list of telephone numbers, emails, and other contact info for all orgs
 */
-CREATE TEMPORARY TABLE contacts AS (SELECT name, telephone,fax,email,street_address,
-	locality,region,postal_code,country 
-	FROM Organization);
 
-/* -----------------------------------------------------------------------
-
-21. Which person(s) is involved or associated with the most organizations?
-*/
-SELECT first_name, middle_name, last_name 
-	FROM (SELECT first_name, middle_name, last_name, COUNT (organization_id)
-		FROM Person INNER JOIN OrganizationPerson
-			ON Person.id = OrganizationPerson.person_id
-				GROUP BY last_name);
-		WHERE (COUNT(organization_id) = MAX(COUNT(organization_id)));
+SELECT telephone, fax, email, street_address, locality, region, postal_code, country
+	FROM Organization;
 
 /* -----------------------------------------------------------------------
 22. How many hurricane crises (CrisisKind=HU)?
 */
-SELECT COUNT(kind) as kindID 
-	FROM Crisis
-		WHERE crisisKind_id ='HU';
 
+SELECT COUNT(id)
+	FROM Crisis
+	WHERE (kind - "HU");
 
 /* -----------------------------------------------------------------------
 23. Name all humanitarian orgs in the DB
 */
-SELECT Name FROM Organizations
-	WHERE kind = 'HO';
+
+SELECT Name 
+	FROM Organizations
+	WHERE (kind = 'HO');
 
 /* -----------------------------------------------------------------------
 24. Crisis listed based on occurence from earlier to latest
@@ -69,7 +61,7 @@ SELECT R.name, S.name
 
 SELECT first_name, middle_name, last_name
 	FROM
-		(SELECT first_name, middle_name, last_name, SUM(A, B, C) AS length
+		(SELECT first_name, middle_name, last_name, SUM(A + B + C) AS length
 			FROM
 				(SELECT first_name, middle_name, last_name, CHAR_LENGTH(first_name) AS A, CHAR_LENGTH(middle_name) AS B, CHAR_LENGTH(last_name) AS C))
 	WHERE (length = MAX(length));
@@ -80,11 +72,11 @@ SELECT first_name, middle_name, last_name
 
 SELECT kind
 	FROM
-		(SELECT kind, COUNT(name) as number
+		(SELECT kind, COUNT(name) as "number"
 			FROM Crisis INNER JOIN CrisisKind
 				ON (Crisis.kind = CrisisKind.id)
 					GROUP BY kind)
-	WHERE (number = 1);
+	WHERE ("number" = 1);
 
 /* -----------------------------------------------------------------------
 28. People that don't have a middle name
@@ -98,7 +90,7 @@ SELECT name
 29. Names that start with "B"
 */
 
-SELECT name
+SELECT first_name
 	FROM Person
 	WHERE (LEFT(name, 1) = "B" or LEFT(name, 1) = "b");
 
@@ -117,21 +109,20 @@ SELECT first_name, middle_name, last_name
 
 SELECT name
 	FROM
-		(SELECT name, COUNT(country)
+		(SELECT name, COUNT(country) AS "number"
 			FROM Crisis INNER JOIN Location
 				ON Crisis.id = Location.entity_id
 					GROUP BY name);
-	WHERE (COUNT(country) = MAX(COUNT(country)));
+	WHERE ("number" = MAX("number"));
 
 /* -----------------------------------------------------------------------
 32. Earliest crisis
 */
 
-SELECT name
+SELECT FIRST(name)
 	FROM Crisis
 		ORDER BY start_date DESC, start_time DESC
-	WHERE (start_date > start_date AND start_time > start_time);
-
+	
 /* -----------------------------------------------------------------------
 33. Number of organizations in the US
 */
@@ -194,11 +185,9 @@ select country, count(id) from Person inner join Location
 	where id in
 		(select id from PersonKind
 			where name = 'DI'
-			   or name = 'ERC'
+			   or name = 'FRC'
 			   or name = 'GO'
 			   or name = 'GOV'
-			   or name = 'HO'
-			   or name = 'LD'
 			   or name = 'PO'
 			   or name = 'PR'
 			   or name = 'PM'
