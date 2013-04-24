@@ -206,7 +206,7 @@ select name from Crisis where id in
 		where kind = "HU" and id_person = "WStickney");
 
 /* -----------------------------------------------------------------------
-43. List of hurricanes in the US where FEMA was NOT involved--
+43. List of hurricanes in the US where FEMA was NOT involved
 */
 
 select name from Crisis
@@ -215,10 +215,19 @@ select name from Crisis
 			where id_organization = "FEMA" and not (country = "US" or country = "USA" or country = "United States");
 
 /* -----------------------------------------------------------------------
-44. Number of crises that intelligence agencies were involved in--
+44. Number of crises that intelligence agencies were involved in
 */
 
 select count(*) from CrisisOrganization
 	where id_organization in
 		(select id as id_organization from OrganizationKind
 		where name = 'IA');
+
+/* -----------------------------------------------------------------------
+45. How many more orgs does America have than Britain
+*/
+
+select count(distinct AMR) - count(distinct BRT)
+	from
+	(select id as AMR from Organization where country = 'US'),
+	(select id as BRT from Organization where country = 'GB');
