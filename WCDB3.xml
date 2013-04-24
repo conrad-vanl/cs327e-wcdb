@@ -1591,39 +1591,43 @@
         <Description>
             An accident
         </Description>
-    </CrisisKind>	
+    </CrisisKind>   
 
     <CrisisKind crisisKindIdent="CO">
-	<Name>
-	    Conflict
-	</Name>
-	<Description>
-	    A conflict, usually violent, that occurs either on the worldwide or regional scale.
-	</Description>
+    <Name>
+        Conflict
+    </Name>
+    <Description>
+        A conflict, usually violent, that occurs either on the worldwide or regional scale.
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="DS">
-	<Name>
-	    Disease
-	</Name>
-	<Description>
-	    A disease outbreak
-	</Description>
+    <Name>
+        Disease
+    </Name>
+    <Description>
+        A disease outbreak
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="EQ">
-	<Name>
-	    Earthquake
-	</Name>
-	<Description>
-	    An earthquake
-	</Description>
+    <Name>
+        Earthquake
+    </Name>
+    <Description>
+        An earthquake
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="EC">
-	<Name>
-	    Economic Crisis
-	</Name>
-	<Description>
-	    An economic crisis
-	</Description>
+    <Name>
+        Economic Crisis
+    </Name>
+    <Description>
+        An economic crisis
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="FR">
         <Name>
@@ -1635,76 +1639,85 @@
     </CrisisKind>
 
     <CrisisKind crisisKindIdent="FL">
-	<Name>
-	    Flood
-	</Name>
-	<Description>
-	    A Flood
-	</Description>
+    <Name>
+        Flood
+    </Name>
+    <Description>
+        A Flood
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="FC">
-	<Name>
-	    Food Crisis
-	</Name>
-	<Description>
-	    A Food Crisis
-	</Description>
+    <Name>
+        Food Crisis
+    </Name>
+    <Description>
+        A Food Crisis
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="GC">
-	<Name>
-	    Genocide
-	</Name>
-	<Description>
-	    A mass killing of a racial or ethnic group
-	</Description>
+    <Name>
+        Genocide
+    </Name>
+    <Description>
+        A mass killing of a racial or ethnic group
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="HT">
-	<Name>
-	    Human Trafficking
-	</Name>
-	<Description>
-	    The sale of humans
-	</Description>
+    <Name>
+        Human Trafficking
+    </Name>
+    <Description>
+        The sale of humans
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="HU">
-	<Name>
-	    Hurricane
-	</Name>
-	<Description>
-	    A storm from the tropics with high winds and lots of rain
-	</Description>
+    <Name>
+        Hurricane
+    </Name>
+    <Description>
+        A storm from the tropics with high winds and lots of rain
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="ME">
-	<Name>
-	    Meteor
-	</Name>
-	<Description>
-	    A meteor
-	</Description>
+    <Name>
+        Meteor
+    </Name>
+    <Description>
+        A meteor
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="ST">
-	<Name>
-	    Storm
-	</Name>
-	<Description>
-	    A storm
-	</Description>
+    <Name>
+        Storm
+    </Name>
+    <Description>
+        A storm
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="TA">
-	<Name>
-	    Terrorist Attack
-	</Name>
-	<Description>
-	    An attack by terrorists
-	</Description>
+    <Name>
+        Terrorist Attack
+    </Name>
+    <Description>
+        An attack by terrorists
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="TS">
-	<Name>
-	    Tsunami
-	</Name>
-	<Description>
-	    A giant wave
-	</Description>
+    <Name>
+        Tsunami
+    </Name>
+    <Description>
+        A giant wave
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="VO">
         <Name>
@@ -1725,12 +1738,13 @@
     </CrisisKind>
 
     <CrisisKind crisisKindIdent="WP">
-	<Name>
-	    Weapons
-	</Name>
-	<Description>
-	    Problems with weapons
-	</Description>
+    <Name>
+        Weapons
+    </Name>
+    <Description>
+        Problems with weapons
+    </Description>
+    </CrisisKind>
 
     <CrisisKind crisisKindIdent="TO">
         <Name>
@@ -1742,13 +1756,14 @@
     </CrisisKind>
 
     <CrisisKind crisisKindIdent="MIS">
-	<Name>
-	    Miscellaneous
-	</Name>
-	<Description>
-	    Anything that does not fall under another category
-	</Description>
-
+    <Name>
+        Miscellaneous
+    </Name>
+    <Description>
+        Anything that does not fall under another category
+    </Description>
+    </CrisisKind>
+    
     <OrganizationKind organizationKindIdent="AUN">
         <Name>
             Agency of the United Nations
