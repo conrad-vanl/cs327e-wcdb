@@ -5,7 +5,7 @@
 SELECT Name
 		FROM Crisis INNER JOIN Location
 			ON Location.entity_id = Crisis.id
-			order by locality
+			order by locality;
 
 /* -----------------------------------------------------------------------
 14. Find the total number of human casualties caused by crises in the 1990s
@@ -65,7 +65,7 @@ SELECT telephone, fax, email, street_address, locality, region, postal_code, cou
 20. What is the longest-lasting crisis? (if no end date, then ignore)
 */
 SELECT MAX(DATEDIFF(day, endDateTime, startDateTime) as diffDate
-	FROM Crises
+	FROM Crises;
 
 /* -----------------------------------------------------------------------
 21. Which person(s) is involved or associated with the most organizations?
