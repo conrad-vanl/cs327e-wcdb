@@ -2,7 +2,23 @@ import xml.etree.ElementTree as ET
 import os.path
 import _mysql
 """Really wish I could split ths all up into multiple files/modules...."""
+"""
 
+  YUCHEN:
+  To import XML using our library:
+
+  First, you need to create a WCDB3.XML instance:
+  import WCDB3
+  xml = WCDB3.XML.from_file(filename)
+
+  Then, you can import that WCDB3.XML instance into the store:
+  factory1 = WCDB3.Factory() # only initialize Factory once!
+  factory1.import_xml(xml)
+
+  Make sure you only initialize a WCDB3.Factory once, as it resets
+  the MYSQL database on initialization.
+
+"""
 
 # ********************************************** 
 # "GLOBAL" vars                              
@@ -279,6 +295,19 @@ def lookup_model_from_plural(plural):
     if model_class.plural == plural:
       return model_class
 
+def lookup_model_from_association(key, model):
+  """Lookup model class from another model's association"""
+  assert(hasattr(model, "lookup_mappings"))
+
+  # first, take the easy road and see if key already exists:
+  potential_match = lookup_model_from_plural(key)
+  if potential_match is not None:
+    return potential_match
+
+  elif(key in model.lookup_mappings):
+    return lookup_model(model.lookup_mappings[key])
+
+
 # ********************************************** 
 #                 FACTORY Class                                  
 # ----------------------------------------------              
@@ -462,7 +491,11 @@ class MySQL:
 
     assert str(type(self._c)) == "<type '_mysql.connection'>"
 
-    self._c.query(query)
+    try:
+      self._c.query(query)
+    except:
+      pass
+
     r = self._c.store_result()
 
     if r is None :
@@ -542,9 +575,9 @@ class Model(object):
     if key in self.hasMany and self.params.get(key) is None:
       # no, lets get it!
       # TODO: need to look up for is_entity
-      model = lookup_model_from_plural(key)
-      if model.is_entity:
-        self.params.__setitem__(key, model.find("*","where "+self.entity_id+"=\""+self.get(self.primary_key)+"\" and "+mode.is_entity[model.__name__])
+      model = lookup_model_from_association(key, self)
+      if hasattr(model, 'is_entity'):
+        self.params.__setitem__(key, model.find("*","where "+self.entity_id+"=\""+self.get(self.primary_key)+"\" and "+model.is_entity[model.__class__.__name__]))
       else:
         self.params.__setitem__(key, model.find("*","where "+self.foreign_key+"=\""+self.get(self.primary_key)+"\""))
     
@@ -607,7 +640,7 @@ class Model(object):
 
       # if record has a 'copy'
       # a copy is determined by: two records that are the same relation and either have the same ID / ident or both have the same data
-      if record is not self and record.__class__ is self.__class__ and ((record.get(self.__class__.primary_key) is not None and record.get(self.__class__.primary_key) == self.get(self.__class__.primary_key)) or record.params == self.params):
+      if record is not self and record.__class__ is self.__class__ and ((record.get(self.primary_key) is not None and record.get(self.primary_key) == self.get(self.primary_key)) or (self.keyValueSQL() == record.keyValueSQL())):
         # we have to destroy the current record and return the older one
         self.destroy()
         return record
@@ -689,7 +722,7 @@ class Model(object):
     result = []
     for key in self.keys:
       if self.get(key) == None:
-        result.append("NULL")
+        result.append("\"\"") #("NULL")
       else:
         result.append("\""+_mysql.escape_string(unicode(self.get(key)).encode('utf8'))+"\"")
     return result
@@ -732,13 +765,16 @@ class Serializers():
         foreign_records = []
         for e in elements:
           m = foreignModel.from_xml(e)
-          assert(model.get(model.foreign_key) is not None) # the foreign key must be set first!!!
+          assert(model.get(model.primary_key) is not None) # the primary key must be set first!!!
 
-          if foreignModel.is_entity:
-            m.set("entity_type", m.is_entity[model.__name__])
+          if hasattr(foreignModel, 'is_entity'):
+            m.set("entity_type", m.is_entity[model.__class__.__name__])
             m.set("entity_id", model.get(model.primary_key))
-          else:          
+          else:     
             m.set(model.foreign_key, model.get(model.primary_key))
+
+          # Even though it's slower, we need to check for uniqueness again:
+          m = m.attempt_combine()
 
           foreign_records.append(m)
         # set relation on model
@@ -814,29 +850,29 @@ class Crisis(Model):
   instances = []
   plural = "crises"
   enum = "C"
-  table_name = "Crises"
+  table_name = "Crisis"
   foreign_key = "crisis_id"
-  keys = ["id","id", "kind", "name", "start_date", "start_time", "end_date", "end_time", "economic_impact"]
+  keys = ["id", "kind", "name", "start_date", "start_time", "end_date", "end_time", "economic_impact"]
   hasMany = ["locations","humanImpacts","resourcesNeeded","waysToHelp","relatedPeople","externalResources","crisisOrganizations","personCrises"]
-
+  lookup_mappings = {"relatedPeople":"PersonCrisis","relatedOrganizations":"CrisisOrganization"} # OrganizationPerson
 
 class OrganizationPerson(Model):
   instances = []
   plural = "organizationPersons"
   table_name = "OrganizationPerson"
-  keys = ["id","person_id","organization_id"]
+  keys = ["person_id","organization_id"]
 
 class CrisisOrganization(Model):
   instances = []
   plural = "crisisOrganizations"
   table_name = "CrisisOrganization"
-  keys = ["id","crisis_id","organization_id"]
+  keys = ["crisis_id","organization_id"]
 
 class PersonCrisis(Model):
   instances = []
   plural = "personCrises"
   table_name = "PersonCrisis"
-  keys = ["id","person_id","organization_id"]
+  keys = ["person_id","crisis_id"]
 
 
 class Location(Model):
@@ -849,20 +885,20 @@ class Location(Model):
 class ExternalResource(Model):
   instances = []
   plural = "externalResources"
-  table_name= "ExternalResources"
+  table_name= "ExternalResource"
   is_entity = {"Crisis":"C", "Person":"P", "Organization":"O"}
   keys = ["id","entity_type","entity_id","type","link"]
 
 class HumanImpact(Model):
   instances = []
   plural = "humanImpacts"
-  table_name = "HumanImpacts"
+  table_name = "HumanImpact"
   keys = ["id","crisis_id","number","type"]
 
 class ResourceNeeded(Model):
   instances = []
   plural = "resourcesNeeded"
-  table_name = "ResourcesNeeded"
+  table_name = "ResourceNeeded"
   keys = ["id","crisis_id", "description"]
 
 class WaysToHelp(Model):
@@ -878,6 +914,8 @@ class Organization(Model):
   foreign_key = "organization_id"
   keys = ["id","kind","name","history","telephone","fax","email","street_address","locality","region","postal_code","country"]
   hasMany = ["locations","externalResources","crisisOrganizations","organizationPersons"]
+  lookup_mappings = {"relatedPeople":"OrganizationPerson","relatedCrises":"CrisisOrganization"} # OrganizationPerson
+
 
 class OrganizationKind(Model):
   instances = []
@@ -900,9 +938,12 @@ class PersonKind(Model):
 class Person(Model):
   instances = []
   plural = "people"
-  hasMany = ["locations","externalResources","organizationPersons","crisisOrganizations"]
+  hasMany = ["locations","externalResources","organizationPersons","personCrises"]
   keys = ["id","first_name","middle_name","last_name","suffix","kind"]
   foreign_key = "person_id"
+  table_name = "Person"
+  lookup_mappings = {"relatedCrises":"PersonCrisis","relatedOrganizations":"OrganizationPerson"} # OrganizationPerson
+
 
 # call up runtime stuff:
 main()
