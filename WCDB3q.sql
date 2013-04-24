@@ -1,4 +1,43 @@
 /* -----------------------------------------------------------------------
+16. How many orgs are government based?
+*/
+SELECT COUNT( organizationKind_id ) as kindID 
+	FROM Organizations 
+		WHERE organizationKind_id ='GMB'
+		OR organizationKind_id ='GOV' 
+		OR organizationKind_id ='NG';
+
+/* -----------------------------------------------------------------------
+17. What is the total number of casualties across the DB?
+*/
+SELECT SUM( number ) AS TotalCasualties 
+	FROM HumanImpacts
+		WHERE type = 'Death';
+	
+/* -----------------------------------------------------------------------
+19. Create a list of telephone numbers, emails, and other contact info for all orgs
+*/
+CREATE TEMPORARY TABLE contacts AS (SELECT name, contactInfoTelephone, 
+	contactInfoFax, contactInfoEmail, contactInfoPostalAddressStreetAddress, 
+	contactInfoPostalAddressLocality, contactInfoPostalAddressRegion, 
+	contactInfoPostalAddressPostalCode, contactInfoPostalAddressCountry  
+	FROM Organizations);
+
+/* -----------------------------------------------------------------------
+22. How many hurricane crises (CrisisKind=HU)?
+*/
+SELECT COUNT( crisisKind_id ) as kindID 
+	FROM Crises
+		WHERE crisisKind_id ='HU';
+
+
+/* -----------------------------------------------------------------------
+23. Name all humanitarian orgs in the DB
+*/
+SELECT Name FROM organizations
+	WHERE organizationKind_id = 'HO';
+
+/* -----------------------------------------------------------------------
 24. Crisis listed based on occurence from earlier to latest
 */
 
