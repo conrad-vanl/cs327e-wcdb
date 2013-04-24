@@ -1,15 +1,39 @@
+"""
+
+  YUCHEN:
+  To import XML using our library:
+
+  First, you need to create a WCDB2.XML instance:
+  import WCDB3
+  xml = WCDB3.XML.from_file(filename)
+
+  Then, you can import that WCDB2.XML instance into the store:
+  factory1 = WCDB3.Factory() # only initialize Factory once!
+  factory1.import_xml(xml)
+
+  Make sure you only initialize a WCDB2.Factory once, as it resets
+  the MYSQL database on initialization.
+
+"""
+
 # lets grab the library
-import WCDB2
+import WCDB3
+
+# files to import:
+files = [
+  "RunWCDB2.in.xml"
+]
 
 # turn on MySQL debugging:
 print "TURNING ON MYSQL DEBUGGING"
-WCDB2.MYSQL_DEBUG = True
+WCDB3.MYSQL_DEBUG = True
 
-factory1 = WCDB2.Factory()
+factory1 = WCDB3.Factory()
 
 # import
-xml = WCDB2.XML.from_file("RunWCDB2.in.xml")
-factory1.import_xml(xml)
+for f in files:
+  xml = WCDB3.XML.from_file(f)
+  factory1.import_xml(xml)
 
 # export
 out_xml = factory1.export_xml()
@@ -36,12 +60,13 @@ for element in xml.tree.iter():
     if not we_won:
       tests = False
       print "FAIL!"
-      print WCDB2.ET.tostring(element), "\n\n" 
+      print WCDB3.ET.tostring(element), "\n\n" 
 
 if not tests:
   print "There were failing tests. FAIL!"
 else:
   print "ALL TESTS PASS! WE WON!"
+
 
 """
 factory2 = WCDB2.Factory()

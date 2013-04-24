@@ -1,10 +1,10 @@
-import WCDB2
+import WCDB3
 
-WCDB2.MYSQL_DEBUG = True
+WCDB3.MYSQL_DEBUG = True
 
-f = WCDB2.Factory()
-f.import_xml( WCDB2.XML.from_file("instance.xml") )
+f = WCDB3.Factory()
+f.import_xml( WCDB3.XML.from_file("instance.xml") )
 
 xml = f.export_xml()
 
-xml.export("test.xml")
+xml.export("test2.xml")
