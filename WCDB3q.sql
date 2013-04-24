@@ -28,7 +28,7 @@ SELECT telephone, fax, email, street_address, locality, region, postal_code, cou
 
 SELECT COUNT(id)
 	FROM Crisis
-	WHERE (kind = "HU");
+	WHERE (kind - "HU");
 
 /* -----------------------------------------------------------------------
 23. Name all humanitarian orgs in the DB
@@ -121,7 +121,7 @@ SELECT name
 
 SELECT FIRST(name)
 	FROM Crisis
-		ORDER BY start_date DESC, start_time DESC
+		ORDER BY start_date DESC, start_time DESC;
 	
 /* -----------------------------------------------------------------------
 33. Number of organizations in the US
@@ -266,5 +266,5 @@ select count(*) from CrisisOrganization
 
 select count(distinct AMR) - count(distinct BRT)
 	from
-	(select id as AMR from Organization where country = 'US'),
-	(select id as BRT from Organization where country = 'GB');
+	(select id as AMR from Organization inner join Location on Organization.id = Location.entity_id where country = 'US'),
+	(select id as BRT from Organization inner join Location on Organization.id = Location.entity_id where country = 'GB');
