@@ -153,15 +153,13 @@ SELECT COUNT(id)
 */
 
 select start_date from Crisis
-	where id in
-		(select id from CrisisKind
-			where name = 'HU');
+	where (kind = "HU");
 
 /* -----------------------------------------------------------------------
 37. Number of natural disasters between June 5th 2000 and June 5th 2012
 */
 
-select count(*) from Crisis
+select count(*) from Crisis inner join CrisisKind on (Crisis.kind = CrisisKind.id)
 	where start_date >= 2000-06-05
 	  and end_date   <= 2012-06-05
 	  and id in
