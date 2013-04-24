@@ -1,3 +1,145 @@
+
+/* -----------------------------------------------------------------------
+1. Which people are associated with more than one crisis? 
+*/
+Select last_name, first_name, middle_name 
+	From
+		Person inner join PersonCrisis
+		on Person.id = PersonCrisis.person_id
+		having count(*) > 1
+		Group by last_name;
+
+/* -----------------------------------------------------------------------
+2. For the past 5 decades, which countries had the most world crises per decade? 
+*/
+Create temporary table T as
+	Select country
+	From Crisis join Location on
+	Location.entity_id = Crisis.id
+	Where Location.entity_type = C;
+
+Select country
+	From( 
+	Select country, max(count(*))	
+	From T
+	Where start_date > 1999-12-31 and start_date < 2010-01-01)
+	Group by country;
+
+Select country
+	From( 
+	Select country, max(*)	
+	From T
+	Where start_date > 1989-12-31 and start_date < 2000-01-01)
+	Group by country;
+
+Select country
+	From( 
+	Select country, max(*)	
+	From T
+	Where start_date > 1979-12-31 and start_date < 1990-01-01)
+	Group by country;
+
+Select country
+	From( 
+	Select country, max(*)	
+	From T
+	Where start_date > 1969-12-31 and start_date < 1980-01-01)
+	Group by country;
+
+Select country
+	From( 
+	Select country, max(*)	
+	From T
+	Where start_date > 1959-12-31 and start_date < 1970-01-01)
+	Group by country;
+
+/* -----------------------------------------------------------------------
+3. What is the average death toll of accident crises?
+*/
+Select avg(A.Number)
+	From
+	(Crisis join HumanImpact
+	on Crisis.id = HumanImpact.crisis_id)
+	As A
+	Where type = Death, CrisisKind = ACC;
+
+/* -----------------------------------------------------------------------
+4. What is the average death toll of world crises per country?
+*/
+Select country, avg(A.Number)
+	From Location join HumanImpact
+	on Location.entity_id = HumanImpact.crisis_id
+	As A
+	Where type = Death
+	Group by country;
+
+/* -----------------------------------------------------------------------
+5. What is the most common resource needed?
+*/
+Select description, max(count(*))
+	From ResourceNeeded
+	Group by description;
+
+/* -----------------------------------------------------------------------
+6. How many people are related to crises located in countries other than their own?
+*/
+Select count(*)
+	From
+		((Crisis join Location on Crisis.id = Location.entity_id as C)
+		join PersonCrisis on C.id = PersonCrisis.crisis_id as D)
+		natural join
+		((Person join Location on Person.id = Location.entity_id as E)
+		join (PersonCrisis on E.id = PersonCrisis.crisis_id as F)) As M
+	Where ***Incomplete***
+
+/* -----------------------------------------------------------------------
+7. How many crises occurred during the 1960's?
+*/
+Select name
+	From Crisis
+	Where start_date > 1959-12-31 and start_date < 1970-01-01;
+
+/* -----------------------------------------------------------------------
+8. Which orgs are located outside the US and were involved in more than 1 crisis?
+*/
+Select name
+	From Organization join OrganizationPerson
+	on Organization.id = OrganizationPerson.Organization_id
+	Where country != "United States" or country != "US"
+	Having count(Organization_id) > 1;
+
+/* -----------------------------------------------------------------------
+9. 
+*/
+Select A.name, B.name, C.name
+	From (Crisis join Location on Crisis.id = Location.entity_id where Location.entity_type = "C" as A)
+	Join (Organization join Location on Organization.id = Location.entity_id where Location.entity_type = "O" as B)
+	Join (Person join Location on Person.id = Location.entity_id where Location.entity_type = "P" as C)
+	Using location
+	Where A.location = B.location = C.location
+
+/* -----------------------------------------------------------------------
+12. 
+*/
+Select name
+	From Crisis join HumanImpact on Crisis.id = HumanImpact.crisis_id
+	Having min(number);
+
+/* -----------------------------------------------------------------------
+12. 
+*/
+Select name, count(*)
+	From Organization join CrisisOrganization
+	on Organization.id = CrisisOrganization.Organization_id
+	Group by name;
+
+/* -----------------------------------------------------------------------
+12. 
+*/
+Select name, street_address
+	From Organization as R
+	Where R.region = "California";
+
 /* -----------------------------------------------------------------------
 13. List all crises that happened in the same state/region
 */
