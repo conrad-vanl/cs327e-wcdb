@@ -3,30 +3,31 @@
 */
 
 SELECT Name
-		FROM Crisis INNER JOIN Location
-			ON Location.entity_id = Crisis.id
-			order by locality;
+	FROM Crisis INNER JOIN Location
+		ON Location.entity_id = Crisis.id
+			GROUP BY region;
 
 /* -----------------------------------------------------------------------
 14. Find the total number of human casualties caused by crises in the 1990s
 */
 
-SELECT SUM('number') AS TotalCasualties 
+SELECT SUM("number") AS TotalCasualties 
 	FROM HumanImpact INNER JOIN Crisis
 		ON HumanImpact.crisis_id = Crisis.id
-		WHERE start_date >= 1989-12-31
-		AND start_date <= 2000-1-1;
+		WHERE (start_date >= 1989-12-31)
+		AND (start_date <= 2000-1-1)
+		AND (HumanImpact.type = "Death");
 
 /* -----------------------------------------------------------------------
 
 15. Find the organization(s) that has provided support on the most Crises
 */
-SELECT name
-	FROM (SELECT Organization.name, COUNT (CrisisOrganization.crisis_id)
+SELECT Organization.name
+	FROM (SELECT Organization.name, COUNT(CrisisOrganization.crisis_id) as "number"
 		FROM Organization INNER JOIN CrisisOrganization
 			ON Organization.id = CrisisOrganization.organization_id
-				GROUP BY name);
-		WHERE (COUNT(CrisisOrganization.crisis_id) = MAX(COUNT(CrisisOrganization.crisis_id)));
+				GROUP BY Organization.name)
+		WHERE ("number" = MAX("number"));
 
 /* -----------------------------------------------------------------------
 16. How many orgs are government based?
@@ -71,7 +72,7 @@ SELECT MAX(DATEDIFF(day, endDateTime, startDateTime) as diffDate
 21. Which person(s) is involved or associated with the most organizations?
 */
 SELECT first_name, middle_name, last_name 
-	FROM (SELECT Person.first_name, Person.middle_name, Person.last_name, COUNT (OrganizationPerson.organization_id)
+	FROM (SELECT Person.first_name, Person.middle_name, Person.last_name, COUNT(OrganizationPerson.organization_id)
 		FROM Person INNER JOIN OrganizationPerson
 			ON Person.id = OrganizationPerson.person_id
 				GROUP BY last_name);
