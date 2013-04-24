@@ -318,12 +318,8 @@ select count(*) from CrisisOrganization
 45. How many more orgs does America have than Britain
 */
 
-select count(distinct AMR) - count(distinct BRT)
+select (count(distinct AMR) - count(distinct BRT))
 	from
-<<<<<<< HEAD
 	(select id as AMR from Organization inner join Location on Organization.id = Location.entity_id where country = "US"),
 	(select id as BRT from Organization inner join Location on Organization.id = Location.entity_id where country = "GB");
-=======
-	(select id as AMR from Organization where country = 'US'),
-	(select id as BRT from Organization where country = 'GB');
->>>>>>> finished up queries
+
