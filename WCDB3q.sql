@@ -1,4 +1,34 @@
 /* -----------------------------------------------------------------------
+13. List all crises that happened in the same state/region
+*/
+
+SELECT Name
+		FROM Crisis INNER JOIN Location
+			ON Location.entity_id = Crisis.id
+			order by locality
+
+/* -----------------------------------------------------------------------
+14. Find the total number of human casualties caused by crises in the 1990s
+*/
+
+SELECT SUM('number') AS TotalCasualties 
+	FROM HumanImpact INNER JOIN Crisis
+		ON HumanImpact.crisis_id = Crisis.id
+		WHERE start_date >= 1989-12-31
+		AND start_date <= 2000-1-1;
+
+/* -----------------------------------------------------------------------
+
+15. Find the organization(s) that has provided support on the most Crises
+*/
+SELECT name
+	FROM (SELECT Organization.name, COUNT (CrisisOrganization.crisis_id)
+		FROM Organization INNER JOIN CrisisOrganization
+			ON Organization.id = CrisisOrganization.organization_id
+				GROUP BY name);
+		WHERE (COUNT(CrisisOrganization.crisis_id) = MAX(COUNT(CrisisOrganization.crisis_id)));
+
+/* -----------------------------------------------------------------------
 16. How many orgs are government based?
 */
 
@@ -16,11 +46,36 @@ SELECT SUM("number") AS TotalCasualties
 		WHERE (type = "Death");
 	
 /* -----------------------------------------------------------------------
+18. What is the most common type/kind of crisis occuring in the DB?
+*/
+select top 1 kindName 
+FROM (SELECT CK.name as kindName, COUNT(C.kind)
+FROM CrisisKind AS CK INNER JOIN Crisis AS C
+	ON CK.id = C.kind
+group by kindName)
+order by count(*) desc ;
+/* -----------------------------------------------------------------------
 19. Create a list of telephone numbers, emails, and other contact info for all orgs
 */
 
 SELECT telephone, fax, email, street_address, locality, region, postal_code, country
 	FROM Organization;
+
+/* -----------------------------------------------------------------------
+20. What is the longest-lasting crisis? (if no end date, then ignore)
+*/
+SELECT MAX(DATEDIFF(day, endDateTime, startDateTime) as diffDate
+	FROM Crises
+
+/* -----------------------------------------------------------------------
+21. Which person(s) is involved or associated with the most organizations?
+*/
+SELECT first_name, middle_name, last_name 
+	FROM (SELECT Person.first_name, Person.middle_name, Person.last_name, COUNT (OrganizationPerson.organization_id)
+		FROM Person INNER JOIN OrganizationPerson
+			ON Person.id = OrganizationPerson.person_id
+				GROUP BY last_name);
+		WHERE (COUNT(organization_id) = MAX(COUNT(organization_id)));
 
 /* -----------------------------------------------------------------------
 22. How many hurricane crises (CrisisKind=HU)?
@@ -265,5 +320,10 @@ select count(*) from CrisisOrganization
 
 select count(distinct AMR) - count(distinct BRT)
 	from
+<<<<<<< HEAD
 	(select id as AMR from Organization inner join Location on Organization.id = Location.entity_id where country = "US"),
 	(select id as BRT from Organization inner join Location on Organization.id = Location.entity_id where country = "GB");
+=======
+	(select id as AMR from Organization where country = 'US'),
+	(select id as BRT from Organization where country = 'GB');
+>>>>>>> finished up queries
