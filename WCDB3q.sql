@@ -7,8 +7,8 @@ Select last_name, first_name, middle_name
 	From
 		Person inner join PersonCrisis
 		on Person.id = PersonCrisis.person_id
-		having count(*) > 1
-		Group by last_name;
+		Group by last_name
+		having count(*) > 1;
 
 /* -----------------------------------------------------------------------
 2. For the past 5 decades, which countries had the most world crises per decade? 
@@ -59,31 +59,34 @@ Select country
 3. What is the average death toll of accident crises?
 */
 
-Select avg(A.number)
+Select avg(number)
 	From
 	Crisis inner join HumanImpact
 	on (Crisis.id = HumanImpact.crisis_id)
-	As A
-	Where (type = Death) and (kind = ACC);
+	Where (type = "Death") and (CrisisKind = "ACC");
 
 /* -----------------------------------------------------------------------
 4. What is the average death toll of world crises per country?
 */
 
-Select country, avg(A.Number)
+Select country, avg(number)
 	From Location join HumanImpact
 	on Location.entity_id = HumanImpact.crisis_id
-	As A
-	Where type = Death
+	Where type = "Death"
 	Group by country;
 
 /* -----------------------------------------------------------------------
 5. What is the most common resource needed?
 */
 
-Select description, max(count(*))
-	From ResourceNeeded
-	Group by description;
+SELECT description, COUNT(description) AS descriptioncount
+	FROM ResourceNeeded
+	GROUP BY description
+	HAVING COUNT(description) = (SELECT COUNT(description)
+					FROM ResourceNeeded
+					GROUP BY description
+					ORDER BY COUNT(description) DESC
+					LIMIT 1);
 
 /* -----------------------------------------------------------------------
 6. How many people are related to crises located in countries other than their own?
@@ -112,17 +115,14 @@ Select count(name)
 8. Which orgs are located outside the US and were involved in more than 1 crisis?
 */
 
-Select S.name
-	From Organization as S
-	Where S.id in
-		(Select T.id
-			From Organization as T inner join CrisisOrganization
-			on (T.id = CrisisOrganization.organization_id)
-			Where (count(T.id) > 1) and where T.id in
-				(Select R.id 
-					From Organization as R inner join Location
-					on (R.id = Location.entity_id)
-					Where (country != "US") and (country != "United States");
+SELECT name
+	FROM Organization
+	WHERE (country != "US") and (country != "United States") and id in
+
+		SELECT Organization_id
+		FROM CrisisOrganization
+		GROUP BY Organization_id
+		Having count(*) >  1
 
 /* -----------------------------------------------------------------------
 9. Organizations, Crises and People with the same location
@@ -140,7 +140,7 @@ Select A.name, B.name, C.name
 
 Select name
 	From Crisis join HumanImpact on Crisis.id = HumanImpact.crisis_id
-	Having min("number");
+	Having min(number);
 
 /* -----------------------------------------------------------------------
 11. Number of Crisis each Organization helped
@@ -156,7 +156,7 @@ Select name, count(*)
 */
 
 Select name, street_address, locality, region, postal_code, country
-	From Organization inner join Location on (Organization.id = Location.entity_id)
+	From Organization
 	Where region = "California";
 
 /* -----------------------------------------------------------------------
