@@ -63,7 +63,7 @@ Select avg(number)
 	From
 	Crisis inner join HumanImpact
 	on (Crisis.id = HumanImpact.crisis_id)
-	Where (type = "Death") and (CrisisKind = "ACC");
+	Where (type = "Death") and (kind = "ACC");
 
 /* -----------------------------------------------------------------------
 4. What is the average death toll of world crises per country?
