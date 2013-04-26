@@ -258,11 +258,11 @@ SELECT MAX(DATEDIFF(endDateTime, startDateTime))
 */
 
 SELECT first_name, middle_name, last_name 
-	FROM (SELECT Person.first_name, Person.middle_name, Person.last_name, COUNT(OrganizationPerson.organization_id)
+	FROM (SELECT Person.first_name, Person.middle_name, Person.last_name, COUNT(OrganizationPerson.organization_id) as "number"
 		FROM Person INNER JOIN OrganizationPerson
 			ON Person.id = OrganizationPerson.person_id
-				GROUP BY last_name);
-		WHERE (COUNT(organization_id) = MAX(COUNT(organization_id)));
+			order by "number" desc limit 1) as table_1;
+
 
 /* -----------------------------------------------------------------------
 22. How many hurricane crises (CrisisKind=HU)?
@@ -273,14 +273,7 @@ SELECT COUNT(id)
 	WHERE (kind = "HU");
 
 /* -----------------------------------------------------------------------
-23. Name all humanitarian orgs in the DB
-*/
 
-SELECT Name 
-	FROM Organizations
-	WHERE (kind = "HO");
-
-/* -----------------------------------------------------------------------
 24. Crisis listed based on occurence from earlier to latest
 */
 
