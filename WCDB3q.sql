@@ -14,46 +14,70 @@ Select last_name, first_name, middle_name
 2. For the past 5 decades, which countries had the most world crises per decade? 
 */
 
-Create temporary table T as
-	Select country
-	From Crisis join Location on
-	Location.entity_id = Crisis.id
-	Where Location.entity_type = C;
+SELECT country
+	FROM
+	Crisis JOIN Location ON
+	Crisis.id = Location.entity_id
+	WHERE (start_date BETWEEN 2000-01-01 AND 2009-12-31)
+	GROUP BY country
+	HAVING COUNT(country) = (SELECT COUNT(country)
+				FROM Crisis JOIN Location ON Crisis.id = Location.entity_id
+				WHERE (start_date BETWEEN 1990-01-01 AND 1999-12-31)
+				GROUP BY country
+				ORDER BY COUNT(country) DESC
+				LIMIT 1);
 
-Select country
-	From( 
-	Select country, max(count(*))	
-	From T
-	Where start_date > 1999-12-31 and start_date < 2010-01-01)
-	Group by country;
+SELECT country
+	FROM
+	Crisis JOIN Location ON
+	Crisis.id = Location.entity_id
+	WHERE (start_date BETWEEN 1990-01-01 AND 1999-12-31)
+	GROUP BY country
+	HAVING COUNT(country) = (SELECT COUNT(country)
+				FROM Crisis JOIN Location ON Crisis.id = Location.entity_id
+				WHERE (start_date BETWEEN 1990-01-01 AND 1999-12-31)
+				GROUP BY country
+				ORDER BY COUNT(country) DESC
+				LIMIT 1);
 
-Select country
-	From( 
-	Select country, max(*)	
-	From T
-	Where start_date > 1989-12-31 and start_date < 2000-01-01)
-	Group by country;
+SELECT country
+	FROM
+	Crisis JOIN Location ON
+	Crisis.id = Location.entity_id
+	WHERE (start_date BETWEEN 1980-01-01 AND 1989-12-31)
+	GROUP BY country
+	HAVING COUNT(country) = (SELECT COUNT(country)
+				FROM Crisis JOIN Location ON Crisis.id = Location.entity_id
+				WHERE (start_date BETWEEN 1990-01-01 AND 1999-12-31)
+				GROUP BY country
+				ORDER BY COUNT(country) DESC
+				LIMIT 1);
 
-Select country
-	From( 
-	Select country, max(*)	
-	From T
-	Where start_date > 1979-12-31 and start_date < 1990-01-01)
-	Group by country;
+SELECT country
+	FROM
+	Crisis JOIN Location ON
+	Crisis.id = Location.entity_id
+	WHERE (start_date BETWEEN 1970-01-01 AND 1979-12-31)
+	GROUP BY country
+	HAVING COUNT(country) = (SELECT COUNT(country)
+				FROM Crisis JOIN Location ON Crisis.id = Location.entity_id
+				WHERE (start_date BETWEEN 1990-01-01 AND 1999-12-31)
+				GROUP BY country
+				ORDER BY COUNT(country) DESC
+				LIMIT 1);
 
-Select country
-	From( 
-	Select country, max(*)	
-	From T
-	Where start_date > 1969-12-31 and start_date < 1980-01-01)
-	Group by country;
-
-Select country
-	From( 
-	Select country, max(*)	
-	From T
-	Where start_date > 1959-12-31 and start_date < 1970-01-01)
-	Group by country;
+SELECT country
+	FROM
+	Crisis JOIN Location ON
+	Crisis.id = Location.entity_id
+	WHERE (start_date BETWEEN 1960-01-01 AND 1969-12-31)
+	GROUP BY country
+	HAVING COUNT(country) = (SELECT COUNT(country)
+				FROM Crisis JOIN Location ON Crisis.id = Location.entity_id
+				WHERE (start_date BETWEEN 1990-01-01 AND 1999-12-31)
+				GROUP BY country
+				ORDER BY COUNT(country) DESC
+				LIMIT 1);
 
 /* -----------------------------------------------------------------------
 3. What is the average death toll of accident crises?
