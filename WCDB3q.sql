@@ -1,4 +1,3 @@
-
 /* -----------------------------------------------------------------------
 1. Which people are associated with more than one crisis? 
 */
