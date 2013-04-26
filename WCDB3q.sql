@@ -291,10 +291,10 @@ SELECT *
 25. Name and kind of all people in the United States
 */
 
-SELECT R.name, S.name
-	FROM Person as R INNER JOIN PersonKind as S INNER JOIN Location
-		ON (R.kind = S.id) AND (R.id = S.entity_id)
-	WHERE (R.Country = "US" OR country = "USA" OR country = "United States");
+SELECT name, name
+	FROM Person INNER JOIN PersonKind INNER JOIN Location
+		ON (Person.kind = PersonKind.id) AND (Person.id = Location.entity_id)
+	WHERE (Location.country = "US" OR country = "USA" OR country = "United States");
 
 /* -----------------------------------------------------------------------
 26. Person with the longest name
@@ -304,8 +304,10 @@ SELECT first_name, middle_name, last_name
 	FROM
 		(SELECT first_name, middle_name, last_name, SUM(A + B + C) AS length
 			FROM
-				(SELECT first_name, middle_name, last_name, CHAR_LENGTH(first_name) AS A, CHAR_LENGTH(middle_name) AS B, CHAR_LENGTH(last_name) AS C))
-	WHERE (length = MAX(length));
+				(SELECT first_name, middle_name, last_name, CHAR_LENGTH(first_name) AS A, CHAR_LENGTH(middle_name) AS B, CHAR_LENGTH(last_name) AS C
+					FROM Person) AS table_1
+			ORDER BY length DESC
+			LIMIT 1) AS table_2;
 
 /* -----------------------------------------------------------------------
 27. Crisis type with only one example
@@ -313,17 +315,17 @@ SELECT first_name, middle_name, last_name
 
 SELECT kind
 	FROM
-		(SELECT kind, COUNT(name) as "number"
+		(SELECT kind, COUNT(Crisis.name) as "number"
 			FROM Crisis INNER JOIN CrisisKind
 				ON (Crisis.kind = CrisisKind.id)
-					GROUP BY kind)
+					GROUP BY kind) as table_1
 	WHERE ("number" = 1);
 
 /* -----------------------------------------------------------------------
 28. People that don't have a middle name
 */
 
-SELECT name
+SELECT first_name, last_name
 	FROM Person
 	WHERE (middle_name IS NULL);
 
@@ -333,7 +335,7 @@ SELECT name
 
 SELECT first_name
 	FROM Person
-	WHERE (LEFT(name, 1) = "B" or LEFT(name, 1) = "b");
+	WHERE (LEFT(first_name, 1) = "B" or LEFT(first_name, 1) = "b");
 
 /* -----------------------------------------------------------------------
 30. People associated with each country
@@ -348,21 +350,23 @@ SELECT first_name, middle_name, last_name
 31. Crisis affecting the most countries
 */
 
-SELECT name
+SELECT name, "number"
 	FROM
 		(SELECT name, COUNT(country) AS "number"
 			FROM Crisis INNER JOIN Location
 				ON Crisis.id = Location.entity_id
-					GROUP BY name);
-	WHERE ("number" = MAX("number"));
+					GROUP BY name) AS table_1
+	ORDER BY "number" DESC
+	LIMIT 1;
 
 /* -----------------------------------------------------------------------
 32. Earliest crisis
 */
 
-SELECT FIRST(name)
+SELECT name, start_date, start_time
 	FROM Crisis
-		ORDER BY start_date ASC, start_time ASC;
+		ORDER BY start_date ASC, start_time ASC
+		LIMIT 1;
 	
 /* -----------------------------------------------------------------------
 33. Number of organizations in the US
@@ -371,7 +375,7 @@ SELECT FIRST(name)
 SELECT COUNT(DISTINCT Organization.id)
 	FROM Organization INNER JOIN Location
 		ON Organization.id = Location.entity_id
-			WHERE (country = "US" OR country = "USA" OR country = "United States");
+			WHERE (Location.country = "US") OR (Location.country = "USA") OR (Location.country = "United States");
 
 /* -----------------------------------------------------------------------
 34. Number of Singers
@@ -439,87 +443,63 @@ select country, count(Person.id) from Person inner join Location
 39. Location with the highest number of natural disasters
 */
 
-select country from (
-select country, count(entity_id) as total from Location
-	where entity_id in
-		(select Crisis.id from Crisis inner join CrisisKind
-			on Crisis.kind = CrisisKind.id
-			where CrisisKind.id = 'EQ'
-			or CrisisKind.id = 'FR'
-			or CrisisKind.id = 'HU'
-			or CrisisKind.id = 'ME'
-			or CrisisKind.id = 'ST'
-			or CrisisKind.id = 'TO'
-			or CrisisKind.id = 'TS'
-			or CrisisKind.id = 'VO'
-			or CrisisKind.id = 'FL')
-	group by country) as T
-	where total >= ALL
-(
-select count(entity_id) as total from Location
-	where entity_id in
-		(select Crisis.id from Crisis inner join CrisisKind
-			on Crisis.kind = CrisisKind.id
-			where CrisisKind.id = 'EQ'
-			or CrisisKind.id = 'FR'
-			or CrisisKind.id = 'HU'
-			or CrisisKind.id = 'ME'
-			or CrisisKind.id = 'ST'
-			or CrisisKind.id = 'TO'
-			or CrisisKind.id = 'TS'
-			or CrisisKind.id = 'VO'
-			or CrisisKind.id = 'FL')
-	group by country);
+select country, count(id) as count
+	from
+		(select country, Crisis.id as id from Crisis inner join Location on (Crisis.id = Location.entity_id)
+			where (kind = 'EQ')
+			or (kind = 'FR')
+			or (kind = 'HU')
+			or (kind = 'ME')
+			or (kind = 'ST')
+			or (kind = 'TO')
+			or (kind = 'TS')
+			or (kind = 'VO')
+			or (kind = 'FL')) as table_1
+	order by count
+	limit 1;
 
 /* -----------------------------------------------------------------------
 40. Average number of deaths in hurricanes
 */
 
-select avg(number) from HumanImpact inner join Crisis
+select avg("number") from HumanImpact inner join Crisis
 	on HumanImpact.crisis_id = Crisis.id
-	inner join CrisisKind on Crisis.kind = CrisisKind.id
-	where (kind = "HU") and (type = "Death" or type = "Dead");
+	where (kind = "HU") and (type = "Death");
 
 /* -----------------------------------------------------------------------
 41. Total number of deaths caused by terrorist attacks
 */
 
-select sum(number) from HumanImpact inner join Crisis
+select sum("number") from HumanImpact inner join Crisis
 	on HumanImpact.crisis_id = Crisis.id
-	where (type = "Death" or type = "Dead") and (kind = "TA");
+	where (type = "Death") and (kind = "TA");
 
 /* -----------------------------------------------------------------------
 42. List of Hurricanes in the US that Wallace Stickney (WStickney) helped out with--
 */
 
-select Crisis.name from
-	Location inner join Crisis on Location.entity_id = Crisis.id
-	inner join CrisisKind on Crisis.kind = CrisisKind.id
-	inner join PersonCrisis on Crisis.id = PersonCrisis.id_crisis
-	where PersonCrisis.id_person = "WStickney" and Location.country = "US"
-	and kind = 'HU';
+select name from Crisis where id in
+	(select Crisis.id 
+		from Crisis inner join PersonCrisis inner join Location on (Crisis.id = PersonCrisis.crisis_id) and (Crisis.id = Location.entity_id)
+		where (kind = "HU") and (person_id = "WStickney") and (country = "US") OR (country = "United States"));
 
 /* -----------------------------------------------------------------------
 43. List of hurricanes in the US where FEMA was NOT involved
 */
 
-select Crisis.name, country from Crisis inner join CrisisKind on Crisis.kind = CrisisKind.id
-	inner join Location on entity_id = Crisis.id
-	where Crisis.id not in
-		(select id_crisis as id from CrisisOrganization
-			where id_organization != "FEMA");
-	and kind = 'HU' and (Location.country = 'USA' or Location.country = 'United States'
-		or Location.country = 'United States of America');
+select name from Crisis
+	where id not in
+		(select Crisis.id from Crisis inner join CrisisOrganization inner join Location on (Crisis.id = Location.entity_id) and (Crisis.id = CrisisOrganization.crisis_id)
+			where (organization_id = "FEMA") and (country != "US") or (country != "USA") or (country != "United States"));
 
 /* -----------------------------------------------------------------------
 44. Number of crises that intelligence agencies were involved in
 */
 
-select count(distinct id_crisis) from CrisisOrganization
-	inner join Organization on id = id_organization
-	where kind in
-		(select id from OrganizationKind
-			where id = "IA");
+select count(*) from CrisisOrganization
+	where organization_id in
+		(select id as organization_id from OrganizationKind
+		where id = "IA");
 
 /* -----------------------------------------------------------------------
 45. How many more orgs does America have than Britain
@@ -527,10 +507,5 @@ select count(distinct id_crisis) from CrisisOrganization
 
 select (count(distinct AMR) - count(distinct BRT))
 	from
-	(select id as AMR from Organization
-		where country = "US"
-		   or country = "USA"
-		   or country = "United States") as a,
-	(select id as BRT from Organization
-		where country = "UK"
-		   or country = "United Kingdom") as b;
+	(select Organization.id as AMR from Organization inner join Location on Organization.id = Location.entity_id where Location.country = "US") as table_1,
+	(select Organization.id as BRT from Organization inner join Location on Organization.id = Location.entity_id where Location.country = "GB") as table_2;
